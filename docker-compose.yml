@@ -1,0 +1,16 @@
+version: '3'
+services:
+  frontend:
+    build: ./intelliquest-frontend
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./intelliquest-backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/intelliquest
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
