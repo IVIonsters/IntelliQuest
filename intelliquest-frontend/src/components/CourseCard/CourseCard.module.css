@@ -1,0 +1,33 @@
+.courseCard {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 1rem; /* p-4 */
+    text-align: center; /* text-center */
+    cursor: pointer; /* cursor-pointer */
+    width: 100%; /* w-full */
+    min-width: 200px; /* min-w-[200px] */
+    max-width: 300px; /* max-w-[300px] */
+    transition: box-shadow 0.3s ease-in-out; /* transition-shadow duration-300 ease-in-out */
+}
+
+.courseCard:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
+}
+
+.courseCardImage {
+    width: 100%; /* w-full */
+    height: 12rem; /* h-48 */
+    object-fit: cover; /* object-cover */
+    border-radius: 0.5rem; /* rounded-lg */
+}
+
+.courseCard h2 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-top: 1rem; /* mt-4 */
+}
+
+.courseCard p {
+    margin-top: 0.5rem; /* mt-2 */
+}
