@@ -7,7 +7,7 @@ services:
       - "5000:5000"
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb://mongo:27017/intelliquest
+      - MONGO_URI=${MONGO_URI}
   frontend:
     build: ./intelliquest-frontend
     ports:
