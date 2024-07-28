@@ -8,7 +8,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users');
+        const response = await axios.get('https://intelliquestdb.onrender.com/api/users');
         console.log('Response data:', response.data); // Add this line to log response data
         if (Array.isArray(response.data)) {
           setUsers(response.data);
