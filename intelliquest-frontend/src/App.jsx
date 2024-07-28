@@ -10,8 +10,8 @@ const App = () => {
     <div className={styles.app}>
       <Navbar />
       <main className={styles.main}>
-        <h1>Welcome to IntelliQuest</h1>
-        <UserList />
+        {/* <h1>Welcome to IntelliQuest</h1>
+        <UserList /> */}
         <Outlet />
       </main>
       <Footer />
