@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
 import Footer from './components/Footer/Footer';
-import UserList from './components/UserList';
 import styles from './App.module.css';
 
 const App = () => {
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (searchTerm) => {
+    // Implement search functionality here
+    console.log('Searching for:', searchTerm);
+    // Example: Fetch search results from an API or filter data locally
+  };
+
   return (
     <div className={styles.app}>
-      <Navbar />
+      <Navbar onSearch={handleSearch} />
       <main className={styles.main}>
-        {/* <h1>Welcome to IntelliQuest</h1>
-        <UserList /> */}
-        <Outlet />
+        <Outlet context={{ searchResults }} />
       </main>
       <Footer />
     </div>
@@ -22,3 +27,7 @@ const App = () => {
 export default App;
 
 
+
+// import UserList from './components/UserList';
+/* <h1>Welcome to IntelliQuest</h1>
+        <UserList /> */
