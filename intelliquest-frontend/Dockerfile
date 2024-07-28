@@ -1,21 +1,25 @@
-# Use a base image with Node.js installed
-FROM node:20
+# Stage 1: Build the application
+FROM node:20 AS builder
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
 COPY . .
 
-# Expose the Vite port
+RUN npm run build
+
+# Stage 2: Serve the built application
+FROM node:20
+
+WORKDIR /app
+
+RUN npm install -g serve
+
+COPY --from=builder /app/dist ./dist
+
 EXPOSE 5173
 
-# Command to run the frontend with Vite
-CMD ["npm", "run", "dev"]
-
+CMD ["serve", "-s", "dist", "-l", "5173"]
