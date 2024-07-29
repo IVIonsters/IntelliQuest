@@ -1,53 +1,39 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
-// import Logo from '../assets/images/Fakelogo.jpg';
 
-function NavBar() {
-  const currentPage = useLocation().pathname;
-  const [open, setOpen] = useState(false);
+const Navbar = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchTerm);
+  };
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarBrand}>
-        <button
-          className={styles.navbarBrandButton}
-          onClick={() => setOpen(!open)}
-          aria-controls="example-collapse-text"
-          aria-expanded={open}
-        >
-          IntelliQuest
-        </button>
-        {open && (
-          <div id="example-collapse-text" className={styles.navbarCollapseText}>
-            Improve Your Coding Game!
-          </div>
-        )}
-      </div>
-      <div className={styles.navbarToggle} onClick={() => setOpen(!open)}>
-        ☰
-      </div>
-      <div className={`${styles.navbarCollapse} ${open ? styles.open : ''}`}>
-        <ul className={styles.navbarNav}>
-          <li className={styles.navItem}>
-            <Link to="/" className={styles.navLink}>Home</Link>
-          </li>
-          <li className={styles.navItem}>
-            <a href="mailto:IQ@intelliquest.com" className={styles.navLink}>Email Us</a>
-          </li>
-          <li className={`${styles.navItem} ${styles.navbarDropdown}`}>
-            <span className={styles.navLink}>More Here</span>
-            <div className={styles.navbarDropdownContent}>
-              <Link to="/FlashCards" className={styles.dropdownItem}>Flash Cards</Link>
-              <Link to="/Quizzes" className={styles.dropdownItem}>Quizzes</Link>
-              <hr />
-              <Link to="/AboutMe" className={styles.dropdownItem}>About Us</Link>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <div className={styles.logo}>IntelliQuest</div>
+      <ul className={styles.navLinks}>
+        <li><a href="/">Home</a></li>
+        <li><a href="/courses">Courses</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search..."
+          className={styles.searchInput}
+        />
+        <button type="submit" className={styles.searchButton}>Search</button>
+      </form>
     </nav>
   );
-}
+};
 
-export default NavBar;
+export default Navbar;

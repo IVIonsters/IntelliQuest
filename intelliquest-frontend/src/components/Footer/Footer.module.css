@@ -1,39 +1,32 @@
+/* Footer styles */
 .footer {
-    background-color: #f8f9fa;
-    color: black;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-  }
-  
-  .links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .link {
-    color: black;
-    border: 1px solid black;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .link:hover {
-    color: #4a5568; /* gray-700 equivalent */
-  }
-  
-  .copyright {
-    font-size: 0.875rem; /* text-sm equivalent */
-  }
-  
+  background-color: var(--rich-black); /* Background color */
+  color: var(--platinum); /* Text color */
+  padding: 10px; /* Padding */
+}
+
+.container {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout */
+  align-items: center; /* Center align items */
+}
+
+.links {
+  display: flex; /* Flexbox layout */
+  gap: 1rem; /* Spacing between links */
+  margin-bottom: 1rem; /* Margin bottom */
+}
+
+.link {
+  color: var(--platinum); /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Transition effect */
+}
+
+.link:hover {
+  color: var(--pacific-cyan); /* Hover color */
+}
+
+.copyright {
+  font-size: 0.875rem; /* Font size */
+}

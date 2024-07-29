@@ -1,14 +1,25 @@
-# intelliquest-frontend/Dockerfile
-FROM node:14
+# Stage 1: Build the application
+FROM node:20 AS builder
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm", "start"]
+# Stage 2: Serve the built application
+FROM node:20
+
+WORKDIR /app
+
+RUN npm install -g serve
+
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 5173
+
+CMD ["serve", "-s", "dist", "-l", "5173"]

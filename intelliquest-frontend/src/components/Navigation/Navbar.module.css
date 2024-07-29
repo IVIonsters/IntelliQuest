@@ -1,110 +1,63 @@
-.navLink {
-    text-decoration: none;
-    color: inherit;
-}
-
+/* Navbar container styles */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-    border-bottom: 1px solid #e0e0e0;
-    z-index: 1000;
+  display: flex; /* Arrange items in a row */
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Align items vertically in the center */
+  padding: 1rem; /* Add padding around the navbar */
+  background-color: var(--rich-black); /* Set background color to Rich Black */
+  color: var(--platinum); /* Set text color to Platinum */
 }
 
-.navbarBrand {
-    display: flex;
-    align-items: center;
+/* Logo styles */
+.logo {
+  font-size: 1.5rem; /* Set font size for the logo */
+  font-weight: bold; /* Make the logo text bold */
 }
 
-.navbarBrandButton {
-    background-color: #ffffff;
-    color:#000;
-    border: 1px solid #000;
-    border-radius: 0.25rem;
-    padding: 8px 12px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Navigation links container styles */
+.navLinks {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Arrange items in a row */
+  gap: 1rem; /* Add space between navigation links */
 }
 
-.navbarCollapseText {
-    font-size: 1rem;
-    margin-left: 10px;
+/* Navigation link item styles */
+.navLinks li {
+  display: inline; /* Display links inline */
 }
 
-.navbarToggle {
-    display: none;
-    cursor: pointer;
+/* Navigation link styles */
+.navLinks a {
+  color: var(--platinum); /* Set link color to Platinum */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: 500; /* Set font weight for links */
 }
 
-.navbarNav {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Search form container styles */
+.searchForm {
+  display: flex; /* Arrange form elements in a row */
+  align-items: center; /* Align items vertically in the center */
 }
 
-.navItem {
-    margin-left: 20px;
+/* Search input styles */
+.searchInput {
+  padding: 0.5rem; /* Add padding inside the input */
+  border: 1px solid var(--cadet-grey); /* Set border color to Cadet Grey */
+  border-radius: 0.25rem; /* Round the corners of the input */
+  margin-right: 0.5rem; /* Add space to the right of the input */
 }
 
-.navLink {
-    text-decoration: none;
-    color: inherit;
-    padding: 8px 12px;
+/* Search button styles */
+.searchButton {
+  padding: 0.5rem 1rem; /* Add padding inside the button */
+  background-color: var(--pacific-cyan); /* Set background color to Pacific Cyan */
+  color: var(--rich-black); /* Set text color to Rich Black */
+  border: none; /* Remove default border */
+  border-radius: 0.25rem; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-.navbarDropdown {
-    position: relative;
-}
-
-.navbarDropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    min-width: 160px;
-}
-
-.navbarDropdown:hover .navbarDropdownContent {
-    display: block;
-}
-
-.dropdownItem {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    color: #000;
-}
-
-.dropdownItem:hover {
-    background-color: #f1f1f1;
-}
-
-@media (max-width: 768px) {
-    .navbarNav {
-        display: none;
-        flex-direction: column;
-    }
-
-    .navbarToggle {
-        display: block;
-    }
-
-    .navbarCollapse {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .open .navbarNav {
-        display: flex;
-    }
+/* Search button hover styles */
+.searchButton:hover {
+  background-color: var(--moonstone); /* Change background color to Moonstone on hover */
 }
