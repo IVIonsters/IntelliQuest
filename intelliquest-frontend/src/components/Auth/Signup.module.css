@@ -1,0 +1,80 @@
+.signup {
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    background-color: #DFE0E2;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+    background-color: white;
+    border-radius: 20px;
+    margin: 70px;
+    background: radial-gradient(at 0% 0%, #23B5D3 0%, black 100%);
+
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    padding: 40px;
+}
+
+.sidebar img {
+    width: 500px;
+    align-self: center;
+    /* margin: 20px; */
+    /* opacity: 0.5; */
+
+}
+
+.sidebar h1 {
+    font-size: 50px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    width: 500px;
+    padding: 40px;
+    /* margin: 70px; */
+    box-shadow: 10px 10px 23px -11px rgba(0, 0, 0, 0.35);
+    /* border-radius: 15px; */
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* color: #A2AEBB; */
+    color: white;
+    /* background: radial-gradient(at 0% 0%, #23B5D3 0%, black 100%); */
+    /* background-color: white; */
+    
+}
+
+.loginLink {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.entryBox {
+    border: 1px solid #23B5D3;
+    border-radius: 3px;
+    height: 30px;
+}
+
+.form h1 {
+    align-self: center;
+}
+
+.button {
+    margin: 30px;
+    width: 40%;
+    height: 35px;
+    align-self: center
+}
