@@ -1,3 +1,4 @@
+/* General styles for body and html elements */
 body, html {
     background-color: #ffffff;
     margin: 0;
@@ -5,6 +6,7 @@ body, html {
     height: 100%;
 }
 
+/* Styles for the homepage container */
 .homepageContainer {
     margin-top: 70px;
     margin-bottom: 100px;
@@ -14,6 +16,7 @@ body, html {
     background-color: #ffffff;
 }
 
+/* Styles for the inner container of the homepage */
 .homepageInnerContainer {
     margin-left: auto;
     margin-right: auto;
@@ -21,6 +24,7 @@ body, html {
     padding-right: 16px;
 }
 
+/* Styles for the grid container */
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -28,13 +32,29 @@ body, html {
     justify-items: center;
 }
 
+/* Responsive styles for small screens */
 @media (min-width: 640px) {
     .gridContainer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Responsive styles for medium screens */
 @media (min-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Responsive styles for large screens */
+@media (min-width: 1024px) {
+    .gridContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Additional responsive styling */
+@media (min-width: 1280px) {
     .gridContainer {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }

@@ -2,12 +2,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styles from './CourseCard.module.css';
+import PlaceHolderImage from '../../assets/images/placeholder.jpg';
 
-// CourseCard component to display resource details
 const CourseCard = ({ resource }) => {
+  const imageUrl = resource.thumbnail ? resource.thumbnail : PlaceHolderImage;
+
   return (
     <div className={styles.courseCard}>
-      <img src={resource.thumbnail || 'placeholder.jpg'} alt={resource.title} className={styles.courseCardImage} />
+      <img src={imageUrl} alt={resource.title} className={styles.courseCardImage} />
       <div className={styles.courseCardOverlay}>
         <h2>{resource.title}</h2>
         <p>{resource.description}</p>
@@ -17,4 +19,5 @@ const CourseCard = ({ resource }) => {
 };
 
 export default CourseCard;
+
 
