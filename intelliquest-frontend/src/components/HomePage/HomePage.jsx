@@ -1,29 +1,54 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import CourseCard from '../CourseCard/CourseCard';
-import PlaceHolderImage from '../../assets/images/placeholder.jpg';
 import styles from './HomePage.module.css';
 
-const events = [
-    { title: 'JavaScript Basics', description: 'Learn the fundamentals of JavaScript by hands-on learning techniques', image: PlaceHolderImage },
-    { title: 'Event 2', description: 'Description 2', image: PlaceHolderImage },
-    { title: 'Event 3', description: 'Description 3', image: PlaceHolderImage },
-    { title: 'Event 4', description: 'Description 4', image: PlaceHolderImage },
-    { title: 'Event 5', description: 'Description 5', image: PlaceHolderImage },
-    { title: 'Event 6', description: 'Description 6', image: PlaceHolderImage },
-];
-
+// HomePage component to display a list of resources
 const HomePage = () => {
-    return (
-      <div className={styles.homepageContainer}>
-        <div className={styles.homepageInnerContainer}>
-          <div className={styles.gridContainer}>
-            {events.map((event, index) => (
-              <CourseCard key={index} event={event} />
-            ))}
-          </div>
+  const [resources, setResources] = useState([]);
+  const [error, setError] = useState(null);
+
+  // Fetch resources from the backend
+  useEffect(() => {
+    const fetchResources = async () => {
+      try {
+        const response = await axios.get('https://intelliquestdb.onrender.com/api/resources/random');
+        if (Array.isArray(response.data)) {
+          setResources(response.data);
+        } else {
+          setError('Data is not in expected format');
+        }
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchResources();
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!Array.isArray(resources) || resources.length === 0) {
+    return <div>No resources found.</div>;
+  }
+
+  return (
+    <div className={styles.homepageContainer}>
+      <div className={styles.homepageInnerContainer}>
+        <div className={styles.gridContainer}>
+          {resources.map((resource, index) => (
+            <CourseCard key={index} resource={resource} />
+          ))}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default HomePage;
+
+
