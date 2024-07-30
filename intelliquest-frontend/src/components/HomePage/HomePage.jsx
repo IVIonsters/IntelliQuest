@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CourseCard from '../CourseCard/CourseCard';
@@ -12,7 +14,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/resources');
+        const response = await axios.get('http://localhost:5000/api/resources/random');
         if (Array.isArray(response.data)) {
           setResources(response.data);
         } else {
@@ -48,4 +50,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
 

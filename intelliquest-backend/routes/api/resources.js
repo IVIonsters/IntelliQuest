@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 const Resource = require('../../models/Resource');
 
-// Get all resources
-router.get('/', async (req, res) => {
+// Get 6 random resources
+router.get('/random', async (req, res) => {
   try {
-    const resources = await Resource.find();
+    const resources = await Resource.aggregate([{ $sample: { size: 6 } }]);
     res.json(resources);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -14,3 +14,4 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
+
