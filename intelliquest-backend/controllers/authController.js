@@ -10,12 +10,39 @@ router.post("/api/signup", async (req, res) => {
         if (!createdUser) {
             throw Error("User not created successfully.");
         }
+
         const { password, ...userWithoutPassword } = createdUser.toJSON();
+
         res.status(201).json({ message: "User created successfully.", userWithoutPassword });
+
     } catch (error) {
         console.log({error});
         res.status(500).json(error);
     }
 });
+
+router.post("/api/login", async (req, res) => {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+        const user = await User.findOne({email});
+
+        if (!user) {
+            res.status(400).json({message: "User not found."})
+        }
+
+        const isAuthenticated = bcrypt.compare(password,user.password);
+
+        if (!isAuthenticated) {
+            res.status(401).json({message: "Email or Password not found."});
+        }
+
+        
+
+    } catch (error) {
+        console.log({error});
+        res.status(500).json(error);
+    }
+})
 
 module.exports = router;

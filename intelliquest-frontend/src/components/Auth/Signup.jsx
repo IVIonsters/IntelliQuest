@@ -3,11 +3,7 @@ import brainImage from '../../assets/images/brain_image.png';
 import { useState } from 'react';
 
 function Signup() {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const [user, setUser] = useState({ firstName: "", lastName: "", email: "", userName: "", password: ""});
 
     function handleClick(e) {
         e.preventDefault();
@@ -16,27 +12,27 @@ function Signup() {
 
     function handleFirstNameOnChange(e) {
         e.preventDefault();
-        setFirstName(e.target.value);
+        setUser({...user, firstName: e.target.value});
     }
 
     function handleLastNameOnChange(e) {
         e.preventDefault();
-        setLastName(e.target.value);
+        setUser({...user, lastName: e.target.value});
     }
 
     function handleEmailOnChange(e) {
         e.preventDefault();
-        setEmail(e.target.value);
+        setUser({...user, email: e.target.value});
     }
 
     function handleUserNameOnChange(e) {
         e.preventDefault();
-        setUserName(e.target.value);
+        setUser({...user, userName: e.target.value});
     }
 
     function handlePasswordOnChange(e) {
         e.preventDefault();
-        setPassword(e.target.value);
+        setUser({...user, password: e.target.value});
     }
 
     return (
