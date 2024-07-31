@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import AuthComponent from './components/Auth/Login';
 import Navbar from './components/Navigation/Navbar';
 import Footer from './components/Footer/Footer';
 import styles from './App.module.css';
@@ -18,6 +19,7 @@ const App = () => {
       <Navbar onSearch={handleSearch} />
       <main className={styles.main}>
         <Outlet context={{ searchResults }} />
+        <AuthComponent />
       </main>
       <Footer />
     </div>
