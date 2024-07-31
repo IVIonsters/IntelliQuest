@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
+const signupRoute = require('./controllers/authController');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -29,6 +30,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 // Use Routes
 app.use('/api/users', users);
 app.use('/api/resources', resourceRoutes);
+app.use('/',signupRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
