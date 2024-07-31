@@ -1,69 +1,12 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
-const Resource = require('./models/Resource');
-const axios = require('axios');
-const cheerio = require('cheerio');
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
+const Resource = require('./models/Resource');
+const fetchOpenGraphImage = require('./fetchOpenGraphImage');
+require('dotenv').config();
 
-// Path to the placeholder image
-const placeholderImagePath = path.resolve(__dirname, '../assets/images/placeholder.jpg');
-
-// Log the placeholder image path
+const placeholderImagePath = path.join(__dirname, 'assets/images/placeholder.jpg');
 console.log('Placeholder Image Path:', placeholderImagePath);
-
-// Function to fetch OpenGraph metadata with retry logic
-const fetchOpenGraphImage = async (url, retries = 5, backoff = 3000) => {
-  try {
-    const { data } = await axios.get(url);
-    const $ = cheerio.load(data);
-    const ogImage = $('meta[property="og:image"]').attr('content');
-    return ogImage || null;
-  } catch (error) {
-    if (retries > 0) {
-      console.error(`Failed to fetch OpenGraph image, retrying... (${5 - retries + 1})`, error.message);
-      await new Promise((resolve) => setTimeout(resolve, backoff));
-      return fetchOpenGraphImage(url, retries - 1, backoff * 2); // Exponential backoff
-    } else {
-      console.error('Failed to fetch OpenGraph image after retries:', error.message);
-      return null;
-    }
-  }
-};
-
-// Delay function to avoid hitting rate limits
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// Function to seed resources into the database
-const seedResources = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    // Fetch images for each resource
-    for (let resource of resources) {
-      if (!resource.thumbnail && resource.type !== 'video') {
-        const imageUrl = await fetchOpenGraphImage(resource.url);
-        if (imageUrl) {
-          resource.thumbnail = imageUrl;
-        } else {
-          resource.thumbnail = placeholderImagePath; // Fallback thumbnail path
-        }
-        await delay(2000); // Delay to avoid hitting the rate limit
-      }
-      console.log(`Resource: ${resource.title}, Image URL: ${resource.thumbnail}`);
-    }
-
-    await Resource.insertMany(resources);
-    console.log('Data Imported!');
-    process.exit();
-  } catch (error) {
-    console.error('Error with data import:', error.message);
-    process.exit(1);
-  }
-};
 
 // resources for testing
 const resources = [
@@ -154,6 +97,7 @@ const resources = [
   {
     title: 'Coolors',
     url: 'https://coolors.co/4c061d-f7c59f-71a9f7-235789-2b4570',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'website',
     tags: ['colors', 'design'],
     description: 'Generate color palettes for your designs easily with Coolors.'
@@ -161,6 +105,7 @@ const resources = [
   {
     title: 'Paletton',
     url: 'https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'website',
     tags: ['colors', 'design'],
     description: 'Create color schemes with Paletton, a versatile color palette tool.'
@@ -182,6 +127,7 @@ const resources = [
   {
     title: 'Image Color Picker',
     url: 'https://imagecolorpicker.com/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'website',
     tags: ['colors', 'design'],
     description: 'Pick colors from images and get the color codes instantly.'
@@ -203,6 +149,7 @@ const resources = [
   {
     title: 'Unsplash',
     url: 'https://unsplash.com/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'website',
     tags: ['images', 'design'],
     description: 'Access a library of high-quality free images for your projects.'
@@ -245,6 +192,7 @@ const resources = [
   {
     title: 'Canva',
     url: 'https://www.canva.com/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'website',
     tags: ['design', 'tools'],
     description: 'Create stunning designs with ease using Canva.'
@@ -268,6 +216,7 @@ const resources = [
   {
     title: 'Specificity Keegan',
     url: 'https://specificity.keegan.st/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'programming',
     tags: ['css', 'learning'],
     description: 'Understand CSS specificity with the Specificity Keegan tool.'
@@ -318,6 +267,7 @@ const resources = [
   {
     title: 'Udemy',
     url: 'https://www.udemy.com/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'course',
     tags: ['course', 'learning'],
     description: 'Access thousands of online courses on various topics at Udemy.'
@@ -339,6 +289,7 @@ const resources = [
   {
     title: 'Fullstack Open',
     url: 'https://fullstackopen.com/en/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'course',
     tags: ['course', 'learning'],
     description: 'Free online course for learning full-stack web development.'
@@ -369,6 +320,7 @@ const resources = [
   {
     title: 'JS Challenger',
     url: 'https://www.jschallenger.com/overview/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'exercise',
     tags: ['javascript', 'exercise'],
     description: 'Improve your JavaScript skills with challenges from JS Challenger.'
@@ -376,6 +328,7 @@ const resources = [
   {
     title: 'CodePen Challenges',
     url: 'https://codepen.io/challenges',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'exercise',
     tags: ['codepen', 'exercise'],
     description: 'Participate in weekly coding challenges on CodePen.'
@@ -413,6 +366,7 @@ const resources = [
   {
     title: 'Eloquent JavaScript',
     url: 'https://eloquentjavascript.net/',
+    manualImagePath: "assets/manual_images/coolers.png",
     type: 'book',
     tags: ['javascript', 'learning'],
     description: 'A modern introduction to programming with JavaScript.'
@@ -892,5 +846,39 @@ const resources = [
     ]
   },
 ];
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const seedResources = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    for (let resource of resources) {
+      if (resource.manualImagePath && fs.existsSync(path.join(__dirname, resource.manualImagePath))) {
+        resource.thumbnail = path.join(__dirname, resource.manualImagePath);
+        console.log(`Resolved Path: ${path.join(__dirname, resource.manualImagePath)}`);
+      } else if (!resource.thumbnail && resource.type !== 'video') {
+        const imageUrl = await fetchOpenGraphImage(resource.url);
+        if (imageUrl) {
+          resource.thumbnail = imageUrl;
+        } else {
+          resource.thumbnail = placeholderImagePath;
+        }
+        await delay(2000);
+      }
+      console.log(`Resource: ${resource.title}, Image URL: ${resource.thumbnail}`);
+    }
+
+    await Resource.insertMany(resources);
+    console.log('Data Imported!');
+    process.exit();
+  } catch (error) {
+    console.error('Error with data import:', error.message);
+    process.exit(1);
+  }
+};
 
 seedResources();
