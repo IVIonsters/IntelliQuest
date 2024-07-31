@@ -5,6 +5,7 @@ import HomePage from './components/HomePage/HomePage.jsx';
 import Signup from './components/Auth/Signup.jsx';
 import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import FlipcardPage from './components/FlipcardPage/FlipcardPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Signup />
+      }
+    ]
+  },
+
+  {
+    path: '/flipcards',
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <FlipcardPage />
       }
     ]
   }
