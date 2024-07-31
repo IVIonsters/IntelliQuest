@@ -9,6 +9,7 @@ const tips = [
   "Tip 1: Remember to save your work often.",
   "Tip 2: Use keyboard shortcuts to speed up your workflow.",
   "Tip 3: Keep your code well-documented.",
+  "Tip 4: Practice Practice Practice",
   // Add more tips as needed
 ];
 
@@ -17,6 +18,7 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTip, setCurrentTip] = useState('');
   const [tipIndex, setTipIndex] = useState(0);
+  const [hasShownFirstTip, setHasShownFirstTip] = useState(false);
 
   const handleSearch = (searchTerm) => {
     // Implement search functionality here
@@ -35,18 +37,19 @@ const App = () => {
       setTipIndex((prevIndex) => (prevIndex + 1) % tips.length);
     };
 
-    // Set a timeout for the first tip
-    const firstTipTimeout = setTimeout(() => {
-      showTip();
-      // Set an interval for subsequent tips
-      const intervalId = setInterval(showTip, 4 * 60 * 1000); // 4 minutes
-      // Clean up the interval on component unmount
-      return () => clearInterval(intervalId);
-    }, 4 * 60 * 1000); // 4 minutes
+    if (!hasShownFirstTip) {
+      const firstTipTimeout = setTimeout(() => {
+        showTip();
+        setHasShownFirstTip(true);
+      }, 4 * 60 * 1000); // 4 minutes
 
-    // Clean up the timeout on component unmount
-    return () => clearTimeout(firstTipTimeout);
-  }, [tipIndex]);
+      return () => clearTimeout(firstTipTimeout);
+    } else {
+      const intervalId = setInterval(showTip, 4 * 60 * 1000); // 4 minutes
+      
+      return () => clearInterval(intervalId);
+    }
+  }, [hasShownFirstTip, tipIndex]);
 
   return (
     <div className={styles.app}>
@@ -61,9 +64,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-// import UserList from './components/UserList';
-/* <h1>Welcome to IntelliQuest</h1>
-        <UserList /> */
