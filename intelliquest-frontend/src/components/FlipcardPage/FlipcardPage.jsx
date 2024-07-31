@@ -1,4 +1,4 @@
-﻿//import FlipCardList from "../FlipCardList/FlipCardList";
+﻿import FlipCardList from "../FlipcardList/FlipcardList";
 import { useState } from "react";
 export default function FlipcardPage() {
   const [topic, setTopic] = useState();
@@ -6,7 +6,7 @@ export default function FlipcardPage() {
   const options = ["JavaScript", "CSS", "Github"];
   const onOptionChangeHandler = (e) => {
     setTopic(e.target.value);
-    console.log(e.target.value);
+ 
   };
   return (
     <div>
@@ -17,6 +17,9 @@ export default function FlipcardPage() {
           <option key={index}>{option}</option>
         ))}
       </select>
+      <h3>
+        You choose Topic: {topic}
+      </h3>
     </div>
   );
 }

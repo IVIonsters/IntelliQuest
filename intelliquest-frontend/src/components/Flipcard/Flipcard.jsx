@@ -1,11 +1,6 @@
-﻿import React, { useState } from 'react';
-import './FlipCard.css';
+﻿import { useState } from 'react';
+import './Flipcard.module.css';
 
-
-// props... reconfig (useState)
-
-import React, { useState } from 'react';
-import './FlipCard.css';
 
 const FlipCard = ({ question, answer }) => {
   const [isFlipped, setIsFlipped] = useState(false);

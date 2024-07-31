@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import FlipCard from '../Flipcard/Flipcard';
-import './FlipCardList.css';
+import './FlipcardList.module.css';
 
 
 
