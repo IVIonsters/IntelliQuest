@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
@@ -25,9 +26,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-// import UserList from './components/UserList';
-/* <h1>Welcome to IntelliQuest</h1>
-        <UserList /> */
