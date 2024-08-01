@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const DescopeClient = require('@descope/react-sdk');
-
+const resourceRoutes = require('./routes/api/resources');
+const signupRoute = require('./controllers/authController');
+const session = require('express-session');
+const passport = require('./config/passport');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -25,7 +28,7 @@ app.use(express.json());
 });
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -52,9 +55,9 @@ app.post('/login', async (req, res) => {
 
 // Use Routes
 app.use('/api/users', users);
+app.use('/api/resources', resourceRoutes);
+app.use('/',signupRoute);
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server started on port ${port}`));
-
-
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
