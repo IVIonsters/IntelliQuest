@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import Home from '../HomePage/HomePage'

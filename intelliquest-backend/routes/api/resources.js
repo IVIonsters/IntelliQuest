@@ -13,5 +13,6 @@ router.get('/random', async (req, res) => {
   }
 });
 
+// Get all resources
 module.exports = router;
 
