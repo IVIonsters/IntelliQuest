@@ -4,6 +4,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
 const signupRoute = require('./controllers/authController');
+const session = require('express-session');
+const passport = require('./config/passport');
 
 // Load environment variables from .env file
 dotenv.config();
