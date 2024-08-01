@@ -36,6 +36,9 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(express.json());
 
+app.get('/login', async (req, res) => {
+  
+})
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
