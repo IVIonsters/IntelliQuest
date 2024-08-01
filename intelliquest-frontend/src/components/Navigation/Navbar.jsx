@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const history = useHistory();
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -14,7 +12,7 @@ const Navbar = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    history.push(`/search?query=${searchTerm}`);
+    onSearch(searchTerm);
   };
 
   return (
@@ -41,4 +39,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
