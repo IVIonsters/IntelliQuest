@@ -13,5 +13,23 @@ router.get('/random', async (req, res) => {
   }
 });
 
+// Search resources by title, type, or tags
+router.get('/search', async (req, res) => {
+  try {
+    const { query } = req.query;
+    const searchQuery = { 
+      $or: [
+        { title: { $regex: query, $options: 'i' } },
+        { type: { $regex: query, $options: 'i' } },
+        { tags: { $regex: query, $options: 'i' } }
+      ] 
+    };
+    const resources = await Resource.find(searchQuery);
+    res.json(resources);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
 
