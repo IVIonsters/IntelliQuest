@@ -1,7 +1,7 @@
 ﻿import React, { useEffect, useState } from "react";
-import FlipCard from "../Flipcard/Flipcard";
-import "./FlipcardList.module.css";
-import flipcardsData from "../../flipcards.json";
+import Flipcard from "../Flipcard/Flipcard";
+import flipcardsData from "../../assets/flipcards.json"; 
+
 
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
