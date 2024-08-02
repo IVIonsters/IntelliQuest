@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
 import Signup from './components/Auth/Signup.jsx';
-import CourseList from './components/Courses/CourseList.jsx';
+import Activities from './components/Activities/Activities.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import styles from './main.module.css';
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: '/CourseList',
-        element: <CourseList />,
+        path: '/Activities',
+        element: <Activities />,
       },
       {
         path: '/About',

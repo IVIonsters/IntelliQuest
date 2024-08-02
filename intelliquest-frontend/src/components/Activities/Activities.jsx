@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styles from './CourseList.module.css';
+import styles from './Activities.module.css';
 import PlaceHolderImage from '../../assets/images/placeholder.jpg';
 
-function CourseList() {
+function Activities() {
     return (
-        <div className={styles.courseListContainer}>
-            <div className={styles.courseListInnerContainer}>
+        <div className={styles.activitiesContainer}>
+            <div className={styles.activitiesInnerContainer}>
                 <div className={styles.gridContainer}>
                     <div className={styles.card}>
                         <img src={PlaceHolderImage} alt='Quiz' className={styles.cardImage} />
@@ -20,4 +20,4 @@ function CourseList() {
     );
 }
 
-export default CourseList;
+export default Activities;

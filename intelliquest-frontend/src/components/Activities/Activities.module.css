@@ -64,7 +64,7 @@ body, html {
 }
 
 /* Styles for the courseList container */
-.courseListContainer {
+.activitiesContainer {
     margin-top: 70px;
     margin-bottom: 100px;
     padding: 16px;
@@ -74,7 +74,7 @@ body, html {
 }
 
 /* Styles for the inner container of the courseList page */
-.courseListInnerContainer {
+.activitiesInnerContainer {
     margin-left: auto;
     margin-right: auto;
     padding-left: 16px;
