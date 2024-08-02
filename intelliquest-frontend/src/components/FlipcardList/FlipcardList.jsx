@@ -14,10 +14,15 @@ const FlipcardList = ({ topic }) => {
   const [additionalFlipcards, setAdditionalFlipcards] = useState([]);
 
   useEffect(() => {
-    // Filter flashcards based on the selected topic
-    const filteredCards = flipcardsData.filter((card) => card.topic === topic);
+    // Filter hard-coded flipcards based on the selected topic
+    const filteredCards = hardCodedFlipcards.filter((card) => card.topic === topic);
     setFlipcards(filteredCards);
   }, [topic]);
+
+
+  const fetchAdditionalFlipcards = async ()
+
+  
 
   return (
     <div className="flip-card-list">
