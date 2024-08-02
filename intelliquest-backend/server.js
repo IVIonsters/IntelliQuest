@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
+const flipcards = require('./routes/api/flipcards');
+
 
 // Load environment variables from .env file
 dotenv.config();
