@@ -25,9 +25,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-// import UserList from './components/UserList';
-/* <h1>Welcome to IntelliQuest</h1>
-        <UserList /> */
