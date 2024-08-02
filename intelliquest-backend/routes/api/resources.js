@@ -1,4 +1,3 @@
-// routes/api/resources.js
 const express = require('express');
 const router = express.Router();
 const Resource = require('../../models/Resource');
@@ -13,6 +12,28 @@ router.get('/random', async (req, res) => {
   }
 });
 
-// Get all resources
+// Search resources by title or tags
+router.get('/search', async (req, res) => {
+  try {
+    const { q } = req.query;
+    if (!q) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
+
+    const regex = new RegExp(q, 'i');
+    const resources = await Resource.find({
+      $or: [
+        { title: { $regex: regex } },
+        { tags: { $regex: regex } }
+      ]
+    });
+
+    res.json(resources);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
+
 
