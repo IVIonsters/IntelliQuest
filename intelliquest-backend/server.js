@@ -34,7 +34,7 @@ app.use('/api/users', users);
 app.use('/api/resources', resourceRoutes);
 app.use('/',signupRoute);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // OVERRIDE BRANCH KEEP CLEAN
