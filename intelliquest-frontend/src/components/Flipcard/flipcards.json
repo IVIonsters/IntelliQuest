@@ -9,16 +9,17 @@
       "question": "What is CSS?",
       "answer": "CSS stands for Cascading Style Sheets.",
       "topic": "CSS"
-    }
+    },
     {
-        "question": "What is Git?",
-        "answer": "Git is a version control system.",
-        "topic": "Git"
+        "question": "What is HTML?",
+        "answer": "HTML stands for hypertext markup language is a way of portraying information in a network-based hypermedia system.",
+        "topic": "HTML"
       },
       {
-        "question": "What is CSS?",
-        "answer": "CSS stands for Cascading Style Sheets.",
-        "topic": "CSS"
+        "question": "What is JavaScript?",
+        "answer": "JavaScript (JS) is a scripting programming language that runs on web browsers to make web pages interactive and functional.",
+        "topic": "JavaScript"
+      
       }
   ]
   

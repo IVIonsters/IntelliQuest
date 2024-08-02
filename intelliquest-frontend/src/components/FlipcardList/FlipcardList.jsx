@@ -1,9 +1,7 @@
 ﻿import React, { useEffect, useState } from "react";
 import FlipCard from "../Flipcard/Flipcard";
 import "./FlipcardList.module.css";
-// Import static JSON data
-
-// Edit Questions... Make Sub Categroies Topics
+import flipcardsData from "../../flipcards.json";
 
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
@@ -13,15 +11,6 @@ const FlipcardList = ({ topic }) => {
     const filteredCards = flipcardsData.filter((card) => card.topic === topic);
     setFlipcards(filteredCards);
   }, [topic]);
-
-  // Edit Question format with json
-  [
-    { question: "Question 1", answer: "Answer 1" },
-    { question: "Question 2", answer: "Answer 2" },
-    { question: "Question 3", answer: "Answer 3" },
-    { question: "Question 4", answer: "Answer 4" },
-    { question: "Question 5", answer: "Answer 5" },
-  ];
 
   return (
     <div className="flip-card-list">
