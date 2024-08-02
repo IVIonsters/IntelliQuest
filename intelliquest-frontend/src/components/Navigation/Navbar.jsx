@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +21,7 @@ const Navbar = ({ onSearch }) => {
       <div className={styles.logo}>IntelliQuest</div>
       <ul className={styles.navLinks}>
         <li><a href="/">Home</a></li>
-        <li><Link to = "/Activities">Activities</Link></li>
+        <li><Link to ="/Activities">Activities</Link></li>
         <li><Link to ="/About">About</Link></li>
         <li><Link to ="/Contact">Contact</Link></li>
       </ul>
