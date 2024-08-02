@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from "react";
 import Flipcard from "../Flipcard/Flipcard";
-import flipcardsData from "../../assets/flipcards.json"; 
+import flipcardsData from "../../data/flipcards.json";
 
 
 const FlipcardList = ({ topic }) => {
