@@ -1,7 +1,7 @@
 ﻿import FlipCardList from "../FlipcardList/FlipcardList";
 import { useState } from "react";
 export default function FlipcardPage() {
-  const [topic, setTopic] = useState();
+  const [topic, setTopic] = useState("");
 
   const options = ["Git", "CSS", "HTML", "JavaScript", "etc."];
   const onOptionChangeHandler = (e) => {
@@ -19,6 +19,8 @@ export default function FlipcardPage() {
       </select>
       <h3>
         You Choose Topic: {topic}
+           {/* Pass the selected topic to FlipcardList */}
+           <FlipCardList topic={topic} />
       </h3>
     </div>
   );
