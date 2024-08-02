@@ -20,7 +20,7 @@ export default function FlipcardPage() {
       <h3>
         You Choose Topic: {topic}
            {/* Pass the selected topic to FlipcardList */}
-           <FlipCardList topic={topic} />
+           <FlipcardList topic={topic} />
       </h3>
     </div>
   );
