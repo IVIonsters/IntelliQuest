@@ -1,0 +1,24 @@
+﻿
+[
+    {
+      "question": "What is Git?",
+      "answer": "Git is a version control system.",
+      "topic": "Git"
+    },
+    {
+      "question": "What is CSS?",
+      "answer": "CSS stands for Cascading Style Sheets.",
+      "topic": "CSS"
+    }
+    {
+        "question": "What is Git?",
+        "answer": "Git is a version control system.",
+        "topic": "Git"
+      },
+      {
+        "question": "What is CSS?",
+        "answer": "CSS stands for Cascading Style Sheets.",
+        "topic": "CSS"
+      }
+  ]
+  
