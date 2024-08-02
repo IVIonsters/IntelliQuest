@@ -14,6 +14,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
+        // development
+        // const response = await axios.get('http://localhost:5000/api/resources/random');
+        // production
         const response = await axios.get('https://intelliquestdb.onrender.com/api/resources/random');
         if (Array.isArray(response.data)) {
           setResources(response.data);
