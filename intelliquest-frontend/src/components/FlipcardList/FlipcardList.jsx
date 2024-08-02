@@ -3,8 +3,15 @@ import Flipcard from "../Flipcard/Flipcard";
 import flipcardsData from "../../data/flipcards.json";
 
 
+//  Add more hardcoded flashcards 
+const hardCodedFlipcards = [
+  { question: "?", answer: "Answer", topic: "Topic" },
+  { question: "?", answer: "Answer", topic: "Topic" },
+];
+
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
+  const [additionalFlipcards, setAdditionalFlipcards] = useState([]);
 
   useEffect(() => {
     // Filter flashcards based on the selected topic
