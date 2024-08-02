@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Activities.module.css';
-import PlaceHolderImage from '../../assets/images/placeholder.jpg';
 import quizImage from '../../assets/images/quiz.jpeg';
 import fcImage from '../../assets/images/fc.jpeg'
 import optImage from '../../assets/images/opt.jpeg'
