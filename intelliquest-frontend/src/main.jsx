@@ -5,6 +5,7 @@ import HomePage from './components/HomePage/HomePage.jsx';
 import Signup from './components/Auth/Signup.jsx';
 import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Login from './components/Auth/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,20 @@ const router = createBrowserRouter([
         element: <Signup />
       }
     ]
+  },
+
+  {
+    path: '/login',
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Login />
+      }
+    ]
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
