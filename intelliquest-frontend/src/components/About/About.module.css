@@ -89,6 +89,25 @@ body, html {
     justify-items: center;
 }
 
+.iframeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backButton {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.iframe {
+    width: 100%;
+    height: 80vh;
+    border: none;
+}
+
 /* Responsive styles for small screens */
 @media (min-width: 640px) {
     .gridContainer {
