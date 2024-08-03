@@ -1,37 +1,38 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      history.push(`/search?q=${searchTerm}`);
-    }
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    onSearch(searchTerm);
+    navigate(`/search?query=${searchTerm}`);
   };
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>IntelliQuest</div>
-      <form onSubmit={handleSearch} className={styles.searchForm}>
+      <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
-          placeholder="Search..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className={styles.searchInput}
+          onChange={handleSearchChange}
+          placeholder="Search..."
         />
-        <button type="submit" className={styles.searchButton}>Search</button>
+        <button type="submit">Search</button>
       </form>
     </nav>
   );
 };
 
 export default Navbar;
-
