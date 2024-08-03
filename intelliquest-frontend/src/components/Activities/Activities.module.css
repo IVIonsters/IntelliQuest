@@ -63,18 +63,18 @@ body, html {
     height: 100%;
 }
 
-/* Styles for the courseList container */
-.courseListContainer {
-    margin-top: 70px;
-    margin-bottom: 100px;
+/* Styles for the Activities container */
+.activitiesContainer {
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 16px;
     overflow-y: auto;
     flex: 1;
     background-color: #ffffff;
 }
 
-/* Styles for the inner container of the courseList page */
-.courseListInnerContainer {
+/* Styles for the inner container of the Activities page */
+.activitiesInnerContainer {
     margin-left: auto;
     margin-right: auto;
     padding-left: 16px;
