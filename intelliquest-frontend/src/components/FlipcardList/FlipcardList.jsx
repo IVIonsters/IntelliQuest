@@ -4,7 +4,6 @@ import Flipcard from "../Flipcard/Flipcard";
 // import data from "..//..data/flipcards.json";
 
 
-//  Add more hardcoded flashcards
 const hardCodedFlipcards = [
   { question: "?", answer: "Answer", topic: "Topic" },
   { question: "?", answer: "Answer", topic: "Topic" },

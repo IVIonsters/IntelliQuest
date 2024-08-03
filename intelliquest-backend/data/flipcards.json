@@ -1,28 +1,113 @@
-﻿[
-  {
-    "topic": "Git",
-    "questions": [
-      {
-        "question": "What is Git?",
-        "answer": "Git is a distributed version control system used to track changes in source code during software development."
-      },
-      {
-        "question": "How do you initialize a new Git repository?",
-        "answer": "You can initialize a new Git repository using the command: git init"
-      },
-      {
-        "question": "How do you add files to the staging area in Git?",
-        "answer": "You can add files to the staging area using the command: git add <file_name> or git add . to add all files."
-      },
-      {
-        "question": "How do you commit changes in Git?",
-        "answer": "You commit changes in Git using the command: git commit -m 'commit message'"
-      },
-      {
-        "question": "How do you check the status of your working directory and staging area?",
-        "answer": "You can check the status using the command: git status"
-      }
-    ]
+﻿    {
+      "flipcards": [
+        {
+          "topic": "Git",
+          "questions": [
+            { "question": "What is Git?", "answer": "Git is a distributed version control system used to track changes in source code during software development." },
+            { "question": "How do you initialize a new Git repository?", "answer": "Use the command `git init`." },
+            { "question": "How do you clone a repository?", "answer": "Use the command `git clone [repository URL]`." },
+            { "question": "What command is used to check the status of your repository?", "answer": "Use the command `git status`." },
+            { "question": "How do you stage changes for commit?", "answer": "Use the command `git add [file]`." },
+            { "question": "How do you commit changes?", "answer": "Use the command `git commit -m '[commit message]'`." },
+            { "question": "What command is used to view commit history?", "answer": "Use the command `git log`." },
+            { "question": "How do you create a new branch?", "answer": "Use the command `git branch [branch name]`." },
+            { "question": "How do you switch to a different branch?", "answer": "Use the command `git checkout [branch name]`." },
+            { "question": "How do you merge branches?", "answer": "Use the command `git merge [branch name]`." },
+            { "question": "What command is used to push changes to a remote repository?", "answer": "Use the command `git push`." },
+            { "question": "How do you pull changes from a remote repository?", "answer": "Use the command `git pull`." },
+            { "question": "How do you resolve a merge conflict?", "answer": "Manually edit the conflicting files and then use `git add` and `git commit` to resolve." },
+            { "question": "How do you discard changes in your working directory?", "answer": "Use the command `git checkout -- [file]`." },
+            { "question": "How do you delete a branch?", "answer": "Use the command `git branch -d [branch name]`." },
+            { "question": "What is a pull request?", "answer": "A pull request is a request to merge changes from one branch into another in a remote repository." },
+            { "question": "How do you configure a Git username and email?", "answer": "Use `git config --global user.name '[name]'` and `git config --global user.email '[email]'`." },
+            { "question": "What is the purpose of `.gitignore`?", "answer": ".gitignore specifies files and directories that Git should ignore." },
+            { "question": "How do you stash changes?", "answer": "Use the command `git stash`." },
+            { "question": "How do you apply stashed changes?", "answer": "Use the command `git stash apply`." }
+          ]
+        },
+        {
+          "topic": "CLI Basics",
+          "questions": [
+            { "question": "What does CLI stand for?", "answer": "CLI stands for Command Line Interface." },
+            { "question": "How do you list files and directories in the current directory?", "answer": "Use the command `ls` (Linux/Mac) or `dir` (Windows)." },
+            { "question": "How do you change directories?", "answer": "Use the command `cd [directory]`." },
+            { "question": "How do you create a new directory?", "answer": "Use the command `mkdir [directory name]`." },
+            { "question": "How do you delete a file?", "answer": "Use the command `rm [file name]` (Linux/Mac) or `del [file name]` (Windows)." },
+            { "question": "How do you delete a directory?", "answer": "Use the command `rmdir [directory name]` (Windows) or `rm -r [directory name]` (Linux/Mac)." },
+            { "question": "How do you move or rename a file?", "answer": "Use the command `mv [old name] [new name]`." },
+            { "question": "How do you copy a file?", "answer": "Use the command `cp [source] [destination]`." },
+            { "question": "How do you display the contents of a file?", "answer": "Use the command `cat [file name]` (Linux/Mac) or `type [file name]` (Windows)." },
+            { "question": "How do you find a file or directory?", "answer": "Use the command `find [path] -name [filename]` (Linux/Mac) or `dir [filename] /s` (Windows)." },
+            { "question": "How do you search within a file?", "answer": "Use the command `grep [search term] [file]` (Linux/Mac) or `findstr [search term] [file]` (Windows)." },
+            { "question": "How do you view system information?", "answer": "Use `uname -a` (Linux/Mac) or `systeminfo` (Windows)." },
+            { "question": "How do you display the current working directory?", "answer": "Use the command `pwd`." },
+            { "question": "How do you view running processes?", "answer": "Use the command `ps` (Linux/Mac) or `tasklist` (Windows)." },
+            { "question": "How do you terminate a running process?", "answer": "Use the command `kill [PID]` (Linux/Mac) or `taskkill /PID [PID]` (Windows)." },
+            { "question": "How do you get help for a command?", "answer": "Use the command `[command] --help` or `man [command]` (Linux/Mac)." },
+            { "question": "How do you redirect output to a file?", "answer": "Use the command `command > [file]`." },
+            { "question": "How do you append output to a file?", "answer": "Use the command `command >> [file]`." },
+            { "question": "How do you clear the terminal screen?", "answer": "Use the command `clear` (Linux/Mac) or `cls` (Windows)." },
+            { "question": "How do you create a symbolic link?", "answer": "Use the command `ln -s [target] [link name]` (Linux/Mac)." },
+            { "question": "How do you display disk usage?", "answer": "Use the command `df -h` (Linux/Mac) or `wmic logicaldisk get size,freespace,caption` (Windows)." }
+          ]
+        },
+        {
+          "topic": "HTML",
+          "questions": [
+            { "question": "What does HTML stand for?", "answer": "HTML stands for HyperText Markup Language." },
+            { "question": "What is the purpose of the <head> tag?", "answer": "The <head> tag contains meta-information about the HTML document, such as the title and links to stylesheets." },
+            { "question": "What tag is used to create a hyperlink?", "answer": "The <a> tag is used to create a hyperlink." },
+            { "question": "How do you insert an image in HTML?", "answer": "Use the <img> tag with the `src` attribute." },
+            { "question": "What is the purpose of the <div> tag?", "answer": "The <div> tag is used to define a division or section in an HTML document." },
+            { "question": "What is the purpose of the <span> tag?", "answer": "The <span> tag is used to apply styles or JavaScript to a specific portion of text within an element." },
+            { "question": "How do you create an ordered list?", "answer": "Use the <ol> tag with <li> tags for each list item." },
+            { "question": "How do you create an unordered list?", "answer": "Use the <ul> tag with <li> tags for each list item." },
+            { "question": "How do you define a table in HTML?", "answer": "Use the <table> tag, with <tr> for rows, <th> for headers, and <td> for table data." },
+            { "question": "What is the purpose of the <form> tag?", "answer": "The <form> tag is used to create an HTML form for user input." },
+            { "question": "How do you create a text input field?", "answer": "Use the <input> tag with `type='text'`." },
+            { "question": "How do you create a button in HTML?", "answer": "Use the <button> tag or the <input> tag with `type='button'`." },
+            { "question": "What attribute is used to provide alternative text for an image?", "answer": "The `alt` attribute in the <img> tag." },
+            { "question": "How do you add a comment in HTML?", "answer": "Use `<!-- comment -->`." },
+            { "question": "How do you include external CSS in an HTML document?", "answer": "Use the <link> tag with `rel='stylesheet'` in the <head> section." },
+            { "question": "How do you include external JavaScript in an HTML document?", "answer": "Use the <script> tag with the `src` attribute." },
+            { "question": "How do you create a line break in HTML?", "answer": "Use the <br> tag." },
+            { "question": "How do you create a horizontal rule in HTML?", "answer": "Use the <hr> tag." },
+            { "question": "What is the purpose of the <meta> tag?", "answer": "The <meta> tag provides metadata about the HTML document, such as character set, author, and viewport settings." },
+            { "question": "How do you set the title of an HTML document?", "answer": "Use the <title> tag inside the <head> section." }
+          ]
+        },
+        {
+          "topic": "JavaScript",
+          "questions": [
+            { "question": "What is JavaScript?", "answer": "JavaScript is a programming language commonly used to create interactive effects within web browsers." },
+            { "question": "How do you declare a variable in JavaScript?", "answer": "Use the `var`, `let`, or `const` keyword followed by the variable name." },
+            { "question": "What is an array in JavaScript?", "answer": "An array is a data structure that can hold multiple values at once." },
+            { "question": "How do you define a function in JavaScript?", "answer": "Use the `function` keyword followed by the function name and parentheses." },
+            { "question": "What is the purpose of the `console.log` method?", "answer": "The `console.log` method is used to print output to the browser's console." },
+            { "question": "How do you create an object in JavaScript?", "answer": "Use curly braces `{}` with key-value pairs, e.g., `let obj = { key: 'value' };`." },
+            { "question": "What is a callback function?", "answer": "A callback function is a function passed into another function as an argument to be executed later." },
+            { "question": "How do you create a promise in JavaScript?", "answer": "Use the `new Promise` constructor with an executor function." },
+            { "question": "What is the purpose of the `fetch` API?", "answer": "The `fetch` API is used to make network requests and handle responses." },
+            { "question": "How do you handle asynchronous code in JavaScript?", "answer": "Use `async` and `await` keywords or handle promises with `.then()` and `.catch()`." },
+            { "question": "How do you add an event listener to an element?", "answer": "Use the `addEventListener` method, e.g., `element.addEventListener('event', handler);`." },
+            { "question": "What is the DOM?", "answer": "The DOM (Document Object Model) is a programming interface for web documents that represents the structure of a document as a tree of objects." },
+            { "question": "How do you select an element by its ID?", "answer": "Use `document.getElementById('id')`." },
+            { "question": "How do you select elements by their class name?", "answer": "Use `document.getElementsByClassName('className')`." },
+            { "question": "How do you add a new element to the DOM?", "answer": "Use `document.createElement` to create an element and `appendChild` to add it to the DOM." },
+            { "question": "What is the purpose of the `this` keyword?", "answer": "The `this` keyword refers to the object that is currently executing the code." },
+            { "question": "What is a closure in JavaScript?", "answer": "A closure is a feature where an inner function retains access to the variables of its outer function even after the outer function has finished execution." },
+            { "question": "How do you convert a string to a number?", "answer": "Use `parseInt()` or `parseFloat()`, or the unary `+` operator." },
+            { "question": "How do you check if a value is an array?", "answer": "Use `Array.isArray(value)`." },
+            { "question": "What is the purpose of the `map` method on arrays?", "answer": "The `map` method creates a new array populated with the results of calling a provided function on every element in the calling array." },
+            { "question": "How do you remove whitespace from the beginning and end of a string?", "answer": "Use the `trim()` method." }
+          ]
+        }
+      ]
+    }
+    
+
+
+    
   },
 
   {
