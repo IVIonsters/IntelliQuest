@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
+import userProfile from '../User/userProfile.jsx';
+import HomePage from '../HomePage/HomePage';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,12 +20,13 @@ const Navbar = ({ onSearch }) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>IntelliQuest</div>
-      <ul className={styles.navLinks}>
+       <ul className={styles.navLinks}>
         <li><a href="/">Home</a></li>
         <li><a href="/courses">Courses</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-      </ul>
+        <li><a href="/userProfile"> Profile </a></li>
+      </ul> 
       <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
         <input
           type="text"
