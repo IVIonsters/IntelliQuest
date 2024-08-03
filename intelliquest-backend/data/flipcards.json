@@ -1,25 +1,199 @@
-﻿
-[
-    {
-      "question": "What is Git?",
-      "answer": "Git is a version control system.",
-      "topic": "Git"
-    },
-    {
-      "question": "What is CSS?",
-      "answer": "CSS stands for Cascading Style Sheets.",
-      "topic": "CSS"
-    },
-    {
-        "question": "What is HTML?",
-        "answer": "HTML stands for hypertext markup language is a way of portraying information in a network-based hypermedia system.",
-        "topic": "HTML"
+﻿[
+  {
+    "topic": "Git",
+    "questions": [
+      {
+        "question": "What is Git?",
+        "answer": "Git is a distributed version control system used to track changes in source code during software development."
       },
       {
-        "question": "What is JavaScript?",
-        "answer": "JavaScript (JS) is a scripting programming language that runs on web browsers to make web pages interactive and functional.",
-        "topic": "JavaScript"
-      
+        "question": "How do you initialize a new Git repository?",
+        "answer": "You can initialize a new Git repository using the command: git init"
+      },
+      {
+        "question": "How do you add files to the staging area in Git?",
+        "answer": "You can add files to the staging area using the command: git add <file_name> or git add . to add all files."
+      },
+      {
+        "question": "How do you commit changes in Git?",
+        "answer": "You commit changes in Git using the command: git commit -m 'commit message'"
+      },
+      {
+        "question": "How do you check the status of your working directory and staging area?",
+        "answer": "You can check the status using the command: git status"
       }
-  ]
-  
+    ]
+  },
+
+  {
+    "topic": "CLI Basics",
+    "questions": [
+      {
+        "question": "What is a command line interface (CLI)?",
+        "answer": "A command line interface (CLI) is a text-based interface used to interact with software and operating systems by typing commands."
+      },
+      {
+        "question": "How do you list files in a directory?",
+        "answer": "You can list files in a directory using the `ls` command on Unix-based systems or `dir` on Windows."
+      },
+      {
+        "question": "How do you change the current directory?",
+        "answer": "You change the current directory using the `cd` command followed by the path to the directory."
+      },
+      {
+        "question": "How do you create a new directory?",
+        "answer": "You create a new directory using the `mkdir` command followed by the name of the directory."
+      },
+      {
+        "question": "How do you delete a file?",
+        "answer": "You delete a file using the `rm` command followed by the name of the file on Unix-based systems or `del` on Windows."
+      },
+      {
+        "question": "How do you copy a file?",
+        "answer": "You copy a file using the `cp` command followed by the source file and destination path on Unix-based systems or `copy` on Windows."
+      },
+      {
+        "question": "How do you move a file?",
+        "answer": "You move a file using the `mv` command followed by the source file and destination path on Unix-based systems or `move` on Windows."
+      },
+      {
+        "question": "How do you display the contents of a file?",
+        "answer": "You display the contents of a file using the `cat` command followed by the name of the file on Unix-based systems or `type` on Windows."
+      },
+      {
+        "question": "How do you find the current directory you are in?",
+        "answer": "You find the current directory using the `pwd` command on Unix-based systems or `cd` on Windows."
+      },
+      {
+        "question": "How do you clear the screen?",
+        "answer": "You clear the screen using the `clear` command on Unix-based systems or `cls` on Windows."
+      }
+    ]
+  },
+
+  {
+    "topic": "CSS",
+    "questions": [
+      {
+        "question": "What is CSS?",
+        "answer": "CSS stands for Cascading Style Sheets and is used to style HTML elements."
+      },
+      {
+        "question": "How do you change the background color in CSS?",
+        "answer": "You change the background color using the background-color property."
+      },
+      {
+        "question": "What is a class in CSS?",
+        "answer": "A class is a selector that allows you to apply styles to multiple elements."
+      },
+      {
+        "question": "How do you center text in CSS?",
+        "answer": "You center text using the text-align property with the value center."
+      },
+      {
+        "question": "What is a CSS selector?",
+        "answer": "A CSS selector is a pattern used to select elements to apply styles to."
+      }
+    ]
+  },
+
+  {
+    "topic": "HTML",
+    "questions": [
+      {
+        "question": "What is HTML?",
+        "answer": "HTML stands for HyperText Markup Language and is used to create the structure of web pages."
+      },
+      {
+        "question": "What is a tag in HTML?",
+        "answer": "A tag is a code snippet that defines elements in an HTML document."
+      },
+      {
+        "question": "How do you create a hyperlink in HTML?",
+        "answer": "You create a hyperlink using the <a> tag with the href attribute."
+      },
+      {
+        "question": "What is an attribute in HTML?",
+        "answer": "An attribute provides additional information about an HTML element."
+      },
+      {
+        "question": "How do you insert an image in HTML?",
+        "answer": "You insert an image using the <img> tag with the src attribute."
+      }
+    ]
+  },
+
+  {
+    "topic": "JavaScript",
+    "questions": [
+      {
+        "question": "What is JavaScript?",
+        "answer": "JavaScript is a programming language commonly used in web development."
+      },
+      {
+        "question": "How do you declare a variable in JavaScript?",
+        "answer": "You can declare a variable using var, let, or const keywords."
+      },
+      {
+        "question": "What is an array in JavaScript?",
+        "answer": "An array is a data structure used to store multiple values in a single variable."
+      },
+      {
+        "question": "How do you create a function in JavaScript?",
+        "answer": "You can create a function using the function keyword, followed by a name, parentheses, and a block of code."
+      },
+      {
+        "question": "What is a promise in JavaScript?",
+        "answer": "A promise is an object representing the eventual completion or failure of an asynchronous operation."
+      }
+    ]
+  },
+
+  {
+    "topic": "Select",
+    "questions": [
+      {
+        "question": "??",
+        "answer": "/."
+      },
+      {
+        "question": "??",
+        "answer": "/."
+      },
+      {
+        "question": "??",
+        "answer": "/."
+      },
+      {
+        "question": "??",
+        "answer": "/."
+      }
+    ]
+  },
+
+  {
+    "topic": "Python",
+    "questions": [
+      {
+        "question": "What is Python?",
+        "answer": "Python is a high-level, interpreted programming language known for its readability and versatility."
+      },
+      {
+        "question": "How do you declare a variable in Python?",
+        "answer": "You declare a variable by simply assigning a value to a name, like x = 10."
+      },
+      {
+        "question": "What is a list in Python?",
+        "answer": "A list is a collection of items that are ordered and changeable."
+      },
+      {
+        "question": "How do you define a function in Python?",
+        "answer": "You define a function using the def keyword followed by the function name, parentheses, and a colon."
+      },
+      {
+        "question": "What is a dictionary in Python?",
+        "answer": "A dictionary is a collection of key-value pairs that are unordered, changeable, and indexed."
+      }
+    ]
+  }
+]
