@@ -18,6 +18,7 @@
     "express-session": "^1.18.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.1",
+    "node.js": "^0.0.1-security",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1"
   }
