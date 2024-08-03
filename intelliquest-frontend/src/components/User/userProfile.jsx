@@ -1,6 +1,8 @@
 import React from 'react';
 
-import NavBar from '../Navigation/Navbar'
+import ProfilePicture from './ProfilePicture';
+import Bio from './Bio';
+import Favorites from './Favorites';
 
 //USER PROFILE CHECKLIST
 //1. PROFILE PICTURE
@@ -10,8 +12,9 @@ import NavBar from '../Navigation/Navbar'
 const userProfile = () =>{
     return (
         <div>
-            <NavBar></NavBar>
-            <p> Profile Page</p>
+            <ProfilePicture/>
+            <Bio/>
+            <Favorites/>
         </div>
     )
 };

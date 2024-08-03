@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
-import userProfile from '../User/userProfile.jsx';
+import UserProfile from '../User/UserProfile.jsx';
 import HomePage from '../HomePage/HomePage';
 
 const Navbar = ({ onSearch }) => {
@@ -25,7 +25,7 @@ const Navbar = ({ onSearch }) => {
         <li><a href="/courses">Courses</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/userProfile"> Profile </a></li>
+        <li><a href="/UserProfile"> Profile </a></li>
       </ul> 
       <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
         <input
