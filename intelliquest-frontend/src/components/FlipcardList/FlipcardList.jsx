@@ -1,6 +1,10 @@
 ﻿import React, { useEffect, useState } from "react";
 import Flipcard from "../Flipcard/Flipcard";
 import styles from "../FlipcardList.module.css";
+import hardCodedFlipcards from "..//..data/flipcards.json"
+
+
+
 // import data from "..//..data/flipcards.json";
 
 
