@@ -1,19 +1,22 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
     onSearch(searchTerm);
+    navigate(`/search?query=${searchTerm}`);
   };
 
   return (
@@ -31,9 +34,8 @@ const Navbar = ({ onSearch }) => {
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search..."
-          className={styles.searchInput}
         />
-        <button type="submit" className={styles.searchButton}>Search</button>
+        <button type="submit">Search</button>
       </form>
     </nav>
   );
