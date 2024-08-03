@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require("../models/User");
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
+const {createToken, verifyToken} = require("../utils/jwtFunctions");
 
 router.post("/api/signup", async (req, res) => {
     try {
@@ -14,7 +15,9 @@ router.post("/api/signup", async (req, res) => {
 
         const { password, ...userWithoutPassword } = createdUser.toJSON();
 
-        res.status(201).json({ message: "User created successfully.", userWithoutPassword });
+        const token = createToken(userWithoutPassword);
+
+        res.status(201).json({ message: "User created successfully.", token });
 
     } catch (error) {
         console.log({ error });
@@ -25,13 +28,15 @@ router.post("/api/signup", async (req, res) => {
 // Define routes
 router.post('/api/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
-        console.log({ err, user });
-        if (err) res.status(500).json(err);
+        if (err) return next(err);
 
-        if (!user) res.status(400).json({ message: "User not found." });
+        if (!user) return res.json({ message: "User not found." });
 
         const { password, ...userWithoutPassword } = user.toJSON();
-        res.status(200).json(userWithoutPassword);
+
+        const token = createToken(userWithoutPassword);
+
+        return res.json(token);
     })(req, res, next);
 });
 
