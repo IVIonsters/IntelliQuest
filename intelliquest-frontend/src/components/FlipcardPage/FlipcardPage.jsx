@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function FlipcardPage() {
   const [topic, setTopic] = useState("");
 
-  const options = ["Git", "CSS", "HTML", "JavaScript", "etc."];
+  const options = ["Git", "CLI Basics", "CSS", "HTML", "JavaScript", "Python" ];
   const onOptionChangeHandler = (e) => {
     setTopic(e.target.value);
  

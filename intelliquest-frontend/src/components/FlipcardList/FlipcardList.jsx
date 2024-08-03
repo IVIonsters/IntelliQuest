@@ -19,10 +19,12 @@ const FlipcardList = ({ topic }) => {
     const filteredCards = hardCodedFlipcards.filter(
       (card) => card.topic === topic
     );
-    setFlipcards(filteredCards);
+    
+    
+  setFlipcards(filteredCards);
   }, [topic]);
 
-  const fetchAdditionalFlipcards = async(); => {
+const fetchAdditionalFlipcards = async(); => {
   try {
     const response = await fetch('api'); // Replace with API endpoint (i.e., Brainscape, Quizlet, etc.)
     const data = await response.json();
