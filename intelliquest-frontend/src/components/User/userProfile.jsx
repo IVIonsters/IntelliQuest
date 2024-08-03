@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import Bio from './Bio';
 import Favorites from './Favorites';
@@ -12,6 +13,7 @@ import Favorites from './Favorites';
 const userProfile = () =>{
     return (
         <div>
+            <Header/>
             <ProfilePicture/>
             <Bio/>
             <Favorites/>

@@ -22,8 +22,6 @@ function ProfilePicture() {
         style={{
             display: "flex",
             flexDirection: "column",
-            //alignItems: "center",
-            //justifyContent: "center"
         }}
         >
         <input
@@ -36,11 +34,6 @@ function ProfilePicture() {
          }}
          />
             <div 
-            style ={{
-                height: "60px",
-                width: "60px",
-                border: "1 px dashed black"
-            }}
             onClick = {() => imageUploader.current.click()}
         >
             <img 
@@ -50,11 +43,9 @@ function ProfilePicture() {
                     height: "150px",
                     padding: "5px",
                     borderRadius: "50%",
-                    position: "absolute"
                 }}
             />
         </div>
-        Click to upload Image
     </div>
   );
 }
