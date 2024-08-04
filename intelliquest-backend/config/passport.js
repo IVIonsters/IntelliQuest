@@ -10,12 +10,11 @@ passport.use(new LocalStrategy(
   },
   async (email, password, done) => {
     try {
-        console.log({email, password});
       const user = await User.findOne({ email });
       if (!user) {
         return done(null, false, { message: 'User not found.' });
       }
-      const isAuthenticated = bcrypt.compare(password,user.password);
+      const isAuthenticated = await bcrypt.compare(password,user.password);
       if (!isAuthenticated) {
         return done(null, false, { message: 'Email or password not found.' });
       }
