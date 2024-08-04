@@ -1,23 +1,47 @@
 import styles from './EmailPasswordLogin.module.css';
 import { useState } from 'react';
+import { setDataLocalStorage } from '../../utils/browserStorage';
+import { useNavigate } from 'react-router-dom';
 
 function EmailPasswordLogin() {
     const [user, setUser] = useState({ email: "", password: "" });
+    const [error, setError] = useState("");
+    const AUTH_TOKEN_NAME = import.meta.env.VITE_AUTH_TOKEN_NAME;
+    let navigate = useNavigate();
 
     async function handleClick(e) {
-        e.preventDefault();
+        try {
+            e.preventDefault();
 
-        const baseUrl = import.meta.env.VITE_API_URL;
-        const url = `${baseUrl}api/login`;
-        const response = await fetch(url, {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({email: user.email, password: user.password})
-        });
-        const loggedInUser = await response.json();
-        console.log({ loggedInUser });
+            const baseUrl = import.meta.env.VITE_API_URL;
+            const url = `${baseUrl}api/login`;
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: user.email, password: user.password })
+            });
+
+            if (!response.ok) {
+                const apiError = await response.json();
+                setError(apiError.message);
+            } else {
+                const token = await response.json();
+                if (!token) {
+                    setError("Login Unsuccessful");
+                } else {
+                    setError("");
+                    setDataLocalStorage(AUTH_TOKEN_NAME, token);
+                    setUser({ email: "", password: "" });
+                    navigate("/");
+                }
+            }
+
+
+        } catch (error) {
+            setError(error);
+        }
     }
 
     function handleEmailOnChange(e) {
@@ -36,6 +60,7 @@ function EmailPasswordLogin() {
             </div>
             <form className={styles.form}>
                 <h1>Login</h1>
+                <p className={styles.error}>{error}</p>
                 <h2>Email:</h2>
                 <input onChange={handleEmailOnChange} className={styles.entryBox} name="email" type="text" placeholder='Enter email:' value={user.email} />
                 <h2>Password:</h2>

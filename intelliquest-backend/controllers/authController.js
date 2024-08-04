@@ -30,7 +30,7 @@ router.post('/api/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
         if (err) return next(err);
 
-        if (!user) return res.json({ message: "User not found." });
+        if (!user) return res.status(401).json({ message: "User not found." });
 
         const { password, ...userWithoutPassword } = user.toJSON();
 
