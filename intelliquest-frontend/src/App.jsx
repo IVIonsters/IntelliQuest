@@ -24,7 +24,10 @@ const App = () => {
 
   const handleSearch = async (searchTerm) => {
     try {
+      // Development
       const response = await fetch(`http://localhost:5000/api/resources/search?query=${searchTerm}`);
+      // Production
+      // const response = await fetch(`https://intelliquestdb.onrender.com/api/resources/search?query=${searchTerm}`);
       const data = await response.json();
       setSearchResults(data);
       navigate(`/search?query=${searchTerm}`, { state: { searchResults: data } });
