@@ -5,12 +5,10 @@ import axios from 'axios';
 import CourseCard from '../CourseCard/CourseCard';
 import styles from './HomePage.module.css';
 
-// HomePage component to display a list of resources
 const HomePage = () => {
   const [resources, setResources] = useState([]);
   const [error, setError] = useState(null);
 
-  // Fetch resources from the backend
   useEffect(() => {
     const fetchResources = async () => {
       try {
@@ -18,6 +16,10 @@ const HomePage = () => {
         // const response = await axios.get('http://localhost:5000/api/resources/random');
         // production
         const response = await axios.get('https://intelliquestdb.onrender.com/api/resources/random');
+        
+        // Log the response for debugging
+        console.log('HomePage resources response:', response.data);
+
         if (Array.isArray(response.data)) {
           setResources(response.data);
         } else {
@@ -53,5 +55,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-

@@ -29,8 +29,17 @@ const App = () => {
       // Production
       const response = await fetch(`https://intelliquestdb.onrender.com/api/resources/search?query=${searchTerm}`);
       const data = await response.json();
-      setSearchResults(data);
-      navigate(`/search?query=${searchTerm}`, { state: { searchResults: data } });
+
+      // Log the response for debugging
+      console.log('Search response:', data);
+
+      if (Array.isArray(data)) {
+        setSearchResults(data);
+        navigate(`/search?query=${searchTerm}`, { state: { searchResults: data } });
+      } else {
+        console.error('Search results is not an array:', data);
+        setSearchResults([]);
+      }
     } catch (error) {
       console.error('Error fetching search results:', error);
       setSearchResults([]);
@@ -81,4 +90,3 @@ const App = () => {
 };
 
 export default App;
-
