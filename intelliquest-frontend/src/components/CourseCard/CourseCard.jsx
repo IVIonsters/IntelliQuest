@@ -20,3 +20,4 @@ const CourseCard = ({ resource }) => {
 };
 
 export default CourseCard;
+
