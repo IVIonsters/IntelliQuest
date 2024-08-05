@@ -16,6 +16,9 @@ router.get('/random', async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const query = req.query.query;
+    if (!query) {
+      return res.status(400).json({ error: 'Query parameter is required' });
+    }
     console.log('Search Query:', query);  // Log the search query
     const resources = await Resource.find({ 
       tags: { $regex: query, $options: 'i' } 
