@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
 import Footer from './components/Footer/Footer';
 import styles from './App.module.css';
@@ -19,11 +20,32 @@ const App = () => {
   const [currentTip, setCurrentTip] = useState('');
   const [tipIndex, setTipIndex] = useState(0);
   const [hasShownFirstTip, setHasShownFirstTip] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleSearch = (searchTerm) => {
-    // Implement search functionality here
-    console.log('Searching for:', searchTerm);
-    // Example: Fetch search results from an API or filter data locally
+  const handleSearch = async (searchTerm) => {
+    try {
+      const encodedSearchTerm = encodeURIComponent(searchTerm);
+      // Development
+      // const response = await fetch(`http://localhost:5000/api/resources/search?query=${encodedSearchTerm}`);
+      // Production
+      const response = await fetch(`https://intelliquestdb.onrender.com/api/resources/search?query=${encodedSearchTerm}`);
+      const data = await response.json();
+
+      // Log the response for debugging
+      console.log('Search response:', data);
+
+      if (Array.isArray(data)) {
+        setSearchResults(data);
+        navigate(`/search?query=${encodedSearchTerm}`, { state: { searchResults: data } });
+      } else {
+        console.error('Search results is not an array:', data);
+        setSearchResults([]);
+      }
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+      setSearchResults([]);
+    }
   };
 
   const closeModal = () => {
@@ -51,6 +73,12 @@ const App = () => {
     }
   }, [hasShownFirstTip, tipIndex]);
 
+  useEffect(() => {
+    if (location.pathname === '/search' && location.state?.searchResults) {
+      setSearchResults(location.state.searchResults);
+    }
+  }, [location]);
+
   return (
     <div className={styles.app}>
       <Navbar onSearch={handleSearch} />
@@ -62,5 +90,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;

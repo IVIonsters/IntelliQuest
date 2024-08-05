@@ -21,6 +21,9 @@ app.use(cors());
 // Bodyparser Middleware
 app.use(express.json());
 
+// Passport Initialize
+app.use(passport.initialize());
+
 // DB Config
 const db = process.env.MONGO_URI;
 
@@ -36,5 +39,3 @@ app.use('/',signupRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-// OVERRIDE BRANCH KEEP CLEAN
