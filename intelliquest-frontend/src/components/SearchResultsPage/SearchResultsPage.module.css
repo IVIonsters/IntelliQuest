@@ -1,0 +1,12 @@
+.searchResults {
+  padding: 20px;
+}
+
+.searchResults h1 {
+  margin-bottom: 20px;
+}
+
+.searchResults p {
+  font-size: 18px;
+  color: #666;
+}
