@@ -86,6 +86,7 @@
           }
         ]
       },
+      
       {
         "topic": "CLI Basics",
         "questions": [
@@ -347,6 +348,7 @@
           }
         ]
       },
+
       {
         "topic": "JavaScript",
         "questions": [
@@ -434,6 +436,91 @@
             "question": "How do you remove whitespace from the beginning and end of a string?",
             "answer": "Use the `trim()` method."
           }
+        ]
+      },
+      {
+            "topic": "Python",
+            "questions": [
+              {
+                "question": "What is Python?",
+                "answer": "Python is a high-level, interpreted programming language known for its readability and versatility."
+              },
+              {
+                "question": "Who created Python and when?",
+                "answer": "Python was created by Guido van Rossum and first released in 1991."
+              },
+              {
+                "question": "What are Python's main features?",
+                "answer": "Python features include simplicity, readability, a large standard library, support for multiple paradigms, and portability."
+              },
+              {
+                "question": "What is PEP 8?",
+                "answer": "PEP 8 is the Python Enhancement Proposal that provides guidelines and best practices on how to write Python code."
+              },
+              {
+                "question": "What are Python's data types?",
+                "answer": "Python's data types include int, float, complex, str, list, tuple, dict, set, and bool."
+              },
+              {
+                "question": "What is a Python list?",
+                "answer": "A Python list is a collection of items that are ordered and mutable, and allows duplicate elements."
+              },
+              {
+                "question": "What is a Python dictionary?",
+                "answer": "A Python dictionary is an unordered collection of items where each item is stored as a key-value pair."
+              },
+              {
+                "question": "How do you create a function in Python?",
+                "answer": "You create a function in Python using the 'def' keyword, followed by the function name and parentheses."
+              },
+              {
+                "question": "What is a lambda function?",
+                "answer": "A lambda function is a small anonymous function defined with the 'lambda' keyword."
+              },
+              {
+                "question": "What is list comprehension?",
+                "answer": "List comprehension is a concise way to create lists in Python using a single line of code."
+              },
+              {
+                "question": "What is the difference between 'append' and 'extend' methods in a list?",
+                "answer": "'append' adds its argument as a single element to the end of a list, while 'extend' adds each element of its argument to the list."
+              },
+              {
+                "question": "What is a Python module?",
+                "answer": "A Python module is a file containing Python code that can be imported and used in other Python scripts."
+              },
+              {
+                "question": "What is the purpose of the 'self' keyword in a class method?",
+                "answer": "The 'self' keyword represents the instance of the class and is used to access variables and methods associated with the current object."
+              },
+              {
+                "question": "What are Python decorators?",
+                "answer": "Decorators are a way to modify or enhance functions or methods without changing their actual code."
+              },
+              {
+                "question": "What is the difference between '==' and 'is' operators?",
+                "answer": "'==' compares the values of two objects, while 'is' compares their identities."
+              },
+              {
+                "question": "What is the Global Interpreter Lock (GIL)?",
+                "answer": "The GIL is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes at once."
+              },
+              {
+                "question": "What is the purpose of the 'with' statement in Python?",
+                "answer": "The 'with' statement is used for resource management and exception handling, ensuring proper acquisition and release of resources."
+              },
+              {
+                "question": "How do you handle exceptions in Python?",
+                "answer": "You handle exceptions in Python using the try-except block."
+              },
+              {
+                "question": "What is a Python package?",
+                "answer": "A Python package is a collection of modules organized in directories that provide a hierarchical namespace."
+              },
+              {
+                "question": "What is a virtual environment in Python?",
+                "answer": "A virtual environment is an isolated environment that allows you to manage dependencies for a specific project without affecting other projects."
+          }          
         ]
       }
     ]

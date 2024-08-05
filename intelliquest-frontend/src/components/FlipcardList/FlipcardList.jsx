@@ -42,7 +42,7 @@ const fetchAdditionalFlipcards = async(); => {
           <Flipcard key={index} question={card.question} answer={card.answer} />
         ))
       ) : (
-              // Display a message if no flipcards are available for the selected topic
+            // Display a message if no flipcards are available for the selected topic
         <p>No flipcards available for this topic.</p>
       )}
 
