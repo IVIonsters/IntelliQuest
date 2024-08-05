@@ -6,7 +6,6 @@ import hardCodedFlipcards from "../../data/flipcards.json"
 
 // import data from "..//..data/flipcards.json";
 
-
 const hardCodedFlipcards = [
   { question: "?", answer: "Answer", topic: "Topic" },
   { question: "?", answer: "Answer", topic: "Topic" },

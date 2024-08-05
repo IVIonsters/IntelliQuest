@@ -1,4 +1,4 @@
-﻿import FlipCardList from "../FlipcardList/FlipcardList";
+﻿import FlipCardList from "../../FlipcardList";
 import { useState } from "react";
 export default function FlipcardPage() {
   const [topic, setTopic] = useState("");
