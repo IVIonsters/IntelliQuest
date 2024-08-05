@@ -21,6 +21,9 @@ app.use(cors());
 // Bodyparser Middleware
 app.use(express.json());
 
+// Passport Initialize
+app.use(passport.initialize());
+
 // DB Config
 const db = process.env.MONGO_URI;
 
