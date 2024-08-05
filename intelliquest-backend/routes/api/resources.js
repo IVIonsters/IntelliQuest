@@ -12,28 +12,19 @@ router.get('/random', async (req, res) => {
   }
 });
 
-// Search resources by title or tags
+// Search resources by tags
 router.get('/search', async (req, res) => {
   try {
-    const { q } = req.query;
-    if (!q) {
-      return res.status(400).json({ error: 'Query parameter is required' });
-    }
-
-    const regex = new RegExp(q, 'i');
-    const resources = await Resource.find({
-      $or: [
-        { title: { $regex: regex } },
-        { tags: { $regex: regex } }
-      ]
+    const query = req.query.query;
+    console.log('Search Query:', query);  // Log the search query
+    const resources = await Resource.find({ 
+      tags: { $regex: query, $options: 'i' } 
     });
-
+    console.log('Found Resources:', resources);  // Log the found resources
     res.json(resources);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 
 module.exports = router;
-
-
