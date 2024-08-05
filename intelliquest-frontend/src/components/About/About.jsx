@@ -27,14 +27,14 @@ function About() {
                             <p>Full Stack developer located in Fort Walton Beach, Florida</p>
                         </div>
                     </div>
-                    <div className={styles.card} onClick={() => handleCardClick('https://splash1972--colinsportfolio.netlify.app')}>
+                    <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
                         <img src={rrImage} alt='Quiz' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Renee Rodriguez</h2>
                             <p>Full Stack developer located in </p>
                         </div>
                     </div>
-                    <div className={styles.card} onClick={() => handleCardClick('https://splash1972--colinsportfolio.netlify.app')}>
+                    <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
                         <img src={asImage} alt='Quiz' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Alyson Sanchez</h2>
@@ -48,14 +48,14 @@ function About() {
                             <p>Full Stack developer located in Orlando, Florida</p>
                         </div>
                     </div>
-                    <div className={styles.card} onClick={() => handleCardClick('https://splash1972--colinsportfolio.netlify.app')}>
+                    <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
                         <img src={erImage} alt='Quiz' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Ethan Robertson</h2>
                             <p>Full Stack developer located in Orlando, Florida</p>
                         </div>
                     </div>
-                    <div className={styles.card} onClick={() => handleCardClick('https://splash1972--colinsportfolio.netlify.app')}>
+                    <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
                         <img src={cjImage} alt='Quiz' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Chelsea Jarvis</h2>
