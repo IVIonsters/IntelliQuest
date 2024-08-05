@@ -1,12 +1,70 @@
+/* Main container for the search results page */
+.searchResultsContainer {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Container for the course cards */
 .searchResults {
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
-.searchResults h1 {
-  margin-bottom: 20px;
+/* Main container for the course card */
+.courseCard {
+  position: relative; /* For positioning the overlay */
+  background-color: var(--platinum); /* Background color */
+  border-radius: 1rem; /* Rounded corners */
+  overflow: hidden; /* Clip children that overflow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
-.searchResults p {
-  font-size: 18px;
-  color: #666;
+/* Hover effect for the course card */
+.courseCard:hover {
+  transform: translateY(-10px); /* Lift the card */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Image within the course card */
+.courseCardImage {
+  width: 100%; /* Full width */
+  height: 20rem; /* Fixed height */
+  object-fit: cover; /* Cover the container */
+}
+
+/* Overlay with gradient and text */
+.courseCardOverlay {
+  position: absolute; /* Position over the image */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradient background */
+  color: var(--platinum); /* Text color */
+  padding: 1rem; /* Padding */
+  box-sizing: border-box; /* Include padding in width */
+  transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
+  opacity: 0; /* Initially hidden */
+}
+
+/* Show overlay on hover */
+.courseCard:hover .courseCardOverlay {
+  opacity: 1; /* Show the overlay */
+}
+
+/* Title within the overlay */
+.courseCard h2 {
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: 700; /* Bold font */
+  margin: 0; /* No margin */
+  color: var(--platinum); /* Text color */
+}
+
+/* Description within the overlay */
+.courseCard p {
+  margin-top: 0.5rem; /* Space above */
+  color: var(--platinum); /* Text color */
 }

@@ -16,20 +16,26 @@ const SearchResultsPage = () => {
     return <div>Error: Search results is not an array</div>;
   }
 
+  // Shuffle the results to get a random order
+  const shuffledResults = searchResults.sort(() => 0.5 - Math.random());
+
+  // Limit the results to a maximum of 6
+  const limitedResults = shuffledResults.slice(0, 6);
+
   return (
-    <div className={styles.searchResults}>
+    <div className={styles.searchResultsContainer}>
       <h1>Search Results for "{query}"</h1>
-      {searchResults.length > 0 ? (
-        searchResults.map((resource) => (
-          <CourseCard key={resource._id} resource={resource} />
-        ))
-      ) : (
-        <p>No results found</p>
-      )}
+      <div className={styles.searchResults}>
+        {limitedResults.length > 0 ? (
+          limitedResults.map((resource) => (
+            <CourseCard key={resource._id} resource={resource} className={styles.courseCard} />
+          ))
+        ) : (
+          <p>No results found</p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default SearchResultsPage;
-
-
