@@ -12,13 +12,12 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        // development
+        // Development
         // const response = await axios.get('http://localhost:5000/api/resources/random');
-        // production
+        // Production
         const response = await axios.get('https://intelliquestdb.onrender.com/api/resources/random');
-        
-        // Log the response for debugging
-        console.log('HomePage resources response:', response.data);
+
+        console.log('Fetched resources:', response.data);
 
         if (Array.isArray(response.data)) {
           setResources(response.data);
