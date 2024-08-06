@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-case-declarations */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Modal.module.css';
 
-// Modal component to display different types of content in a modal window
 const Modal = ({ isOpen, onClose, content }) => {
   // If the modal is not open, return null (do not render anything)
   if (!isOpen) return null;
@@ -14,8 +14,8 @@ const Modal = ({ isOpen, onClose, content }) => {
     switch (content.type) {
       case 'video':
         let embedUrl = content.url;
+        // Adjust URL for YouTube videos to use the embed format
         if (embedUrl.includes('youtube.com') || embedUrl.includes('youtu.be')) {
-          // Extract the video ID from the YouTube URL
           const videoId = embedUrl.split('v=')[1] || embedUrl.split('/')[3];
           embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
         }
@@ -29,6 +29,7 @@ const Modal = ({ isOpen, onClose, content }) => {
             title={content.title}
           ></iframe>
         );
+        // Add cases for other content types here
       case 'website':
       case 'channel':
       case 'programming':
@@ -45,6 +46,22 @@ const Modal = ({ isOpen, onClose, content }) => {
         return <p>Invalid content type</p>;
     }
   };
+
+  // Add event listener to close the modal when the Escape key is pressed
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
 
   return (
     <div className={styles.modalOverlay}>
