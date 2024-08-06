@@ -516,7 +516,26 @@
             ]
           },
           
-
+          {
+            "topic": "SQL",
+            "questions": [
+              { "question": "What does SQL stand for?", "answer": "Structured Query Language" },
+              { "question": "What is SQL?", "answer": "A language used for managing and manipulating relational databases." },
+              { "question": "What is a database schema?", "answer": "The structure that defines the organization of data within a database." },
+              { "question": "What is a primary key?", "answer": "A unique identifier for each record in a database table." },
+              { "question": "What is a foreign key?", "answer": "A field in one table that uniquely identifies a row of another table." },
+              { "question": "What is a JOIN in SQL?", "answer": "A SQL operation used to combine rows from two or more tables based on a related column." },
+              { "question": "What is a SQL SELECT statement used for?", "answer": "To query and retrieve data from a database." },
+              { "question": "What is an INNER JOIN?", "answer": "A type of join that returns rows with matching values in both tables." },
+              { "question": "What is a LEFT JOIN?", "answer": "A join that returns all rows from the left table, and the matched rows from the right table." },
+              { "question": "What is a GROUP BY clause?", "answer": "A SQL clause used to group rows that have the same values in specified columns into summary rows." },
+              { "question": "What is a SQL aggregate function?", "answer": "A function that performs a calculation on a set of values and returns a single value, such as COUNT, SUM, AVG." },
+              { "question": "What is the purpose of the WHERE clause?", "answer": "To specify conditions for filtering records in a SQL query." },
+              { "question": "What is normalization in SQL?", "answer": "The process of organizing data to reduce redundancy and improve data integrity." },
+              { "question": "What is a subquery?", "answer": "A query nested inside another query." },
+              { "question": "What is the purpose of the ORDER BY clause?", "answer": "To sort the result set of a SQL query in ascending or descending order." }
+            ]
+          },
 
           {
             "topic": "NoSQL",
