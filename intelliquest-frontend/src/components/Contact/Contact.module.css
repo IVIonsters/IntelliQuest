@@ -2,6 +2,10 @@
     background-color: lightblue;
 }
 
+.title {
+    text-align: center;
+}
+
 .card {
     max-width: 500px;
     margin: 50px auto;
@@ -15,24 +19,18 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
   }
   
-  form {
+  .form {
     display: flex;
     flex-direction: column;
   }
   
-  label {
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  input,
-  textarea {
+  .textarea {
     margin-bottom: 16px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
+
   input[type='submit'] {
     background-color: #007bff;
     color: white;
@@ -45,6 +43,15 @@
   input[type='submit']:hover {
     background-color: #0056b3;
   }
+
+  .contactContainer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+    background-color: #ffffff;
+}
   
 /* Responsive styles for small screens */
 @media (min-width: 640px) {
