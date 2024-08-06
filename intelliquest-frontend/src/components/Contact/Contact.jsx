@@ -29,30 +29,32 @@ const Contact = () => {
     };
 
     return (
-        <div className={styles.contactContainer}>
-            <h1>
-                <span className={styles.title}>Send us a message and we will get back to you soon!</span>
-            </h1>
-            <div className={styles.card}>
-                <div className={styles.gridContainer}>
-                    <form className={styles.form} ref={form} onSubmit={sendEmail}>
-                        <label>Name</label>
-                        <input className={styles.textarea} type="text" name="user_name" required />
-                        <label>Email</label>
-                        <input className={styles.textarea} type="email" name="user_email" required />
-                        <label>Message</label>
-                        <textarea className={styles.textarea} name="message" required />
-                        <input type="submit" value="Send" />
-                    </form>
-                </div>
-            </div>
-            {isModalVisible && (
-                <div className={styles.modal}>
-                    <div className={styles.modalContent}>
-                        <p>Thank you for your message!</p>
+        <div>
+            <div className={styles.contactContainer}>
+                <h1>
+                    <span className={styles.title}>Send us a message and we will get back to you soon!</span>
+                </h1>
+                <div className={styles.card}>
+                    <div className={styles.gridContainer}>
+                        <form className={styles.form} ref={form} onSubmit={sendEmail}>
+                            <label>Name</label>
+                            <input className={styles.textarea} type="text" name="user_name" required />
+                            <label>Email</label>
+                            <input className={styles.textarea} type="email" name="user_email" required />
+                            <label>Message</label>
+                            <textarea className={styles.textarea} name="message" required />
+                            <input type="submit" value="Send" />
+                        </form>
                     </div>
                 </div>
-            )}
+                {isModalVisible && (
+                    <div className={styles.modal}>
+                        <div className={styles.modalContent}>
+                            <p>Thank you for your message!</p>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
