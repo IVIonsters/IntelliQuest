@@ -1,6 +1,9 @@
 ﻿import React, { useEffect, useState } from "react";
-import Flipcard from "../Flipcard/Flipcard";
-import styles from "../FlipcardList.module.css";
+import Flipcard from "../Flipcard";
+
+
+// import Flipcard from "../Flipcard/Flipcard";
+import styles from "./styles.css";
 import hardCodedFlipcards from "../../data/flipcards.json"
 
 
