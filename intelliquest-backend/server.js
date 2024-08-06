@@ -42,43 +42,15 @@ app.use('/', signupRoute);
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
 
-// Test OpenAI API connection
-app.get('/test_openai', async (req, res) => {
-  const messages = [
-    { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'Say something interesting.' }
-  ];
-
-  try {
-    const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        model: 'gpt-3.5-turbo',
-        messages: messages,
-        max_tokens: 50,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-        },
-      }
-    );
-
-    const result = response.data.choices[0].message.content.trim();
-    res.json({ result });
-  } catch (error) {
-    console.error('Error testing OpenAI connection:', error.response ? error.response.data : error.message);
-    res.status(500).send('Error testing OpenAI connection');
-  }
-});
-
 app.post('/generate_quiz', async (req, res) => {
   const topic = req.body.topic;
 
   const messages = [
     { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: `Generate a 5-question multiple-choice quiz on the topic of ${topic}.` }
+    {
+      role: 'user',
+      content: `Generate a 5-question multiple-choice quiz on the topic of ${topic}. The response should be a JSON object with the following format: {"quiz": [{"question": "Question text?", "options": ["Option A", "Option B", "Option C", "Option D"], "answer": "Correct Option"}]}`
+    }
   ];
 
   try {
@@ -87,7 +59,7 @@ app.post('/generate_quiz', async (req, res) => {
       {
         model: 'gpt-3.5-turbo',
         messages: messages,
-        max_tokens: 300,
+        max_tokens: 500,
       },
       {
         headers: {
@@ -97,9 +69,9 @@ app.post('/generate_quiz', async (req, res) => {
       }
     );
 
-    const quiz = response.data.choices[0].message.content.trim().split('\n').filter(line => line);
+    const quiz = JSON.parse(response.data.choices[0].message.content.trim());
 
-    res.json({ quiz });
+    res.json(quiz);
   } catch (error) {
     console.error('Error generating quiz:', error.response ? error.response.data : error.message);
     res.status(500).send('Error generating quiz');
@@ -144,4 +116,3 @@ app.post('/optimize', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
