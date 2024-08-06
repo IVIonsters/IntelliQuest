@@ -6,8 +6,7 @@ const resourceRoutes = require('./routes/api/resources');
 const signupRoute = require('./controllers/authController');
 const session = require('express-session');
 const passport = require('./config/passport');
-const bodyParser = require('body-parser');
-const axios = require('axios');
+const axios = require('axios'); // Import axios
 
 // Load environment variables from .env file
 dotenv.config();
@@ -22,8 +21,7 @@ app.use(cors());
 
 // Bodyparser Middleware
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false })); // For form submissions
 
 // Passport Initialize
 app.use(passport.initialize());
@@ -41,9 +39,38 @@ app.use('/api/users', users);
 app.use('/api/resources', resourceRoutes);
 app.use('/', signupRoute);
 
-// Quiz generator route
-const apiKey = process.env.OPENAI_API_KEY; // Store your API key in environment variables
-const apiUrl = 'https://api.openai.com/v1/chat/completions';
+// Set your OpenAI API key
+const apiKey = process.env.OPENAI_API_KEY;
+// Test OpenAI API connection
+app.get('/test_openai', async (req, res) => {
+  const messages = [
+    { role: 'system', content: 'You are a helpful assistant.' },
+    { role: 'user', content: 'Say something interesting.' }
+  ];
+
+  try {
+    const response = await axios.post(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: 'gpt-3.5-turbo',
+        messages: messages,
+        max_tokens: 50,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+      }
+    );
+
+    const result = response.data.choices[0].message.content.trim();
+    res.json({ result });
+  } catch (error) {
+    console.error('Error testing OpenAI connection:', error.response ? error.response.data : error.message);
+    res.status(500).send('Error testing OpenAI connection');
+  }
+});
 
 app.post('/generate_quiz', async (req, res) => {
   const topic = req.body.topic;
@@ -55,7 +82,7 @@ app.post('/generate_quiz', async (req, res) => {
 
   try {
     const response = await axios.post(
-      apiUrl,
+      'https://api.openai.com/v1/chat/completions',
       {
         model: 'gpt-3.5-turbo',
         messages: messages,
