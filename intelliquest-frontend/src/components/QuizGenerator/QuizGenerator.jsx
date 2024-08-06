@@ -15,9 +15,9 @@ const QuizGenerator = () => {
         event.preventDefault();
         try {
             // Development URL
-            const response = await axios.post('http://localhost:5000/generate_quiz', { topic });
+            // const response = await axios.post('http://localhost:5000/generate_quiz', { topic });
             // Production URL
-            // const response = await axios.post('https://intelliquestdb.onrender.com/generate_quiz', { topic });
+            const response = await axios.post('https://intelliquestdb.onrender.com/generate_quiz', { topic });
             setQuiz(response.data.quiz);
             setError('');
             setShowResults(false);
