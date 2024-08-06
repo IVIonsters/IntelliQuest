@@ -1,4 +1,6 @@
-﻿import FlipcardList from "../FlipcardList/FlipcardList"
+﻿import FlipcardList from "../FlipcardList/FlipcardList";
+
+// import FlipcardList from "../FlipcardList/FlipcardList"
 
 //import FlipCardList from "../FlipcardList/FlipcardList";
 import { useState } from "react";
@@ -23,7 +25,7 @@ export default function FlipcardPage() {
       <h3>
         You Choose Topic: {topic}
            {/* Pass the selected topic to FlipcardList */}
-           <FlipCardList topic={topic} />
+           <FlipcardList topic={topic} />
       </h3>
     </div>
   );
