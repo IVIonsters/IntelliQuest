@@ -33,6 +33,9 @@ const Modal = ({ isOpen, onClose, content }) => {
       case 'website':
       case 'channel':
       case 'programming':
+      case 'course':
+      case 'book':
+      case 'exercise':
         return (
           <div className={styles.externalLinkContainer}>
             <img src={content.thumbnail} alt={content.title} className={styles.modalImage} />
