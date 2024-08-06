@@ -12,6 +12,7 @@ import Login from './components/Auth/Login.jsx';
 import Error from './components/Error/Error.jsx'; 
 import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchResultsPage />
+      },
+      {
+        path: 'quiz-generator',
+        element: <QuizGenerator /> // Add this route
       }
     ]
   }
