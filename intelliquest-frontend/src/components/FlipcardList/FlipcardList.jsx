@@ -1,5 +1,7 @@
 ﻿import React, { useEffect, useState } from "react";
 import Flipcard from "../Flipcard";
+import styles from "./styles.css";
+import hardCodedFlipcards from "../../data/flipcards.json";
 
 
 // import Flipcard from "../Flipcard/Flipcard";
@@ -9,9 +11,10 @@ import hardCodedFlipcards from "../../data/flipcards.json"
 
 // import data from "..//..data/flipcards.json";
 
+//stub
 const hardCodedFlipcards = [
   { question: "?", answer: "Answer", topic: "Topic" },
-  { question: "?", answer: "Answer", topic: "Topic" },
+
 ];
 
 const FlipcardList = ({ topic }) => {
@@ -24,11 +27,10 @@ const FlipcardList = ({ topic }) => {
       (card) => card.topic === topic
     );
     
-    
   setFlipcards(filteredCards);
   }, [topic]);
 
-const fetchAdditionalFlipcards = async(); => {
+const fetchAdditionalFlipcards = async () => {
   try {
     const response = await fetch('api'); // Replace with API endpoint (i.e., Brainscape, Quizlet, etc.)
     const data = await response.json();
