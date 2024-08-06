@@ -11,13 +11,11 @@ function Activities() {
             <div className={styles.activitiesInnerContainer}>
                 <div className={styles.gridContainer}>
                     <div className={styles.card}>
-                        <Link to="/quiz-generator">
-                            <img src={quizImage} alt='Quiz' className={styles.cardImage} />
-                            <div className={styles.cardOverlay}>
-                                <h2>Quiz</h2>
-                                <p>Test your knowledge with a randomly generated quiz</p>
-                            </div>
-                        </Link>
+                        <img src={quizImage} alt='Quiz' className={styles.cardImage} />
+                        <div className={styles.cardOverlay}>
+                            <h2><Link to="/quiz">Quiz</Link></h2>
+                            <p>Test your knowledge with a randomly generated quiz</p>
+                        </div>
                     </div>
                     <div className={styles.card}>
                         <img src={fcImage} alt='Flash Cards' className={styles.cardImage} />
@@ -29,7 +27,7 @@ function Activities() {
                     <div className={styles.card}>
                         <img src={optImage} alt='Code Optimizer' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2>Code Optimizer</h2>
+                            <h2><Link to="/optimize">Code Optimizer</Link></h2>
                             <p>Learn how to optimize your code</p>
                         </div>
                     </div>
@@ -40,3 +38,4 @@ function Activities() {
 }
 
 export default Activities;
+
