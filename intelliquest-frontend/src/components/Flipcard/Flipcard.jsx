@@ -23,4 +23,4 @@ const FlipCard = ({ question, answer }) => {
   );
 };
 
-export default Flipcard;
+export default FlipCard;
