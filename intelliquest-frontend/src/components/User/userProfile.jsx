@@ -4,6 +4,7 @@ import Header from './Header';
 import ProfilePicture from './ProfilePicture';
 import Bio from './Bio';
 import Favorites from './Favorites';
+import styles from "./UserProfile.module.css"
 
 //USER PROFILE CHECKLIST
 //1. PROFILE PICTURE
@@ -13,10 +14,16 @@ import Favorites from './Favorites';
 const userProfile = () =>{
     return (
         <div>
-            <Header/>
-            <ProfilePicture/>
-            <Bio/>
-            <Favorites/>
+            <div >
+                <Header/>
+            </div>
+            <div className={styles.mainInfoContainer}>
+                <ProfilePicture/>
+                <Bio/>
+            </div>
+            <div className={styles.favoritesContainer}>
+                <Favorites/>
+            </div>
         </div>
     )
 };

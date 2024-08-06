@@ -1,0 +1,16 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainInfoContainer{
+    width:38%;
+    float: left;
+    margin-left: 4%;
+}
+.favoritesContainer{
+    width:50%;
+    height: max-content;
+    background-color: aquamarine;
+    float: right;
+    margin-right: 1%;
+}

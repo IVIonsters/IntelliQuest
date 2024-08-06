@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function ProfilePicture() {
     const uploadedImage = React.useRef(null);
     const imageUploader = React.useRef(null);
@@ -39,11 +40,13 @@ function ProfilePicture() {
             <img 
                 ref={uploadedImage}
                 style ={{
-                    width: "150px",
-                    height: "150px",
+                    width: "300px",
+                    height: "300px",
                     padding: "5px",
                     borderRadius: "50%",
+                    marginBottom: "1%"
                 }}
+
             />
         </div>
     </div>
