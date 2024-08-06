@@ -452,13 +452,50 @@
               { "question": "What is a webhook?", "answer": "A method of augmenting or altering the behavior of a web page or web application with custom callbacks." },
               { "question": "What is a status code 200?", "answer": "OK - The request has succeeded." }
             ]
-          }
+          },
           
-
-
-
-
-
+          {
+            "topic": "Node.js",
+            "questions": [
+              { "question": "What is Node.js?", "answer": "An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser." },
+              { "question": "Who created Node.js?", "answer": "Ryan Dahl in 2009." },
+              { "question": "What is the purpose of Node.js?", "answer": "To build scalable network applications." },
+              { "question": "What is npm?", "answer": "Node Package Manager, a package manager for JavaScript and the default for Node.js." },
+              { "question": "What is the core module in Node.js for working with the file system?", "answer": "The 'fs' module." },
+              { "question": "What does 'require' do in Node.js?", "answer": "It is used to include modules in a Node.js application." },
+              { "question": "What is the 'event loop' in Node.js?", "answer": "A mechanism that handles asynchronous callbacks in Node.js." },
+              { "question": "What is the 'global' object in Node.js?", "answer": "An object that represents the global scope and contains global functions and properties." },
+              { "question": "What is 'non-blocking' I/O?", "answer": "I/O operations that do not block the execution of other operations." },
+              { "question": "What is the purpose of the 'http' module in Node.js?", "answer": "To create and handle HTTP requests and responses." },
+              { "question": "What is 'Express.js' in the context of Node.js?", "answer": "A web application framework for Node.js." },
+              { "question": "How do you create a new Node.js project?", "answer": "Using the 'npm init' command." },
+              { "question": "What is a 'callback' in Node.js?", "answer": "A function that is passed as an argument to another function and is executed after some event or operation." },
+              { "question": "What is 'async/await' in Node.js?", "answer": "Syntax for handling asynchronous operations in a more synchronous-like manner." },
+              { "question": "What is 'cluster' module in Node.js?", "answer": "A module that allows you to create child processes that share the same server port." }
+            ]
+          }, 
+          
+          {
+            "topic": "Express.js",
+            "questions": [
+              { "question": "What is Express.js?", "answer": "A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications." },
+              { "question": "What is middleware in Express.js?", "answer": "Functions that have access to the request object, the response object, and the next function in the application’s request-response cycle." },
+              { "question": "How do you define a route in Express.js?", "answer": "Using app.METHOD(PATH, HANDLER), where METHOD is the HTTP method, PATH is the route path, and HANDLER is the function executed when the route is matched." },
+              { "question": "What is 'app.use' in Express.js?", "answer": "A method to mount middleware functions at a specified path." },
+              { "question": "How do you handle 404 errors in Express.js?", "answer": "By adding a middleware function to catch and handle 404 errors after all routes." },
+              { "question": "What is 'app.listen' in Express.js?", "answer": "A method to bind and listen for connections on the specified host and port." },
+              { "question": "What is 'res.send' in Express.js?", "answer": "A method to send a response of various types to the client." },
+              { "question": "What is 'res.json' in Express.js?", "answer": "A method to send a JSON response." },
+              { "question": "What is 'req.params' in Express.js?", "answer": "An object containing route parameters." },
+              { "question": "What is 'req.query' in Express.js?", "answer": "An object containing query string parameters." },
+              { "question": "What is 'req.body' in Express.js?", "answer": "An object containing the body data of the request." },
+              { "question": "What is a 'route handler' in Express.js?", "answer": "A function that handles a specific route in an Express.js application." },
+              { "question": "How do you serve static files in Express.js?", "answer": "Using the 'express.static' middleware function." },
+              { "question": "What is 'cookie-parser' in Express.js?", "answer": "A middleware to parse cookies attached to the client request object." },
+              { "question": "What is 'express-session' in Express.js?", "answer": "A middleware to manage sessions." }
+            ]
+          }, 
+          
 
 
           {
@@ -546,16 +583,9 @@
               }
             ]
           },
-        
-        
-          {
-          "question": "How do you set the title of an HTML document?",
-          "answer": "Use the <title> tag inside the <head> section."
-        }
-      ]
-    },
 
-          
+
+                
       {
             "topic": "Python",
             "questions": [
