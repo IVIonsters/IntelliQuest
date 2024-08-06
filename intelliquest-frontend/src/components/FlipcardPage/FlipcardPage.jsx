@@ -1,4 +1,6 @@
-﻿import FlipCardList from "../FlipcardList/FlipcardList";
+﻿import FlipcardList from "../FlipcardList/FlipcardList"
+
+//import FlipCardList from "../FlipcardList/FlipcardList";
 import { useState } from "react";
 // import styles from "./styles.css";
 export default function FlipcardPage() {
