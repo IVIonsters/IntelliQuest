@@ -28,35 +28,35 @@ function About() {
                         </div>
                     </div>
                     <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
-                        <img src={rrImage} alt='Quiz' className={styles.cardImage} />
+                        <img src={rrImage} alt='Renee' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Renee Rodriguez</h2>
                             <p>Full Stack developer located in </p>
                         </div>
                     </div>
-                    <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
-                        <img src={asImage} alt='Quiz' className={styles.cardImage} />
+                    <div className={styles.card} onClick={() => handleCardClick('https://frogiington.github.io/portfolio/')}>
+                        <img src={asImage} alt='Alyson' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Alyson Sanchez</h2>
                             <p>Full Stack developer located in Lakeland, Florida</p>
                         </div>
                     </div>
                     <div className={styles.card} onClick={() => handleCardClick('https://splash1972--colinsportfolio.netlify.app')}>
-                        <img src={crImage} alt='Quiz' className={styles.cardImage} />
+                        <img src={crImage} alt='Colin' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Colin Robinson</h2>
                             <p>Full Stack developer located in Orlando, Florida</p>
                         </div>
                     </div>
                     <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
-                        <img src={erImage} alt='Quiz' className={styles.cardImage} />
+                        <img src={erImage} alt='Ethan' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Ethan Robertson</h2>
                             <p>Full Stack developer located in Orlando, Florida</p>
                         </div>
                     </div>
                     <div className={styles.card} onClick={() => handleCardClick('https://hmpg.net')}>
-                        <img src={cjImage} alt='Quiz' className={styles.cardImage} />
+                        <img src={cjImage} alt='Chelsea' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2>Chelsea Jarvis</h2>
                             <p>Full Stack developer located in Denver, Colorado</p>
