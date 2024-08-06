@@ -1,0 +1,29 @@
+/* Overlay for the modal to cover the entire screen with a semi-transparent background */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is on top of other content */
+}
+
+/* Main content area of the modal with a blackish-grey glass effect */
+.modalContent {
+  background: rgba(0, 0, 0, 0.397); /* Blackish-grey translucent background */
+  backdrop-filter: blur(10px); /* Blur effect for glass look */
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+  position: relative; /* For positioning the close button */
+  color: white; /* Text color */
+}
+
+
