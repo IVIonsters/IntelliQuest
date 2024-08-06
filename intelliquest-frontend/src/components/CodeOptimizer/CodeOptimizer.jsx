@@ -14,7 +14,10 @@ const CodeOptimizer = () => {
 
     try {
       // Make a POST request to the server to optimize the code
-      const response = await axios.post('/optimize', { code });
+      // Development
+      // const response = await axios.post('http://localhost:5000/optimize', { code });
+      // Production
+      const response = await axios.post('https://intelliquestdb.onrender.com/optimize', { code });
       setOptimizedCode(response.data.optimized_code);
       setSteps(response.data.steps);
       setError('');
