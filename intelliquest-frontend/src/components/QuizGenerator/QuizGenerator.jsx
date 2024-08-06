@@ -4,44 +4,54 @@ import axios from 'axios';
 import styles from './QuizGenerator.module.css';
 
 const QuizGenerator = () => {
-  const [topic, setTopic] = useState('');
-  const [quiz, setQuiz] = useState([]);
+    const [topic, setTopic] = useState('');
+    const [quiz, setQuiz] = useState([]);
+    const [error, setError] = useState('');
 
-  const handleChange = (event) => {
-    setTopic(event.target.value);
-  };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+          // Development
+          // const response = await axios.post('http://localhost:5000/generate_quiz', { topic });
+          // Production
+            const response = await axios.post('https://intelliquestdb.onrender.com/generate_quiz', { topic });
+            setQuiz(response.data.quiz);
+            setError('');
+        } catch (error) {
+            console.error('Error generating quiz:', error.response ? error.response.data : error.message);
+            setError('Error generating quiz');
+        }
+    };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      // Update the URL to point to your server'
-      //Development
-      // const response = await axios.post('http://localhost:5000/generate_quiz', { topic });
-      // Production
-      const response = await axios.post('https://intelliquestdb.onrender.com/generate_quiz', { topic });
+    const handleReset = () => {
+        setTopic('');
+        setQuiz([]);
+        setError('');
+    };
 
-      setQuiz(response.data.quiz);
-    } catch (error) {
-      console.error('Error generating quiz:', error);
-    }
-  };
-
-  return (
-    <div className={styles.quizContainer}>
-      <h1>Generate a Quiz</h1>
-      <form onSubmit={handleSubmit} className={styles.quizForm}>
-        <label htmlFor="topic">Enter a topic:</label>
-        <input type="text" id="topic" value={topic} onChange={handleChange} required />
-        <button type="submit">Generate Quiz</button>
-      </form>
-      <div id="quiz" className={styles.quiz}>
-        <h2>Quiz</h2>
-        {quiz.map((question, index) => (
-          <p key={index}>{index + 1}. {question}</p>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className={styles.container}>
+            <h1>Quiz Generator</h1>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <textarea
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value)}
+                    placeholder="Enter a topic for the quiz..."
+                    className={styles.textarea}
+                />
+                <button type="submit" className={styles.button}>Generate Quiz</button>
+                <button type="button" onClick={handleReset} className={styles.button}>Reset</button>
+            </form>
+            {error && <p className={styles.error}>{error}</p>}
+            <div>
+                <h2>Quiz</h2>
+                {quiz.map((question, index) => (
+                    <p key={index} className={styles.quizQuestion}>{index + 1}. {question}</p>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default QuizGenerator;
+
