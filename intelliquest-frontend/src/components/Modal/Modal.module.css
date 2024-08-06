@@ -1,0 +1,75 @@
+/* Overlay for the modal to cover the entire screen with a semi-transparent background */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is on top of other content */
+}
+
+/* Main content area of the modal with a blackish-grey glass effect */
+.modalContent {
+  background: rgba(0, 0, 0, 0.397); /* Blackish-grey translucent background */
+  backdrop-filter: blur(10px); /* Blur effect for glass look */
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+  position: relative; /* For positioning the close button */
+  color: white; /* Text color */
+}
+
+/* Close button for the modal */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white; /* Changed color to black for better visibility */
+}
+
+/* Container for the content inside the modal */
+.content {
+  margin-top: 40px; /* Adds space for the close button */
+}
+
+/* Styles for embedded media (e.g., video) in the modal */
+.media {
+  width: 100%;
+  height: 60vh; /* Fixed height for media */
+  border: none;
+}
+
+/* Container for external links and images when content can't be embedded */
+.externalLinkContainer {
+  text-align: center;
+}
+
+/* Styles for images displayed in the modal */
+.modalImage {
+  max-width: 100%; /* Ensures the image doesn't overflow */
+  height: auto;
+  margin-bottom: 20px; /* Adds space below the image */
+}
+
+/* Styles for external links in the modal */
+.externalLink {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover effect for external links */
+.externalLink:hover {
+  text-decoration: underline;
+}

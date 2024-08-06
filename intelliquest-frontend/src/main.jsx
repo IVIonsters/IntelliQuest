@@ -52,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: 'optimize',
         element: <CodeOptimizer />
+      },
+      {
+        path: 'search',
+        element: <SearchResultsPage />
       }
     ]
   }
@@ -62,3 +66,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </div>
 );
+
