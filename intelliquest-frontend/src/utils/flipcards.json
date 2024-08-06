@@ -496,8 +496,49 @@
             ]
           }, 
           
+          {
+            "topic": "ORM",
+            "questions": [
+              { "question": "What does ORM stand for?", "answer": "Object-Relational Mapping" },
+              { "question": "What is ORM?", "answer": "A programming technique for converting data between incompatible type systems using object-oriented programming languages." },
+              { "question": "What is the purpose of ORM?", "answer": "To manage database operations and interactions through objects rather than raw SQL queries." },
+              { "question": "What is an entity in ORM?", "answer": "A class that represents a table in the database." },
+              { "question": "What is a repository in ORM?", "answer": "A pattern that abstracts the data layer to manage data access logic and encapsulate database operations." },
+              { "question": "What is lazy loading in ORM?", "answer": "A design pattern where related data is loaded on demand rather than at the initial query." },
+              { "question": "What is eager loading in ORM?", "answer": "A design pattern where related data is loaded along with the initial query to avoid multiple queries." },
+              { "question": "What is an ORM mapper?", "answer": "A tool or library that automates the mapping between objects and database tables." },
+              { "question": "What is a session in ORM?", "answer": "A context used to manage and track changes to objects and synchronize them with the database." },
+              { "question": "What is an association in ORM?", "answer": "A relationship between two entities, such as one-to-one, one-to-many, or many-to-many." },
+              { "question": "What is the 'Entity Manager' in ORM?", "answer": "A class responsible for managing the lifecycle of entities and database operations." },
+              { "question": "What is 'Schema Validation' in ORM?", "answer": "A process of ensuring that the structure of the data conforms to the expected format before it is persisted in the database." },
+              { "question": "What is 'Transaction Management' in ORM?", "answer": "A feature that ensures a series of operations are executed in a reliable way, either all succeed or none do." },
+              { "question": "What is 'Database Migration' in ORM?",
+            ]
+          },
+          
 
 
+          {
+            "topic": "NoSQL",
+            "questions": [
+              { "question": "What does NoSQL stand for?", "answer": "Not Only SQL" },
+              { "question": "What is NoSQL?", "answer": "A category of database management systems that do not use SQL as their primary interface." },
+              { "question": "What are the main types of NoSQL databases?", "answer": "Document stores, key-value stores, column-family stores, and graph databases." },
+              { "question": "What is a document store in NoSQL?", "answer": "A NoSQL database that stores data in JSON-like documents." },
+              { "question": "What is a key-value store in NoSQL?", "answer": "A NoSQL database where data is stored as a collection of key-value pairs." },
+              { "question": "What is a column-family store in NoSQL?", "answer": "A NoSQL database that stores data in columns rather than rows." },
+              { "question": "What is a graph database in NoSQL?", "answer": "A NoSQL database designed to handle data with complex relationships using graph structures." },
+              { "question": "What is MongoDB?", "answer": "A popular document-oriented NoSQL database." },
+              { "question": "What is Cassandra?", "answer": "A highly scalable column-family NoSQL database." },
+              { "question": "What is Redis?", "answer": "An in-memory key-value store known for its speed and flexibility." },
+              { "question": "What is Neo4j?", "answer": "A graph database used for handling data with complex relationships." },
+              { "question": "What is sharding in NoSQL?", "answer": "A method of distributing data across multiple servers to ensure scalability." },
+              { "question": "What is replication in NoSQL?", "answer": "A process of duplicating data across multiple nodes to ensure availability and reliability." },
+              { "question": "What is CAP theorem?", "answer": "A principle stating that a distributed database system can only guarantee two out of the following three: Consistency, Availability, and Partition Tolerance." },
+              { "question": "What is eventual consistency?", "answer": "A consistency model where updates to the database are propagated to all nodes eventually, but not necessarily immediately." }
+            ]
+          },
+          
           {
             "topic": "React",
             "flashcards": [
@@ -584,7 +625,26 @@
             ]
           },
 
-
+          {
+            "topic": "MERN",
+            "questions": [
+              { "question": "What does MERN stand for?", "answer": "MongoDB, Express.js, React, Node.js" },
+              { "question": "What is MongoDB in the MERN stack?", "answer": "A NoSQL database used to store application data." },
+              { "question": "What is Express.js in the MERN stack?", "answer": "A web application framework for Node.js used to build RESTful APIs." },
+              { "question": "What is React in the MERN stack?", "answer": "A JavaScript library for building user interfaces." },
+              { "question": "What is Node.js in the MERN stack?", "answer": "A JavaScript runtime built on Chrome's V8 engine used to build scalable network applications." },
+              { "question": "How does React work with Node.js?", "answer": "React is used for building the front end, while Node.js powers the back end and handles server-side logic." },
+              { "question": "What role does Express.js play in a MERN application?", "answer": "It serves as the middleware that handles routing and HTTP requests between the client and server." },
+              { "question": "What is the purpose of MongoDB in the MERN stack?", "answer": "To store and manage application data in a flexible, document-oriented format." },
+              { "question": "How do you connect MongoDB with Express.js?", "answer": "Using Mongoose, an ODM (Object Data Modeling) library that provides a schema-based solution to model your application data." },
+              { "question": "What is a RESTful API?", "answer": "An API that adheres to the principles of REST and allows communication between client and server using HTTP requests." },
+              { "question": "What is the purpose of Node Package Manager (npm) in MERN?", "answer": "To manage and install the packages required for the Node.js and Express.js backend and the React front end." },
+              { "question": "How do you create a new React project?", "answer": "Using the 'create-react-app' command." },
+              { "question": "What is a component in React?", "answer": "A reusable piece of code that returns a React element to be rendered on the UI." },
+              { "question": "What is the purpose of Redux in a MERN stack?", "answer": "To manage and centralize application state in a predictable way." },
+              { "question": "How do you handle routes in Express.js?", "answer": "By defining route handlers using methods like app.get, app.post, etc., to respond to HTTP requests." }
+            ]
+          },
                 
       {
             "topic": "Python",
