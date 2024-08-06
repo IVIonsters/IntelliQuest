@@ -6,6 +6,16 @@ bgGradient {
 .title {
     display: block;
     text-align: center;
+    color: black;
+    animation-name: textchange;
+    animation-duration: 4s;
+}
+
+@keyframes textchange {
+    0%   {color: white;}
+    25%  {color: lightgrey;}
+    50%  {color: grey;}
+    100% {color: black;}
 }
 
 .card {
