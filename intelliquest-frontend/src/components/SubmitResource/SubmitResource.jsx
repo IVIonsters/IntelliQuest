@@ -41,8 +41,17 @@ const SubmitResource = () => {
     e.preventDefault();
     try {
       const tagsArray = tags.split(',').map(tag => tag.trim());
-
-      const response = await axios.post('http://localhost:5000/api/resources/submit', {
+      //Development
+      // const response = await axios.post('http://localhost:5000/api/resources/submit', {
+      //   title,
+      //   description,
+      //   url,
+      //   thumbnail,
+      //   type: 'video',
+      //   tags: tagsArray
+      // });
+      //Production
+      const response = await axios.post('https://intelliquestdb.onrender.com/api/resources/submit', {
         title,
         description,
         url,
