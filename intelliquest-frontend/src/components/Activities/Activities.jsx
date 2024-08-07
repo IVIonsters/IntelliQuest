@@ -33,23 +33,23 @@ function Activities() {
                         </div>
                     </div>
                     <div className={styles.card}>
-                        <img src={optImage} alt='Coding Exercise' className={styles.cardImage} />
-                        <div className={styles.cardOverlay}>
-                            <h2><Link to="/coding-exercise">Coding Exercise</Link></h2>
-                            <p>Learn how to code live!</p>
-                        </div>
-                    </div>
-                    <div className={styles.card}>
                         <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2><Link to="/home">Future Features!</Link></h2>
+                            <h2><Link to="/">Future Features!</Link></h2>
                             <p>Feature coming soon.....</p>
                         </div>
                     </div>
                     <div className={styles.card}>
                         <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2><Link to="/home">Future Features!</Link></h2>
+                            <h2><Link to="/">Future Features!</Link></h2>
+                            <p>Feature coming soon.....</p>
+                        </div>
+                    </div>
+                    <div className={styles.card}>
+                        <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
+                        <div className={styles.cardOverlay}>
+                            <h2><Link to="/">Future Features!</Link></h2>
                             <p>Feature coming soon.....</p>
                         </div>
                     </div>
