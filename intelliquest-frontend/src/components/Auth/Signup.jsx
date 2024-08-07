@@ -36,7 +36,7 @@ function Signup() {
                     setError("");
                     setDataLocalStorage(AUTH_TOKEN_NAME, token.token);
                     setUser({ firstName: "", lastName: "", email: "", userName: "", password: "" });
-                    navigate("/");
+                    navigate("/home");
                 }
             }
         } catch (error) {

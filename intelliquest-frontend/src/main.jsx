@@ -7,9 +7,9 @@ import Signup from './components/Auth/Signup.jsx';
 import Activities from './components/Activities/Activities.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
-import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx'; 
+import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
 import Login from './components/Auth/Login.jsx';
-import Error from './components/Error/Error.jsx'; 
+import Error from './components/Error/Error.jsx';
 import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        index: true,
+        path: 'home',
         element: <HomePage />
       },
       {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: 'signup',
+        index: true,
         element: <Signup />
       },
       {
