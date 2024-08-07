@@ -7,13 +7,14 @@ import Signup from './components/Auth/Signup.jsx';
 import Activities from './components/Activities/Activities.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
-import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx'; 
+import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
 import Login from './components/Auth/Login.jsx';
-import Error from './components/Error/Error.jsx'; 
+import Error from './components/Error/Error.jsx';
 import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
 import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
+import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         element: <CodeOptimizer />
       },
       {
+        path: 'submit-resource',
+        element: <SubmitResource />
+      },
+      {
         path: 'search',
         element: <SearchResultsPage />
       }
@@ -66,4 +71,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </div>
 );
-
