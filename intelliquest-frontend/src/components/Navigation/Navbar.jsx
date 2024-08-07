@@ -26,6 +26,7 @@ const Navbar = ({ onSearch }) => {
         <li><Link to="/activities">Activities</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/submit-resource">Resource</Link></li>
       </ul>
       <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
         <input
