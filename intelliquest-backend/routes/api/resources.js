@@ -34,21 +34,26 @@ router.get('/search', async (req, res) => {
 router.post('/submit', async (req, res) => {
   const { title, description, url, thumbnail, type, tags } = req.body;
 
-  try {
-    const newResource = new Resource({
-      title,
-      description,
-      url,
-      thumbnail,
-      type,
-      tags
-    });
+  // Validate the URL to ensure it's a YouTube link
+  const youtubeUrlPattern = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
+  if (!youtubeUrlPattern.test(url)) {
+    return res.status(400).json({ error: 'Invalid YouTube URL' });
+  }
 
-    await newResource.save();
-    res.status(201).json({ message: 'Resource submitted successfully!' });
-  } catch (error) {
-    console.error('Error submitting resource:', error);
-    res.status(500).json({ error: 'Error submitting resource' });
+  const newResource = new Resource({
+    title,
+    description,
+    url,
+    thumbnail,
+    type,
+    tags
+  });
+
+  try {
+    const savedResource = await newResource.save();
+    res.status(201).json(savedResource);
+  } catch (err) {
+    res.status(500).json({ error: 'Error saving resource' });
   }
 });
 

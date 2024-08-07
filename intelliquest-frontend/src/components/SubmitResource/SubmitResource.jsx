@@ -10,9 +10,25 @@ const SubmitResource = () => {
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('');
   const [thumbnail, setThumbnail] = useState('');
-  const [type, setType] = useState('video');
   const [tags, setTags] = useState('');
   const [message, setMessage] = useState('');
+
+  // Function to extract YouTube video ID and generate thumbnail URL
+  const generateThumbnailUrl = (videoUrl) => {
+    const videoId = videoUrl.split('v=')[1] || videoUrl.split('/')[3];
+    if (videoId) {
+      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    }
+    return '';
+  };
+
+  // Function to handle URL input change and automatically generate thumbnail URL
+  const handleUrlChange = (e) => {
+    const videoUrl = e.target.value;
+    setUrl(videoUrl);
+    const generatedThumbnailUrl = generateThumbnailUrl(videoUrl);
+    setThumbnail(generatedThumbnailUrl);
+  };
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -20,14 +36,14 @@ const SubmitResource = () => {
     try {
       // Split tags by comma and trim spaces
       const tagsArray = tags.split(',').map(tag => tag.trim());
-      
+
       // POST request to submit the resource
       const response = await axios.post('http://localhost:5000/api/resources/submit', {
         title,
         description,
         url,
         thumbnail,
-        type,
+        type: 'video', // Fixed type to 'video'
         tags: tagsArray
       });
 
@@ -37,7 +53,6 @@ const SubmitResource = () => {
       setDescription('');
       setUrl('');
       setThumbnail('');
-      setType('video');
       setTags('');
     } catch (error) {
       console.error('Error submitting resource:', error);
@@ -47,7 +62,7 @@ const SubmitResource = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Submit a Resource</h1>
+      <h1>Submit a YouTube Video Resource</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label htmlFor="title">Title</label>
         <input
@@ -64,12 +79,12 @@ const SubmitResource = () => {
           onChange={(e) => setDescription(e.target.value)}
           required
         ></textarea>
-        <label htmlFor="url">URL</label>
+        <label htmlFor="url">YouTube Video URL</label>
         <input
           type="url"
           id="url"
           value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          onChange={handleUrlChange}
           required
         />
         <label htmlFor="thumbnail">Thumbnail URL</label>
@@ -77,19 +92,8 @@ const SubmitResource = () => {
           type="url"
           id="thumbnail"
           value={thumbnail}
-          onChange={(e) => setThumbnail(e.target.value)}
-          required
+          readOnly
         />
-        <label htmlFor="type">Type</label>
-        <select id="type" value={type} onChange={(e) => setType(e.target.value)} required>
-          <option value="video">Video</option>
-          <option value="tutorial">Tutorial</option>
-          <option value="course">Course</option>
-          <option value="exercise">Exercise</option>
-          <option value="website">Website</option>
-          <option value="channel">Channel</option>
-          <option value="programming">Programming</option>
-        </select>
         <label htmlFor="tags">Tags (comma separated)</label>
         <input
           type="text"
@@ -106,4 +110,3 @@ const SubmitResource = () => {
 };
 
 export default SubmitResource;
-
