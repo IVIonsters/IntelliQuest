@@ -30,4 +30,26 @@ router.get('/search', async (req, res) => {
   }
 });
 
+// Submit a new resource
+router.post('/submit', async (req, res) => {
+  const { title, description, url, thumbnail, type, tags } = req.body;
+
+  try {
+    const newResource = new Resource({
+      title,
+      description,
+      url,
+      thumbnail,
+      type,
+      tags
+    });
+
+    await newResource.save();
+    res.status(201).json({ message: 'Resource submitted successfully!' });
+  } catch (error) {
+    console.error('Error submitting resource:', error);
+    res.status(500).json({ error: 'Error submitting resource' });
+  }
+});
+
 module.exports = router;
