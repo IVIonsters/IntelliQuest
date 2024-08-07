@@ -31,6 +31,13 @@ function Activities() {
                             <p>Learn how to optimize your code</p>
                         </div>
                     </div>
+                    <div className={styles.card}>
+                        <img src={optImage} alt='Coding Exercise' className={styles.cardImage} />
+                        <div className={styles.cardOverlay}>
+                            <h2><Link to="/optimize">Coding Exercise</Link></h2>
+                            <p>Learn how to code live!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
