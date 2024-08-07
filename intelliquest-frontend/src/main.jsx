@@ -14,6 +14,7 @@ import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
 import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
+import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         element: <CodeOptimizer />
       },
       {
+        path: 'submit-resource',
+        element: <SubmitResource />
+      },
+      {
         path: 'search',
         element: <SearchResultsPage />
       }
@@ -66,4 +71,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </div>
 );
-
