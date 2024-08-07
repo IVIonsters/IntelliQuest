@@ -1,59 +1,53 @@
 /* src/components/SubmitResource/SubmitResource.module.css */
 
-/* Container for the entire form */
+/* Container for the form */
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa;
+  background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the form element */
+/* Form styling */
 .form {
   display: flex;
   flex-direction: column;
 }
 
-/* Styling for form labels */
+/* Label styling */
 label {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: bold;
 }
 
-/* Styling for text input fields */
-input[type="text"],
-input[type="url"],
+/* Input, textarea, and button styling */
+input,
 textarea,
-select {
-  padding: 10px;
+button {
   margin-bottom: 20px;
-  border: 1px solid #ced4da;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
 }
 
-/* Styling for the submit button */
+/* Button styling */
 button {
-  padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-/* Hover effect for the submit button */
+/* Button hover effect */
 button:hover {
   background-color: #0056b3;
 }
 
-/* Styling for messages */
+/* Success or error message styling */
 p {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #28a745;
+  text-align: center;
+  color: green;
 }
