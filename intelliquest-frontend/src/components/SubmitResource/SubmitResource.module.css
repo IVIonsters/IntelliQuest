@@ -1,53 +1,80 @@
-/* src/components/SubmitResource/SubmitResource.module.css */
+/* SubmitResource.module.css */
 
-/* Container for the form */
+/* Container for the entire form */
 .container {
+  width: 80%;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background: #f9f9f9;
+  background-color: var(--platinum);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: var(--rich-black);
 }
 
-/* Form styling */
+/* Styling for the form itself */
 .form {
   display: flex;
   flex-direction: column;
 }
 
-/* Label styling */
+/* General label styling */
 label {
-  margin-bottom: 8px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
+  color: var(--pacific-cyan);
+  display: flex;
+  align-items: center;
 }
 
-/* Input, textarea, and button styling */
-input,
-textarea,
-button {
-  margin-bottom: 20px;
+/* General input and textarea styling */
+input[type="text"],
+input[type="url"],
+textarea {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--cadet-grey);
   border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: var(--platinum);
+  color: var(--rich-black);
 }
 
-/* Button styling */
+/* Styling for the submit button */
 button {
-  background-color: #007bff;
-  color: white;
+  padding: 10px;
+  background-color: var(--pacific-cyan);
+  color: var(--platinum);
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 /* Button hover effect */
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--moonstone);
 }
 
-/* Success or error message styling */
-p {
+/* Styling for the message text */
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--pacific-cyan);
+}
+
+/* Styling for the thumbnail preview */
+.thumbnailPreview {
+  margin-top: 10px;
   text-align: center;
-  color: green;
+}
+
+/* Thumbnail image styling */
+.thumbnailPreview img {
+  max-width: 100%;
+  border: 1px solid var(--cadet-grey);
+  border-radius: 4px;
 }
