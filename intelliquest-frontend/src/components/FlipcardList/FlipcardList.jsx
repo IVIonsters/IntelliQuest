@@ -1,24 +1,25 @@
-﻿import React, { useEffect, useState } from "react";
-import Flipcard from "../Flipcard/Flipcard";
-import "./Flipcard.module.css";
-import hardCodedFlipcards from "../../utils/flipcards.json";
+﻿import React from 'react';
+import Flipcard from '../Flipcard';
+
+
+
+//import React, { useEffect, useState } from "react";
+// import Flipcard from "../Flipcard/Flipcard";
+// import "./Flipcard.module.css";
+// import hardCodedFlipcards from "../../utils/flipcards.json";
+
+console.log(flipcards);
 
 const FlipcardList = ({ topic }) => {
-  console.log(topic);
-
-  const [flipcards, setFlipcards] = useState(hardCodedFlipcards);
-  const [additionalFlipcards, setAdditionalFlipcards] = useState([]);
-
-  console.log(flipcards);
+  const [flipcards, setFlipcards] = useState([]);
 
   useEffect(() => {
-    // Filter hard-coded flipcards based on the selected topic
+  
     const filteredCards = flipcards.filter((card) => card.topic === topic);
 
     setFlipcards(filteredCards);
   }, [topic]);
 
-  console.log(flipcards);
 
   //const fetchAdditionalFlipcards = async () => {
   //   try {
@@ -46,7 +47,7 @@ const FlipcardList = ({ topic }) => {
           <Flipcard key={index + flipcards.length} question={card.question} answer={card.answer} />
         ))
       )}
-        
+
       <button onClick={fetchAdditionalFlipcards}>Load More Flipcards</button> */}
     </div>
   );
