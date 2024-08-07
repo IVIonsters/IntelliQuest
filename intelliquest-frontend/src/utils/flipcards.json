@@ -512,7 +512,6 @@
               { "question": "What is the 'Entity Manager' in ORM?", "answer": "A class responsible for managing the lifecycle of entities and database operations." },
               { "question": "What is 'Schema Validation' in ORM?", "answer": "A process of ensuring that the structure of the data conforms to the expected format before it is persisted in the database." },
               { "question": "What is 'Transaction Management' in ORM?", "answer": "A feature that ensures a series of operations are executed in a reliable way, either all succeed or none do." },
-              { "question": "What is 'Database Migration' in ORM?",
             ]
           },
           
@@ -634,20 +633,15 @@
                 "answer": "A standard library for routing in React."
               },
               {
-                "question": "What is the purpose of the componentDidMount lifecycle method?",
-                "answer": "To run code after the component has been rendered to the DOM."
-              },
-              {
-                "question": "What is the difference between controlled and uncontrolled components in React?",
-                "answer": "Controlled components have their state managed by React, while uncontrolled components manage their own state internally."
-              }
+                "question": "What is the purpose of the componentDidMount lifecycle method?", "answer": "To run code after the component has been rendered to the DOM."},
+              {"question": "What is the difference between controlled and uncontrolled components in React?", "answer": "Controlled components have their state managed by React, while uncontrolled components manage their own state internally."}
             ]
           },
 
           {
             "topic": "MERN",
             "questions": [
-              { "question": "What does MERN stand for?", "answer": "MongoDB, Express.js, React, Node.js" },
+              { "question": "What does MERN stand for?", "answer": "MongoDB, Express.js, React, Node.js"},
               { "question": "What is MongoDB in the MERN stack?", "answer": "A NoSQL database used to store application data." },
               { "question": "What is Express.js in the MERN stack?", "answer": "A web application framework for Node.js used to build RESTful APIs." },
               { "question": "What is React in the MERN stack?", "answer": "A JavaScript library for building user interfaces." },
