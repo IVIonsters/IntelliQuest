@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './SubmitResource.module.css';
 
@@ -20,17 +20,20 @@ const SubmitResource = () => {
 
     // Return the thumbnail URL if the video ID is found
     if (videoId) {
-      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      return {
+        cleanUrl: `https://www.youtube.com/watch?v=${videoId}`,
+        thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+      };
     }
-    return '';
+    return { cleanUrl: '', thumbnailUrl: '' };
   };
 
   // Function to handle URL input change and automatically generate thumbnail URL
   const handleUrlChange = (e) => {
     const videoUrl = e.target.value;
-    setUrl(videoUrl);
-    const generatedThumbnailUrl = generateThumbnailUrl(videoUrl);
-    setThumbnail(generatedThumbnailUrl);
+    const { cleanUrl, thumbnailUrl } = generateThumbnailUrl(videoUrl);
+    setUrl(cleanUrl);
+    setThumbnail(thumbnailUrl);
   };
 
   // Function to handle form submission
@@ -38,17 +41,8 @@ const SubmitResource = () => {
     e.preventDefault();
     try {
       const tagsArray = tags.split(',').map(tag => tag.trim());
-      //Devlopment
-      // const response = await axios.post('http://localhost:5000/api/resources/submit', {
-      //   title,
-      //   description,
-      //   url,
-      //   thumbnail,
-      //   type: 'video',
-      //   tags: tagsArray
-      // });
-      //Production
-      const response = await axios.post('https://intelliquestdb.onrender.com/api/resources/submit', {
+
+      const response = await axios.post('http://localhost:5000/api/resources/submit', {
         title,
         description,
         url,
