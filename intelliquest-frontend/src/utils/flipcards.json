@@ -1,747 +1,1055 @@
 ﻿[
+  {
+    "topic": "Git",
+    "questions": [
       {
-        "topic": "Git",
-        "questions": [
-          {
-            "question": "What is Git?",
-            "answer": "Git is a distributed version control system used to track changes in source code during software development."
-          },
-          {
-            "question": "How do you initialize a new Git repository?",
-            "answer": "Use the command `git init`."
-          },
-          {
-            "question": "How do you clone a repository?",
-            "answer": "Use the command `git clone [repository URL]`."
-          },
-          {
-            "question": "What command is used to check the status of your repository?",
-            "answer": "Use the command `git status`."
-          },
-          {
-            "question": "How do you stage changes for commit?",
-            "answer": "Use the command `git add [file]`."
-          },
-          {
-            "question": "How do you commit changes?",
-            "answer": "Use the command `git commit -m '[commit message]'`."
-          },
-          {
-            "question": "What command is used to view commit history?",
-            "answer": "Use the command `git log`."
-          },
-          {
-            "question": "How do you create a new branch?",
-            "answer": "Use the command `git branch [branch name]`."
-          },
-          {
-            "question": "How do you switch to a different branch?",
-            "answer": "Use the command `git checkout [branch name]`."
-          },
-          {
-            "question": "How do you merge branches?",
-            "answer": "Use the command `git merge [branch name]`."
-          },
-          {
-            "question": "What command is used to push changes to a remote repository?",
-            "answer": "Use the command `git push`."
-          },
-          {
-            "question": "How do you pull changes from a remote repository?",
-            "answer": "Use the command `git pull`."
-          },
-          {
-            "question": "How do you resolve a merge conflict?",
-            "answer": "Manually edit the conflicting files and then use `git add` and `git commit` to resolve."
-          },
-          {
-            "question": "How do you discard changes in your working directory?",
-            "answer": "Use the command `git checkout -- [file]`."
-          },
-          {
-            "question": "How do you delete a branch?",
-            "answer": "Use the command `git branch -d [branch name]`."
-          },
-          {
-            "question": "What is a pull request?",
-            "answer": "A pull request is a request to merge changes from one branch into another in a remote repository."
-          },
-          {
-            "question": "How do you configure a Git username and email?",
-            "answer": "Use `git config --global user.name '[name]'` and `git config --global user.email '[email]'`."
-          },
-          {
-            "question": "What is the purpose of `.gitignore`?",
-            "answer": ".gitignore specifies files and directories that Git should ignore."
-          },
-          {
-            "question": "How do you stash changes?",
-            "answer": "Use the command `git stash`."
-          },
-          {
-            "question": "How do you apply stashed changes?",
-            "answer": "Use the command `git stash apply`."
-          }
-        ]
+        "question": "What is Git?",
+        "answer": "Git is a distributed version control system used to track changes in source code during software development."
       },
-      
       {
-        "topic": "CLI Basics",
-        "questions": [
-          {
-            "question": "What does CLI stand for?",
-            "answer": "CLI stands for Command Line Interface."
-          },
-          {
-            "question": "How do you list files and directories in the current directory?",
-            "answer": "Use the command `ls` (Linux/Mac) or `dir` (Windows)."
-          },
-          {
-            "question": "How do you change directories?",
-            "answer": "Use the command `cd [directory]`."
-          },
-          {
-            "question": "How do you create a new directory?",
-            "answer": "Use the command `mkdir [directory name]`."
-          },
-          {
-            "question": "How do you delete a file?",
-            "answer": "Use the command `rm [file name]` (Linux/Mac) or `del [file name]` (Windows)."
-          },
-          {
-            "question": "How do you delete a directory?",
-            "answer": "Use the command `rmdir [directory name]` (Windows) or `rm -r [directory name]` (Linux/Mac)."
-          },
-          {
-            "question": "How do you move or rename a file?",
-            "answer": "Use the command `mv [old name] [new name]`."
-          },
-          {
-            "question": "How do you copy a file?",
-            "answer": "Use the command `cp [source] [destination]`."
-          },
-          {
-            "question": "How do you display the contents of a file?",
-            "answer": "Use the command `cat [file name]` (Linux/Mac) or `type [file name]` (Windows)."
-          },
-          {
-            "question": "How do you find a file or directory?",
-            "answer": "Use the command `find [path] -name [filename]` (Linux/Mac) or `dir [filename] /s` (Windows)."
-          },
-          {
-            "question": "How do you search within a file?",
-            "answer": "Use the command `grep [search term] [file]` (Linux/Mac) or `findstr [search term] [file]` (Windows)."
-          },
-          {
-            "question": "How do you view system information?",
-            "answer": "Use `uname -a` (Linux/Mac) or `systeminfo` (Windows)."
-          },
-          {
-            "question": "How do you display the current working directory?",
-            "answer": "Use the command `pwd`."
-          },
-          {
-            "question": "How do you view running processes?",
-            "answer": "Use the command `ps` (Linux/Mac) or `tasklist` (Windows)."
-          },
-          {
-            "question": "How do you terminate a running process?",
-            "answer": "Use the command `kill [PID]` (Linux/Mac) or `taskkill /PID [PID]` (Windows)."
-          },
-          {
-            "question": "How do you get help for a command?",
-            "answer": "Use the command `[command] --help` or `man [command]` (Linux/Mac)."
-          },
-          {
-            "question": "How do you redirect output to a file?",
-            "answer": "Use the command `command > [file]`."
-          },
-          {
-            "question": "How do you append output to a file?",
-            "answer": "Use the command `command >> [file]`."
-          },
-          {
-            "question": "How do you clear the terminal screen?",
-            "answer": "Use the command `clear` (Linux/Mac) or `cls` (Windows)."
-          },
-          {
-            "question": "How do you create a symbolic link?",
-            "answer": "Use the command `ln -s [target] [link name]` (Linux/Mac)."
-          },
-          {
-            "question": "How do you display disk usage?",
-            "answer": "Use the command `df -h` (Linux/Mac) or `wmic logicaldisk get size,freespace,caption` (Windows)."
-          }
-        ]
+        "question": "How do you initialize a new Git repository?",
+        "answer": "Use the command `git init`."
       },
-
       {
-        "topic": "CSS",
-        "questions": [
-          {
-            "question": "How do you apply CSS to an HTML element with a class?",
-            "answer": "Use `.classname { property: value; }`."
-          },
-          {
-            "question": "How do you apply CSS to an HTML element with an ID?",
-            "answer": "Use `#idname { property: value; }`."
-          },
-          {
-            "question": "How do you set the color of text?",
-            "answer": "Use the `color` property, e.g., `color: #ff0000;`."
-          },
-          {
-            "question": "How do you set the background color of an element?",
-            "answer": "Use the `background-color` property, e.g., `background-color: #00ff00;`."
-          },
-          {
-            "question": "How do you center text horizontally within an element?",
-            "answer": "Use `text-align: center;`."
-          },
-          {
-            "question": "How do you set the font size of text?",
-            "answer": "Use `font-size: 16px;`."
-          },
-          {
-            "question": "How do you create a border around an element?",
-            "answer": "Use the `border` property, e.g., `border: 1px solid #000;`."
-          },
-          {
-            "question": "How do you add padding inside an element?",
-            "answer": "Use the `padding` property, e.g., `padding: 10px;`."
-          },
-          {
-            "question": "How do you add margin outside an element?",
-            "answer": "Use the `margin` property, e.g., `margin: 20px;`."
-          },
-          {
-            "question": "How do you hide an element?",
-            "answer": "Use `display: none;`."
-          },
-          {
-            "question": "How do you set the width of an element?",
-            "answer": "Use `width: 100px;`."
-          },
-          {
-            "question": "How do you set the height of an element?",
-            "answer": "Use `height: 100px;`."
-          },
-          {
-            "question": "How do you create a CSS grid layout?",
-            "answer": "Use `display: grid;` and define columns and rows with `grid-template-columns` and `grid-template-rows`."
-          },
-          {
-            "question": "How do you create a CSS flexbox layout?",
-            "answer": "Use `display: flex;` and align items with `justify-content` and `align-items`."
-          },
-          {
-            "question": "How do you set a maximum width for an element?",
-            "answer": "Use `max-width: 500px;`."
-          },
-          {
-            "question": "How do you set a minimum height for an element?",
-            "answer": "Use `min-height: 200px;`."
-          },
-          {
-            "question": "How do you apply a font style to text?",
-            "answer": "Use the `font-style` property, e.g., `font-style: italic;`."
-          },
-          {
-            "question": "How do you change the font family of text?",
-            "answer": "Use `font-family: Arial, sans-serif;`."
-          },
-          {
-            "question": "How do you create a responsive design in CSS?",
-            "answer": "Use media queries with `@media` to apply different styles for different screen sizes."
-          },
-          {
-            "question": "How do you create a hover effect for a button?",
-            "answer": "Use `button:hover { background-color: #ff0000; }`."
-          }
-        ]
+        "question": "How do you clone a repository?",
+        "answer": "Use the command `git clone [repository URL]`."
       },
-
       {
-        "topic": "HTML",
-        "questions": [
-          {
-            "question": "What does HTML stand for?",
-            "answer": "HTML stands for HyperText Markup Language."
-          },
-          {
-            "question": "What is the purpose of the <head> tag?",
-            "answer": "The <head> tag contains meta-information about the HTML document, such as the title and links to stylesheets."
-          },
-          {
-            "question": "What tag is used to create a hyperlink?",
-            "answer": "The <a> tag is used to create a hyperlink."
-          },
-          {
-            "question": "How do you insert an image in HTML?",
-            "answer": "Use the <img> tag with the `src` attribute."
-          },
-          {
-            "question": "What is the purpose of the <div> tag?",
-            "answer": "The <div> tag is used to define a division or section in an HTML document."
-          },
-          {
-            "question": "What is the purpose of the <span> tag?",
-            "answer": "The <span> tag is used to apply styles or JavaScript to a specific portion of text within an element."
-          },
-          {
-            "question": "How do you create an ordered list?",
-            "answer": "Use the <ol> tag with <li> tags for each list item."
-          },
-          {
-            "question": "How do you create an unordered list?",
-            "answer": "Use the <ul> tag with <li> tags for each list item."
-          },
-          {
-            "question": "How do you define a table in HTML?",
-            "answer": "Use the <table> tag, with <tr> for rows, <th> for headers, and <td> for table data."
-          },
-          {
-            "question": "What is the purpose of the <form> tag?",
-            "answer": "The <form> tag is used to create an HTML form for user input."
-          },
-          {
-            "question": "How do you create a text input field?",
-            "answer": "Use the <input> tag with `type='text'`."
-          },
-          {
-            "question": "How do you create a button in HTML?",
-            "answer": "Use the <button> tag or the <input> tag with `type='button'`."
-          },
-          {
-            "question": "What attribute is used to provide alternative text for an image?",
-            "answer": "The `alt` attribute in the <img> tag."
-          },
-          {
-            "question": "How do you add a comment in HTML?",
-            "answer": "Use `<!-- comment -->`."
-          },
-          {
-            "question": "How do you include external CSS in an HTML document?",
-            "answer": "Use the <link> tag with `rel='stylesheet'` in the <head> section."
-          },
-          {
-            "question": "How do you include external JavaScript in an HTML document?",
-            "answer": "Use the <script> tag with the `src` attribute."
-          },
-          {
-            "question": "How do you create a line break in HTML?",
-            "answer": "Use the <br> tag."
-          },
-          {
-            "question": "How do you create a horizontal rule in HTML?",
-            "answer": "Use the <hr> tag."
-          },
-          {
-            "question": "What is the purpose of the <meta> tag?",
-            "answer": "The <meta> tag provides metadata about the HTML document, such as character set, author, and viewport settings."
-          },
-          {
-            "question": "How do you set the title of an HTML document?",
-            "answer": "Use the <title> tag inside the <head> section."
-          }
-        ]
+        "question": "What command is used to check the status of your repository?",
+        "answer": "Use the command `git status`."
       },
-
       {
-        "topic": "JavaScript",
-        "questions": [
-          {
-            "question": "What is JavaScript?",
-            "answer": "JavaScript is a programming language commonly used to create interactive effects within web browsers."
-          },
-          {
-            "question": "How do you declare a variable in JavaScript?",
-            "answer": "Use the `var`, `let`, or `const` keyword followed by the variable name."
-          },
-          {
-            "question": "What is an array in JavaScript?",
-            "answer": "An array is a data structure that can hold multiple values at once."
-          },
-          {
-            "question": "How do you define a function in JavaScript?",
-            "answer": "Use the `function` keyword followed by the function name and parentheses."
-          },
-          {
-            "question": "What is the purpose of the `console.log` method?",
-            "answer": "The `console.log` method is used to print output to the browser's console."
-          },
-          {
-            "question": "How do you create an object in JavaScript?",
-            "answer": "Use curly braces `{}` with key-value pairs, e.g., `let obj = { key: 'value' };`."
-          },
-          {
-            "question": "What is a callback function?",
-            "answer": "A callback function is a function passed into another function as an argument to be executed later."
-          },
-          {
-            "question": "How do you create a promise in JavaScript?",
-            "answer": "Use the `new Promise` constructor with an executor function."
-          },
-          {
-            "question": "What is the purpose of the `fetch` API?",
-            "answer": "The `fetch` API is used to make network requests and handle responses."
-          },
-          {
-            "question": "How do you handle asynchronous code in JavaScript?",
-            "answer": "Use `async` and `await` keywords or handle promises with `.then()` and `.catch()`."
-          },
-          {
-            "question": "How do you add an event listener to an element?",
-            "answer": "Use the `addEventListener` method, e.g., `element.addEventListener('event', handler);`."
-          },
-          {
-            "question": "What is the DOM?",
-            "answer": "The DOM (Document Object Model) is a programming interface for web documents that represents the structure of a document as a tree of objects."
-          },
-          {
-            "question": "How do you select an element by its ID?",
-            "answer": "Use `document.getElementById('id')`."
-          },
-          {
-            "question": "How do you select elements by their class name?",
-            "answer": "Use `document.getElementsByClassName('className')`."
-          },
-          {
-            "question": "How do you add a new element to the DOM?",
-            "answer": "Use `document.createElement` to create an element and `appendChild` to add it to the DOM."
-          },
-          {
-            "question": "What is the purpose of the `this` keyword?",
-            "answer": "The `this` keyword refers to the object that is currently executing the code."
-          },
-          {
-            "question": "What is a closure in JavaScript?",
-            "answer": "A closure is a feature where an inner function retains access to the variables of its outer function even after the outer function has finished execution."
-          },
-          {
-            "question": "How do you convert a string to a number?",
-            "answer": "Use `parseInt()` or `parseFloat()`, or the unary `+` operator."
-          },
-          {
-            "question": "How do you check if a value is an array?",
-            "answer": "Use `Array.isArray(value)`."
-          },
-          {
-            "question": "What is the purpose of the `map` method on arrays?",
-            "answer": "The `map` method creates a new array populated with the results of calling a provided function on every element in the calling array."
-          }
-        ]
+        "question": "How do you stage changes for commit?",
+        "answer": "Use the command `git add [file]`."
       },
-
       {
-            "topic": "APIs",
-            "questions": [
-              { "question": "What does API stand for?", "answer": "Application Programming Interface" },
-              { "question": "What is an API?", "answer": "A set of rules and protocols for building and interacting with software applications." },
-              { "question": "What are RESTful APIs?", "answer": "APIs that adhere to the principles of Representational State Transfer." },
-              { "question": "What is a key characteristic of RESTful APIs?", "answer": "Statelessness, meaning each request from client to server must contain all the information needed to understand and process the request." },
-              { "question": "What is an endpoint?", "answer": "A specific URL where an API can access the resources it needs." },
-              { "question": "What is the difference between REST and SOAP?", "answer": "REST is an architectural style while SOAP is a protocol." },
-              { "question": "What is JSON?", "answer": "JavaScript Object Notation, a lightweight data interchange format." },
-              { "question": "What is XML?", "answer": "Extensible Markup Language, a markup language that defines a set of rules for encoding documents." },
-              { "question": "What is OAuth?", "answer": "An open standard for access delegation." },
-              { "question": "What is a rate limit?", "answer": "A limit on the number of API requests that can be made in a given time period." },
-              { "question": "What is an API key?", "answer": "A code passed in by computer programs calling an API to identify the calling program." },
-              { "question": "What is CORS?", "answer": "Cross-Origin Resource Sharing, a mechanism to allow or restrict requested resources on a web server." },
-              { "question": "What is an SDK?", "answer": "Software Development Kit, a collection of software tools and libraries for creating applications." },
-              { "question": "What is a webhook?", "answer": "A method of augmenting or altering the behavior of a web page or web application with custom callbacks." },
-              { "question": "What is a status code 200?", "answer": "OK - The request has succeeded." }
-            ]
-          },
-          
-          {
-            "topic": "Node.js",
-            "questions": [
-              { "question": "What is Node.js?", "answer": "An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser." },
-              { "question": "Who created Node.js?", "answer": "Ryan Dahl in 2009." },
-              { "question": "What is the purpose of Node.js?", "answer": "To build scalable network applications." },
-              { "question": "What is npm?", "answer": "Node Package Manager, a package manager for JavaScript and the default for Node.js." },
-              { "question": "What is the core module in Node.js for working with the file system?", "answer": "The 'fs' module." },
-              { "question": "What does 'require' do in Node.js?", "answer": "It is used to include modules in a Node.js application." },
-              { "question": "What is the 'event loop' in Node.js?", "answer": "A mechanism that handles asynchronous callbacks in Node.js." },
-              { "question": "What is the 'global' object in Node.js?", "answer": "An object that represents the global scope and contains global functions and properties." },
-              { "question": "What is 'non-blocking' I/O?", "answer": "I/O operations that do not block the execution of other operations." },
-              { "question": "What is the purpose of the 'http' module in Node.js?", "answer": "To create and handle HTTP requests and responses." },
-              { "question": "What is 'Express.js' in the context of Node.js?", "answer": "A web application framework for Node.js." },
-              { "question": "How do you create a new Node.js project?", "answer": "Using the 'npm init' command." },
-              { "question": "What is a 'callback' in Node.js?", "answer": "A function that is passed as an argument to another function and is executed after some event or operation." },
-              { "question": "What is 'async/await' in Node.js?", "answer": "Syntax for handling asynchronous operations in a more synchronous-like manner." },
-              { "question": "What is 'cluster' module in Node.js?", "answer": "A module that allows you to create child processes that share the same server port." }
-            ]
-          }, 
-          
-          {
-            "topic": "Express.js",
-            "questions": [
-              { "question": "What is Express.js?", "answer": "A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications." },
-              { "question": "What is middleware in Express.js?", "answer": "Functions that have access to the request object, the response object, and the next function in the application’s request-response cycle." },
-              { "question": "How do you define a route in Express.js?", "answer": "Using app.METHOD(PATH, HANDLER), where METHOD is the HTTP method, PATH is the route path, and HANDLER is the function executed when the route is matched." },
-              { "question": "What is 'app.use' in Express.js?", "answer": "A method to mount middleware functions at a specified path." },
-              { "question": "How do you handle 404 errors in Express.js?", "answer": "By adding a middleware function to catch and handle 404 errors after all routes." },
-              { "question": "What is 'app.listen' in Express.js?", "answer": "A method to bind and listen for connections on the specified host and port." },
-              { "question": "What is 'res.send' in Express.js?", "answer": "A method to send a response of various types to the client." },
-              { "question": "What is 'res.json' in Express.js?", "answer": "A method to send a JSON response." },
-              { "question": "What is 'req.params' in Express.js?", "answer": "An object containing route parameters." },
-              { "question": "What is 'req.query' in Express.js?", "answer": "An object containing query string parameters." },
-              { "question": "What is 'req.body' in Express.js?", "answer": "An object containing the body data of the request." },
-              { "question": "What is a 'route handler' in Express.js?", "answer": "A function that handles a specific route in an Express.js application." },
-              { "question": "How do you serve static files in Express.js?", "answer": "Using the 'express.static' middleware function." },
-              { "question": "What is 'cookie-parser' in Express.js?", "answer": "A middleware to parse cookies attached to the client request object." },
-              { "question": "What is 'express-session' in Express.js?", "answer": "A middleware to manage sessions." }
-            ]
-          }, 
-          
-          {
-            "topic": "ORM",
-            "questions": [
-              { "question": "What does ORM stand for?", "answer": "Object-Relational Mapping" },
-              { "question": "What is ORM?", "answer": "A programming technique for converting data between incompatible type systems using object-oriented programming languages." },
-              { "question": "What is the purpose of ORM?", "answer": "To manage database operations and interactions through objects rather than raw SQL queries." },
-              { "question": "What is an entity in ORM?", "answer": "A class that represents a table in the database." },
-              { "question": "What is a repository in ORM?", "answer": "A pattern that abstracts the data layer to manage data access logic and encapsulate database operations." },
-              { "question": "What is lazy loading in ORM?", "answer": "A design pattern where related data is loaded on demand rather than at the initial query." },
-              { "question": "What is eager loading in ORM?", "answer": "A design pattern where related data is loaded along with the initial query to avoid multiple queries." },
-              { "question": "What is an ORM mapper?", "answer": "A tool or library that automates the mapping between objects and database tables." },
-              { "question": "What is a session in ORM?", "answer": "A context used to manage and track changes to objects and synchronize them with the database." },
-              { "question": "What is an association in ORM?", "answer": "A relationship between two entities, such as one-to-one, one-to-many, or many-to-many." },
-              { "question": "What is the 'Entity Manager' in ORM?", "answer": "A class responsible for managing the lifecycle of entities and database operations." },
-              { "question": "What is 'Schema Validation' in ORM?", "answer": "A process of ensuring that the structure of the data conforms to the expected format before it is persisted in the database." },
-              { "question": "What is 'Transaction Management' in ORM?", "answer": "A feature that ensures a series of operations are executed in a reliable way, either all succeed or none do." },
-            ]
-          },
-          
-          {
-            "topic": "SQL",
-            "questions": [
-              { "question": "What does SQL stand for?", "answer": "Structured Query Language" },
-              { "question": "What is SQL?", "answer": "A language used for managing and manipulating relational databases." },
-              { "question": "What is a database schema?", "answer": "The structure that defines the organization of data within a database." },
-              { "question": "What is a primary key?", "answer": "A unique identifier for each record in a database table." },
-              { "question": "What is a foreign key?", "answer": "A field in one table that uniquely identifies a row of another table." },
-              { "question": "What is a JOIN in SQL?", "answer": "A SQL operation used to combine rows from two or more tables based on a related column." },
-              { "question": "What is a SQL SELECT statement used for?", "answer": "To query and retrieve data from a database." },
-              { "question": "What is an INNER JOIN?", "answer": "A type of join that returns rows with matching values in both tables." },
-              { "question": "What is a LEFT JOIN?", "answer": "A join that returns all rows from the left table, and the matched rows from the right table." },
-              { "question": "What is a GROUP BY clause?", "answer": "A SQL clause used to group rows that have the same values in specified columns into summary rows." },
-              { "question": "What is a SQL aggregate function?", "answer": "A function that performs a calculation on a set of values and returns a single value, such as COUNT, SUM, AVG." },
-              { "question": "What is the purpose of the WHERE clause?", "answer": "To specify conditions for filtering records in a SQL query." },
-              { "question": "What is normalization in SQL?", "answer": "The process of organizing data to reduce redundancy and improve data integrity." },
-              { "question": "What is a subquery?", "answer": "A query nested inside another query." },
-              { "question": "What is the purpose of the ORDER BY clause?", "answer": "To sort the result set of a SQL query in ascending or descending order." }
-            ]
-          },
-
-          {
-            "topic": "NoSQL",
-            "questions": [
-              { "question": "What does NoSQL stand for?", "answer": "Not Only SQL" },
-              { "question": "What is NoSQL?", "answer": "A category of database management systems that do not use SQL as their primary interface." },
-              { "question": "What are the main types of NoSQL databases?", "answer": "Document stores, key-value stores, column-family stores, and graph databases." },
-              { "question": "What is a document store in NoSQL?", "answer": "A NoSQL database that stores data in JSON-like documents." },
-              { "question": "What is a key-value store in NoSQL?", "answer": "A NoSQL database where data is stored as a collection of key-value pairs." },
-              { "question": "What is a column-family store in NoSQL?", "answer": "A NoSQL database that stores data in columns rather than rows." },
-              { "question": "What is a graph database in NoSQL?", "answer": "A NoSQL database designed to handle data with complex relationships using graph structures." },
-              { "question": "What is MongoDB?", "answer": "A popular document-oriented NoSQL database." },
-              { "question": "What is Cassandra?", "answer": "A highly scalable column-family NoSQL database." },
-              { "question": "What is Redis?", "answer": "An in-memory key-value store known for its speed and flexibility." },
-              { "question": "What is Neo4j?", "answer": "A graph database used for handling data with complex relationships." },
-              { "question": "What is sharding in NoSQL?", "answer": "A method of distributing data across multiple servers to ensure scalability." },
-              { "question": "What is replication in NoSQL?", "answer": "A process of duplicating data across multiple nodes to ensure availability and reliability." },
-              { "question": "What is CAP theorem?", "answer": "A principle stating that a distributed database system can only guarantee two out of the following three: Consistency, Availability, and Partition Tolerance." },
-              { "question": "What is eventual consistency?", "answer": "A consistency model where updates to the database are propagated to all nodes eventually, but not necessarily immediately." }
-            ]
-          },
-          
-          {
-            "topic": "React",
-            "flashcards": [
-              {
-                "question": "What is React?",
-                "answer": "A JavaScript library for building user interfaces."
-              },
-              {
-                "question": "Who developed React?",
-                "answer": "Facebook."
-              },
-              {
-                "question": "What is a React component?",
-                "answer": "An independent, reusable piece of UI."
-              },
-              {
-                "question": "What are the two types of React components?",
-                "answer": "Class components and functional components."
-              },
-              {
-                "question": "What is JSX?",
-                "answer": "A syntax extension for JavaScript that looks similar to XML or HTML."
-              },
-              {
-                "question": "What is the purpose of the render method in a class component?",
-                "answer": "To return the JSX that makes up the component's UI."
-              },
-              {
-                "question": "What is state in React?",
-                "answer": "An object that determines how that component renders and behaves."
-              },
-              {
-                "question": "What is a prop in React?",
-                "answer": "Short for 'property,' props are read-only attributes used to pass data from parent to child components."
-              },
-              {
-                "question": "How do you update the state in a React component?",
-                "answer": "Using the setState method in class components or the useState hook in functional components."
-              },
-              {
-                "question": "What is the virtual DOM?",
-                "answer": "An in-memory representation of the real DOM elements generated by React components before any changes are made to the webpage."
-              },
-              {
-                "question": "What is the purpose of the ReactDOM.render method?",
-                "answer": "To render a React component into a DOM node."
-              },
-              {
-                "question": "What is a key in React?",
-                "answer": "A special string attribute used to identify each element in a list."
-              },
-              {
-                "question": "What is a hook in React?",
-                "answer": "A special function that lets you use state and other React features in functional components."
-              },
-              {
-                "question": "What is useEffect in React?",
-                "answer": "A hook that lets you perform side effects in functional components."
-              },
-              {
-                "question": "What is a higher-order component in React?",
-                "answer": "A function that takes a component and returns a new component with additional props."
-              },
-              {
-                "question": "What is the purpose of the useState hook in React?",
-                "answer": "To add state to functional components."
-              },
-              {
-                "question": "What is context in React?",
-                "answer": "A way to pass data through the component tree without having to pass props down manually at every level."
-              },
-              {
-                "question": "What is React Router?",
-                "answer": "A standard library for routing in React."
-              },
-              {
-                "question": "What is the purpose of the componentDidMount lifecycle method?", "answer": "To run code after the component has been rendered to the DOM."},
-              {"question": "What is the difference between controlled and uncontrolled components in React?", "answer": "Controlled components have their state managed by React, while uncontrolled components manage their own state internally."}
-            ]
-          },
-
-          {
-            "topic": "MERN",
-            "questions": [
-              { "question": "What does MERN stand for?", "answer": "MongoDB, Express.js, React, Node.js"},
-              { "question": "What is MongoDB in the MERN stack?", "answer": "A NoSQL database used to store application data." },
-              { "question": "What is Express.js in the MERN stack?", "answer": "A web application framework for Node.js used to build RESTful APIs." },
-              { "question": "What is React in the MERN stack?", "answer": "A JavaScript library for building user interfaces." },
-              { "question": "What is Node.js in the MERN stack?", "answer": "A JavaScript runtime built on Chrome's V8 engine used to build scalable network applications." },
-              { "question": "How does React work with Node.js?", "answer": "React is used for building the front end, while Node.js powers the back end and handles server-side logic." },
-              { "question": "What role does Express.js play in a MERN application?", "answer": "It serves as the middleware that handles routing and HTTP requests between the client and server." },
-              { "question": "What is the purpose of MongoDB in the MERN stack?", "answer": "To store and manage application data in a flexible, document-oriented format." },
-              { "question": "How do you connect MongoDB with Express.js?", "answer": "Using Mongoose, an ODM (Object Data Modeling) library that provides a schema-based solution to model your application data." },
-              { "question": "What is a RESTful API?", "answer": "An API that adheres to the principles of REST and allows communication between client and server using HTTP requests." },
-              { "question": "What is the purpose of Node Package Manager (npm) in MERN?", "answer": "To manage and install the packages required for the Node.js and Express.js backend and the React front end." },
-              { "question": "How do you create a new React project?", "answer": "Using the 'create-react-app' command." },
-              { "question": "What is a component in React?", "answer": "A reusable piece of code that returns a React element to be rendered on the UI." },
-              { "question": "What is the purpose of Redux in a MERN stack?", "answer": "To manage and centralize application state in a predictable way." },
-              { "question": "How do you handle routes in Express.js?", "answer": "By defining route handlers using methods like app.get, app.post, etc., to respond to HTTP requests." }
-            ]
-          },
-                
+        "question": "How do you commit changes?",
+        "answer": "Use the command `git commit -m '[commit message]'`."
+      },
       {
-            "topic": "Python",
-            "questions": [
-              {
-                "question": "What is Python?",
-                "answer": "Python is a high-level, interpreted programming language known for its readability and versatility."
-              },
-              {
-                "question": "Who created Python and when?",
-                "answer": "Python was created by Guido van Rossum and first released in 1991."
-              },
-              {
-                "question": "What are Python's main features?",
-                "answer": "Python features include simplicity, readability, a large standard library, support for multiple paradigms, and portability."
-              },
-              {
-                "question": "What is PEP 8?",
-                "answer": "PEP 8 is the Python Enhancement Proposal that provides guidelines and best practices on how to write Python code."
-              },
-              {
-                "question": "What are Python's data types?",
-                "answer": "Python's data types include int, float, complex, str, list, tuple, dict, set, and bool."
-              },
-              {
-                "question": "What is a Python list?",
-                "answer": "A Python list is a collection of items that are ordered and mutable, and allows duplicate elements."
-              },
-              {
-                "question": "What is a Python dictionary?",
-                "answer": "A Python dictionary is an unordered collection of items where each item is stored as a key-value pair."
-              },
-              {
-                "question": "How do you create a function in Python?",
-                "answer": "You create a function in Python using the 'def' keyword, followed by the function name and parentheses."
-              },
-              {
-                "question": "What is a lambda function?",
-                "answer": "A lambda function is a small anonymous function defined with the 'lambda' keyword."
-              },
-              {
-                "question": "What is list comprehension?",
-                "answer": "List comprehension is a concise way to create lists in Python using a single line of code."
-              },
-              {
-                "question": "What is the difference between 'append' and 'extend' methods in a list?",
-                "answer": "'append' adds its argument as a single element to the end of a list, while 'extend' adds each element of its argument to the list."
-              },
-              {
-                "question": "What is a Python module?",
-                "answer": "A Python module is a file containing Python code that can be imported and used in other Python scripts."
-              },
-              {
-                "question": "What is the purpose of the 'self' keyword in a class method?",
-                "answer": "The 'self' keyword represents the instance of the class and is used to access variables and methods associated with the current object."
-              },
-              {
-                "question": "What are Python decorators?",
-                "answer": "Decorators are a way to modify or enhance functions or methods without changing their actual code."
-              },
-              {
-                "question": "What is the difference between '==' and 'is' operators?",
-                "answer": "'==' compares the values of two objects, while 'is' compares their identities."
-              },
-              {
-                "question": "What is the Global Interpreter Lock (GIL)?",
-                "answer": "The GIL is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes at once."
-              },
-              {
-                "question": "What is the purpose of the 'with' statement in Python?",
-                "answer": "The 'with' statement is used for resource management and exception handling, ensuring proper acquisition and release of resources."
-              },
-              {
-                "question": "How do you handle exceptions in Python?",
-                "answer": "You handle exceptions in Python using the try-except block."
-              },
-              {
-                "question": "What is a Python package?",
-                "answer": "A Python package is a collection of modules organized in directories that provide a hierarchical namespace."
-              },
-              {
-                "question": "What is a virtual environment in Python?",
-                "answer": "A virtual environment is an isolated environment that allows you to manage dependencies for a specific project without affecting other projects."
-          }          
-        ]
+        "question": "What command is used to view commit history?",
+        "answer": "Use the command `git log`."
+      },
+      {
+        "question": "How do you create a new branch?",
+        "answer": "Use the command `git branch [branch name]`."
+      },
+      {
+        "question": "How do you switch to a different branch?",
+        "answer": "Use the command `git checkout [branch name]`."
+      },
+      {
+        "question": "How do you merge branches?",
+        "answer": "Use the command `git merge [branch name]`."
+      },
+      {
+        "question": "What command is used to push changes to a remote repository?",
+        "answer": "Use the command `git push`."
+      },
+      {
+        "question": "How do you pull changes from a remote repository?",
+        "answer": "Use the command `git pull`."
+      },
+      {
+        "question": "How do you resolve a merge conflict?",
+        "answer": "Manually edit the conflicting files and then use `git add` and `git commit` to resolve."
+      },
+      {
+        "question": "How do you discard changes in your working directory?",
+        "answer": "Use the command `git checkout -- [file]`."
+      },
+      {
+        "question": "How do you delete a branch?",
+        "answer": "Use the command `git branch -d [branch name]`."
+      },
+      {
+        "question": "What is a pull request?",
+        "answer": "A pull request is a request to merge changes from one branch into another in a remote repository."
+      },
+      {
+        "question": "How do you configure a Git username and email?",
+        "answer": "Use `git config --global user.name '[name]'` and `git config --global user.email '[email]'`."
+      },
+      {
+        "question": "What is the purpose of `.gitignore`?",
+        "answer": ".gitignore specifies files and directories that Git should ignore."
+      },
+      {
+        "question": "How do you stash changes?",
+        "answer": "Use the command `git stash`."
+      },
+      {
+        "question": "How do you apply stashed changes?",
+        "answer": "Use the command `git stash apply`."
       }
+    ]
+  },
+
+  {
+    "topic": "CLI Basics",
+    "questions": [
+      {
+        "question": "What does CLI stand for?",
+        "answer": "CLI stands for Command Line Interface."
+      },
+      {
+        "question": "How do you list files and directories in the current directory?",
+        "answer": "Use the command `ls` (Linux/Mac) or `dir` (Windows)."
+      },
+      {
+        "question": "How do you change directories?",
+        "answer": "Use the command `cd [directory]`."
+      },
+      {
+        "question": "How do you create a new directory?",
+        "answer": "Use the command `mkdir [directory name]`."
+      },
+      {
+        "question": "How do you delete a file?",
+        "answer": "Use the command `rm [file name]` (Linux/Mac) or `del [file name]` (Windows)."
+      },
+      {
+        "question": "How do you delete a directory?",
+        "answer": "Use the command `rmdir [directory name]` (Windows) or `rm -r [directory name]` (Linux/Mac)."
+      },
+      {
+        "question": "How do you move or rename a file?",
+        "answer": "Use the command `mv [old name] [new name]`."
+      },
+      {
+        "question": "How do you copy a file?",
+        "answer": "Use the command `cp [source] [destination]`."
+      },
+      {
+        "question": "How do you display the contents of a file?",
+        "answer": "Use the command `cat [file name]` (Linux/Mac) or `type [file name]` (Windows)."
+      },
+      {
+        "question": "How do you find a file or directory?",
+        "answer": "Use the command `find [path] -name [filename]` (Linux/Mac) or `dir [filename] /s` (Windows)."
+      },
+      {
+        "question": "How do you search within a file?",
+        "answer": "Use the command `grep [search term] [file]` (Linux/Mac) or `findstr [search term] [file]` (Windows)."
+      },
+      {
+        "question": "How do you view system information?",
+        "answer": "Use `uname -a` (Linux/Mac) or `systeminfo` (Windows)."
+      },
+      {
+        "question": "How do you display the current working directory?",
+        "answer": "Use the command `pwd`."
+      },
+      {
+        "question": "How do you view running processes?",
+        "answer": "Use the command `ps` (Linux/Mac) or `tasklist` (Windows)."
+      },
+      {
+        "question": "How do you terminate a running process?",
+        "answer": "Use the command `kill [PID]` (Linux/Mac) or `taskkill /PID [PID]` (Windows)."
+      },
+      {
+        "question": "How do you get help for a command?",
+        "answer": "Use the command `[command] --help` or `man [command]` (Linux/Mac)."
+      },
+      {
+        "question": "How do you redirect output to a file?",
+        "answer": "Use the command `command > [file]`."
+      },
+      {
+        "question": "How do you append output to a file?",
+        "answer": "Use the command `command >> [file]`."
+      },
+      {
+        "question": "How do you clear the terminal screen?",
+        "answer": "Use the command `clear` (Linux/Mac) or `cls` (Windows)."
+      },
+      {
+        "question": "How do you create a symbolic link?",
+        "answer": "Use the command `ln -s [target] [link name]` (Linux/Mac)."
+      },
+      {
+        "question": "How do you display disk usage?",
+        "answer": "Use the command `df -h` (Linux/Mac) or `wmic logicaldisk get size,freespace,caption` (Windows)."
+      }
+    ]
+  },
+
+  {
+    "topic": "CSS",
+    "questions": [
+      {
+        "question": "How do you apply CSS to an HTML element with a class?",
+        "answer": "Use `.classname { property: value; }`."
+      },
+      {
+        "question": "How do you apply CSS to an HTML element with an ID?",
+        "answer": "Use `#idname { property: value; }`."
+      },
+      {
+        "question": "How do you set the color of text?",
+        "answer": "Use the `color` property, e.g., `color: #ff0000;`."
+      },
+      {
+        "question": "How do you set the background color of an element?",
+        "answer": "Use the `background-color` property, e.g., `background-color: #00ff00;`."
+      },
+      {
+        "question": "How do you center text horizontally within an element?",
+        "answer": "Use `text-align: center;`."
+      },
+      {
+        "question": "How do you set the font size of text?",
+        "answer": "Use `font-size: 16px;`."
+      },
+      {
+        "question": "How do you create a border around an element?",
+        "answer": "Use the `border` property, e.g., `border: 1px solid #000;`."
+      },
+      {
+        "question": "How do you add padding inside an element?",
+        "answer": "Use the `padding` property, e.g., `padding: 10px;`."
+      },
+      {
+        "question": "How do you add margin outside an element?",
+        "answer": "Use the `margin` property, e.g., `margin: 20px;`."
+      },
+      {
+        "question": "How do you hide an element?",
+        "answer": "Use `display: none;`."
+      },
+      {
+        "question": "How do you set the width of an element?",
+        "answer": "Use `width: 100px;`."
+      },
+      {
+        "question": "How do you set the height of an element?",
+        "answer": "Use `height: 100px;`."
+      },
+      {
+        "question": "How do you create a CSS grid layout?",
+        "answer": "Use `display: grid;` and define columns and rows with `grid-template-columns` and `grid-template-rows`."
+      },
+      {
+        "question": "How do you create a CSS flexbox layout?",
+        "answer": "Use `display: flex;` and align items with `justify-content` and `align-items`."
+      },
+      {
+        "question": "How do you set a maximum width for an element?",
+        "answer": "Use `max-width: 500px;`."
+      },
+      {
+        "question": "How do you set a minimum height for an element?",
+        "answer": "Use `min-height: 200px;`."
+      },
+      {
+        "question": "How do you apply a font style to text?",
+        "answer": "Use the `font-style` property, e.g., `font-style: italic;`."
+      },
+      {
+        "question": "How do you change the font family of text?",
+        "answer": "Use `font-family: Arial, sans-serif;`."
+      },
+      {
+        "question": "How do you create a responsive design in CSS?",
+        "answer": "Use media queries with `@media` to apply different styles for different screen sizes."
+      },
+      {
+        "question": "How do you create a hover effect for a button?",
+        "answer": "Use `button:hover { background-color: #ff0000; }`."
+      }
+    ]
+  },
+
+  {
+    "topic": "HTML",
+    "questions": [
+      {
+        "question": "What does HTML stand for?",
+        "answer": "HTML stands for HyperText Markup Language."
+      },
+      {
+        "question": "What is the purpose of the <head> tag?",
+        "answer": "The <head> tag contains meta-information about the HTML document, such as the title and links to stylesheets."
+      },
+      {
+        "question": "What tag is used to create a hyperlink?",
+        "answer": "The <a> tag is used to create a hyperlink."
+      },
+      {
+        "question": "How do you insert an image in HTML?",
+        "answer": "Use the <img> tag with the `src` attribute."
+      },
+      {
+        "question": "What is the purpose of the <div> tag?",
+        "answer": "The <div> tag is used to define a division or section in an HTML document."
+      },
+      {
+        "question": "What is the purpose of the <span> tag?",
+        "answer": "The <span> tag is used to apply styles or JavaScript to a specific portion of text within an element."
+      },
+      {
+        "question": "How do you create an ordered list?",
+        "answer": "Use the <ol> tag with <li> tags for each list item."
+      },
+      {
+        "question": "How do you create an unordered list?",
+        "answer": "Use the <ul> tag with <li> tags for each list item."
+      },
+      {
+        "question": "How do you define a table in HTML?",
+        "answer": "Use the <table> tag, with <tr> for rows, <th> for headers, and <td> for table data."
+      },
+      {
+        "question": "What is the purpose of the <form> tag?",
+        "answer": "The <form> tag is used to create an HTML form for user input."
+      },
+      {
+        "question": "How do you create a text input field?",
+        "answer": "Use the <input> tag with `type='text'`."
+      },
+      {
+        "question": "How do you create a button in HTML?",
+        "answer": "Use the <button> tag or the <input> tag with `type='button'`."
+      },
+      {
+        "question": "What attribute is used to provide alternative text for an image?",
+        "answer": "The `alt` attribute in the <img> tag."
+      },
+      {
+        "question": "How do you add a comment in HTML?",
+        "answer": "Use `<!-- comment -->`."
+      },
+      {
+        "question": "How do you include external CSS in an HTML document?",
+        "answer": "Use the <link> tag with `rel='stylesheet'` in the <head> section."
+      },
+      {
+        "question": "How do you include external JavaScript in an HTML document?",
+        "answer": "Use the <script> tag with the `src` attribute."
+      },
+      {
+        "question": "How do you create a line break in HTML?",
+        "answer": "Use the <br> tag."
+      },
+      {
+        "question": "How do you create a horizontal rule in HTML?",
+        "answer": "Use the <hr> tag."
+      },
+      {
+        "question": "What is the purpose of the <meta> tag?",
+        "answer": "The <meta> tag provides metadata about the HTML document, such as character set, author, and viewport settings."
+      },
+      {
+        "question": "How do you set the title of an HTML document?",
+        "answer": "Use the <title> tag inside the <head> section."
+      }
+    ]
+  },
+
+  {
+    "topic": "JavaScript",
+    "questions": [
+      {
+        "question": "What is JavaScript?",
+        "answer": "JavaScript is a programming language commonly used to create interactive effects within web browsers."
+      },
+      {
+        "question": "How do you declare a variable in JavaScript?",
+        "answer": "Use the `var`, `let`, or `const` keyword followed by the variable name."
+      },
+      {
+        "question": "What is an array in JavaScript?",
+        "answer": "An array is a data structure that can hold multiple values at once."
+      },
+      {
+        "question": "How do you define a function in JavaScript?",
+        "answer": "Use the `function` keyword followed by the function name and parentheses."
+      },
+      {
+        "question": "What is the purpose of the `console.log` method?",
+        "answer": "The `console.log` method is used to print output to the browser's console."
+      },
+      {
+        "question": "How do you create an object in JavaScript?",
+        "answer": "Use curly braces `{}` with key-value pairs, e.g., `let obj = { key: 'value' };`."
+      },
+      {
+        "question": "What is a callback function?",
+        "answer": "A callback function is a function passed into another function as an argument to be executed later."
+      },
+      {
+        "question": "How do you create a promise in JavaScript?",
+        "answer": "Use the `new Promise` constructor with an executor function."
+      },
+      {
+        "question": "What is the purpose of the `fetch` API?",
+        "answer": "The `fetch` API is used to make network requests and handle responses."
+      },
+      {
+        "question": "How do you handle asynchronous code in JavaScript?",
+        "answer": "Use `async` and `await` keywords or handle promises with `.then()` and `.catch()`."
+      },
+      {
+        "question": "How do you add an event listener to an element?",
+        "answer": "Use the `addEventListener` method, e.g., `element.addEventListener('event', handler);`."
+      },
+      {
+        "question": "What is the DOM?",
+        "answer": "The DOM (Document Object Model) is a programming interface for web documents that represents the structure of a document as a tree of objects."
+      },
+      {
+        "question": "How do you select an element by its ID?",
+        "answer": "Use `document.getElementById('id')`."
+      },
+      {
+        "question": "How do you select elements by their class name?",
+        "answer": "Use `document.getElementsByClassName('className')`."
+      },
+      {
+        "question": "How do you add a new element to the DOM?",
+        "answer": "Use `document.createElement` to create an element and `appendChild` to add it to the DOM."
+      },
+      {
+        "question": "What is the purpose of the `this` keyword?",
+        "answer": "The `this` keyword refers to the object that is currently executing the code."
+      },
+      {
+        "question": "What is a closure in JavaScript?",
+        "answer": "A closure is a feature where an inner function retains access to the variables of its outer function even after the outer function has finished execution."
+      },
+      {
+        "question": "How do you convert a string to a number?",
+        "answer": "Use `parseInt()` or `parseFloat()`, or the unary `+` operator."
+      },
+      {
+        "question": "How do you check if a value is an array?",
+        "answer": "Use `Array.isArray(value)`."
+      },
+      {
+        "question": "What is the purpose of the `map` method on arrays?",
+        "answer": "The `map` method creates a new array populated with the results of calling a provided function on every element in the calling array."
+      }
+    ]
+  },
+
+  {
+    "topic": "APIs",
+    "questions": [
+      {
+        "question": "What does API stand for?",
+        "answer": "Application Programming Interface"
+      },
+      {
+        "question": "What is an API?",
+        "answer": "A set of rules and protocols for building and interacting with software applications."
+      },
+      {
+        "question": "What are RESTful APIs?",
+        "answer": "APIs that adhere to the principles of Representational State Transfer."
+      },
+      {
+        "question": "What is a key characteristic of RESTful APIs?",
+        "answer": "Statelessness, meaning each request from client to server must contain all the information needed to understand and process the request."
+      },
+      {
+        "question": "What is an endpoint?",
+        "answer": "A specific URL where an API can access the resources it needs."
+      },
+      {
+        "question": "What is the difference between REST and SOAP?",
+        "answer": "REST is an architectural style while SOAP is a protocol."
+      },
+      {
+        "question": "What is JSON?",
+        "answer": "JavaScript Object Notation, a lightweight data interchange format."
+      },
+      {
+        "question": "What is XML?",
+        "answer": "Extensible Markup Language, a markup language that defines a set of rules for encoding documents."
+      },
+      {
+        "question": "What is OAuth?",
+        "answer": "An open standard for access delegation."
+      },
+      {
+        "question": "What is a rate limit?",
+        "answer": "A limit on the number of API requests that can be made in a given time period."
+      },
+      {
+        "question": "What is an API key?",
+        "answer": "A code passed in by computer programs calling an API to identify the calling program."
+      },
+      {
+        "question": "What is CORS?",
+        "answer": "Cross-Origin Resource Sharing, a mechanism to allow or restrict requested resources on a web server."
+      },
+      {
+        "question": "What is an SDK?",
+        "answer": "Software Development Kit, a collection of software tools and libraries for creating applications."
+      },
+      {
+        "question": "What is a webhook?",
+        "answer": "A method of augmenting or altering the behavior of a web page or web application with custom callbacks."
+      },
+      {
+        "question": "What is a status code 200?",
+        "answer": "OK - The request has succeeded."
+      }
+    ]
+  },
+
+  {
+    "topic": "Node.js",
+    "questions": [
+      {
+        "question": "What is Node.js?",
+        "answer": "An open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser."
+      },
+      { "question": "Who created Node.js?", "answer": "Ryan Dahl in 2009." },
+      {
+        "question": "What is the purpose of Node.js?",
+        "answer": "To build scalable network applications."
+      },
+      {
+        "question": "What is npm?",
+        "answer": "Node Package Manager, a package manager for JavaScript and the default for Node.js."
+      },
+      {
+        "question": "What is the core module in Node.js for working with the file system?",
+        "answer": "The 'fs' module."
+      },
+      {
+        "question": "What does 'require' do in Node.js?",
+        "answer": "It is used to include modules in a Node.js application."
+      },
+      {
+        "question": "What is the 'event loop' in Node.js?",
+        "answer": "A mechanism that handles asynchronous callbacks in Node.js."
+      },
+      {
+        "question": "What is the 'global' object in Node.js?",
+        "answer": "An object that represents the global scope and contains global functions and properties."
+      },
+      {
+        "question": "What is 'non-blocking' I/O?",
+        "answer": "I/O operations that do not block the execution of other operations."
+      },
+      {
+        "question": "What is the purpose of the 'http' module in Node.js?",
+        "answer": "To create and handle HTTP requests and responses."
+      },
+      {
+        "question": "What is 'Express.js' in the context of Node.js?",
+        "answer": "A web application framework for Node.js."
+      },
+      {
+        "question": "How do you create a new Node.js project?",
+        "answer": "Using the 'npm init' command."
+      },
+      {
+        "question": "What is a 'callback' in Node.js?",
+        "answer": "A function that is passed as an argument to another function and is executed after some event or operation."
+      },
+      {
+        "question": "What is 'async/await' in Node.js?",
+        "answer": "Syntax for handling asynchronous operations in a more synchronous-like manner."
+      },
+      {
+        "question": "What is 'cluster' module in Node.js?",
+        "answer": "A module that allows you to create child processes that share the same server port."
+      }
+    ]
+  },
+
+  {
+    "topic": "Express.js",
+    "questions": [
+      {
+        "question": "What is Express.js?",
+        "answer": "A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
+      },
+      {
+        "question": "What is middleware in Express.js?",
+        "answer": "Functions that have access to the request object, the response object, and the next function in the application’s request-response cycle."
+      },
+      {
+        "question": "How do you define a route in Express.js?",
+        "answer": "Using app.METHOD(PATH, HANDLER), where METHOD is the HTTP method, PATH is the route path, and HANDLER is the function executed when the route is matched."
+      },
+      {
+        "question": "What is 'app.use' in Express.js?",
+        "answer": "A method to mount middleware functions at a specified path."
+      },
+      {
+        "question": "How do you handle 404 errors in Express.js?",
+        "answer": "By adding a middleware function to catch and handle 404 errors after all routes."
+      },
+      {
+        "question": "What is 'app.listen' in Express.js?",
+        "answer": "A method to bind and listen for connections on the specified host and port."
+      },
+      {
+        "question": "What is 'res.send' in Express.js?",
+        "answer": "A method to send a response of various types to the client."
+      },
+      {
+        "question": "What is 'res.json' in Express.js?",
+        "answer": "A method to send a JSON response."
+      },
+      {
+        "question": "What is 'req.params' in Express.js?",
+        "answer": "An object containing route parameters."
+      },
+      {
+        "question": "What is 'req.query' in Express.js?",
+        "answer": "An object containing query string parameters."
+      },
+      {
+        "question": "What is 'req.body' in Express.js?",
+        "answer": "An object containing the body data of the request."
+      },
+      {
+        "question": "What is a 'route handler' in Express.js?",
+        "answer": "A function that handles a specific route in an Express.js application."
+      },
+      {
+        "question": "How do you serve static files in Express.js?",
+        "answer": "Using the 'express.static' middleware function."
+      },
+      {
+        "question": "What is 'cookie-parser' in Express.js?",
+        "answer": "A middleware to parse cookies attached to the client request object."
+      },
+      {
+        "question": "What is 'express-session' in Express.js?",
+        "answer": "A middleware to manage sessions."
+      }
+    ]
+  },
+
+  {
+    "topic": "ORM",
+    "questions": [
+      {
+        "question": "What does ORM stand for?",
+        "answer": "Object-Relational Mapping"
+      },
+      {
+        "question": "What is ORM?",
+        "answer": "A programming technique for converting data between incompatible type systems using object-oriented programming languages."
+      },
+      {
+        "question": "What is the purpose of ORM?",
+        "answer": "To manage database operations and interactions through objects rather than raw SQL queries."
+      },
+      {
+        "question": "What is an entity in ORM?",
+        "answer": "A class that represents a table in the database."
+      },
+      {
+        "question": "What is a repository in ORM?",
+        "answer": "A pattern that abstracts the data layer to manage data access logic and encapsulate database operations."
+      },
+      {
+        "question": "What is lazy loading in ORM?",
+        "answer": "A design pattern where related data is loaded on demand rather than at the initial query."
+      },
+      {
+        "question": "What is eager loading in ORM?",
+        "answer": "A design pattern where related data is loaded along with the initial query to avoid multiple queries."
+      },
+      {
+        "question": "What is an ORM mapper?",
+        "answer": "A tool or library that automates the mapping between objects and database tables."
+      },
+      {
+        "question": "What is a session in ORM?",
+        "answer": "A context used to manage and track changes to objects and synchronize them with the database."
+      },
+      {
+        "question": "What is an association in ORM?",
+        "answer": "A relationship between two entities, such as one-to-one, one-to-many, or many-to-many."
+      },
+      {
+        "question": "What is the 'Entity Manager' in ORM?",
+        "answer": "A class responsible for managing the lifecycle of entities and database operations."
+      },
+      {
+        "question": "What is 'Schema Validation' in ORM?",
+        "answer": "A process of ensuring that the structure of the data conforms to the expected format before it is persisted in the database."
+      },
+      {
+        "question": "What is 'Transaction Management' in ORM?",
+        "answer": "A feature that ensures a series of operations are executed in a reliable way, either all succeed or none do."
+      }
+    ]
+  },
+
+  {
+    "topic": "SQL",
+    "questions": [
+      {
+        "question": "What does SQL stand for?",
+        "answer": "Structured Query Language"
+      },
+      {
+        "question": "What is SQL?",
+        "answer": "A language used for managing and manipulating relational databases."
+      },
+      {
+        "question": "What is a database schema?",
+        "answer": "The structure that defines the organization of data within a database."
+      },
+      {
+        "question": "What is a primary key?",
+        "answer": "A unique identifier for each record in a database table."
+      },
+      {
+        "question": "What is a foreign key?",
+        "answer": "A field in one table that uniquely identifies a row of another table."
+      },
+      {
+        "question": "What is a JOIN in SQL?",
+        "answer": "A SQL operation used to combine rows from two or more tables based on a related column."
+      },
+      {
+        "question": "What is a SQL SELECT statement used for?",
+        "answer": "To query and retrieve data from a database."
+      },
+      {
+        "question": "What is an INNER JOIN?",
+        "answer": "A type of join that returns rows with matching values in both tables."
+      },
+      {
+        "question": "What is a LEFT JOIN?",
+        "answer": "A join that returns all rows from the left table, and the matched rows from the right table."
+      },
+      {
+        "question": "What is a GROUP BY clause?",
+        "answer": "A SQL clause used to group rows that have the same values in specified columns into summary rows."
+      },
+      {
+        "question": "What is a SQL aggregate function?",
+        "answer": "A function that performs a calculation on a set of values and returns a single value, such as COUNT, SUM, AVG."
+      },
+      {
+        "question": "What is the purpose of the WHERE clause?",
+        "answer": "To specify conditions for filtering records in a SQL query."
+      },
+      {
+        "question": "What is normalization in SQL?",
+        "answer": "The process of organizing data to reduce redundancy and improve data integrity."
+      },
+      {
+        "question": "What is a subquery?",
+        "answer": "A query nested inside another query."
+      },
+      {
+        "question": "What is the purpose of the ORDER BY clause?",
+        "answer": "To sort the result set of a SQL query in ascending or descending order."
+      }
+    ]
+  },
+
+  {
+    "topic": "NoSQL",
+    "questions": [
+      { "question": "What does NoSQL stand for?", "answer": "Not Only SQL" },
+      {
+        "question": "What is NoSQL?",
+        "answer": "A category of database management systems that do not use SQL as their primary interface."
+      },
+      {
+        "question": "What are the main types of NoSQL databases?",
+        "answer": "Document stores, key-value stores, column-family stores, and graph databases."
+      },
+      {
+        "question": "What is a document store in NoSQL?",
+        "answer": "A NoSQL database that stores data in JSON-like documents."
+      },
+      {
+        "question": "What is a key-value store in NoSQL?",
+        "answer": "A NoSQL database where data is stored as a collection of key-value pairs."
+      },
+      {
+        "question": "What is a column-family store in NoSQL?",
+        "answer": "A NoSQL database that stores data in columns rather than rows."
+      },
+      {
+        "question": "What is a graph database in NoSQL?",
+        "answer": "A NoSQL database designed to handle data with complex relationships using graph structures."
+      },
+      {
+        "question": "What is MongoDB?",
+        "answer": "A popular document-oriented NoSQL database."
+      },
+      {
+        "question": "What is Cassandra?",
+        "answer": "A highly scalable column-family NoSQL database."
+      },
+      {
+        "question": "What is Redis?",
+        "answer": "An in-memory key-value store known for its speed and flexibility."
+      },
+      {
+        "question": "What is Neo4j?",
+        "answer": "A graph database used for handling data with complex relationships."
+      },
+      {
+        "question": "What is sharding in NoSQL?",
+        "answer": "A method of distributing data across multiple servers to ensure scalability."
+      },
+      {
+        "question": "What is replication in NoSQL?",
+        "answer": "A process of duplicating data across multiple nodes to ensure availability and reliability."
+      },
+      {
+        "question": "What is CAP theorem?",
+        "answer": "A principle stating that a distributed database system can only guarantee two out of the following three: Consistency, Availability, and Partition Tolerance."
+      },
+      {
+        "question": "What is eventual consistency?",
+        "answer": "A consistency model where updates to the database are propagated to all nodes eventually, but not necessarily immediately."
+      }
+    ]
+  },
+
+  {
+    "topic": "React",
+    "flashcards": [
+      {
+        "question": "What is React?",
+        "answer": "A JavaScript library for building user interfaces."
+      },
+      {
+        "question": "Who developed React?",
+        "answer": "Facebook."
+      },
+      {
+        "question": "What is a React component?",
+        "answer": "An independent, reusable piece of UI."
+      },
+      {
+        "question": "What are the two types of React components?",
+        "answer": "Class components and functional components."
+      },
+      {
+        "question": "What is JSX?",
+        "answer": "A syntax extension for JavaScript that looks similar to XML or HTML."
+      },
+      {
+        "question": "What is the purpose of the render method in a class component?",
+        "answer": "To return the JSX that makes up the component's UI."
+      },
+      {
+        "question": "What is state in React?",
+        "answer": "An object that determines how that component renders and behaves."
+      },
+      {
+        "question": "What is a prop in React?",
+        "answer": "Short for 'property,' props are read-only attributes used to pass data from parent to child components."
+      },
+      {
+        "question": "How do you update the state in a React component?",
+        "answer": "Using the setState method in class components or the useState hook in functional components."
+      },
+      {
+        "question": "What is the virtual DOM?",
+        "answer": "An in-memory representation of the real DOM elements generated by React components before any changes are made to the webpage."
+      },
+      {
+        "question": "What is the purpose of the ReactDOM.render method?",
+        "answer": "To render a React component into a DOM node."
+      },
+      {
+        "question": "What is a key in React?",
+        "answer": "A special string attribute used to identify each element in a list."
+      },
+      {
+        "question": "What is a hook in React?",
+        "answer": "A special function that lets you use state and other React features in functional components."
+      },
+      {
+        "question": "What is useEffect in React?",
+        "answer": "A hook that lets you perform side effects in functional components."
+      },
+      {
+        "question": "What is a higher-order component in React?",
+        "answer": "A function that takes a component and returns a new component with additional props."
+      },
+      {
+        "question": "What is the purpose of the useState hook in React?",
+        "answer": "To add state to functional components."
+      },
+      {
+        "question": "What is context in React?",
+        "answer": "A way to pass data through the component tree without having to pass props down manually at every level."
+      },
+      {
+        "question": "What is React Router?",
+        "answer": "A standard library for routing in React."
+      },
+      {
+        "question": "What is the purpose of the componentDidMount lifecycle method?",
+        "answer": "To run code after the component has been rendered to the DOM."
+      },
+      {
+        "question": "What is the difference between controlled and uncontrolled components in React?",
+        "answer": "Controlled components have their state managed by React, while uncontrolled components manage their own state internally."
+      }
+    ]
+  },
+
+  {
+    "topic": "MERN",
+    "questions": [
+      {
+        "question": "What does MERN stand for?",
+        "answer": "MongoDB, Express.js, React, Node.js"
+      },
+      {
+        "question": "What is MongoDB in the MERN stack?",
+        "answer": "A NoSQL database used to store application data."
+      },
+      {
+        "question": "What is Express.js in the MERN stack?",
+        "answer": "A web application framework for Node.js used to build RESTful APIs."
+      },
+      {
+        "question": "What is React in the MERN stack?",
+        "answer": "A JavaScript library for building user interfaces."
+      },
+      {
+        "question": "What is Node.js in the MERN stack?",
+        "answer": "A JavaScript runtime built on Chrome's V8 engine used to build scalable network applications."
+      },
+      {
+        "question": "How does React work with Node.js?",
+        "answer": "React is used for building the front end, while Node.js powers the back end and handles server-side logic."
+      },
+      {
+        "question": "What role does Express.js play in a MERN application?",
+        "answer": "It serves as the middleware that handles routing and HTTP requests between the client and server."
+      },
+      {
+        "question": "What is the purpose of MongoDB in the MERN stack?",
+        "answer": "To store and manage application data in a flexible, document-oriented format."
+      },
+      {
+        "question": "How do you connect MongoDB with Express.js?",
+        "answer": "Using Mongoose, an ODM (Object Data Modeling) library that provides a schema-based solution to model your application data."
+      },
+      {
+        "question": "What is a RESTful API?",
+        "answer": "An API that adheres to the principles of REST and allows communication between client and server using HTTP requests."
+      },
+      {
+        "question": "What is the purpose of Node Package Manager (npm) in MERN?",
+        "answer": "To manage and install the packages required for the Node.js and Express.js backend and the React front end."
+      },
+      {
+        "question": "How do you create a new React project?",
+        "answer": "Using the 'create-react-app' command."
+      },
+      {
+        "question": "What is a component in React?",
+        "answer": "A reusable piece of code that returns a React element to be rendered on the UI."
+      },
+      {
+        "question": "What is the purpose of Redux in a MERN stack?",
+        "answer": "To manage and centralize application state in a predictable way."
+      },
+      {
+        "question": "How do you handle routes in Express.js?",
+        "answer": "By defining route handlers using methods like app.get, app.post, etc., to respond to HTTP requests."
+      }
+    ]
+  },
+
+  {
+    "topic": "Python",
+    "questions": [
+      {
+        "question": "What is Python?",
+        "answer": "Python is a high-level, interpreted programming language known for its readability and versatility."
+      },
+      {
+        "question": "Who created Python and when?",
+        "answer": "Python was created by Guido van Rossum and first released in 1991."
+      },
+      {
+        "question": "What are Python's main features?",
+        "answer": "Python features include simplicity, readability, a large standard library, support for multiple paradigms, and portability."
+      },
+      {
+        "question": "What is PEP 8?",
+        "answer": "PEP 8 is the Python Enhancement Proposal that provides guidelines and best practices on how to write Python code."
+      },
+      {
+        "question": "What are Python's data types?",
+        "answer": "Python's data types include int, float, complex, str, list, tuple, dict, set, and bool."
+      },
+      {
+        "question": "What is a Python list?",
+        "answer": "A Python list is a collection of items that are ordered and mutable, and allows duplicate elements."
+      },
+      {
+        "question": "What is a Python dictionary?",
+        "answer": "A Python dictionary is an unordered collection of items where each item is stored as a key-value pair."
+      },
+      {
+        "question": "How do you create a function in Python?",
+        "answer": "You create a function in Python using the 'def' keyword, followed by the function name and parentheses."
+      },
+      {
+        "question": "What is a lambda function?",
+        "answer": "A lambda function is a small anonymous function defined with the 'lambda' keyword."
+      },
+      {
+        "question": "What is list comprehension?",
+        "answer": "List comprehension is a concise way to create lists in Python using a single line of code."
+      },
+      {
+        "question": "What is the difference between 'append' and 'extend' methods in a list?",
+        "answer": "'append' adds its argument as a single element to the end of a list, while 'extend' adds each element of its argument to the list."
+      },
+      {
+        "question": "What is a Python module?",
+        "answer": "A Python module is a file containing Python code that can be imported and used in other Python scripts."
+      },
+      {
+        "question": "What is the purpose of the 'self' keyword in a class method?",
+        "answer": "The 'self' keyword represents the instance of the class and is used to access variables and methods associated with the current object."
+      },
+      {
+        "question": "What are Python decorators?",
+        "answer": "Decorators are a way to modify or enhance functions or methods without changing their actual code."
+      },
+      {
+        "question": "What is the difference between '==' and 'is' operators?",
+        "answer": "'==' compares the values of two objects, while 'is' compares their identities."
+      },
+      {
+        "question": "What is the Global Interpreter Lock (GIL)?",
+        "answer": "The GIL is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes at once."
+      },
+      {
+        "question": "What is the purpose of the 'with' statement in Python?",
+        "answer": "The 'with' statement is used for resource management and exception handling, ensuring proper acquisition and release of resources."
+      },
+      {
+        "question": "How do you handle exceptions in Python?",
+        "answer": "You handle exceptions in Python using the try-except block."
+      },
+      {
+        "question": "What is a Python package?",
+        "answer": "A Python package is a collection of modules organized in directories that provide a hierarchical namespace."
+      },
+      {
+        "question": "What is a virtual environment in Python?",
+        "answer": "A virtual environment is an isolated environment that allows you to manage dependencies for a specific project without affecting other projects."
+      }
+    ]
+  }
 ]
