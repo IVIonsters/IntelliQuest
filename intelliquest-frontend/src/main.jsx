@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        index: true,
+        path: 'home',
         element: <HomePage />
       },
       {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: 'signup',
+        index: true,
         element: <Signup />
       },
       {
