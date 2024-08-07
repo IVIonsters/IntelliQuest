@@ -34,7 +34,7 @@ function EmailPasswordLogin() {
                     setError("");
                     setDataLocalStorage(AUTH_TOKEN_NAME, token);
                     setUser({ email: "", password: "" });
-                    navigate("/");
+                    navigate("/home");
                 }
             }
 
