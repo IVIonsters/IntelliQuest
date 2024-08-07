@@ -1,26 +1,21 @@
-﻿import { useState } from 'react';
+﻿import React, { useState } from 'react';
 import './Flipcard.module.css';
 
-
-const FlipCard = ({ question, answer }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+const Flipcard = ({ question, answer }) => {
+  const [flipped, setFlipped] = useState(false);
 
   return (
-    <div className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          {question}
+    <div onClick={() => setFlipped(!flipped)} className="flipcard">
+      <div className={`flipcard-inner ${flipped ? 'flipped' : ''}`}>
+        <div className="flipcard-front">
+          <p>{question}</p>
         </div>
-        <div className="flip-card-back">
-          {answer}
+        <div className="flipcard-back">
+          <p>{answer}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default FlipCard;
+export default Flipcard;

@@ -1,22 +1,27 @@
 ﻿import React, { useEffect, useState } from "react";
-import Flipcard from "../Flipcard";
+import Flipcard from "../Flipcard/Flipcard";
 // import "./Flipcard.module.css";
 import flipcardsData from "../../utils/flipcards.json";
+
+console.log (flipcardsData)
 
 // import Flipcard from "../Flipcard/Flipcard";
 
 // import hardCodedFlipcards from "../../utils/flipcards.json";
 
-console.log(flipcards);
-
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
 
   useEffect(() => {
-    // Filter example data based on the selected topic
+    // Filter data based on the selected topic
     const filteredCards = flipcards.filter((card) => card.topic === topic);
     setFlipcards(filteredCards);
   }, [topic]);
+
+
+  console.log('flipcardsData:', flipcardsData); // Check if data is imported correctly
+
+
 
   return (
     <div>
