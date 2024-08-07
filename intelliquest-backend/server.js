@@ -6,7 +6,7 @@ const resourceRoutes = require('./routes/api/resources');
 const signupRoute = require('./controllers/authController');
 const session = require('express-session');
 const passport = require('./config/passport');
-const axios = require('axios'); // Import axios
+const axios = require('axios');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -42,6 +42,7 @@ app.use('/', signupRoute);
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
 
+// Route to generate a quiz
 app.post('/generate_quiz', async (req, res) => {
   const topic = req.body.topic;
 
@@ -78,6 +79,7 @@ app.post('/generate_quiz', async (req, res) => {
   }
 });
 
+// Route to optimize code
 app.post('/optimize', async (req, res) => {
   const code = req.body.code;
   const headers = {
@@ -85,7 +87,7 @@ app.post('/optimize', async (req, res) => {
     'Content-Type': 'application/json'
   };
   const data = {
-    'model': 'gpt-3.5-turbo', // Use a current model
+    'model': 'gpt-3.5-turbo',
     'messages': [
       {
         'role': 'system',
@@ -111,6 +113,30 @@ app.post('/optimize', async (req, res) => {
   } catch (error) {
     console.error('Error:', error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'Error optimizing code' });
+  }
+});
+
+// Route to handle resource submissions
+app.post('/api/resources/submit', async (req, res) => {
+  const { title, description, url, thumbnail, type, tags } = req.body;
+
+  // Create a new resource document
+  const newResource = new Resource({
+    title,
+    description,
+    url,
+    thumbnail,
+    type,
+    tags
+  });
+
+  try {
+    // Save the resource to the database
+    await newResource.save();
+    res.status(201).json({ message: 'Resource submitted successfully', resource: newResource });
+  } catch (error) {
+    console.error('Error submitting resource:', error.message);
+    res.status(500).json({ error: 'Error submitting resource' });
   }
 });
 
