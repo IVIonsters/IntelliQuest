@@ -14,7 +14,7 @@ function EmailPasswordLogin() {
             e.preventDefault();
 
             const baseUrl = import.meta.env.VITE_API_URL;
-            const url = `${baseUrl}api/login`;
+            const url = `${baseUrl}api/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

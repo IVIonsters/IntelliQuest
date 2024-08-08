@@ -15,7 +15,7 @@ function Signup() {
             e.preventDefault();
 
             const baseUrl = import.meta.env.VITE_API_URL;
-            const url = `${baseUrl}api/signup`;
+            const url = `${baseUrl}api/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
