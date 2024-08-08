@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
-const signupRoute = require('./controllers/authController');
+const authRoutes = require('./routes/api/auth'); // Import authRoutes
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
@@ -12,12 +12,6 @@ const axios = require('axios');
 dotenv.config();
 
 const app = express();
-
-// Import routes
-const users = require('./routes/api/users');
-
-// Import Resource model
-const Resource = require('./models/Resource'); // Ensure this path is correct
 
 // Enable CORS
 app.use(cors());
@@ -38,9 +32,8 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.log(err));
 
 // Use Routes
-app.use('/api/users', users);
 app.use('/api/resources', resourceRoutes);
-app.use(authRoutes);
+app.use('/api/auth', authRoutes); // Use authRoutes
 
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
