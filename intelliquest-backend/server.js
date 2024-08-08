@@ -16,6 +16,9 @@ const app = express();
 // Import routes
 const users = require('./routes/api/users');
 
+// Import Resource model
+const Resource = require('./models/Resource'); // Ensure this path is correct
+
 // Enable CORS
 app.use(cors());
 
