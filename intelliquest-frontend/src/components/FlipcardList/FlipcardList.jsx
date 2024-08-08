@@ -4,20 +4,20 @@ import Flipcard from "../Flipcard/Flipcard";
 import flipcardsData from "../../utils/flipcards.json";
 
 console.log (flipcardsData)
+  // Check if data is imported correctly
 
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
 
   useEffect(() => {
     // Filter data based on the selected topic
-    const filteredCards = flipcards.filter((card) => card.topic === topic);
+    const filteredCards = flipcardsData.filter((card) => card.topic === topic);
     setFlipcards(filteredCards);
   }, [topic]);
 
 
-  console.log('flipcardsData:', flipcardsData); // Check if data is imported correctly
-
-
+  console.log('flipcardsData:', flipcardsData); 
+  // Check if data is imported correctly
 
   return (
     <div>
