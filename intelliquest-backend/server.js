@@ -1,9 +1,11 @@
+// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
-const authRoutes = require('./routes/api/auth'); // Import authRoutes
+const authRoutes = require('./routes/api/auth');
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
@@ -33,7 +35,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Use Routes
 app.use('/api/resources', resourceRoutes);
-app.use('/api/auth', authRoutes); // Use authRoutes
+app.use('/api/auth', authRoutes);
 
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
@@ -138,3 +140,4 @@ app.post('/api/resources/submit', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
