@@ -14,8 +14,10 @@ function Signup() {
         try {
             e.preventDefault();
 
-            const baseUrl = import.meta.env.VITE_API_URL;
-            const url = `${baseUrl}api/signup`;
+            // Update URL to point to Render backend
+            const baseUrl = import.meta.env.VITE_API_URL || 'https://intelliquestdb.onrender.com/';
+            const url = `${baseUrl}/api/signup`; // Ensure baseUrl ends with a slash and add slash before 'api'
+
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -25,9 +27,8 @@ function Signup() {
             });
 
             if (!response.ok) {
-                const apiError = response.json();
-                console.log(apiError);
-                setError(apiError);
+                const apiError = await response.json();
+                setError(apiError.message || apiError);
             } else {
                 const token = await response.json();
                 if (!token) {
@@ -40,7 +41,7 @@ function Signup() {
                 }
             }
         } catch (error) {
-            setError(error);
+            setError(error.message);
         }
     }
 
@@ -78,7 +79,7 @@ function Signup() {
                 </div>
                 <form className={styles.form}>
                     <h1>Sign Up</h1>
-                    <p className='error'>{error}</p>
+                    <p className={styles.error}>{error}</p>
                     <h2>First Name:</h2>
                     <input onChange={handleFirstNameOnChange} className={styles.entryBox} name="firstName" type="text" placeholder='Enter first name:' value={user.firstName} />
                     <h2>Last Name:</h2>
@@ -88,17 +89,16 @@ function Signup() {
                     <h2>User Name:</h2>
                     <input onChange={handleUserNameOnChange} className={styles.entryBox} name="userName" type="text" placeholder='Enter user name:' value={user.userName} />
                     <h2>Password:</h2>
-                    <input onChange={handlePasswordOnChange} className={styles.entryBox} name="password" type="text" placeholder='Enter password:' value={user.password} />
+                    <input onChange={handlePasswordOnChange} className={styles.entryBox} name="password" type="password" placeholder='Enter password:' value={user.password} />
                     <button onClick={handleClick} className={styles.button} type="submit">Sign Up</button>
                     <div className={styles.loginLink}>
                         <h2>Already have an account?</h2>
-                        <h2><a href="/login">Log In</a>
-                        </h2>
+                        <h2><a href="/login">Log In</a></h2>
                     </div>
                 </form>
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default Signup;
