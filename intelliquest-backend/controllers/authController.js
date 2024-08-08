@@ -4,7 +4,7 @@ const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
 const {createToken, verifyToken} = require("../utils/jwtFunctions");
 
-router.post("/api/signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
     try {
         const encryptedPassword = await bcrypt.hash(req.body.password, 10);
         const createdUser = await User.create({ firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, userName: req.body.userName, password: encryptedPassword });
@@ -26,7 +26,7 @@ router.post("/api/signup", async (req, res) => {
 });
 
 // Define routes
-router.post('/api/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
         if (err) return next(err);
 
