@@ -1,20 +1,27 @@
-﻿import React, { useState } from 'react';
-import './Flipcard.module.css';
+﻿import React, { useState } from "react";
+import style from "./Flipcard.module.css";
 
 const Flipcard = ({ question, answer }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <div onClick={() => setFlipped(!flipped)} className="flipcard">
-      <div className={`flipcard-inner ${flipped ? 'flipped' : ''}`}>
-        <div className="flipcard-front">
-          <p>{question}</p>
+      <div className={`${style.flipCardInner} ${flipped ? style.flipped : ""}`}>
+        <div className={style.flipCard} >
+    
+   
+        {flipped ? (
+          <div className="flipcardBack">
+            <p>{answer}</p>
+          </div>
+        ) : (
+          <div className="flipcardFront">
+            <p>{question}</p>
+          </div>
+        )}
+           </div>
+            </div>
         </div>
-        <div className="flipcard-back">
-          <p>{answer}</p>
-        </div>
-      </div>
-    </div>
   );
 };
 

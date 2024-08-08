@@ -1,7 +1,6 @@
 ﻿import React, { useState } from "react";
 import FlipcardList from "../FlipcardList/FlipcardList";
 
-// import flipcardsData from "../../utils/flipcards.json";
 
 export default function FlipcardPage() {
   const [topic, setTopic] = useState("");
@@ -30,7 +29,6 @@ export default function FlipcardPage() {
     <div>
       <h2>Please Select a Topic</h2>
       <select onChange={onOptionChangeHandler} value={topic}>
-        <option>Please Choose One Option</option>
         <option value="">Please Choose One Option</option>
         {options.map((option, index) => (
           <option key={index} value={option}>

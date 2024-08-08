@@ -1,28 +1,30 @@
 ﻿import React, { useEffect, useState } from "react";
 import Flipcard from "../Flipcard/Flipcard";
 // import "./Flipcard.module.css";
-import flipcardsData from "../../utils/flipcards.json";
-
-console.log (flipcardsData)
-  // Check if data is imported correctly
 
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
 
   useEffect(() => {
-    // Filter data based on the selected topic
-    const filteredCards = flipcardsData.filter((card) => card.topic === topic);
-    setFlipcards(filteredCards);
+    fetch ("http://localhost:5001/api/flipcards")
+ .then (res => res.json ()) 
+ .then (data => {
+
+  console.log (data)
+  const filteredCards = data.filter((card) => card.topic === topic);
+  setFlipcards(filteredCards);
+
+  console.log (flipcards)
+  
+ })
+
   }, [topic]);
 
 
-  console.log('flipcardsData:', flipcardsData); 
-  // Check if data is imported correctly
-
   return (
     <div>
-      {flipcards.length > 0 ? (
-        flipcards.map((card, index) => (
+      {flipcards [0] && flipcards [0] .questions.length > 0 ? (
+        flipcards [0].questions.map((card, index) => (
           <Flipcard key={index} question={card.question} answer={card.answer} />
         ))
       ) : (
