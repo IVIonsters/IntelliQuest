@@ -40,7 +40,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 // Use Routes
 app.use('/api/users', users);
 app.use('/api/resources', resourceRoutes);
-app.use('/api', signupRoute);
+app.use(authRoutes);
 
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
