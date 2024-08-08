@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require("../models/User");
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
-const { createToken, verifyToken } = require("../utils/jwtFunctions");
+const {createToken, verifyToken} = require("../utils/jwtFunctions");
 
 router.post("/api/signup", async (req, res) => {
     try {
@@ -25,6 +25,7 @@ router.post("/api/signup", async (req, res) => {
     }
 });
 
+// Define routes
 router.post('/api/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
         if (err) return next(err);
@@ -35,7 +36,7 @@ router.post('/api/login', (req, res, next) => {
 
         const token = createToken(userWithoutPassword);
 
-        return res.json({ token });
+        return res.json(token);
     })(req, res, next);
 });
 
