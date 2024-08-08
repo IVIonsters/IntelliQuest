@@ -14,6 +14,7 @@ import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
 import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
 import Login from './components/Auth/Login.jsx';
 import Signup from './components/Auth/Signup.jsx';
+import { AuthProvider } from './components/Auth/AuthContext.jsx';
 import styles from './main.module.css';
 
 const router = createBrowserRouter([
@@ -71,9 +72,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className={styles['main-content']}>
-    <RouterProvider router={router} />
-  </div>
+  <AuthProvider>
+    <div className={styles['main-content']}>
+      <RouterProvider router={router} />
+    </div>
+  </AuthProvider>
 );
-
-

@@ -9,6 +9,7 @@ const authRoutes = require('./routes/api/auth');
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
+const Resource = require('./models/Resource'); 
 
 // Load environment variables from .env file
 dotenv.config();
@@ -140,4 +141,3 @@ app.post('/api/resources/submit', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
