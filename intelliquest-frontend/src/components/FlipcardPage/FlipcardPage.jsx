@@ -1,7 +1,9 @@
-﻿//import FlipcardList from "../FlipcardList/FlipcardList";
-
+﻿
 import React, { useState } from 'react';
+import FlipcardList from "../FlipcardList/FlipcardList";
+
 // import flipcardsData from "../../utils/flipcards.json";
+
 
 console.log (FlipcardPage)
 

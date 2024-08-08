@@ -5,10 +5,6 @@ import flipcardsData from "../../utils/flipcards.json";
 
 console.log (flipcardsData)
 
-// import Flipcard from "../Flipcard/Flipcard";
-
-// import hardCodedFlipcards from "../../utils/flipcards.json";
-
 const FlipcardList = ({ topic }) => {
   const [flipcards, setFlipcards] = useState([]);
 
