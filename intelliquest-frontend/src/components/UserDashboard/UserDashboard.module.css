@@ -1,0 +1,36 @@
+/* src/components/UserDashboard/UserDashboard.module.css */
+
+.dashboardContainer {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.resourcesSection {
+  margin-top: 20px;
+}
+
+.resourcesSection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resourcesSection li {
+  background-color: var(--card-background-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
