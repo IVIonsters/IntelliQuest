@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
@@ -7,7 +5,7 @@ import styles from './Navbar.module.css';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { isAuthenticated, user, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
@@ -19,6 +17,13 @@ const Navbar = ({ onSearch }) => {
     onSearch(searchTerm);
     navigate(`/search?query=${searchTerm}`);
   };
+
+  const handleLogout = () => {
+    logout();
+  };
+
+  // Debug: Log user object
+  console.log('Current User:', user);
 
   return (
     <nav className={styles.navbar}>
@@ -40,10 +45,10 @@ const Navbar = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
-      {isAuthenticated ? (
+      {user ? (
         <div className={styles.authLinks}>
-          <span>Welcome, {user.userName}</span>
-          <button onClick={logout} className={styles.logoutButton}>Logout</button>
+          <span>Welcome, {user.userName || 'User'}</span>
+          <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
         </div>
       ) : (
         <div className={styles.authLinks}>
@@ -56,4 +61,3 @@ const Navbar = ({ onSearch }) => {
 };
 
 export default Navbar;
-

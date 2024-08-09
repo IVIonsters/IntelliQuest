@@ -61,3 +61,33 @@
 .searchButton:hover {
   background-color: var(--moonstone); /* Change background color to Moonstone on hover */
 }
+
+/* Auth links container styles */
+.authLinks {
+  display: flex; /* Arrange items in a row */
+  align-items: center; /* Align items vertically in the center */
+  gap: 1rem; /* Add space between the username and logout button */
+}
+
+/* Welcome text styles */
+.welcomeText {
+  font-weight: 500; /* Set font weight for the welcome text */
+  color: var(--platinum); /* Set color to Platinum */
+  margin-right: 0.5rem; /* Add space to the right of the welcome text */
+  white-space: nowrap; /* Prevent the text from wrapping */
+}
+
+/* Logout button styles */
+.logoutButton {
+  padding: 0.5rem 1rem; /* Add padding inside the button */
+  background-color: var(--pacific-cyan); /* Set background color to Pacific Cyan */
+  color: var(--rich-black); /* Set text color to Rich Black */
+  border: none; /* Remove default border */
+  border-radius: 0.25rem; /* Round the corners of the button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Logout button hover styles */
+.logoutButton:hover {
+  background-color: var(--moonstone); /* Change background color to Moonstone on hover */
+}
