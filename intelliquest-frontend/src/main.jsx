@@ -17,7 +17,6 @@ import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
 import Login from './components/Auth/Login.jsx';
 import Signup from './components/Auth/Signup.jsx';
 import { AuthProvider } from './components/Auth/AuthContext.jsx';
-import Profile from './components/Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -72,10 +71,6 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />
-      },
-      {
-        path: 'profile',
-        element: <Profile />
       }
     ]
   }
