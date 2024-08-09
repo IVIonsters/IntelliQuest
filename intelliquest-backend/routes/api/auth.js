@@ -13,7 +13,8 @@ const JWT_EXPIRATION = process.env.JWT_EXPIRATION || '1h'; // default to 1 hour 
 
 // Middleware to authenticate JWT token
 const authenticateToken = (req, res, next) => {
-  const token = req.header('Authorization')?.split(' ')[1]; // Get the token from the Authorization header
+  const authHeader = req.header('Authorization');
+  const token = authHeader && authHeader.split(' ')[1]; // Get the token from the Authorization header
   if (!token) {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }

@@ -1,5 +1,3 @@
-// src/components/Profile/Profile.jsx
-/* eslint-disable no-unused-vars */
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import styles from './Profile.module.css';
@@ -12,53 +10,45 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        if (user && user.token) {  // Ensure user and token are available
-          const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
-            headers: { 'Authorization': `Bearer ${user.token}` },
-          });
-  
-          if (!response.ok) {
-            const data = await response.json();
-            setError(data.message);
-          } else {
-            const data = await response.json();
-            setProfile(data);
-          }
+        console.log("Token used for fetch:", user.token);  // Log token
+        const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
+          headers: { 'Authorization': `Bearer ${user.token}` },
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          setError(data.message);
         } else {
-          setError('User token is missing');
+          setProfile(data);
         }
       } catch (error) {
         console.error('Error fetching profile:', error);
         setError('Error fetching profile');
       }
     };
-  
-    fetchProfile();
+    if (user && user.token) {
+      fetchProfile();
+    } else {
+      setError('User token is missing');
+    }
   }, [user]);
-  
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      if (user && user.token) {  // Check if user and token are available
-        const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${user.token}`,
-          },
-          body: JSON.stringify(profile),
-        });
-
-        if (!response.ok) {
-          const data = await response.json();
-          setError(data.message);
-        } else {
-          const data = await response.json();
-          setProfile(data);
-        }
+      console.log("Token used for update:", user.token);  // Log token
+      const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`,
+        },
+        body: JSON.stringify(profile),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data.message);
       } else {
-        setError('User token is missing');
+        setProfile(data);
       }
     } catch (error) {
       console.error('Error updating profile:', error);
@@ -102,3 +92,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
