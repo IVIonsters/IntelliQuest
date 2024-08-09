@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 // Access environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -10,6 +11,12 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET environment variable is not defined");
 }
 const JWT_EXPIRATION = process.env.JWT_EXPIRATION || '1h'; // default to 1 hour if not specified
+
+// Function to generate Gravatar URL
+const getGravatarUrl = (email) => {
+  const hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex');
+  return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+};
 
 // Middleware to authenticate JWT token
 const authenticateToken = (req, res, next) => {
@@ -28,7 +35,6 @@ const authenticateToken = (req, res, next) => {
     res.status(401).json({ message: 'Token is not valid' });
   }
 };
-
 
 // Signup Route
 router.post('/signup', async (req, res) => {
@@ -50,9 +56,15 @@ router.post('/signup', async (req, res) => {
 
     await newUser.save();
 
-    // Include user's name and username in the token
+    // Include user's name, username, and Gravatar URL in the token
     const token = jwt.sign(
-      { id: newUser._id, userName: newUser.userName, firstName: newUser.firstName, lastName: newUser.lastName },
+      {
+        id: newUser._id,
+        userName: newUser.userName,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        avatarUrl: getGravatarUrl(email)
+      },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRATION }
     );
@@ -80,7 +92,13 @@ router.post('/login', async (req, res) => {
 
     // Generate JWT with additional user information
     const token = jwt.sign(
-      { id: user._id, userName: user.userName, firstName: user.firstName, lastName: user.lastName },
+      {
+        id: user._id,
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        avatarUrl: getGravatarUrl(email)
+      },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRATION }
     );
