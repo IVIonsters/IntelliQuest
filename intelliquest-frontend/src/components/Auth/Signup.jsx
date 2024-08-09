@@ -1,104 +1,86 @@
-import styles from './Signup.module.css';
-import brainImage from '../../assets/images/brain_image.png';
-import { useState } from 'react';
-import { setDataLocalStorage } from '../../utils/browserStorage';
-import { useNavigate } from 'react-router-dom';
+/* eslint-disable no-unused-vars */
+// src/components/Auth/Signup.jsx
 
-function Signup() {
-    const [user, setUser] = useState({ firstName: "", lastName: "", email: "", userName: "", password: "" });
-    const [error, setError] = useState("");
-    const AUTH_TOKEN_NAME = import.meta.env.VITE_AUTH_TOKEN_NAME;
-    let navigate = useNavigate();
+import React, { useState, useContext } from 'react';
+import { AuthContext } from './AuthContext';
+import styles from './Auth.module.css';
 
-    async function handleClick(e) {
-        try {
-            e.preventDefault();
+const Signup = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { login } = useContext(AuthContext);
 
-            const baseUrl = import.meta.env.VITE_API_URL;
-            const url = `${baseUrl}api/auth/signup`;
-            const response = await fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ firstName: user.firstName, lastName: user.lastName, email: user.email, userName: user.userName, password: user.password })
-            });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://intelliquestdb.onrender.com/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ firstName, lastName, email, userName, password })
+      });
 
-            if (!response.ok) {
-                const apiError = response.json();
-                console.log(apiError);
-                setError(apiError);
-            } else {
-                const token = await response.json();
-                if (!token) {
-                    setError("Sign Up Unsuccessful");
-                } else {
-                    setError("");
-                    setDataLocalStorage(AUTH_TOKEN_NAME, token.token);
-                    setUser({ firstName: "", lastName: "", email: "", userName: "", password: "" });
-                    navigate("/home");
-                }
-            }
-        } catch (error) {
-            setError(error);
-        }
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || 'An error occurred.');
+      } else {
+        login(data.token);
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again.');
     }
+  };
 
-    function handleFirstNameOnChange(e) {
-        e.preventDefault();
-        setUser({ ...user, firstName: e.target.value });
-    }
-
-    function handleLastNameOnChange(e) {
-        e.preventDefault();
-        setUser({ ...user, lastName: e.target.value });
-    }
-
-    function handleEmailOnChange(e) {
-        e.preventDefault();
-        setUser({ ...user, email: e.target.value });
-    }
-
-    function handleUserNameOnChange(e) {
-        e.preventDefault();
-        setUser({ ...user, userName: e.target.value });
-    }
-
-    function handlePasswordOnChange(e) {
-        e.preventDefault();
-        setUser({ ...user, password: e.target.value });
-    }
-
-    return (
-        <div className={styles.signup}>
-            <div className={styles.container}>
-                <div className={styles.sidebar}><img src={brainImage} alt="" />
-                    <h1>Welcome to IntelliQuest!</h1>
-                    <h2>Whether you're a beginner or looking to sharpen your skills, we're here to guide you every step of the way. Let's build something amazing together!</h2>
-                </div>
-                <form className={styles.form}>
-                    <h1>Sign Up</h1>
-                    <p className='error'>{error}</p>
-                    <h2>First Name:</h2>
-                    <input onChange={handleFirstNameOnChange} className={styles.entryBox} name="firstName" type="text" placeholder='Enter first name:' value={user.firstName} />
-                    <h2>Last Name:</h2>
-                    <input onChange={handleLastNameOnChange} className={styles.entryBox} name="lastName" type="text" placeholder='Enter last name:' value={user.lastName} />
-                    <h2>Email:</h2>
-                    <input onChange={handleEmailOnChange} className={styles.entryBox} name="email" type="text" placeholder='Enter email:' value={user.email} />
-                    <h2>User Name:</h2>
-                    <input onChange={handleUserNameOnChange} className={styles.entryBox} name="userName" type="text" placeholder='Enter user name:' value={user.userName} />
-                    <h2>Password:</h2>
-                    <input onChange={handlePasswordOnChange} className={styles.entryBox} name="password" type="text" placeholder='Enter password:' value={user.password} />
-                    <button onClick={handleClick} className={styles.button} type="submit">Sign Up</button>
-                    <div className={styles.loginLink}>
-                        <h2>Already have an account?</h2>
-                        <h2><a href="/login">Log In</a>
-                        </h2>
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
+  return (
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.authForm}>
+        <h2>Sign Up</h2>
+        {error && <p className={styles.error}>{error}</p>}
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
 };
 
 export default Signup;

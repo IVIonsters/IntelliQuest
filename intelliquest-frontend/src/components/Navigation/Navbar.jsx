@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthContext';
 import styles from './Navbar.module.css';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const { isAuthenticated, user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
@@ -38,8 +40,20 @@ const Navbar = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
+      {isAuthenticated ? (
+        <div className={styles.authLinks}>
+          <span>Welcome, {user.userName}</span>
+          <button onClick={logout} className={styles.logoutButton}>Logout</button>
+        </div>
+      ) : (
+        <div className={styles.authLinks}>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+
