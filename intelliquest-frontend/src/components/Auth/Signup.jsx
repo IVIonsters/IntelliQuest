@@ -17,18 +17,18 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://intelliquestdb.onrender.com/api/auth/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ firstName, lastName, email, userName, password })
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
-        setError(data.message || 'An error occurred.');
+        setError(data.error);
       } else {
         login(data.token);
       }
@@ -36,6 +36,7 @@ const Signup = () => {
       setError('An error occurred. Please try again.');
     }
   };
+  
 
   return (
     <div className={styles.authContainer}>
