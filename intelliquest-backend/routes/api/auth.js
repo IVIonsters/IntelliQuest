@@ -11,6 +11,21 @@ if (!JWT_SECRET) {
 }
 const JWT_EXPIRATION = process.env.JWT_EXPIRATION || '1h'; // default to 1 hour if not specified
 
+// Middleware to authenticate JWT token
+const authenticateToken = (req, res, next) => {
+  const token = req.header('Authorization')?.split(' ')[1]; // Get the token from the Authorization header
+  if (!token) {
+    return res.status(401).json({ message: 'No token, authorization denied' });
+  }
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.user = decoded; // Add the decoded user information to the request object
+    next(); // Move on to the next middleware or route handler
+  } catch (error) {
+    res.status(401).json({ message: 'Token is not valid' });
+  }
+};
+
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
@@ -62,8 +77,8 @@ router.post('/login', async (req, res) => {
     // Generate JWT with additional user information
     const token = jwt.sign(
       { id: user._id, userName: user.userName, firstName: user.firstName, lastName: user.lastName },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRATION || '1h' }
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRATION }
     );
 
     res.json({ token });
@@ -72,7 +87,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
 
 // Get user profile
 router.get('/profile', authenticateToken, async (req, res) => {
@@ -108,4 +122,3 @@ router.put('/profile', authenticateToken, async (req, res) => {
 });
 
 module.exports = router;
-
