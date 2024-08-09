@@ -24,10 +24,10 @@ router.post('/signup', async (req, res) => {
     });
 
     await newUser.save();
-    const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
     res.status(201).json({ token });
   } catch (error) {
-    console.error(error);
+    console.error('Error during signup:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -36,9 +36,11 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log('Email provided:', email);
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+      console.log('User not found:', email);
+      return res.status(400).json({ message: 'User not found.' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
