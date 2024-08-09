@@ -14,16 +14,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+      const response = await fetch('https://intelliquestdb.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password })
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
         setError(data.error);
       } else {
@@ -33,6 +33,7 @@ const Login = () => {
       setError('An error occurred. Please try again.');
     }
   };
+  
 
   return (
     <div className={styles.authContainer}>
