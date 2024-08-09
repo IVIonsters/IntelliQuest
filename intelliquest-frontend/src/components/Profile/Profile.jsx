@@ -10,7 +10,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        console.log("Token used for fetch:", user.token);  // Log token
+        console.log('Token used for fetch:', user.token); // Log the token being used
         const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
           headers: { 'Authorization': `Bearer ${user.token}` },
         });
@@ -21,21 +21,16 @@ const Profile = () => {
           setProfile(data);
         }
       } catch (error) {
-        console.error('Error fetching profile:', error);
         setError('Error fetching profile');
       }
     };
-    if (user && user.token) {
-      fetchProfile();
-    } else {
-      setError('User token is missing');
-    }
-  }, [user]);
+    fetchProfile();
+  }, [user.token]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      console.log("Token used for update:", user.token);  // Log token
+      console.log('Token used for update:', user.token); // Log the token being used
       const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
         method: 'PUT',
         headers: {
@@ -51,7 +46,6 @@ const Profile = () => {
         setProfile(data);
       }
     } catch (error) {
-      console.error('Error updating profile:', error);
       setError('Error updating profile');
     }
   };
@@ -92,4 +86,3 @@ const Profile = () => {
 };
 
 export default Profile;
-

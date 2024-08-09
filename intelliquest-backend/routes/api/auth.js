@@ -13,19 +13,22 @@ const JWT_EXPIRATION = process.env.JWT_EXPIRATION || '1h'; // default to 1 hour 
 
 // Middleware to authenticate JWT token
 const authenticateToken = (req, res, next) => {
-  const authHeader = req.header('Authorization');
-  const token = authHeader && authHeader.split(' ')[1]; // Get the token from the Authorization header
+  const token = req.header('Authorization')?.split(' ')[1];
+  console.log('Received token for verification:', token);
   if (!token) {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded; // Add the decoded user information to the request object
-    next(); // Move on to the next middleware or route handler
+    console.log('Decoded token:', decoded);
+    req.user = decoded;
+    next();
   } catch (error) {
+    console.error('Token verification failed:', error.message);
     res.status(401).json({ message: 'Token is not valid' });
   }
 };
+
 
 // Signup Route
 router.post('/signup', async (req, res) => {
