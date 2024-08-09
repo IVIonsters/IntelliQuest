@@ -3,18 +3,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
-import Signup from './components/Auth/Signup.jsx';
 import Activities from './components/Activities/Activities.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
-import Login from './components/Auth/Login.jsx';
 import Error from './components/Error/Error.jsx';
-import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
 import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
 import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
+import Login from './components/Auth/Login.jsx';
+import Signup from './components/Auth/Signup.jsx';
+import { AuthProvider } from './components/Auth/AuthContext.jsx';
+import styles from './main.module.css';
 
 const router = createBrowserRouter([
   {
@@ -40,11 +41,7 @@ const router = createBrowserRouter([
       },
       {
         index: true,
-        element: <Signup />
-      },
-      {
-        path: 'login',
-        element: <Login />
+        element: <HomePage />
       },
       {
         path: 'quiz',
@@ -61,13 +58,23 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchResultsPage />
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'signup',
+        element: <Signup />
       }
     ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className={styles['main-content']}>
-    <RouterProvider router={router} />
-  </div>
+  <AuthProvider>
+    <div className={styles['main-content']}>
+      <RouterProvider router={router} />
+    </div>
+  </AuthProvider>
 );
