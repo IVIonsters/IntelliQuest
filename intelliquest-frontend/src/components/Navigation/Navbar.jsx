@@ -39,9 +39,9 @@ const Navbar = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
-      {isAuthenticated ? (
+      {user ? ( // Check if user is set
         <div className={styles.authLinks}>
-          <span>Welcome, {user.userName}</span>
+          <span>Welcome, {user.userName}</span> {/* Display the username */}
           <button onClick={logout} className={styles.logoutButton}>Logout</button>
         </div>
       ) : (
