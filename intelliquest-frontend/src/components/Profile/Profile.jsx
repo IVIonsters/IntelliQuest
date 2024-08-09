@@ -12,45 +12,61 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
-          headers: { 'Authorization': `Bearer ${user.token}` },
-        });
-        const data = await response.json();
-        if (!response.ok) {
-          setError(data.message);
+        if (user && user.token) {  // Ensure user and token are available
+          const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
+            headers: { 'Authorization': `Bearer ${user.token}` },
+          });
+  
+          if (!response.ok) {
+            const data = await response.json();
+            setError(data.message);
+          } else {
+            const data = await response.json();
+            setProfile(data);
+          }
         } else {
-          setProfile(data);
+          setError('User token is missing');
         }
       } catch (error) {
+        console.error('Error fetching profile:', error);
         setError('Error fetching profile');
       }
     };
+  
     fetchProfile();
-  }, [user.token]);
+  }, [user]);
+  
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(profile),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        setError(data.message);
+      if (user && user.token) {  // Check if user and token are available
+        const response = await fetch('https://intelliquestdb.onrender.com/api/auth/profile', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(profile),
+        });
+
+        if (!response.ok) {
+          const data = await response.json();
+          setError(data.message);
+        } else {
+          const data = await response.json();
+          setProfile(data);
+        }
       } else {
-        setProfile(data);
+        setError('User token is missing');
       }
     } catch (error) {
+      console.error('Error updating profile:', error);
       setError('Error updating profile');
     }
   };
 
-return (
+  return (
     <div className={styles.profileContainer}>
       <h2>Profile</h2>
       {error && <p className={styles.error}>{error}</p>}
