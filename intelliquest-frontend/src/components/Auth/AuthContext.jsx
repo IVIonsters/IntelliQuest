@@ -3,32 +3,28 @@
 // src/components/Auth/AuthContext.jsx
 
 import React, { createContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode'; // Adjusted import for ES modules
 
 const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children, navigate }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
 
-  const login = (token) => {
-    try {
-      // Store token in localStorage or sessionStorage if needed
-      localStorage.setItem('authToken', token);
-
-      // Decode the token to get user information
-      const decodedUser = jwtDecode(token);
-      setUser(decodedUser);
-      navigate('/home');
-    } catch (error) {
-      console.error('Failed to decode token:', error);
+  const login = (userData) => {
+    if (typeof userData === 'string') {
+      try {
+        const parsedData = JSON.parse(userData);
+        setUser(parsedData);
+      } catch (error) {
+        console.error('Failed to parse userData:', error);
+      }
+    } else {
+      setUser(userData);
     }
+    navigate('/home');
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('authToken'); // Remove the token from storage on logout
     navigate('/login');
   };
 
@@ -40,4 +36,3 @@ const AuthProvider = ({ children }) => {
 };
 
 export { AuthProvider, AuthContext };
-

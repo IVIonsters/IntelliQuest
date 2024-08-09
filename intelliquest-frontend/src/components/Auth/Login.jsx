@@ -27,14 +27,12 @@ const Login = () => {
       if (!response.ok) {
         setError(data.error);
       } else {
-        login(data.token); // Pass only the token
+        login(data.token, data.user);
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
     }
   };
-  
-  
   
   
 
