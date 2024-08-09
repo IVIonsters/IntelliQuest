@@ -1,13 +1,26 @@
 /* src/components/SubmitResource/SubmitResource.module.css */
 
 /* Container for the form */
+
+.submitContainer {
+  margin-bottom: 50px;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center the container vertically */
+  flex-direction: column;
+  min-height: 80vh;
+  background: linear-gradient(180deg, white 0%, lightblue 50%, white 100%);
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
 }
 
 /* Form styling */
