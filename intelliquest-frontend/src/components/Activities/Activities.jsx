@@ -5,6 +5,9 @@ import styles from './Activities.module.css';
 import quizImage from '../../assets/images/quiz.jpeg';
 import fcImage from '../../assets/images/fc.jpeg';
 import optImage from '../../assets/images/opt.jpeg';
+import ftkImage from '../../assets/images/FTK.jpg';
+import osImage from '../../assets/images/OldSchool.jpg';
+import lbImage from '../../assets/images/LearnBot.jpg';
 
 function Activities() {
     return (
@@ -33,21 +36,21 @@ function Activities() {
                         </div>
                     </div>
                     <div className={styles.card}>
-                        <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
+                        <img src={lbImage} alt='Learn Bot' className={styles.cardImage} />
+                        <div className={styles.cardOverlay}>
+                            <h2><Link to="/">Chat With Our Learn Bot!</Link></h2>
+                            <p>Feature coming soon.....</p>
+                        </div>
+                    </div>
+                    <div className={styles.card}>
+                        <img src={ftkImage} alt='Coming soon...' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2><Link to="/">Future Features!</Link></h2>
                             <p>Feature coming soon.....</p>
                         </div>
                     </div>
                     <div className={styles.card}>
-                        <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
-                        <div className={styles.cardOverlay}>
-                            <h2><Link to="/">Future Features!</Link></h2>
-                            <p>Feature coming soon.....</p>
-                        </div>
-                    </div>
-                    <div className={styles.card}>
-                        <img src={quizImage} alt='Coming soon...' className={styles.cardImage} />
+                        <img src={osImage} alt='Coming soon...' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
                             <h2><Link to="/">Future Features!</Link></h2>
                             <p>Feature coming soon.....</p>

@@ -73,67 +73,69 @@ const SubmitResource = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1>Submit a YouTube Video Resource</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="title">
-          <i className="fas fa-heading"></i> Title
-        </label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <label htmlFor="description">
-          <i className="fas fa-align-left"></i> Description
-        </label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        ></textarea>
-        <label htmlFor="url">
-          <i className="fas fa-link"></i> YouTube Video URL
-        </label>
-        <input
-          type="url"
-          id="url"
-          value={url}
-          onChange={handleUrlChange}
-          required
-        />
-        <label htmlFor="thumbnail">
-          <i className="fas fa-image"></i> Thumbnail URL
-        </label>
-        <input
-          type="url"
-          id="thumbnail"
-          value={thumbnail}
-          readOnly
-        />
-        {thumbnail && (
-          <div className={styles.thumbnailPreview}>
-            <img src={thumbnail} alt="Thumbnail Preview" />
-          </div>
-        )}
-        <label htmlFor="tags">
-          <i className="fas fa-tags"></i> Tags (comma separated)
-        </label>
-        <input
-          type="text"
-          id="tags"
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
-          required
-        />
-        <button type="submit">
-          <i className="fas fa-paper-plane"></i> Submit Resource
-        </button>
-      </form>
-      {message && <p className={styles.message}>{message}</p>}
+    <div className={styles.submitContainer}>
+      <div className={styles.container}>
+        <h1>Submit a YouTube Video Resource</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label htmlFor="title">
+            <i className="fas fa-heading"></i> Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <label htmlFor="description">
+            <i className="fas fa-align-left"></i> Description
+          </label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          ></textarea>
+          <label htmlFor="url">
+            <i className="fas fa-link"></i> YouTube Video URL
+          </label>
+          <input
+            type="url"
+            id="url"
+            value={url}
+            onChange={handleUrlChange}
+            required
+          />
+          <label htmlFor="thumbnail">
+            <i className="fas fa-image"></i> Thumbnail URL
+          </label>
+          <input
+            type="url"
+            id="thumbnail"
+            value={thumbnail}
+            readOnly
+          />
+          {thumbnail && (
+            <div className={styles.thumbnailPreview}>
+              <img src={thumbnail} alt="Thumbnail Preview" />
+            </div>
+          )}
+          <label htmlFor="tags">
+            <i className="fas fa-tags"></i> Tags (comma separated)
+          </label>
+          <input
+            type="text"
+            id="tags"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+            required
+          />
+          <button type="submit">
+            <i className="fas fa-paper-plane"></i> Submit Resource
+          </button>
+        </form>
+        {message && <p className={styles.message}>{message}</p>}
+      </div>
     </div>
   );
 };
