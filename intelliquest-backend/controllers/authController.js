@@ -1,38 +1,55 @@
-const router = require('express').Router();
-const User = require("../models/User");
-const passport = require("../config/passport");
-const bcrypt = require("bcryptjs");
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const { createToken } = require('../utils/jwtFunctions');
 
-router.post("/api/signup", async (req, res) => {
-    try {
-        const encryptedPassword = await bcrypt.hash(req.body.password, 10);
-        const createdUser = await User.create({ firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, userName: req.body.userName, password: encryptedPassword });
+// Signup controller
+const signup = async (req, res) => {
+  try {
+    const encryptedPassword = await bcrypt.hash(req.body.password, 10);
+    const createdUser = await User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      userName: req.body.userName,
+      password: encryptedPassword,
+    });
 
-        if (!createdUser) {
-            throw Error("User not created successfully.");
-        }
-
-        const { password, ...userWithoutPassword } = createdUser.toJSON();
-
-        res.status(201).json({ message: "User created successfully.", userWithoutPassword });
-
-    } catch (error) {
-        console.log({ error });
-        res.status(500).json(error);
+    if (!createdUser) {
+      throw new Error('User not created successfully.');
     }
-});
 
-// Define routes
-router.post('/api/login', (req, res, next) => {
-    passport.authenticate('local', (err, user) => {
-        console.log({ err, user });
-        if (err) res.status(500).json(err);
+    const { password, ...userWithoutPassword } = createdUser.toJSON();
+    const token = createToken(userWithoutPassword);
 
-        if (!user) res.status(400).json({ message: "User not found." });
+    res.status(201).json({ message: 'User created successfully.', token });
+  } catch (error) {
+    console.log({ error });
+    res.status(500).json(error);
+  }
+};
 
-        const { password, ...userWithoutPassword } = user.toJSON();
-        res.status(200).json(userWithoutPassword);
-    })(req, res, next);
-});
+// Login controller
+const login = async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.status(401).json({ message: 'User not found.' });
+    }
 
-module.exports = router;
+    const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid password.' });
+    }
+
+    const { password, ...userWithoutPassword } = user.toJSON();
+    const token = createToken(userWithoutPassword);
+
+    res.json({ message: 'Login successful.', token });
+  } catch (error) {
+    console.log({ error });
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { signup, login };
+

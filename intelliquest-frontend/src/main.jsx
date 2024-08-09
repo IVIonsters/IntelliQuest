@@ -1,11 +1,22 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
+import Activities from './components/Activities/Activities.jsx';
+import About from './components/About/About.jsx';
+import Contact from './components/Contact/Contact.jsx';
+import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
+import Error from './components/Error/Error.jsx';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
+import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
+import SubmitResource from './components/SubmitResource/SubmitResource.jsx';
+import Login from './components/Auth/Login.jsx';
 import Signup from './components/Auth/Signup.jsx';
 import UserProfile from './components/User/UserProfile.jsx';
+import { AuthProvider } from './components/Auth/AuthContext.jsx';
 import styles from './main.module.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
@@ -14,35 +25,73 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
+        path: 'home',
+        element: <HomePage />
+      },
+      {
+        path: 'activities',
+        element: <Activities />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+      {
+        path: 'home',
+        element: <HomePage />
+      },
+      {
+        path: 'activities',
+        element: <Activities />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
+      },
+      {
         index: true,
         element: <HomePage />
-      }
-    ]
-  },{
-    path: '/signup',
-    element: <App />,
-    errorElement: <Error />,
-    children: [
+      },
       {
-        index: true,
+        path: 'quiz',
+        element: <QuizGenerator />
+      },
+      {
+        path: 'optimize',
+        element: <CodeOptimizer />
+      },
+      {
+        path: 'submit-resource',
+        element: <SubmitResource />
+      },
+      {
+        path: 'search',
+        element: <SearchResultsPage />
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'signup',
         element: <Signup />
-      }
-    ]
-  },{
-    path: '/userProfile',
-    element: <App/>,
-    errorElement: <Error />,
-    children: [
-      {
-        index: true,
-        element: <UserProfile />
       }
     ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className={styles['main-content']}>
-    <RouterProvider router={router} />
-  </div>
+  <AuthProvider>
+    <div className={styles['main-content']}>
+      <RouterProvider router={router} />
+    </div>
+  </AuthProvider>
 );
