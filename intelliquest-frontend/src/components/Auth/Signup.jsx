@@ -24,18 +24,19 @@ const Signup = () => {
         },
         body: JSON.stringify({ firstName, lastName, email, userName, password })
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
-        setError(data.message || 'An error occurred.');
+        setError(data.error);
       } else {
-        login(data.token);
+        login(data.token, data.user); 
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
     }
   };
+  
 
   return (
     <div className={styles.authContainer}>
