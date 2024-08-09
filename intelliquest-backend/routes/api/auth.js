@@ -3,7 +3,13 @@ const router = express.Router();
 const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET, JWT_EXPIRATION } = process.env;
+
+// Access environment variables
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not defined");
+}
+const JWT_EXPIRATION = process.env.JWT_EXPIRATION || '1h'; // default to 1 hour if not specified
 
 // Signup Route
 router.post('/signup', async (req, res) => {
@@ -24,10 +30,10 @@ router.post('/signup', async (req, res) => {
     });
 
     await newUser.save();
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
+    const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
     res.status(201).json({ token });
   } catch (error) {
-    console.error('Error during signup:', error);
+    console.error('Error during signup:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -36,11 +42,9 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log('Email provided:', email);
     const user = await User.findOne({ email });
     if (!user) {
-      console.log('User not found:', email);
-      return res.status(400).json({ message: 'User not found.' });
+      return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -51,7 +55,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
     res.json({ token });
   } catch (error) {
-    console.error(error);
+    console.error('Error during login:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });

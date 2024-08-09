@@ -1,18 +1,21 @@
-// server.js
+// Load environment variables from .env file
+const dotenv = require('dotenv');
+dotenv.config();
+
+// Check if JWT_SECRET is defined
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not defined");
+}
 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const resourceRoutes = require('./routes/api/resources');
 const authRoutes = require('./routes/api/auth');
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
 const Resource = require('./models/Resource'); 
-
-// Load environment variables from .env file
-dotenv.config();
 
 const app = express();
 
