@@ -7,24 +7,19 @@ import React, { createContext, useState } from 'react';
 const AuthContext = createContext();
 
 const AuthProvider = ({ children, navigate }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
 
-  const login = (userData) => {
-    if (typeof userData === 'string') {
-      try {
-        const parsedData = JSON.parse(userData);
-        setUser(parsedData);
-      } catch (error) {
-        console.error('Failed to parse userData:', error);
-      }
-    } else {
-      setUser(userData);
-    }
+  const login = (token, userData) => {
+    setUser(userData);
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('user', JSON.stringify(userData));
     navigate('/home');
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
     navigate('/login');
   };
 
