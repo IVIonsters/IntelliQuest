@@ -30,7 +30,14 @@ router.post('/signup', async (req, res) => {
     });
 
     await newUser.save();
-    const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+
+    // Include user's name and username in the token
+    const token = jwt.sign(
+      { id: newUser._id, userName: newUser.userName, firstName: newUser.firstName, lastName: newUser.lastName },
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRATION }
+    );
+
     res.status(201).json({ token });
   } catch (error) {
     console.error('Error during signup:', error.message);
@@ -52,12 +59,20 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: JWT_EXPIRATION });
+    // Generate JWT with additional user information
+    const token = jwt.sign(
+      { id: user._id, userName: user.userName, firstName: user.firstName, lastName: user.lastName },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRATION || '1h' }
+    );
+
     res.json({ token });
   } catch (error) {
-    console.error('Error during login:', error.message);
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
+
 module.exports = router;
+
