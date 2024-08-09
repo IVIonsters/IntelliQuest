@@ -8,6 +8,8 @@ import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
 import Error from './components/Error/Error.jsx';
+import Donations from './components/Donations/Donations.jsx';
+import styles from './main.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import QuizGenerator from './components/QuizGenerator/QuizGenerator.jsx';
 import CodeOptimizer from './components/CodeOptimizer/CodeOptimizer.jsx';
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: 'submit-resource',
         element: <SubmitResource />
+      },
+      {
+        path: 'donations',
+        element: <Donations />
       },
       {
         path: 'search',
