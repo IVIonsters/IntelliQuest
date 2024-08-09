@@ -10,7 +10,16 @@ const AuthProvider = ({ children, navigate }) => {
   const [user, setUser] = useState(null);
 
   const login = (userData) => {
-    setUser(userData);
+    if (typeof userData === 'string') {
+      try {
+        const parsedData = JSON.parse(userData);
+        setUser(parsedData);
+      } catch (error) {
+        console.error('Failed to parse userData:', error);
+      }
+    } else {
+      setUser(userData);
+    }
     navigate('/home');
   };
 
@@ -27,4 +36,3 @@ const AuthProvider = ({ children, navigate }) => {
 };
 
 export { AuthProvider, AuthContext };
-
