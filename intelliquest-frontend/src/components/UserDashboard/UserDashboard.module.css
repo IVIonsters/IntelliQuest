@@ -1,145 +1,195 @@
 /* Container for the entire user dashboard */
 .dashboardContainer {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space out user info and README */
-  align-items: flex-start; /* Align the items at the top */
-  max-width: 1200px; /* Set the maximum width of the container */
-  margin: 5% auto; /* Center the container horizontally and vertically */
-  padding: 2rem; /* Add padding around the content */
-  background: rgba(0, 0, 0, 0.562); /* Glass-like transparent background */
-  backdrop-filter: blur(10px); /* Apply blur effect for glassmorphism */
-  border-radius: 8px; /* Round the corners of the container */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
-  color: var(--platinum); /* Use the platinum color for text */
-  text-align: left; /* Align all text to the left */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 5% auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.562);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: var(--platinum);
+  text-align: left;
 }
 
 /* Container for user info */
 .userInfo {
-  width: 40%; /* Set the width of the user info container */
+  width: 40%;
 }
 
 /* Container for the README-like content */
 .readmeContainer {
-  margin-top: 80px; /* Add space between user info and README */
+  margin-top: 80px;
   margin-right: 10px;
-  width: 85%; /* Set the width of the README container */
-  padding-left: 2rem; /* Add space between the user info and README */
-  background-color: rgba(0, 0, 0, 0.5); /* Set background color with transparency for the README */
-  border-radius: 8px; /* Round the corners of the README container */
-  padding: 1rem; /* Add padding inside the README container */
-  color: var(--platinum); /* Use the platinum color for text */
+  width: 85%;
+  padding-left: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--platinum);
 }
 
 /* Styles for the user avatar */
 .avatar {
-  width: 150px; /* Set the width of the avatar */
-  height: 150px; /* Set the height of the avatar */
-  border-radius: 50%; /* Make the avatar circular */
-  margin-bottom: 1rem; /* Add space below the avatar */
-  border: 3px solid var(--pacific-cyan); /* Add a border matching the project's accent color */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--pacific-cyan);
 }
 
 /* Container for individual sections (e.g., Bio, Pronouns, Company) */
 .infoBox {
-  margin-bottom: 1rem; /* Add space below each section */
-  text-align: left; /* Align text to the left */
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
 /* Header styles for each section title */
 .infoBox h3 {
-  margin-bottom: 0.5rem; /* Add space below the section title */
-  font-size: 1.2rem; /* Set the font size of the section title */
-  color: var(--pacific-cyan); /* Use the accent color for headers */
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--pacific-cyan);
 }
 
 /* Paragraph styles for section content */
 .infoBox p {
-  margin: 0; /* Remove default margin */
-  font-size: 1rem; /* Set the font size of the content */
-  color: var(--platinum); /* Use the platinum color for text */
-  text-align: left; /* Align paragraph text to the left */
+  margin: 0;
+  font-size: 1rem;
+  color: var(--platinum);
+  text-align: left;
+}
+
+/* Input styles for editable fields */
+.infoBox input, .infoBox textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--pacific-cyan);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--rich-black);
+}
+
+/* Styles for the edit icon */
+.editIcon {
+  margin-left: 8px;
+  cursor: pointer;
+  color: var(--pacific-cyan);
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for the edit icon */
+.editIcon:hover {
+  color: var(--moonstone);
+}
+
+/* Styles for save/cancel buttons */
+.editButtons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.editButtons button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editButtons button:first-child {
+  background-color: var(--pacific-cyan);
+  color: var(--rich-black);
+}
+
+.editButtons button:last-child {
+  background-color: var(--moonstone);
+  color: var(--platinum);
 }
 
 /* Container for social media links */
 .socialLinks {
-  list-style: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
+  list-style: none;
+  padding: 0;
 }
 
 /* Styles for each social media link item */
 .socialLinks li {
-  display: flex; /* Align icon and text horizontally */
-  align-items: center; /* Vertically align items in the center */
-  margin-bottom: 0.5rem; /* Add space below each social link */
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 /* Styles for the social media links */
 .socialLinks a {
-  margin-left: 0.5rem; /* Add space between icon and text */
-  text-decoration: none; /* Remove underline from links */
-  color: var(--pacific-cyan); /* Set the color for the social link text */
+  margin-left: 0.5rem;
+  text-decoration: none;
+  color: var(--pacific-cyan);
 }
 
 /* Hover effect for social media links */
 .socialLinks a:hover {
-  text-decoration: underline; /* Underline the link on hover */
-  color: var(--moonstone); /* Change color on hover */
+  text-decoration: underline;
+  color: var(--moonstone);
 }
 
 /* Styles for the social media icons */
 .icon {
-  font-size: 1.5rem; /* Set the size of the icons */
-  color: var(--pacific-cyan); /* Set the color of the icons */
-  transition: color 0.3s ease; /* Smooth transition for color changes */
+  font-size: 1.5rem;
+  color: var(--pacific-cyan);
+  transition: color 0.3s ease;
 }
 
 /* Hover effect for icons */
 .icon:hover {
-  color: var(--moonstone); /* Change color on hover */
+  color: var(--moonstone);
 }
 
 /* Container for the resource cards */
 .resourcesContainer {
-  max-width: 1200px; /* Set the maximum width */
-  margin: 2rem auto; /* Center the container horizontally with some space above */
-  text-align: left; /* Align text to the left */
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: left;
 }
 
 /* Styling for the resource cards */
 .resourceCards {
-  display: flex; /* Use flexbox to layout the cards */
-  flex-wrap: wrap; /* Allow the cards to wrap to the next line */
-  justify-content: space-between; /* Distribute cards evenly */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .resourceCard {
-  width: 30%; /* Set each card to take up 30% of the row */
-  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for glass effect */
-  padding: 1rem; /* Add padding inside the cards */
-  margin-bottom: 1rem; /* Add space below each card */
-  border-radius: 8px; /* Round the corners of the cards */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  width: 30%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .resourceCard h4 {
-  margin-bottom: 0.5rem; /* Add space below the title */
-  font-size: 1.1rem; /* Set the font size for the title */
-  color: var(--rich-black); /* Use dark text color for readability */
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--rich-black);
 }
 
 .resourceCard p {
-  font-size: 0.9rem; /* Set the font size for the content */
-  margin-bottom: 0.5rem; /* Add space below the content */
-  color: var(--rich-black); /* Use dark text color for readability */
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--rich-black);
 }
 
 .resourceCard a {
-  color: var(--pacific-cyan); /* Use the accent color for links */
-  text-decoration: none; /* Remove underline from links */
+  color: var(--pacific-cyan);
+  text-decoration: none;
 }
 
 .resourceCard a:hover {
-  text-decoration: underline; /* Add underline on hover */
-  color: var(--moonstone); /* Change color on hover */
+  text-decoration: underline;
+  color: var(--moonstone);
 }

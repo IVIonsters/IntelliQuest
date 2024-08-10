@@ -1,17 +1,34 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import ReactMarkdown from 'react-markdown'; 
 import rehypeRaw from 'rehype-raw'; 
-import styles from './UserDashboard.module.css';
 import axios from 'axios';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import styles from './UserDashboard.module.css';
+import { FaGithub, FaLinkedin, FaInstagram, FaPencilAlt } from 'react-icons/fa';
 
 const UserDashboard = () => {
   const { user } = useContext(AuthContext);
   const [resources, setResources] = useState([]);
+  const [isEditing, setIsEditing] = useState({});
+  const [profileData, setProfileData] = useState(() => {
+    const savedProfileData = localStorage.getItem('profileData');
+    return savedProfileData
+      ? JSON.parse(savedProfileData)
+      : {
+          bio: 'Developer with a love for creating.',
+          pronouns: 'Male',
+          company: 'IVIonsters Designs LLC',
+          location: 'Somewhere, Earth',
+          socialLinks: {
+            github: 'https://github.com/IVIonsters',
+            linkedin: 'https://linkedin.com/in/zacharypolof',
+            instagram: 'https://instagram.com/zpolof',
+          },
+        };
+  });
 
   useEffect(() => {
     // Fetch random resources from the database
@@ -26,14 +43,192 @@ const UserDashboard = () => {
   
     fetchResources();
   }, []);
-  
 
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  const handleEditClick = (field) => {
+    setIsEditing({ ...isEditing, [field]: true });
+  };
 
-  // Example markdown content (your README.md content)
-  const markdownContent = `
+  const handleChange = (e, field) => {
+    setProfileData({ ...profileData, [field]: e.target.value });
+  };
+
+  const handleSaveClick = (field) => {
+    setIsEditing({ ...isEditing, [field]: false });
+    localStorage.setItem('profileData', JSON.stringify(profileData));
+  };
+
+  const handleCancelClick = (field) => {
+    setIsEditing({ ...isEditing, [field]: false });
+  };
+
+  return (
+    <div>
+      <div className={styles.dashboardContainer}>
+        <div className={styles.userInfo}>
+          <h2>Welcome, {user.userName}</h2>
+          {user.avatarUrl ? (
+            <img src={user.avatarUrl} alt="User Avatar" className={styles.avatar} />
+          ) : (
+            <p>User Avatar not available</p>
+          )}
+
+          <div className={styles.infoBox}>
+            <h3>Bio</h3>
+            {isEditing.bio ? (
+              <>
+                <textarea
+                  value={profileData.bio}
+                  onChange={(e) => handleChange(e, 'bio')}
+                  className={styles.textarea}
+                />
+                <div className={styles.editButtons}>
+                  <button onClick={() => handleSaveClick('bio')}>Save</button>
+                  <button onClick={() => handleCancelClick('bio')}>Cancel</button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>{profileData.bio}</p>
+                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('bio')} />
+              </>
+            )}
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Pronouns</h3>
+            {isEditing.pronouns ? (
+              <>
+                <input
+                  value={profileData.pronouns}
+                  onChange={(e) => handleChange(e, 'pronouns')}
+                  className={styles.input}
+                />
+                <div className={styles.editButtons}>
+                  <button onClick={() => handleSaveClick('pronouns')}>Save</button>
+                  <button onClick={() => handleCancelClick('pronouns')}>Cancel</button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>{profileData.pronouns}</p>
+                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('pronouns')} />
+              </>
+            )}
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Company</h3>
+            {isEditing.company ? (
+              <>
+                <input
+                  value={profileData.company}
+                  onChange={(e) => handleChange(e, 'company')}
+                  className={styles.input}
+                />
+                <div className={styles.editButtons}>
+                  <button onClick={() => handleSaveClick('company')}>Save</button>
+                  <button onClick={() => handleCancelClick('company')}>Cancel</button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>{profileData.company}</p>
+                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('company')} />
+              </>
+            )}
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Location</h3>
+            {isEditing.location ? (
+              <>
+                <input
+                  value={profileData.location}
+                  onChange={(e) => handleChange(e, 'location')}
+                  className={styles.input}
+                />
+                <div className={styles.editButtons}>
+                  <button onClick={() => handleSaveClick('location')}>Save</button>
+                  <button onClick={() => handleCancelClick('location')}>Cancel</button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>{profileData.location}</p>
+                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('location')} />
+              </>
+            )}
+          </div>
+
+          <ul className={styles.socialLinks}>
+            <li>
+              <FaGithub className={styles.icon} />
+              {isEditing.github ? (
+                <>
+                  <input
+                    value={profileData.socialLinks.github}
+                    onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, github: e.target.value } })}
+                    className={styles.input}
+                  />
+                  <div className={styles.editButtons}>
+                    <button onClick={() => handleSaveClick('github')}>Save</button>
+                    <button onClick={() => handleCancelClick('github')}>Cancel</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <a href={profileData.socialLinks.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('github')} />
+                </>
+              )}
+            </li>
+            <li>
+              <FaLinkedin className={styles.icon} />
+              {isEditing.linkedin ? (
+                <>
+                  <input
+                    value={profileData.socialLinks.linkedin}
+                    onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, linkedin: e.target.value } })}
+                    className={styles.input}
+                  />
+                  <div className={styles.editButtons}>
+                    <button onClick={() => handleSaveClick('linkedin')}>Save</button>
+                    <button onClick={() => handleCancelClick('linkedin')}>Cancel</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <a href={profileData.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('linkedin')} />
+                </>
+              )}
+            </li>
+            <li>
+              <FaInstagram className={styles.icon} />
+              {isEditing.instagram ? (
+                <>
+                  <input
+                    value={profileData.socialLinks.instagram}
+                    onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, instagram: e.target.value } })}
+                    className={styles.input}
+                  />
+                  <div className={styles.editButtons}>
+                    <button onClick={() => handleSaveClick('instagram')}>Save</button>
+                    <button onClick={() => handleCancelClick('instagram')}>Cancel</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <a href={profileData.socialLinks.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('instagram')} />
+                </>
+              )}
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.readmeContainer}>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{`
   # Hello,👋🏻 I appreciate you stopping by! Check out my projects!
   
   [![Static Badge](https://img.shields.io/badge/Zachary-IVIonsters_Designs-teal)](https://ivionsters.github.io/Journeys-End/)
@@ -69,50 +264,7 @@ const UserDashboard = () => {
   <img align="left" alt="Mongoose" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original-wordmark.svg" /> 
   <img align="left" alt="Docker" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" /> 
   <img align="left" alt="React" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" /> 
-
-  `;
-
-  return (
-    <div>
-      <div className={styles.dashboardContainer}>
-        <div className={styles.userInfo}>
-          <h2>Welcome, {user.userName}</h2>
-          {user.avatarUrl ? (
-            <img src={user.avatarUrl} alt="User Avatar" className={styles.avatar} />
-          ) : (
-            <p>User Avatar not available</p>
-          )}
-
-          <div className={styles.infoBox}>
-            <h3>Bio</h3>
-            <p>Developer with a love for creating.</p>
-          </div>
-
-          <div className={styles.infoBox}>
-            <h3>Pronouns</h3>
-            <p>Male</p>
-          </div>
-
-          <div className={styles.infoBox}>
-            <h3>Company</h3>
-            <p>IVIonsters Designs LLC</p>
-          </div>
-
-          <div className={styles.infoBox}>
-            <h3>Location</h3>
-            <p>Somewhere, Earth</p>
-          </div>
-
-          <ul className={styles.socialLinks}>
-            <li><FaGithub className={styles.icon} /><a href="https://github.com/IVIonsters">GitHub</a></li>
-            <li><FaLinkedin className={styles.icon} /><a href="https://linkedin.com/in/zacharypolof">LinkedIn</a></li>
-            <li><FaInstagram className={styles.icon} /><a href="https://instagram.com/zpolof">Instagram</a></li>
-          </ul>
-        </div>
-
-        <div className={styles.readmeContainer}>
-          <h3></h3>
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownContent}</ReactMarkdown>
+          `}</ReactMarkdown>
         </div>
       </div>
 
@@ -133,4 +285,3 @@ const UserDashboard = () => {
 };
 
 export default UserDashboard;
-
