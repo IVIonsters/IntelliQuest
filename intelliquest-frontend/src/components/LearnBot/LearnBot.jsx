@@ -14,7 +14,7 @@ const LearnBot = () => {
       setUserInput('');
   
       try {
-          const response = await fetch('/chat', {
+          const response = await fetch('https://intelliquestdb.onrender.com/chat', { 
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -33,6 +33,7 @@ const LearnBot = () => {
           setMessages([...newMessages, { sender: 'LearnBot', text: 'Sorry, something went wrong.' }]);
       }
   };
+  
   
 
     return (
