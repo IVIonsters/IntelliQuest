@@ -1,16 +1,32 @@
-// src/components/UserDashboard/UserDashboard.jsx
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import ReactMarkdown from 'react-markdown'; 
 import rehypeRaw from 'rehype-raw'; 
 import styles from './UserDashboard.module.css';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import axios from 'axios';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const UserDashboard = () => {
   const { user } = useContext(AuthContext);
+  const [resources, setResources] = useState([]);
+
+  useEffect(() => {
+    // Fetch random resources from the database
+    const fetchResources = async () => {
+      try {
+        const response = await axios.get('https://intelliquestdb.onrender.com/api/resources/random');
+        setResources(response.data.slice(0, 3)); // Limit to only 3 resources
+      } catch (error) {
+        console.error('Error fetching resources:', error);
+      }
+    };
+  
+    fetchResources();
+  }, []);
+  
 
   if (!user) {
     return <div>Loading...</div>;
@@ -56,48 +72,64 @@ const UserDashboard = () => {
   `;
 
   return (
-    <div className={styles.dashboardContainer}>
-      <div className={styles.userInfo}>
-        <h2>Welcome, {user.userName}</h2>
-        {user.avatarUrl ? (
-          <img src={user.avatarUrl} alt="User Avatar" className={styles.avatar} />
-        ) : (
-          <p>User Avatar not available</p>
-        )}
+    <div>
+      <div className={styles.dashboardContainer}>
+        <div className={styles.userInfo}>
+          <h2>Welcome, {user.userName}</h2>
+          {user.avatarUrl ? (
+            <img src={user.avatarUrl} alt="User Avatar" className={styles.avatar} />
+          ) : (
+            <p>User Avatar not available</p>
+          )}
 
-        <div className={styles.infoBox}>
-          <h3>Bio</h3>
-          <p>Developer with a love for creating.</p>
+          <div className={styles.infoBox}>
+            <h3>Bio</h3>
+            <p>Developer with a love for creating.</p>
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Pronouns</h3>
+            <p>Male</p>
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Company</h3>
+            <p>IVIonsters Designs LLC</p>
+          </div>
+
+          <div className={styles.infoBox}>
+            <h3>Location</h3>
+            <p>Somewhere, Earth</p>
+          </div>
+
+          <ul className={styles.socialLinks}>
+            <li><FaGithub className={styles.icon} /><a href="https://github.com/IVIonsters">GitHub</a></li>
+            <li><FaLinkedin className={styles.icon} /><a href="https://linkedin.com/in/zacharypolof">LinkedIn</a></li>
+            <li><FaInstagram className={styles.icon} /><a href="https://instagram.com/zpolof">Instagram</a></li>
+          </ul>
         </div>
 
-        <div className={styles.infoBox}>
-          <h3>Pronouns</h3>
-          <p>Male</p>
+        <div className={styles.readmeContainer}>
+          <h3></h3>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownContent}</ReactMarkdown>
         </div>
-
-        <div className={styles.infoBox}>
-          <h3>Company</h3>
-          <p>IVIonsters Designs LLC</p>
-        </div>
-
-        <div className={styles.infoBox}>
-          <h3>Location</h3>
-          <p>Somewhere, Earth</p>
-        </div>
-
-        <ul className={styles.socialLinks}>
-          <li><FaGithub className={styles.icon} /><a href="https://github.com/IVIonsters">GitHub</a></li>
-          <li><FaLinkedin className={styles.icon} /><a href="https://linkedin.com/in/zacharypolof">LinkedIn</a></li>
-          <li><FaInstagram className={styles.icon} /><a href="https://instagram.com/zpolof">Instagram</a></li>
-        </ul>
       </div>
 
-      <div className={styles.readmeContainer}>
-        <h3></h3>
-        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownContent}</ReactMarkdown>
+      <div className={styles.resourcesContainer}>
+        <h3>Favorite Resources</h3>
+        <div className={styles.resourceCards}>
+          {resources.map((resource, index) => (
+            <div key={index} className={styles.resourceCard}>
+              <h4>{resource.title}</h4>
+              <p>{resource.description}</p>
+              <a href={resource.link} target="_blank" rel="noopener noreferrer">Visit</a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default UserDashboard;
+

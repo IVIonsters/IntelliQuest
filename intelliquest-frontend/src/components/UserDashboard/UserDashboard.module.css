@@ -2,7 +2,7 @@
 .dashboardContainer {
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Space out user info and README */
-  align-items: center; /* Center the container vertically */
+  align-items: flex-start; /* Align the items at the top */
   max-width: 1200px; /* Set the maximum width of the container */
   margin: 5% auto; /* Center the container horizontally and vertically */
   padding: 2rem; /* Add padding around the content */
@@ -21,7 +21,7 @@
 
 /* Container for the README-like content */
 .readmeContainer {
-  width: 75%; /* Set the width of the README container */
+  width: 85%; /* Set the width of the README container */
   padding-left: 2rem; /* Add space between the user info and README */
   background-color: rgba(0, 0, 0, 0.5); /* Set background color with transparency for the README */
   border-radius: 8px; /* Round the corners of the README container */
@@ -94,5 +94,50 @@
 
 /* Hover effect for icons */
 .icon:hover {
+  color: var(--moonstone); /* Change color on hover */
+}
+
+/* Container for the resource cards */
+.resourcesContainer {
+  max-width: 1200px; /* Set the maximum width */
+  margin: 2rem auto; /* Center the container horizontally with some space above */
+  text-align: left; /* Align text to the left */
+}
+
+/* Styling for the resource cards */
+.resourceCards {
+  display: flex; /* Use flexbox to layout the cards */
+  flex-wrap: wrap; /* Allow the cards to wrap to the next line */
+  justify-content: space-between; /* Distribute cards evenly */
+}
+
+.resourceCard {
+  width: 30%; /* Set each card to take up 30% of the row */
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for glass effect */
+  padding: 1rem; /* Add padding inside the cards */
+  margin-bottom: 1rem; /* Add space below each card */
+  border-radius: 8px; /* Round the corners of the cards */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.resourceCard h4 {
+  margin-bottom: 0.5rem; /* Add space below the title */
+  font-size: 1.1rem; /* Set the font size for the title */
+  color: var(--rich-black); /* Use dark text color for readability */
+}
+
+.resourceCard p {
+  font-size: 0.9rem; /* Set the font size for the content */
+  margin-bottom: 0.5rem; /* Add space below the content */
+  color: var(--rich-black); /* Use dark text color for readability */
+}
+
+.resourceCard a {
+  color: var(--pacific-cyan); /* Use the accent color for links */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.resourceCard a:hover {
+  text-decoration: underline; /* Add underline on hover */
   color: var(--moonstone); /* Change color on hover */
 }
