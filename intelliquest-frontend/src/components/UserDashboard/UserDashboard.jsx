@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; 
 import axios from 'axios';
 import styles from './UserDashboard.module.css';
+import CourseCard from '../CourseCard/CourseCard';
 import { FaGithub, FaLinkedin, FaInstagram, FaPencilAlt } from 'react-icons/fa';
 
 const UserDashboard = () => {
@@ -269,17 +270,13 @@ const UserDashboard = () => {
       </div>
 
       <div className={styles.resourcesContainer}>
-        <h3>Favorite Resources</h3>
-        <div className={styles.resourceCards}>
-          {resources.map((resource, index) => (
-            <div key={index} className={styles.resourceCard}>
-              <h4>{resource.title}</h4>
-              <p>{resource.description}</p>
-              <a href={resource.link} target="_blank" rel="noopener noreferrer">Visit</a>
-            </div>
-          ))}
-        </div>
-      </div>
+  <h3>Favorite Resources</h3>
+  <div className={styles.resourceCards}>
+    {resources.map((resource, index) => (
+      <CourseCard key={index} resource={resource} />
+    ))}
+  </div>
+</div>
     </div>
   );
 };

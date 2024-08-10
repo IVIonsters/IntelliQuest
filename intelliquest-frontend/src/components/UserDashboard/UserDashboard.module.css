@@ -149,39 +149,50 @@
   color: var(--moonstone);
 }
 
-/* Container for the resource cards */
+/* Styling for the resource cards container */
 .resourcesContainer {
-  max-width: 1200px;
-  margin: 2rem auto;
-  text-align: left;
+  max-width: 1200px; /* Maximum width of the container */
+  margin: 2rem auto; /* Center the container horizontally with some space above */
+  text-align: left; /* Align text to the left */
 }
 
-/* Styling for the resource cards */
+/* Flex container for resource cards */
 .resourceCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: flex; /* Use flexbox to layout the cards */
+  flex-wrap: wrap; /* Allow the cards to wrap to the next line */
+  justify-content: space-between; /* Distribute cards evenly */
 }
 
+/* Individual resource card styles */
 .resourceCard {
-  width: 30%;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 15%; /* Reduce the width of each card to 45% */
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for glass effect */
+  padding: 1rem; /* Add padding inside the cards */
+  margin-bottom: 1rem; /* Add space below each card */
+  border-radius: 8px; /* Round the corners of the cards */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+/* Image styling within the resource card */
+.resourceCard img {
+  width: 100%; /* Set the image to take full width of the card */
+  height: auto; /* Keep the image's aspect ratio */
+  border-radius: 8px; /* Round the corners of the image */
 }
 
+/* Title styling within the resource card */
 .resourceCard h4 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: var(--rich-black);
+  margin-bottom: 0.5rem; /* Add space below the title */
+  font-size: 1.1rem; /* Set the font size for the title */
+  color: var(--rich-black); /* Use dark text color for readability */
 }
 
+/* Description styling within the resource card */
 .resourceCard p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  color: var(--rich-black);
+  font-size: 0.9rem; /* Set the font size for the content */
+  margin-bottom: 0.5rem; /* Add space below the content */
+  color: var(--rich-black); /* Use dark text color for readability */
 }
 
 .resourceCard a {
@@ -189,7 +200,8 @@
   text-decoration: none;
 }
 
-.resourceCard a:hover {
-  text-decoration: underline;
-  color: var(--moonstone);
+/* Hover effect for resource cards */
+.resourceCard:hover {
+  transform: translateY(-5px); /* Lift the card slightly on hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
