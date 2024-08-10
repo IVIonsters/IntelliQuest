@@ -17,7 +17,7 @@ const UserDashboard = () => {
   // Hardcoded data for the new sections
   const bio = "Passionate developer with a love for coding and learning new technologies.";
   const pronouns = "He/Him";
-  const company = "Tech Innovators Inc.";
+  const company = "IVIonsters Designs LLC";
   const location = "San Francisco, CA";
   const socialLinks = {
     instagram: "https://www.instagram.com/yourusername",

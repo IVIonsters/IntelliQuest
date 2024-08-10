@@ -1,58 +1,70 @@
-/* src/components/UserDashboard/UserDashboard.module.css */
-
+/* Container for the entire user dashboard */
 .dashboardContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Set the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 2rem; /* Add padding around the content */
+  background-color: #fff; /* Set the background color to white */
+  border-radius: 8px; /* Round the corners of the container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  text-align: left; /* Align all text to the left */
 }
 
+/* Styles for the user avatar */
 .avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+  width: 150px; /* Set the width of the avatar */
+  height: 150px; /* Set the height of the avatar */
+  border-radius: 50%; /* Make the avatar circular */
+  margin-bottom: 1rem; /* Add space below the avatar */
 }
 
+/* Container for individual sections (e.g., Bio, Pronouns, Company) */
 .infoBox {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Add space below each section */
+  text-align: left; /* Align text to the left */
 }
 
+/* Header styles for each section title */
 .infoBox h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem; /* Add space below the section title */
+  font-size: 1.2rem; /* Set the font size of the section title */
+  text-align: left; /* Align header text to the left */
 }
 
+/* Paragraph styles for section content */
 .infoBox p {
-  margin: 0;
-  font-size: 1rem;
-  color: #333;
+  margin: 0; /* Remove default margin */
+  font-size: 1rem; /* Set the font size of the content */
+  color: #333; /* Set the text color */
+  text-align: left; /* Align paragraph text to the left */
 }
 
+/* Container for social media links */
 .socialLinks {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
 }
 
+/* Styles for each social media link item */
 .socialLinks li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Vertically align items in the center */
+  margin-bottom: 0.5rem; /* Add space below each social link */
 }
 
+/* Styles for the social media links */
 .socialLinks a {
-  margin-left: 0.5rem;
-  text-decoration: none;
-  color: #0077b5;
+  margin-left: 0.5rem; /* Add space between icon and text */
+  text-decoration: none; /* Remove underline from links */
+  color: #0077b5; /* Set the color for the social link text */
 }
 
+/* Hover effect for social media links */
 .socialLinks a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline the link on hover */
 }
 
+/* Styles for the social media icons */
 .icon {
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.2rem; /* Set the size of the icons */
+  color: #333; /* Set the color of the icons */
 }
