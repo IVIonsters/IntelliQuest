@@ -5,13 +5,16 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 import Modal from 'react-modal';
 import styles from './Footer.module.css';
 import emailjs from 'emailjs-com';
+import About from '../About/About';
 
+//Footer component
 const Footer = () => {
   const [isPaneOpen, setIsPaneOpen] = useState(false);
   const [paneContent, setPaneContent] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const form = useRef(null);
 
+  // bind modal to App element
   Modal.setAppElement('#root');
 
   const openPane = (content) => {
@@ -116,10 +119,7 @@ const Footer = () => {
             </div>
           )}
           {paneContent === 'about' && (
-            <div>
-              <h2>About IntelliQuest</h2>
-              <p>Learn more about the IntelliQuest platform...</p>
-            </div>
+            <About />
           )}
         </div>
       </SlidingPane>
