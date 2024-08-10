@@ -9,9 +9,10 @@ const Footer = () => {
   const [isPaneOpen, setIsPaneOpen] = useState(false);
   const [paneContent, setPaneContent] = useState('');
 
-  // bind modal to App element
+  // Bind modal to App element for accessibility
   Modal.setAppElement('#root');
 
+  // Function to open the sliding pane with specific content
   const openPane = (content) => {
     setPaneContent(content);
     setIsPaneOpen(true);
@@ -22,16 +23,17 @@ const Footer = () => {
       <div className={styles.container}>
         {/* Links section */}
         <div className={styles.links}>
-          <a href="#" className={styles.link}>Social Media</a>
+          <a href="/about" className={styles.link}>About</a> {/* Link to About page */}
           <a href="#" className={styles.link} onClick={() => openPane('contact')}>Contact Info</a>
           <a href="#" className={styles.link} onClick={() => openPane('terms')}>Terms Of Service</a>
           <a href="#" className={styles.link} onClick={() => openPane('policies')}>Policies</a>
         </div>
+
         {/* Copyright section */}
         <p className={styles.copyright}>© 2024 IntelliQuest</p>
       </div>
 
-      {/* Sliding pane */}
+      {/* Sliding pane for displaying content */}
       <SlidingPane
         isOpen={isPaneOpen}
         title={
@@ -45,6 +47,7 @@ const Footer = () => {
         onRequestClose={() => setIsPaneOpen(false)}
       >
         <div>
+          {/* Display Terms of Service content */}
           {paneContent === 'terms' && (
             <div>
               <h2>Terms of Service</h2>
@@ -53,18 +56,23 @@ const Footer = () => {
               <p>By using our website, you acknowledge that we provide educational content and tools as-is without any guarantees or warranties. We do not take responsibility for any errors, omissions, or inaccuracies in the content provided, nor do we guarantee that our services will meet your specific requirements or expectations. Your use of our platform is at your own risk, and we are not liable for any direct or indirect damages that may arise from your use of our website. If you have any questions or concerns about these terms, please contact us for further clarification.</p>
             </div>
           )}
+          
+          {/* Display Policies content */}
           {paneContent === 'policies' && (
             <div>
               <h2>Policies</h2>
               <p>We expect all users to adhere to our community guidelines. Any behavior that is disruptive, offensive, or violates the rights of others will not be tolerated. We reserve the right to suspend or terminate accounts for violations of our policies. Additionally, we may collect and use certain user data in accordance with our Privacy Policy.</p>
             </div>
           )}
+
+          {/* Display Contact Info content */}
           {paneContent === 'contact' && (
             <div>
               <h2>Contact Info</h2>
               <p>
                 Send us an email <a href="mailto:intelliquesthq@gmail.com">here</a>.
               </p>
+              {/* Contact form or additional contact information can be added here */}
             </div>
           )}
         </div>
