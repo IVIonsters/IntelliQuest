@@ -63,12 +63,12 @@ const LearnBot = () => {
                 <input
                     type="text"
                     id="user-input"
-                    placeholder="Type your message here..."
+                    placeholder="Chat with LearnBot..."
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                 />
                 <button id="send-btn" onClick={handleSend}>
-                    Send
+                    Acquire Knowledge
                 </button>
             </div>
         </div>
