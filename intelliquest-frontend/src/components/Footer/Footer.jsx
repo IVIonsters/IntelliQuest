@@ -1,42 +1,65 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useRef } from 'react';
 import SlidingPane from 'react-sliding-pane';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 import Modal from 'react-modal';
 import styles from './Footer.module.css';
+import emailjs from 'emailjs-com';
 
-// Footer component
 const Footer = () => {
   const [isPaneOpen, setIsPaneOpen] = useState(false);
   const [paneContent, setPaneContent] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const form = useRef(null);
 
-  // Bind modal to App element for accessibility
   Modal.setAppElement('#root');
 
-  // Function to open the sliding pane with specific content
   const openPane = (content) => {
     setPaneContent(content);
     setIsPaneOpen(true);
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+        .sendForm('service_053kfvd', 'template_pc407mi', form.current, {
+            publicKey: 'XBP9KEXYFQOkB5RAl',
+        })
+        .then(
+            () => {
+                console.log('SUCCESS!');
+                form.current.reset(); // Reset the form after sending the email
+                setIsModalVisible(true); // Show the success modal
+
+                setTimeout(() => {
+                    setIsModalVisible(false); // Hide the modal after 5 seconds
+                }, 5000);
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+                console.error('Failed to send email:', error);
+            }
+        );
+};
+
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Links section */}
         <div className={styles.links}>
-          <a href="/about" className={styles.link}>About</a> {/* Link to About page */}
+          <a href="#" className={styles.link} onClick={() => openPane('about')}>About</a>
           <a href="#" className={styles.link} onClick={() => openPane('contact')}>Contact Info</a>
           <a href="#" className={styles.link} onClick={() => openPane('terms')}>Terms Of Service</a>
           <a href="#" className={styles.link} onClick={() => openPane('policies')}>Policies</a>
         </div>
-
-        {/* Copyright section */}
         <p className={styles.copyright}>© 2024 IntelliQuest</p>
       </div>
 
-      {/* Sliding pane for displaying content */}
       <SlidingPane
         isOpen={isPaneOpen}
         title={
+          paneContent === 'about' ? 'About IntelliQuest' :
           paneContent === 'terms' ? 'Terms of Service' :
           paneContent === 'policies' ? 'Policies' :
           paneContent === 'contact' ? 'Contact Info' :
@@ -47,7 +70,37 @@ const Footer = () => {
         onRequestClose={() => setIsPaneOpen(false)}
       >
         <div>
-          {/* Display Terms of Service content */}
+          {paneContent === 'contact' && (
+            <div className={styles.contactContainer}>
+              <h1>
+                <span className={styles.title}>Send us a message and we will get back to you soon!</span>
+              </h1>
+              
+              <div className={styles.card}>
+                <div className={styles.gridContainer}>
+                  <form className={styles.form} ref={form} onSubmit={sendEmail}>
+                    <label>Name</label>
+                    <input className={styles.textarea} type="text" name="user_name" required />
+                    <label>Email</label>
+                    <input className={styles.textarea} type="email" name="user_email" required />
+                    <label>Message</label>
+                    <textarea className={styles.textarea} name="message" required />
+                    <input type="submit" value="Send" />
+                  </form>
+                  <p>
+                Send us an email <a href="mailto:intelliquesthq@gmail.com">here</a>.
+              </p>
+                </div>
+              </div>
+              {isModalVisible && (
+                <div className={styles.modal}>
+                  <div className={styles.modalContent}>
+                    <p>Thank you for your message!</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
           {paneContent === 'terms' && (
             <div>
               <h2>Terms of Service</h2>
@@ -56,23 +109,16 @@ const Footer = () => {
               <p>By using our website, you acknowledge that we provide educational content and tools as-is without any guarantees or warranties. We do not take responsibility for any errors, omissions, or inaccuracies in the content provided, nor do we guarantee that our services will meet your specific requirements or expectations. Your use of our platform is at your own risk, and we are not liable for any direct or indirect damages that may arise from your use of our website. If you have any questions or concerns about these terms, please contact us for further clarification.</p>
             </div>
           )}
-          
-          {/* Display Policies content */}
           {paneContent === 'policies' && (
             <div>
               <h2>Policies</h2>
               <p>We expect all users to adhere to our community guidelines. Any behavior that is disruptive, offensive, or violates the rights of others will not be tolerated. We reserve the right to suspend or terminate accounts for violations of our policies. Additionally, we may collect and use certain user data in accordance with our Privacy Policy.</p>
             </div>
           )}
-
-          {/* Display Contact Info content */}
-          {paneContent === 'contact' && (
+          {paneContent === 'about' && (
             <div>
-              <h2>Contact Info</h2>
-              <p>
-                Send us an email <a href="mailto:intelliquesthq@gmail.com">here</a>.
-              </p>
-              {/* Contact form or additional contact information can be added here */}
+              <h2>About IntelliQuest</h2>
+              <p>Learn more about the IntelliQuest platform...</p>
             </div>
           )}
         </div>
