@@ -21,6 +21,8 @@
 
 /* Container for the README-like content */
 .readmeContainer {
+  margin-top: 80px; /* Add space between user info and README */
+  margin-right: 10px;
   width: 85%; /* Set the width of the README container */
   padding-left: 2rem; /* Add space between the user info and README */
   background-color: rgba(0, 0, 0, 0.5); /* Set background color with transparency for the README */
