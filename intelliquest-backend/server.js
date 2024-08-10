@@ -167,7 +167,7 @@ app.post('/chat', async (req, res) => {
                   { role: 'system', content: 'You are a helpful assistant named LearnBot.' },
                   { role: 'user', content: userInput }
               ],
-              max_tokens: 150,
+              max_tokens: 500, // Increase max tokens for longer responses
               temperature: 0.7,
               top_p: 1,
               n: 1
