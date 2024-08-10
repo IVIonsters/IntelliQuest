@@ -5,8 +5,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import ReactMarkdown from 'react-markdown'; 
-import rehypeRaw from 'rehype-raw'; // Allows rendering of raw HTML in markdown
+import rehypeRaw from 'rehype-raw'; 
 import styles from './UserDashboard.module.css';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 const UserDashboard = () => {
   const { user } = useContext(AuthContext);
@@ -19,6 +20,10 @@ const UserDashboard = () => {
   const markdownContent = `
   # Hello,👋🏻 I appreciate you stopping by! Check out my projects!
   
+  [![Static Badge](https://img.shields.io/badge/Zachary-IVIonsters_Designs-teal)](https://ivionsters.github.io/Journeys-End/)
+
+  ###  Exploring the beauty in the world through technology.🌎
+
   I have a passion for programming and am constantly looking for ways to expand my knowledge! Relentless in my pursuit to become more knowledgeable about my craft! I enjoy crafting dynamically eventful websites and projects. Real-world application and focus are what I strive for in my project concepts. Let's connect and build something to change the world! ☄
 
   **Let's Connect:📱**
@@ -67,12 +72,12 @@ const UserDashboard = () => {
 
         <div className={styles.infoBox}>
           <h3>Pronouns</h3>
-          <p>They/Them</p>
+          <p>Male</p>
         </div>
 
         <div className={styles.infoBox}>
           <h3>Company</h3>
-          <p>My Company</p>
+          <p>IVIonsters Designs LLC</p>
         </div>
 
         <div className={styles.infoBox}>
@@ -81,14 +86,14 @@ const UserDashboard = () => {
         </div>
 
         <ul className={styles.socialLinks}>
-          <li><i className={`fab fa-github ${styles.icon}`}></i><a href="https://github.com/yourusername">GitHub</a></li>
-          <li><i className={`fab fa-linkedin ${styles.icon}`}></i><a href="https://linkedin.com/in/yourusername">LinkedIn</a></li>
-          <li><i className={`fab fa-instagram ${styles.icon}`}></i><a href="https://instagram.com/yourusername">Instagram</a></li>
+          <li><FaGithub className={styles.icon} /><a href="https://github.com/IVIonsters">GitHub</a></li>
+          <li><FaLinkedin className={styles.icon} /><a href="https://linkedin.com/in/zacharypolof">LinkedIn</a></li>
+          <li><FaInstagram className={styles.icon} /><a href="https://instagram.com/zpolof">Instagram</a></li>
         </ul>
       </div>
 
       <div className={styles.readmeContainer}>
-        <h3>README.md</h3>
+        <h3></h3>
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownContent}</ReactMarkdown>
       </div>
     </div>
