@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import styles from './LearnBot.module.css';
 
@@ -6,23 +7,33 @@ const LearnBot = () => {
     const [messages, setMessages] = useState([]);
 
     const handleSend = async () => {
-        if (!userInput.trim()) return;
-
-        const newMessages = [...messages, { sender: 'User', text: userInput }];
-        setMessages(newMessages);
-        setUserInput('');
-
-        const response = await fetch('/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: userInput }),
-        });
-
-        const data = await response.json();
-        setMessages([...newMessages, { sender: 'LearnBot', text: data.response }]);
-    };
+      if (!userInput.trim()) return;
+  
+      const newMessages = [...messages, { sender: 'User', text: userInput }];
+      setMessages(newMessages);
+      setUserInput('');
+  
+      try {
+          const response = await fetch('/chat', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ message: userInput }),
+          });
+  
+          if (!response.ok) {
+              throw new Error(`Server error: ${response.statusText}`);
+          }
+  
+          const data = await response.json();
+          setMessages([...newMessages, { sender: 'LearnBot', text: data.response }]);
+      } catch (error) {
+          console.error('Error during fetch:', error);
+          setMessages([...newMessages, { sender: 'LearnBot', text: 'Sorry, something went wrong.' }]);
+      }
+  };
+  
 
     return (
         <div className={styles.container}>
