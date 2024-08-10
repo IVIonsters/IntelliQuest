@@ -1,72 +1,153 @@
+/* Main container for the LearnBot chat interface */
 .container {
-  width: 400px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin: 0 auto;
-  text-align: center;
+  width: 90%; /* Set the width to 90% of the viewport width */
+  max-width: 600px; /* Ensure the container does not exceed 600px */
+  background-color: #fff; /* White background for the container */
+  border-radius: 8px; /* Rounded corners for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+  overflow: hidden; /* Prevent content from overflowing the container */
+  margin: 0 auto; /* Center the container horizontally */
+  margin-top: 10vh; /* Push the container down from the top, using viewport height */
+  padding: 20px; /* Add padding inside the container for spacing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+/* Header styling for the title of the chat */
 h1 {
-  background-color: #00a0ea;
-  color: #fff;
-  margin: 0;
-  padding: 16px;
-  font-size: 24px;
+  text-align: center; /* Center the title text */
+  background-color: var(--pacific-cyan); /* Set a background for the title */
+  color: #fff; /* White text color */
+  margin: 0; /* Remove default margin around the title */
+  padding: 16px; /* Add padding inside the title for spacing */
+  font-size: 2rem; /* Set the font size for the title, responsive to screen size */
 }
 
+/* Chatbox container that holds all messages */
 .chatbox {
-  height: 400px;
-  padding: 16px;
-  overflow-y: auto;
-  border-bottom: 1px solid #ddd;
-  background-color: #fafafa;
+  height: 50vh; /* Set height relative to the viewport height for responsiveness */
+  padding: 16px; /* Padding inside the chatbox */
+  overflow-y: auto; /* Enable vertical scrolling if messages exceed container height */
+  border-bottom: 1px solid #ddd; /* Light gray border at the bottom */
+  background-color: #fafafa; /* Light gray background for the chatbox */
 }
 
-.userMessage,
-.botMessage {
+/* Styling for each individual message inside the chatbox */
+.chatbox div {
+  margin-bottom: 8px; /* Space between messages */
+  padding: 8px 12px; /* Padding inside each message bubble */
+  border-radius: 16px; /* Rounded corners for message bubbles */
+  max-width: 75%; /* Limit the width of messages to 75% of the chatbox */
+  font-size: 1rem; /* Set font size for message text, responsive to screen size */
+}
+
+/* Styling for user messages (odd children in the chatbox) */
+.userMessage {
+  background-color: #e0f7fa;
+  align-self: flex-start;
   margin-bottom: 8px;
   padding: 8px 12px;
   border-radius: 16px;
   max-width: 75%;
-  display: inline-block;
+  font-size: 1rem;
+  word-wrap: break-word; /* Ensure long URLs break correctly */
 }
 
-.userMessage {
-  background-color: #e0f7fa;
-  text-align: left;
+/* Styling for user messages (odd children in the chatbox) */
+.chatbox div:nth-child(odd) {
+  background-color: #e0f7fa; /* Light blue background for user messages */
+  align-self: flex-start; /* Align user messages to the left */
 }
 
+/* Styling for LearnBot messages (even children in the chatbox) */
+.chatbox div:nth-child(even) {
+  background-color: #d1c4e9; /* Light purple background for LearnBot messages */
+  align-self: flex-end; /* Align LearnBot messages to the right */
+}
+
+/* Container for the input area at the bottom of the chat */
+.input-group {
+  display: flex; /* Flexbox layout for input and button */
+  padding: 16px; /* Padding around the input group */
+  background-color: #fff; /* White background for the input area */
+}
+
+/* Styling for LearnBot messages (even children in the chatbox) */
 .botMessage {
   background-color: #d1c4e9;
-  text-align: left;
+  align-self: flex-end;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  max-width: 75%;
+  font-size: 1rem;
+  word-wrap: break-word; /* Ensure long URLs break correctly */
 }
 
-.inputGroup {
-  display: flex;
-  padding: 16px;
-  background-color: #fff;
+a {
+  color: var(--pacific-cyan); /* Match link color with your theme */
+  text-decoration: none;
 }
 
-input[type='text'] {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-right: 8px;
+a:hover {
+  text-decoration: underline; /* Underline on hover for better visibility */
 }
 
+/* Styling for the text input field */
+input[type="text"] {
+  flex: 1; /* Make the input field take up all available space */
+  padding: 12px; /* Padding inside the input field */
+  border: 1px solid #ddd; /* Light gray border around the input field */
+  border-radius: 8px; /* Rounded corners for the input field */
+  margin-right: 8px; /* Space between the input field and the send button */
+  font-size: 1rem; /* Set font size for input text, responsive to screen size */
+}
+
+/* Styling for the send button */
 button {
-  padding: 12px 20px;
-  background-color: #008cea;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 12px 20px; /* Padding inside the button */
+  background-color: var(--pacific-cyan); /*  background for the button */
+  color: #fff; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition effect for hover state */
+  font-size: 1rem; /* Set font size for button text, responsive to screen size */
 }
 
+/* Hover effect for the send button */
 button:hover {
-  background-color: #3700b3;
+  background-color: #3700b3; /* Darker purple when the button is hovered */
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      width: 95%; /* Adjust the width for smaller screens */
+      padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .h1 {
+      font-size: 1.5rem; /* Reduce title font size for smaller screens */
+  }
+
+  .chatbox {
+      height: 40vh; /* Adjust chatbox height for smaller screens */
+  }
+
+  .chatbox div {
+      font-size: 0.9rem; /* Adjust message font size for smaller screens */
+  }
+
+  .input-group {
+      padding: 12px; /* Adjust input group padding for smaller screens */
+  }
+
+  input[type="text"] {
+      font-size: 0.9rem; /* Adjust input font size for smaller screens */
+  }
+
+  button {
+      font-size: 0.9rem; /* Adjust button font size for smaller screens */
+  }
+}
+
