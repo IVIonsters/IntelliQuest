@@ -1,93 +1,145 @@
 /* Navbar container styles */
 .navbar {
-  display: flex; /* Arrange items in a row */
-  justify-content: space-between; /* Space out items */
-  align-items: center; /* Align items vertically in the center */
+  display: flex; /* Arrange navbar items in a row */
+  justify-content: space-between; /* Space out items between left and right edges */
+  align-items: center; /* Center items vertically */
   padding: 1rem; /* Add padding around the navbar */
-  background-color: var(--rich-black); /* Set background color to Rich Black */
-  color: var(--platinum); /* Set text color to Platinum */
+  background-color: var(--rich-black); /* Set the background color */
+  color: var(--platinum); /* Set the text color */
+  position: relative; /* Allow for absolute positioning of child elements if needed */
 }
 
 /* Logo styles */
 .logo {
-  font-size: 1.5rem; /* Set font size for the logo */
+  font-size: 1.5rem; /* Increase font size for the logo */
   font-weight: bold; /* Make the logo text bold */
 }
 
-/* Navigation links container styles */
+/* Hamburger menu icon styles */
+.hamburger {
+  display: none; /* Initially hide the hamburger menu icon */
+  cursor: pointer; /* Change cursor to pointer when hovering over the icon */
+  z-index: 2; /* Ensure the hamburger icon stays on top of other elements */
+}
+
+/* Sidebar styles */
 .navLinks {
   list-style: none; /* Remove default list styling */
-  display: flex; /* Arrange items in a row */
-  gap: 1rem; /* Add space between navigation links */
+  display: flex; /* Display links in a row */
+  gap: 1rem; /* Add space between each link */
+  transition: transform 0.3s ease; /* Smooth transition when showing/hiding the sidebar */
 }
 
-/* Navigation link item styles */
 .navLinks li {
-  display: inline; /* Display links inline */
+  display: inline; /* Display list items inline */
 }
 
-/* Navigation link styles */
-.navLinks a {
-  color: var(--platinum); /* Set link color to Platinum */
-  text-decoration: none; /* Remove underline from links */
-  font-weight: 500; /* Set font weight for links */
+/* Close button (X icon) styles */
+.closeBtn {
+  display: none; /* Initially hide the close button */
+  align-self: flex-end; /* Align the close button to the right */
+  cursor: pointer; /* Change cursor to pointer when hovering over the icon */
+}
+
+/* Show the close button only when the sidebar is open */
+.showSidebar .closeBtn {
+  display: block; /* Display the close button when the sidebar is open */
 }
 
 /* Search form container styles */
 .searchForm {
-  display: flex; /* Arrange form elements in a row */
-  align-items: center; /* Align items vertically in the center */
+  display: flex; /* Display form elements in a row */
+  align-items: center; /* Center elements vertically */
+  margin-top: 1rem; /* Add margin at the top of the form */
 }
 
-/* Search input styles */
+/* Search input field styles */
 .searchInput {
-  padding: 0.5rem; /* Add padding inside the input */
-  border: 1px solid var(--cadet-grey); /* Set border color to Cadet Grey */
-  border-radius: 0.25rem; /* Round the corners of the input */
-  margin-right: 0.5rem; /* Add space to the right of the input */
+  padding: 0.5rem; /* Add padding inside the input field */
+  border: 1px solid var(--cadet-grey); /* Set border color */
+  border-radius: 0.25rem; /* Round the corners of the input field */
+  margin-right: 0.5rem; /* Add space to the right of the input field */
 }
 
 /* Search button styles */
 .searchButton {
   padding: 0.5rem 1rem; /* Add padding inside the button */
-  background-color: var(--pacific-cyan); /* Set background color to Pacific Cyan */
-  color: var(--rich-black); /* Set text color to Rich Black */
+  background-color: var(--pacific-cyan); /* Set background color */
+  color: var(--rich-black); /* Set text color */
   border: none; /* Remove default border */
   border-radius: 0.25rem; /* Round the corners of the button */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-/* Search button hover styles */
+/* Search button hover effect */
 .searchButton:hover {
-  background-color: var(--moonstone); /* Change background color to Moonstone on hover */
+  background-color: var(--moonstone); /* Change background color on hover */
 }
 
 /* Auth links container styles */
 .authLinks {
-  display: flex; /* Arrange items in a row */
-  align-items: center; /* Align items vertically in the center */
-  gap: 1rem; /* Add space between the username and logout button */
+  display: flex; /* Display auth links in a row */
+  align-items: center; /* Center items vertically */
+  gap: 1rem; /* Add space between each auth link */
 }
 
 /* Welcome text styles */
 .welcomeText {
-  font-weight: 500; /* Set font weight for the welcome text */
-  color: var(--platinum); /* Set color to Platinum */
-  margin-right: 0.5rem; /* Add space to the right of the welcome text */
+  font-weight: 500; /* Set font weight */
+  color: var(--platinum); /* Set text color */
+  margin-right: 0.5rem; /* Add space to the right of the text */
   white-space: nowrap; /* Prevent the text from wrapping */
 }
 
 /* Logout button styles */
 .logoutButton {
   padding: 0.5rem 1rem; /* Add padding inside the button */
-  background-color: var(--pacific-cyan); /* Set background color to Pacific Cyan */
-  color: var(--rich-black); /* Set text color to Rich Black */
+  background-color: var(--pacific-cyan); /* Set background color */
+  color: var(--rich-black); /* Set text color */
   border: none; /* Remove default border */
   border-radius: 0.25rem; /* Round the corners of the button */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-/* Logout button hover styles */
+/* Logout button hover effect */
 .logoutButton:hover {
-  background-color: var(--moonstone); /* Change background color to Moonstone on hover */
+  background-color: var(--moonstone); /* Change background color on hover */
+}
+
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  .navLinks {
+    position: fixed; /* Fix the sidebar position */
+    top: 0; /* Align the sidebar to the top of the screen */
+    right: 0; /* Align the sidebar to the right of the screen */
+    height: 100%; /* Make the sidebar full height */
+    width: 250px; /* Set a fixed width for the sidebar */
+    background-color: var(--rich-black); /* Set the background color */
+    flex-direction: column; /* Display links in a column */
+    align-items: flex-start; /* Align items to the start (left) */
+    padding: 1rem; /* Add padding inside the sidebar */
+    transform: translateX(100%); /* Initially hide the sidebar off-screen */
+    z-index: 1; /* Ensure the sidebar appears above other content */
+  }
+
+  .showSidebar {
+    transform: translateX(0); /* Move the sidebar into view when active */
+  }
+
+  .hamburger {
+    display: block; /* Show the hamburger menu icon on small screens */
+  }
+
+  .closeBtn {
+    display: block; /* Show the close button on small screens */
+  }
+
+  .searchForm {
+    flex-direction: column; /* Stack the search form elements vertically */
+    width: 100%; /* Make the search form full width */
+  }
+
+  .authLinks {
+    flex-direction: column; /* Stack the auth links vertically */
+  }
 }

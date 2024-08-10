@@ -43,27 +43,28 @@ const Navbar = ({ onSearch }) => {
         <li><Link to="/submit-resource" onClick={toggleSidebar}>Resource</Link></li>
         <li><Link to="/userdashboard" onClick={toggleSidebar}>Dashboard</Link></li>
         <li><Link to="/donations" onClick={toggleSidebar}>Donations</Link></li>
+        <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            placeholder="Search..."
+            className={styles.searchInput}
+          />
+          <button type="submit" className={styles.searchButton}>Search</button>
+        </form>
+        {user ? (
+          <div className={styles.authLinks}>
+            <span className={styles.welcomeText}>Welcome, {user.userName || 'User'}</span>
+            <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
+          </div>
+        ) : (
+          <div className={styles.authLinks}>
+            <Link to="/login" onClick={toggleSidebar}>Login</Link>
+            <Link to="/signup" onClick={toggleSidebar}>Sign Up</Link>
+          </div>
+        )}
       </ul>
-      <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          placeholder="Search..."
-        />
-        <button type="submit">Search</button>
-      </form>
-      {user ? (
-        <div className={styles.authLinks}>
-          <span>Welcome, {user.userName || 'User'}</span>
-          <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
-        </div>
-      ) : (
-        <div className={styles.authLinks}>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
     </nav>
   );
 };
