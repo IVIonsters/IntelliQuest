@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const resourceRoutes = require('./routes/api/resources');
 const authRoutes = require('./routes/api/auth');
+const flipcards = require('./routes/api/flipcards');
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
@@ -40,6 +41,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 // Use Routes
 app.use('/api/resources', resourceRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/flipcards', flipcards);
 
 // Set your OpenAI API key
 const apiKey = process.env.OPENAI_API_KEY; // Store your API key in the .env file
