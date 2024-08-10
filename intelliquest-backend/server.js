@@ -15,6 +15,8 @@ const authRoutes = require('./routes/api/auth');
 const session = require('express-session');
 const passport = require('./config/passport');
 const axios = require('axios');
+const path = require('path');
+const bodyParser = require('body-parser');
 const Resource = require('./models/Resource'); 
 
 const app = express();
@@ -141,6 +143,52 @@ app.post('/api/resources/submit', async (req, res) => {
     res.status(500).json({ error: 'Error submitting resource' });
   }
 });
+
+// Serve static files for LearnBot
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Bodyparser Middleware for LearnBot
+app.use(bodyParser.json());
+
+// LearnBot route
+app.post('/chat', async (req, res) => {
+  const userInput = req.body.message;
+
+  try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+              model: 'gpt-3.5-turbo',
+              messages: [
+                  { role: 'system', content: 'You are a helpful assistant named LearnBot.' },
+                  { role: 'user', content: userInput }
+              ],
+              max_tokens: 500, // Increase max tokens for longer responses
+              temperature: 0.7,
+              top_p: 1,
+              n: 1
+          })
+      });
+
+      const data = await response.json();
+
+      if (data.choices && data.choices.length > 0) {
+          const learnBotResponse = data.choices[0].message.content.trim();
+          res.json({ response: learnBotResponse });
+      } else {
+          console.log('API response does not contain choices:', data);
+          res.status(500).json({ response: 'Sorry, I could not understand that. Could you please rephrase?' });
+      }
+  } catch (error) {
+      console.error('Error:', error.message);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

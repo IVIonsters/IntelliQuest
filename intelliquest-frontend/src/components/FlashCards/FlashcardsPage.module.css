@@ -1,0 +1,23 @@
+/* FlashCards/FlashcardsPage.module.css */
+.flashcardsContainer {
+    padding: 20px;
+    text-align: center;
+}
+
+#topic-select {
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Container for FlipcardList to add space between dropdown and cards */
+.flipcardListContainer {
+    margin-top: 40px; /* Space between the dropdown and the cards */
+}
+
+/* FlipcardList styles */
+.flipcardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

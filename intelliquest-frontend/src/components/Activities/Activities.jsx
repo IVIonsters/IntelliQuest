@@ -24,7 +24,7 @@ function Activities() {
                     <div className={styles.card}>
                         <img src={fcImage} alt='Flash Cards' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2>Flash Cards</h2>
+                            <h2><Link to="/flashcards">Flash Cards</Link></h2> {/* Link to Flashcards Page */}
                             <p>Test your knowledge with flash cards</p>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ function Activities() {
                     <div className={styles.card}>
                         <img src={lbImage} alt='Learn Bot' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2><Link to="/">Chat With Our Learn Bot!</Link></h2>
+                            <h2><Link to="/learnbot">Chat With Our Learn Bot!</Link></h2>
                             <p>Feature coming soon.....</p>
                         </div>
                     </div>

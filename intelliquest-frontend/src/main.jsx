@@ -18,6 +18,8 @@ import Login from './components/Auth/Login.jsx';
 import Signup from './components/Auth/Signup.jsx';
 import { AuthProvider } from './components/Auth/AuthContext.jsx';
 import UserDashboard from './components/UserDashboard/UserDashboard.jsx';
+import FlashcardsPage from './components/FlashCards/FlashcardsPage.jsx';
+import LearnBot from './components/LearnBot/LearnBot.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: 'learnbot',
+        element: <LearnBot />,
+      },
+      {
         index: true,
         element: <HomePage />
       },
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: 'optimize',
         element: <CodeOptimizer />
+      },
+      {
+        path: 'flashcards',
+        element: <FlashcardsPage />
       },
       {
         path: 'submit-resource',
