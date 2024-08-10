@@ -17,9 +17,9 @@ const Login = () => {
       const response = await fetch('https://intelliquestdb.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
   
       const data = await response.json();
@@ -27,13 +27,13 @@ const Login = () => {
       if (!response.ok) {
         setError(data.error);
       } else {
+        console.log('Token received:', data.token); // Check if token is correctly received
         login(data.token);
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
     }
   };
-  
 
   return (
     <div className={styles.authContainer}>
@@ -61,3 +61,4 @@ const Login = () => {
 };
 
 export default Login;
+
