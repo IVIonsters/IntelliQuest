@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 // FlashCards/Flipcard.jsx
 import React from 'react';
