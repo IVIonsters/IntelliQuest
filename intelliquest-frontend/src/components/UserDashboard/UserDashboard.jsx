@@ -270,11 +270,16 @@ const UserDashboard = () => {
       </div>
 
       <div className={styles.resourcesContainer}>
-  <h3>Favorite Resources</h3>
-  <div className={styles.resourceCards}>
-    {resources.map((resource, index) => (
-      <CourseCard key={index} resource={resource} />
-    ))}
+      <h3>Favorite Resources</h3>
+      <div className={styles.resourceCards}>
+        {resources.map((resource, index) => (
+          <div key={index} className={styles.resourceCard}>
+            <img src={resource.thumbnail} alt={resource.title} />
+            <h4>{resource.title}</h4>
+            <p>{resource.description}</p>
+            <a href={resource.link} target="_blank" rel="noopener noreferrer">Visit</a>
+          </div>
+        ))}
   </div>
 </div>
     </div>
