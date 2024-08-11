@@ -35,7 +35,11 @@ const Navbar = ({ onSearch }) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>IntelliQuest</div>
+      
+      {/* Hamburger Menu Icon */}
       <FaBars className={styles.hamburger} onClick={toggleSidebar} />
+      
+      {/* Navigation Links and Sidebar */}
       <ul className={`${styles.navLinks} ${isSidebarOpen ? styles.showSidebar : ''}`}>
         <FaTimes className={styles.navbarCloseBtn} onClick={toggleSidebar} />
         <li><Link to="/" onClick={toggleSidebar}>Home</Link></li>
@@ -43,6 +47,8 @@ const Navbar = ({ onSearch }) => {
         <li><Link to="/submit-resource" onClick={toggleSidebar}>Resource</Link></li>
         <li><Link to="/userdashboard" onClick={toggleSidebar}>Dashboard</Link></li>
         <li><Link to="/donations" onClick={toggleSidebar}>Donations</Link></li>
+        
+        {/* Search Form */}
         <form onSubmit={handleSearchSubmit} className={styles.navbarSearchForm}>
           <input
             type="text"
@@ -53,6 +59,8 @@ const Navbar = ({ onSearch }) => {
           />
           <button type="submit" className={styles.searchButton}>Search</button>
         </form>
+
+        {/* Authentication Links */}
         {user ? (
           <div className={styles.navbarAuthLinks}>
             <span className={styles.welcomeText}>Welcome, {user.userName || 'User'}</span>

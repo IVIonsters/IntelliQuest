@@ -1,29 +1,31 @@
 /* Navbar container styles */
 .navbar {
   display: flex; /* Arrange items in a row */
-  justify-content: space-between; /* Space out items on the navbar */
+  justify-content: space-between; /* Space out items across the navbar */
   align-items: center; /* Center items vertically */
-  padding: 1rem 2rem; /* Add padding around the navbar */
-  background-color: var(--rich-black); /* Set background color */
-  color: var(--platinum); /* Set text color */
-  position: relative; /* Position relative to allow absolute positioning of child elements if needed */
-  z-index: 1; /* Ensure navbar stays on top */
+  padding: 1rem 2rem; /* Padding around the navbar for spacing */
+  background-color: #1c1c1c; /* Darker background for better contrast */
+  color: #f1f1f1; /* Light text color for readability */
+  position: relative; /* Relative positioning for potential child positioning */
+  z-index: 1; /* Ensures the navbar stays on top of other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 /* Logo styles */
 .logo {
-  font-size: 1.75rem; /* Increase font size for the logo */
+  font-size: 2rem; /* Size of the logo text */
   font-weight: bold; /* Make the logo text bold */
-  margin-right: 2rem; /* Add space to the right of the logo */
-  display: flex; /* Flexbox for possible logo icon or text combo */
-  align-items: center; /* Vertically center within the logo area */
+  color: #ffffff; /* White color for logo text */
+  text-transform: uppercase; /* Make the logo text uppercase */
+  letter-spacing: 1px; /* Add spacing between letters */
 }
 
 /* Hamburger menu icon styles */
 .hamburger {
-  display: none; /* Initially hide the hamburger menu icon */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  z-index: 2; /* Ensure the hamburger icon stays on top of other elements */
+  display: none; /* Hide hamburger icon by default (shown on smaller screens) */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1.5rem; /* Larger size for better visibility */
+  color: #f1f1f1; /* Ensure the icon is visible with light color */
 }
 
 /* Sidebar styles */
@@ -32,73 +34,104 @@
   display: flex; /* Arrange links in a row */
   align-items: center; /* Center links vertically */
   gap: 2rem; /* Add space between each link */
-  transition: transform 0.3s ease; /* Smooth transition when showing/hiding the sidebar */
-  margin-left: 2rem; /* Add space to the left of the links */
+  transition: transform 0.3s ease; /* Smooth transition for sidebar visibility */
+  margin-left: 2rem; /* Add space between logo and links */
 }
 
 .navLinks li {
-  display: inline-block; /* Display links inline */
+  display: inline-block; /* Keep links inline */
+}
+
+.navLinks a {
+  color: #f1f1f1; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Medium weight for links */
+  transition: color 0.3s ease; /* Smooth transition on hover */
+  font-size: 18px; /* Font size for links */
+}
+
+.navLinks a:hover {
+  color: var(--pacific-cyan); /* Color change on hover for better interactivity */
 }
 
 /* Close button (X icon) */
 .navbarCloseBtn {
-  display: none; /* Hide the close button by default */
-  align-self: flex-end; /* Align the close button to the right */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  display: none; /* Hide close button by default (shown on smaller screens) */
+  align-self: flex-end; /* Align close button to the right */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1.5rem; /* Larger close icon for better visibility */
+  color: #f1f1f1; /* Light color for visibility */
 }
 
 /* Search form container styles */
 .navbarSearchForm {
-  display: flex; /* Arrange form elements in a row */
+  display: flex; /* Arrange search input and button in a row */
   align-items: center; /* Center items vertically */
   margin-left: auto; /* Push the search form to the far right */
+  flex-grow: 1; /* Allow the search bar to grow and take up available space */
+  max-width: 300px; /* Set a max width to keep the form proportional */
+  padding: 0.5rem; /* Padding around the form for better spacing */
 }
 
+/* Search input styles */
 .searchInput {
-  padding: 0.5rem; /* Add padding inside the input */
-  border: 1px solid var(--cadet-grey); /* Set border color */
-  border-radius: 0.25rem; /* Round the corners of the input field */
-  margin-right: 0.75rem; /* Add space to the right of the input field */
+  margin-top: 25px; /* Offset the input from the top for alignment */
+  padding: 0.5rem 1rem; /* Padding inside the input for spacing */
+  border: 1px solid #444; /* Darker border for input to match the theme */
+  border-radius: 0.25rem 0 0 0.25rem; /* Rounded corners on the left side */
+  background-color: #2b2b2b; /* Darker background for input */
+  color: #f1f1f1; /* Light text color for input */
+  width: 100%; /* Full width within its container */
+  transition: width 0.3s ease; /* Smooth width transition */
 }
 
+.searchInput::placeholder {
+  color: #bbb; /* Lighter placeholder text color */
+}
+
+/* Search button styles */
 .searchButton {
-  padding: 0.5rem 1rem; /* Add padding inside the button */
-  background-color: var(--pacific-cyan); /* Set background color */
-  color: var(--rich-black); /* Set text color */
+  margin-top: 25px; /* Offset the button from the top for alignment */
+  padding: 0.5rem 1rem; /* Padding inside the button */
+  background-color: var(--pacific-cyan); /* Bright button color */
+  color: #ffffff; /* White text color */
   border: none; /* Remove default border */
-  border-radius: 0.25rem; /* Round the corners of the button */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 0 0.25rem 0.25rem 0; /* Rounded corners on the right side */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .searchButton:hover {
-  background-color: var(--moonstone); /* Change background color on hover */
+  background-color: var(--fuschia); /* Darken button color on hover */
 }
 
 /* Auth links styles */
 .navbarAuthLinks {
-  display: flex; /* Arrange links in a row */
-  align-items: center; /* Center items vertically */
-  gap: 1rem; /* Add space between each link */
-  margin-left: 1rem; /* Add some space between search and auth links */
+  display: flex; /* Arrange auth links (e.g., login, signup) in a row */
+  align-items: center; /* Center links vertically */
+  gap: 1rem; /* Space between each link */
+  margin-left: 1rem; /* Add space between search and auth links */
 }
 
 .welcomeText {
-  font-weight: 500; /* Set font weight */
-  color: var(--platinum); /* Set text color */
-  white-space: nowrap; /* Prevent the text from wrapping */
+  margin-top: 10px; /* Offset the text from the top */
+  margin-right: 5px; /* Add space to the right of the text */
+  font-weight: 500; /* Medium font weight */
+  color: #f1f1f1; /* Light text color */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .logoutButton {
-  padding: 0.5rem 1rem; /* Add padding inside the button */
-  background-color: var(--pacific-cyan); /* Set background color */
-  color: var(--rich-black); /* Set text color */
+  margin-top: 25px; /* Offset the button from the top for alignment */
+  padding: 0.5rem 1rem; /* Padding inside the button */
+  background-color: var(--pacific-cyan); /* Bright button color */
+  color: #ffffff; /* White text color */
   border: none; /* Remove default border */
-  border-radius: 0.25rem; /* Round the corners of the button */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 0.25rem; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .logoutButton:hover {
-  background-color: var(--moonstone); /* Change background color on hover */
+  background-color: var(--fuschia); /* Darken button color on hover */
 }
 
 /* Responsive styles */
@@ -108,50 +141,64 @@
   }
 
   .navLinks {
-    margin-left: 1rem; /* Reduce margin between logo and links */
-    gap: 1rem; /* Reduce gap between links */
+    margin-left: 1rem; /* Reduce space between logo and links */
+    gap: 1rem; /* Reduce space between links */
   }
 
   .navbarAuthLinks {
-    margin-left: 0.5rem; /* Reduce margin between search and auth links */
+    margin-left: 0.5rem; /* Reduce space between search and auth links */
+  }
+
+  .navbarSearchForm {
+    flex-grow: 1; /* Allow search form to take available space */
+  }
+
+  .searchInput {
+    flex-grow: 1; /* Allow input to grow */
+    width: 100%; /* Full width on smaller screens */
+    margin-right: 0.5rem; /* Space between input and button */
+  }
+
+  .searchButton {
+    width: 100px; /* Reduce button width on smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .navLinks {
-    position: fixed; /* Fix the sidebar position */
+    position: fixed; /* Fix the sidebar position on smaller screens */
     top: 0;
     right: 0;
-    height: 100%; /* Make the sidebar full height */
-    width: 250px; /* Set a fixed width for the sidebar */
-    background-color: var(--rich-black); /* Set the background color */
-    flex-direction: column; /* Display links in a column */
-    align-items: flex-start; /* Align items to the start (left) */
-    padding: 1rem;
-    transform: translateX(100%); /* Initially hide the sidebar off-screen */
-    z-index: 1; /* Ensure the sidebar appears above other content */
+    height: 100%; /* Full height sidebar */
+    width: 250px; /* Fixed width for sidebar */
+    background-color: #1c1c1c; /* Match sidebar background with navbar */
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align links to the left */
+    padding: 2rem; /* Padding inside the sidebar */
+    transform: translateX(100%); /* Hide sidebar off-screen by default */
+    z-index: 2; /* Ensure sidebar is above other content */
   }
 
   .showSidebar {
-    transform: translateX(0); /* Move the sidebar into view when active */
+    transform: translateX(0); /* Slide in the sidebar when active */
   }
 
   .hamburger {
-    display: block; /* Show the hamburger menu icon on small screens */
+    display: block; /* Show hamburger icon on small screens */
   }
 
   .navbarCloseBtn {
-    display: block; /* Show the close button on small screens */
+    display: block; /* Show close button on small screens */
   }
 
   .navbarSearchForm {
-    flex-direction: column; /* Stack the search form elements vertically */
-    width: 100%; /* Make the search form full width */
-    margin-top: 1rem; /* Add some space above the search form */
+    flex-direction: column; /* Stack search form elements vertically */
+    width: 100%; /* Full width search form */
+    margin-top: 1rem; /* Add space above the search form */
   }
 
   .navbarAuthLinks {
-    flex-direction: column; /* Stack the auth links vertically */
-    margin-top: 1rem; /* Add space between the search and auth links */
+    flex-direction: column; /* Stack auth links vertically */
+    margin-top: 1rem; /* Add space between search and auth links */
   }
 }
