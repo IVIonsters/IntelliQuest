@@ -135,6 +135,49 @@
 }
 
 /* Responsive styles */
+@media (min-width: 1440px) {
+  .logo {
+    font-size: 2.5rem; /* Size of the logo text */
+    letter-spacing: 5px; /* Add spacing between letters */
+  }
+  .navbar {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .navLinks {
+    margin-left: 1rem; /* Reduce space between logo and links */
+    gap: 3rem; /* Reduce space between links */
+  }
+
+  .navbarAuthLinks {
+    margin-left: 8rem; /* Reduce space between search and auth links */
+  }
+
+  .navbarSearchForm {
+    flex-grow: 1; /* Allow search form to take available space */
+  }
+
+  .searchButton {
+    width: 80px; /* Reduce button width on smaller screens */
+    padding: .75rem 1rem; /* Padding inside the button */
+  }
+  .searchInput {
+    margin-top: 25px; /* Offset the input from the top for alignment */
+    padding: 0.75rem 1rem; /* Padding inside the input for spacing */
+  }
+  .welcomeText {
+    margin-top: 10px; /* Offset the text from the top */
+    margin-right: 5px; /* Add space to the right of the text */
+    font-size: 20px;
+  }
+  .logoutButton {
+    margin-top: 25px; /* Offset the button from the top for alignment */
+    padding: 0.75rem 1rem; /* Padding inside the button */
+    font-size: 10px;
+  }
+}
+
+
 @media (max-width: 1280px) {
   .logo {
     font-size: 1.5rem; /* Size of the logo text */
@@ -157,14 +200,11 @@
     flex-grow: 1; /* Allow search form to take available space */
   }
 
-
-
   .searchButton {
     width: 80px; /* Reduce button width on smaller screens */
   }
 }
 
-/* Responsive styles */
 @media (max-width: 1024px) {
   .logo {
     font-size: 1rem; /* Size of the logo text */
