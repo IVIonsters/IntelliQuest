@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import styles from './About.module.css';
 import zpImage from '../../assets/images/zp.jpeg';

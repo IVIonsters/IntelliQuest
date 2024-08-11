@@ -5,7 +5,6 @@ import App from './App.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
 import Activities from './components/Activities/Activities.jsx';
 import About from './components/About/About.jsx';
-import Contact from './components/Contact/Contact.jsx';
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage.jsx';
 import Error from './components/Error/Error.jsx';
 import Donations from './components/Donations/Donations.jsx';
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
-      },
-      {
-        path: 'contact',
-        element: <Contact />,
       },
       {
         path: 'learnbot',

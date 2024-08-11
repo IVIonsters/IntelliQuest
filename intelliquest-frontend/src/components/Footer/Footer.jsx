@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useRef } from 'react';
 import SlidingPane from 'react-sliding-pane';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 import Modal from 'react-modal';
 import styles from './Footer.module.css';
+import emailjs from 'emailjs-com';
+import About from '../About/About';
 
-// Footer component
+//Footer component
 const Footer = () => {
   const [isPaneOpen, setIsPaneOpen] = useState(false);
   const [paneContent, setPaneContent] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const form = useRef(null);
 
   // bind modal to App element
   Modal.setAppElement('#root');
@@ -17,24 +22,47 @@ const Footer = () => {
     setIsPaneOpen(true);
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+        .sendForm('service_053kfvd', 'template_pc407mi', form.current, {
+            publicKey: 'XBP9KEXYFQOkB5RAl',
+        })
+        .then(
+            () => {
+                console.log('SUCCESS!');
+                form.current.reset(); // Reset the form after sending the email
+                setIsModalVisible(true); // Show the success modal
+
+                setTimeout(() => {
+                    setIsModalVisible(false); // Hide the modal after 5 seconds
+                }, 5000);
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+                console.error('Failed to send email:', error);
+            }
+        );
+};
+
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Links section */}
         <div className={styles.links}>
-          <a href="#" className={styles.link}>Social Media</a>
+          <a href="#" className={styles.link} onClick={() => openPane('about')}>About</a>
           <a href="#" className={styles.link} onClick={() => openPane('contact')}>Contact Info</a>
           <a href="#" className={styles.link} onClick={() => openPane('terms')}>Terms Of Service</a>
           <a href="#" className={styles.link} onClick={() => openPane('policies')}>Policies</a>
         </div>
-        {/* Copyright section */}
         <p className={styles.copyright}>© 2024 IntelliQuest</p>
       </div>
 
-      {/* Sliding pane */}
       <SlidingPane
         isOpen={isPaneOpen}
         title={
+          paneContent === 'about' ? 'About IntelliQuest' :
           paneContent === 'terms' ? 'Terms of Service' :
           paneContent === 'policies' ? 'Policies' :
           paneContent === 'contact' ? 'Contact Info' :
@@ -45,6 +73,37 @@ const Footer = () => {
         onRequestClose={() => setIsPaneOpen(false)}
       >
         <div>
+          {paneContent === 'contact' && (
+            <div className={styles.contactContainer}>
+              <h1>
+                <span className={styles.title}>Send us a message and we will get back to you soon!</span>
+              </h1>
+              
+              <div className={styles.card}>
+                <div className={styles.gridContainer}>
+                  <form className={styles.form} ref={form} onSubmit={sendEmail}>
+                    <label>Name</label>
+                    <input className={styles.textarea} type="text" name="user_name" required />
+                    <label>Email</label>
+                    <input className={styles.textarea} type="email" name="user_email" required />
+                    <label>Message</label>
+                    <textarea className={styles.textarea} name="message" required />
+                    <input type="submit" value="Send" />
+                  </form>
+                  <p>
+                Send us an email <a href="mailto:intelliquesthq@gmail.com">here</a>.
+              </p>
+                </div>
+              </div>
+              {isModalVisible && (
+                <div className={styles.modal}>
+                  <div className={styles.modalContent}>
+                    <p>Thank you for your message!</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
           {paneContent === 'terms' && (
             <div>
               <h2>Terms of Service</h2>
@@ -59,13 +118,8 @@ const Footer = () => {
               <p>We expect all users to adhere to our community guidelines. Any behavior that is disruptive, offensive, or violates the rights of others will not be tolerated. We reserve the right to suspend or terminate accounts for violations of our policies. Additionally, we may collect and use certain user data in accordance with our Privacy Policy.</p>
             </div>
           )}
-          {paneContent === 'contact' && (
-            <div>
-              <h2>Contact Info</h2>
-              <p>
-                Send us an email <a href="mailto:intelliquesthq@gmail.com">here</a>.
-              </p>
-            </div>
+          {paneContent === 'about' && (
+            <About />
           )}
         </div>
       </SlidingPane>
