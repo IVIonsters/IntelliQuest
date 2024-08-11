@@ -39,7 +39,7 @@
   flex-grow: 1;
 }
 
-.readmeContainer .editIcon {
+.readmeContainer .dashboardEditIcon {
   position: absolute; /* Position the icon absolutely relative to the container */
   top: 10px; /* Position the icon 10px from the top */
   right: 10px; /* Position the icon 10px from the right */
@@ -90,7 +90,7 @@
 }
 
 /* Styles for the edit icon */
-.editIcon {
+.dashboardEditIcon {
   margin-left: 8px;
   cursor: pointer;
   color: var(--pacific-cyan);
@@ -98,18 +98,18 @@
 }
 
 /* Hover effect for the edit icon */
-.editIcon:hover {
+.dashboardEditIcon:hover {
   color: var(--moonstone);
 }
 
 /* Styles for save/cancel buttons */
-.editButtons {
+.dashboardEditButtons {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
-.editButtons button {
+.dashboardEditButtons button {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   border: none;
@@ -117,12 +117,12 @@
   cursor: pointer;
 }
 
-.editButtons button:first-child {
+.dashboardEditButtons button:first-child {
   background-color: var(--pacific-cyan);
   color: var(--rich-black);
 }
 
-.editButtons button:last-child {
+.dashboardEditButtons button:last-child {
   background-color: var(--moonstone);
   color: var(--platinum);
 }
@@ -180,7 +180,7 @@
   gap: 1rem; /* Add some space between the cards */
 }
 
-.resourceCard {
+.dashboardResourceCard {
   flex: 1 1 calc(33.333% - 1rem); /* Ensure each card takes up about 1/3 of the container with some space between */
   max-width: calc(33.333% - 1rem); /* Ensure the card width is capped */
   background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for glass effect */
@@ -191,30 +191,30 @@
   text-align: center; /* Center text inside the card */
 }
 
-.resourceCard img {
+.dashboardResourceCard img {
   max-width: 100%; /* Ensure the image fits within the card */
   height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Match the card border radius */
 }
 
-.resourceCard h4 {
+.dashboardResourceCard h4 {
   margin-top: 0.5rem; /* Add space above the title */
   font-size: 1.1rem; /* Set the font size for the title */
   color: var(--rich-black); /* Use dark text color for readability */
 }
 
-.resourceCard p {
+.dashboardResourceCard p {
   font-size: 0.9rem; /* Set the font size for the content */
   margin-bottom: 0.5rem; /* Add space below the content */
   color: var(--rich-black); /* Use dark text color for readability */
 }
 
-.resourceCard a {
+.dashboardResourceCard a {
   color: var(--pacific-cyan); /* Use the accent color for links */
   text-decoration: none; /* Remove underline from links */
 }
 
-.resourceCard a:hover {
+.dashboardResourceCard a:hover {
   text-decoration: underline; /* Add underline on hover */
   color: var(--moonstone); /* Change color on hover */
 }
@@ -232,12 +232,12 @@
 }
 
 
-.editButtons {
+.dashboardEditButtons {
   display: flex;
   gap: 0.5rem; /* Space between buttons */
 }
 
-.editButtons button {
+.dashboardEditButtons button {
   padding: 0.5rem 1rem; /* Add padding inside the button */
   background-color: var(--pacific-cyan); /* Set background color */
   color: var(--rich-black); /* Set text color */
@@ -246,20 +246,20 @@
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-.editButtons button:hover {
+.dashboardEditButtons button:hover {
   background-color: var(--moonstone); /* Change background color on hover */
 }
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-  .resourceCard {
+  .dashboardResourceCard {
     flex: 1 1 calc(50% - 1rem); /* Stack two cards side by side on smaller screens */
     max-width: calc(50% - 1rem);
   }
 }
 
 @media (max-width: 480px) {
-  .resourceCard {
+  .dashboardResourceCard {
     flex: 1 1 100%; /* Stack cards vertically on very small screens */
     max-width: 100%;
   }

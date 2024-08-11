@@ -41,14 +41,14 @@
 }
 
 /* Close button (X icon) */
-.closeBtn {
+.navbarCloseBtn {
   display: none; /* Hide the close button by default */
   align-self: flex-end; /* Align the close button to the right */
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 /* Search form container styles */
-.searchForm {
+.navbarSearchForm {
   display: flex; /* Arrange form elements in a row */
   align-items: center; /* Center items vertically */
   margin-left: auto; /* Push the search form to the far right */
@@ -75,7 +75,7 @@
 }
 
 /* Auth links styles */
-.authLinks {
+.navbarAuthLinks {
   display: flex; /* Arrange links in a row */
   align-items: center; /* Center items vertically */
   gap: 1rem; /* Add space between each link */
@@ -112,7 +112,7 @@
     gap: 1rem; /* Reduce gap between links */
   }
 
-  .authLinks {
+  .navbarAuthLinks {
     margin-left: 0.5rem; /* Reduce margin between search and auth links */
   }
 }
@@ -140,17 +140,17 @@
     display: block; /* Show the hamburger menu icon on small screens */
   }
 
-  .closeBtn {
+  .navbarCloseBtn {
     display: block; /* Show the close button on small screens */
   }
 
-  .searchForm {
+  .navbarSearchForm {
     flex-direction: column; /* Stack the search form elements vertically */
     width: 100%; /* Make the search form full width */
     margin-top: 1rem; /* Add some space above the search form */
   }
 
-  .authLinks {
+  .navbarAuthLinks {
     flex-direction: column; /* Stack the auth links vertically */
     margin-top: 1rem; /* Add space between the search and auth links */
   }

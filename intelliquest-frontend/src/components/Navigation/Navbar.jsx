@@ -37,13 +37,13 @@ const Navbar = ({ onSearch }) => {
       <div className={styles.logo}>IntelliQuest</div>
       <FaBars className={styles.hamburger} onClick={toggleSidebar} />
       <ul className={`${styles.navLinks} ${isSidebarOpen ? styles.showSidebar : ''}`}>
-        <FaTimes className={styles.closeBtn} onClick={toggleSidebar} />
+        <FaTimes className={styles.navbarCloseBtn} onClick={toggleSidebar} />
         <li><Link to="/" onClick={toggleSidebar}>Home</Link></li>
         <li><Link to="/activities" onClick={toggleSidebar}>Activities</Link></li>
         <li><Link to="/submit-resource" onClick={toggleSidebar}>Resource</Link></li>
         <li><Link to="/userdashboard" onClick={toggleSidebar}>Dashboard</Link></li>
         <li><Link to="/donations" onClick={toggleSidebar}>Donations</Link></li>
-        <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
+        <form onSubmit={handleSearchSubmit} className={styles.navbarSearchForm}>
           <input
             type="text"
             value={searchTerm}
@@ -54,12 +54,12 @@ const Navbar = ({ onSearch }) => {
           <button type="submit" className={styles.searchButton}>Search</button>
         </form>
         {user ? (
-          <div className={styles.authLinks}>
+          <div className={styles.navbarAuthLinks}>
             <span className={styles.welcomeText}>Welcome, {user.userName || 'User'}</span>
             <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
           </div>
         ) : (
-          <div className={styles.authLinks}>
+          <div className={styles.navbarAuthLinks}>
             <Link to="/login" onClick={toggleSidebar}>Login</Link>
             <Link to="/signup" onClick={toggleSidebar}>Sign Up</Link>
           </div>
