@@ -135,13 +135,17 @@
 }
 
 /* Responsive styles */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
+  .logo {
+    font-size: 1.5rem; /* Size of the logo text */
+    letter-spacing: 1px; /* Add spacing between letters */
+  }
   .navbar {
-    padding: 1rem; /* Reduce padding on smaller screens */
+    padding: .5rem; /* Reduce padding on smaller screens */
   }
 
   .navLinks {
-    margin-left: 1rem; /* Reduce space between logo and links */
+    margin-left: .5rem; /* Reduce space between logo and links */
     gap: 1rem; /* Reduce space between links */
   }
 
@@ -153,14 +157,53 @@
     flex-grow: 1; /* Allow search form to take available space */
   }
 
-  .searchInput {
-    flex-grow: 1; /* Allow input to grow */
-    width: 100%; /* Full width on smaller screens */
-    margin-right: 0.5rem; /* Space between input and button */
+
+
+  .searchButton {
+    width: 80px; /* Reduce button width on smaller screens */
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .logo {
+    font-size: 1rem; /* Size of the logo text */
+    letter-spacing: .5px; /* Add spacing between letters */
+  }
+  .navbar {
+    padding: .25rem; /* Reduce padding on smaller screens */
+  }
+
+  .navLinks {
+    margin-left: .5rem; /* Reduce space between logo and links */
+    gap: .25rem; /* Reduce space between links */
+  }
+
+  .navbarAuthLinks {
+    margin-left: 0.25rem; /* Reduce space between search and auth links */
+  }
+
+  .navbarSearchForm {
+    flex-grow: 1; /* Allow search form to take available space */
   }
 
   .searchButton {
-    width: 100px; /* Reduce button width on smaller screens */
+    width: 80px; /* Reduce button width on smaller screens */
+    padding: 0.25rem .5rem; /* Padding inside the button */
+  }
+  .searchInput {
+    margin-top: 25px; /* Offset the input from the top for alignment */
+    padding: 0.25rem .5rem; /* Padding inside the input for spacing */
+  }
+  .welcomeText {
+    margin-top: 10px; /* Offset the text from the top */
+    margin-right: 5px; /* Add space to the right of the text */
+    font-size: 10px;
+  }
+  .logoutButton {
+    margin-top: 25px; /* Offset the button from the top for alignment */
+    padding: 0.25rem .5rem; /* Padding inside the button */
+    font-size: 10px;
   }
 }
 
