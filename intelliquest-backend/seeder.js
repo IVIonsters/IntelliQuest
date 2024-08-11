@@ -89,27 +89,6 @@ const resources = [
     tags: ['youtube', 'channel', 'asmrprog'],
     description: 'Relaxing programming tutorials from AsmrProg.'
   },
-
-  // Tutorials
-
-
-  // Website Development Resources
-  // {
-  //   title: 'Coolors',
-  //   url: 'https://coolors.co/4c061d-f7c59f-71a9f7-235789-2b4570',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'website',
-  //   tags: ['colors', 'design'],
-  //   description: 'Generate color palettes for your designs easily with Coolors.'
-  // },
-  // {
-  //   title: 'Paletton',
-  //   url: 'https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'website',
-  //   tags: ['colors', 'design'],
-  //   description: 'Create color schemes with Paletton, a versatile color palette tool.'
-  // },
   {
     title: 'CSS Gradient',
     url: 'https://cssgradient.io/',
@@ -124,14 +103,6 @@ const resources = [
     tags: ['icons', 'design'],
     description: 'Get scalable vector icons for your projects from Font Awesome.'
   },
-  // {
-  //   title: 'Image Color Picker',
-  //   url: 'https://imagecolorpicker.com/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'website',
-  //   tags: ['colors', 'design'],
-  //   description: 'Pick colors from images and get the color codes instantly.'
-  // },
   {
     title: 'Google Fonts',
     url: 'https://fonts.google.com/',
@@ -146,14 +117,6 @@ const resources = [
     tags: ['design', 'tools'],
     description: 'Collaborative interface design tool for teams and designers.'
   },
-  // {
-  //   title: 'Unsplash',
-  //   url: 'https://unsplash.com/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'website',
-  //   tags: ['images', 'design'],
-  //   description: 'Access a library of high-quality free images for your projects.'
-  // },
   {
     title: 'W3.CSS Templates',
     url: 'https://www.w3schools.com/w3css/w3css_templates.asp',
@@ -189,15 +152,6 @@ const resources = [
     tags: ['tools', 'images'],
     description: 'Remove the background from images automatically with Remove BG.'
   },
-  // {
-  //   title: 'Canva',
-  //   url: 'https://www.canva.com/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'website',
-  //   tags: ['design', 'tools'],
-  //   description: 'Create stunning designs with ease using Canva.'
-  // },
-
   // Helpful Programming Sites / Sources
   {
     title: 'W3Schools HTML',
@@ -213,14 +167,6 @@ const resources = [
     tags: ['css', 'learning'],
     description: 'CSS Tricks offers tips, tricks, and techniques on using CSS.'
   },
-  // {
-  //   title: 'Specificity Keegan',
-  //   url: 'https://specificity.keegan.st/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'programming',
-  //   tags: ['css', 'learning'],
-  //   description: 'Understand CSS specificity with the Specificity Keegan tool.'
-  // },
   {
     title: 'CSS Tricks - Flexbox',
     url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
@@ -264,14 +210,6 @@ const resources = [
     tags: ['course', 'learning'],
     description: 'Join the Zero to Mastery Academy to learn full-stack development.'
   },
-  // {
-  //   title: 'Udemy',
-  //   url: 'https://www.udemy.com/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'course',
-  //   tags: ['course', 'learning'],
-  //   description: 'Access thousands of online courses on various topics at Udemy.'
-  // },
   {
     title: 'Coddy',
     url: 'https://coddy.tech/courses',
@@ -286,15 +224,6 @@ const resources = [
     tags: ['course', 'learning'],
     description: 'Enroll in courses from top universities and companies on Coursera.'
   },
-  // {
-  //   title: 'Fullstack Open',
-  //   url: 'https://fullstackopen.com/en/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'course',
-  //   tags: ['course', 'learning'],
-  //   description: 'Free online course for learning full-stack web development.'
-  // },
-
   // Exercises
   {
     title: 'W3Schools HTML Exercises',
@@ -317,22 +246,6 @@ const resources = [
     tags: ['css', 'exercise'],
     description: 'Master CSS Flexbox with the Flexbox Froggy game.'
   },
-  // {
-  //   title: 'JS Challenger',
-  //   url: 'https://www.jschallenger.com/overview/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'exercise',
-  //   tags: ['javascript', 'exercise'],
-  //   description: 'Improve your JavaScript skills with challenges from JS Challenger.'
-  // },
-  // {
-  //   title: 'CodePen Challenges',
-  //   url: 'https://codepen.io/challenges',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'exercise',
-  //   tags: ['codepen', 'exercise'],
-  //   description: 'Participate in weekly coding challenges on CodePen.'
-  // },
   {
     title: 'JavaScript30',
     url: 'https://javascript30.com/',
@@ -363,22 +276,6 @@ const resources = [
     tags: ['javascript', 'learning'],
     description: 'In-depth guide and tutorials on JavaScript.'
   },
-  // {
-  //   title: 'Eloquent JavaScript',
-  //   url: 'https://eloquentjavascript.net/',
-  //   manualImagePath: "assets/manual_images/coolers.png",
-  //   type: 'book',
-  //   tags: ['javascript', 'learning'],
-  //   description: 'A modern introduction to programming with JavaScript.'
-  // },
-  // {
-  //   title: 'Exploring JS',
-  //   url: 'https://exploringjs.com/es6.html',
-  //   type: 'book',
-  //   tags: ['javascript', 'learning'],
-  //   description: 'Comprehensive guide to ECMAScript 6 (ES6) features and syntax.'
-  // },
-
   // Podcasts
   {
     title: 'Beyond Coding',
