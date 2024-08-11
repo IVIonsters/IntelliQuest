@@ -21,6 +21,7 @@
 
 /* Container for the README-like content */
 .readmeContainer {
+  position: relative; /* Add relative positioning to allow absolute positioning of child elements */
   margin-top: 80px; /* Add space between user info and README */
   margin-right: 10px; /* Adjust the margin on the right */
   width: 85%; /* Set the width of the README container */
@@ -36,6 +37,14 @@
 /* Ensure the content inside expands as needed */
 .readmeContainer > * {
   flex-grow: 1;
+}
+
+.readmeContainer .editIcon {
+  position: absolute; /* Position the icon absolutely relative to the container */
+  top: 10px; /* Position the icon 10px from the top */
+  right: 10px; /* Position the icon 10px from the right */
+  cursor: pointer; /* Change cursor to pointer */
+  color: var(--platinum); /* Optional: match the icon color with the text */
 }
 
 /* Styles for the user avatar */
@@ -208,6 +217,37 @@
 .resourceCard a:hover {
   text-decoration: underline; /* Add underline on hover */
   color: var(--moonstone); /* Change color on hover */
+}
+
+.textarea {
+  width: 100%; /* Make the textarea take up the full width of the container */
+  height: 400px; /* Set a larger height for the textarea */
+  padding: 10px; /* Add some padding inside the textarea for better readability */
+  border: 2px solid var(--pacific-cyan); /* Add a border matching the accent color */
+  border-radius: 8px; /* Round the corners of the textarea */
+  font-size: 1rem; /* Set the font size */
+  color: var(--rich-black); /* Set the text color */
+  background-color: var(--platinum); /* Set the background color */
+  resize: vertical; /* Allow the user to resize the textarea vertically */
+}
+
+
+.editButtons {
+  display: flex;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.editButtons button {
+  padding: 0.5rem 1rem; /* Add padding inside the button */
+  background-color: var(--pacific-cyan); /* Set background color */
+  color: var(--rich-black); /* Set text color */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Round the corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.editButtons button:hover {
+  background-color: var(--moonstone); /* Change background color on hover */
 }
 
 /* Media Queries for responsiveness */
