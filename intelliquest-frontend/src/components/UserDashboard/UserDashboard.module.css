@@ -21,14 +21,21 @@
 
 /* Container for the README-like content */
 .readmeContainer {
-  margin-top: 80px;
-  margin-right: 10px;
-  width: 85%;
-  padding-left: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  padding: 1rem;
-  color: var(--platinum);
+  margin-top: 80px; /* Add space between user info and README */
+  margin-right: 10px; /* Adjust the margin on the right */
+  width: 85%; /* Set the width of the README container */
+  padding: 1rem; /* Add padding inside the README container */
+  background-color: rgba(0, 0, 0, 0.5); /* Set background color with transparency for the README */
+  border-radius: 8px; /* Round the corners of the README container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+  color: var(--platinum); /* Use the platinum color for text */
+  min-height: 400px; /* Set a minimum height to make the container longer */
+  border: 2px solid var(--pacific-cyan); /* Add a border around the container */
+}
+
+/* Ensure the content inside expands as needed */
+.readmeContainer > * {
+  flex-grow: 1;
 }
 
 /* Styles for the user avatar */
