@@ -4,11 +4,12 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import styles from './Navbar.module.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSearch } from 'react-icons/fa';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false); // State to manage the overlay
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const Navbar = ({ onSearch }) => {
     event.preventDefault();
     onSearch(searchTerm);
     navigate(`/search?query=${searchTerm}`);
-    setIsSidebarOpen(false); // Close sidebar on search
+    setIsOverlayOpen(false); // Close the overlay after search
   };
 
   const handleLogout = () => {
@@ -30,6 +31,10 @@ const Navbar = ({ onSearch }) => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const toggleOverlay = () => {
+    setIsOverlayOpen(!isOverlayOpen); // Toggle the overlay on and off
   };
 
   return (
@@ -48,17 +53,10 @@ const Navbar = ({ onSearch }) => {
         <li><Link to="/userdashboard" onClick={toggleSidebar}>Dashboard</Link></li>
         <li><Link to="/donations" onClick={toggleSidebar}>Donations</Link></li>
         
-        {/* Search Form */}
-        <form onSubmit={handleSearchSubmit} className={styles.navbarSearchForm}>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            placeholder="Search..."
-            className={styles.searchInput}
-          />
-          <button type="submit" className={styles.searchButton}>Search</button>
-        </form>
+        {/* Search Icon */}
+        <li className={styles.searchIconContainer}>
+          <FaSearch className={styles.searchIcon} onClick={toggleOverlay} />
+        </li>
 
         {/* Authentication Links */}
         {user ? (
@@ -73,6 +71,23 @@ const Navbar = ({ onSearch }) => {
           </div>
         )}
       </ul>
+
+      {/* Fullscreen Search Overlay */}
+      {isOverlayOpen && (
+        <div className={styles.searchOverlay}>
+          <form onSubmit={handleSearchSubmit} className={styles.searchOverlayForm}>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className={styles.searchInput}
+              placeholder="Search..."
+            />
+            <button type="submit" className={styles.searchButton}>Go</button>
+          </form>
+          <FaTimes className={styles.overlayCloseBtn} onClick={toggleOverlay} />
+        </div>
+      )}
     </nav>
   );
 };

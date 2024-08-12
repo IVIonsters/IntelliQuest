@@ -1,108 +1,134 @@
 /* Navbar container styles */
 .navbar {
-  display: flex; /* Arrange items in a row */
-  justify-content: space-between; /* Space out items across the navbar */
-  align-items: center; /* Center items vertically */
-  padding: 1rem 2rem; /* Padding around the navbar for spacing */
-  background-color: #1c1c1c; /* Darker background for better contrast */
-  color: #f1f1f1; /* Light text color for readability */
-  position: relative; /* Relative positioning for potential child positioning */
-  z-index: 1; /* Ensures the navbar stays on top of other content */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo styles */
 .logo {
-  font-size: 2rem; /* Size of the logo text */
-  font-weight: bold; /* Make the logo text bold */
-  color: #ffffff; /* White color for logo text */
-  text-transform: uppercase; /* Make the logo text uppercase */
-  letter-spacing: 1px; /* Add spacing between letters */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Hamburger menu icon styles */
 .hamburger {
-  display: none; /* Hide hamburger icon by default (shown on smaller screens) */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1.5rem; /* Larger size for better visibility */
-  color: #f1f1f1; /* Ensure the icon is visible with light color */
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #f1f1f1;
 }
 
 /* Sidebar styles */
 .navLinks {
-  list-style: none; /* Remove default list styling */
-  display: flex; /* Arrange links in a row */
-  align-items: center; /* Center links vertically */
-  gap: 2rem; /* Add space between each link */
-  transition: transform 0.3s ease; /* Smooth transition for sidebar visibility */
-  margin-left: 2rem; /* Add space between logo and links */
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: transform 0.3s ease;
+  margin-left: 2rem;
 }
 
 .navLinks li {
-  display: inline-block; /* Keep links inline */
+  display: inline-block;
 }
 
 .navLinks a {
-  color: #f1f1f1; /* Link color */
-  text-decoration: none; /* Remove underline */
-  font-weight: 500; /* Medium weight for links */
-  transition: color 0.3s ease; /* Smooth transition on hover */
-  font-size: 18px; /* Font size for links */
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 18px;
 }
 
 .navLinks a:hover {
-  color: var(--pacific-cyan); /* Color change on hover for better interactivity */
+  color: var(--pacific-cyan);
 }
 
 /* Close button (X icon) */
 .navbarCloseBtn {
-  display: none; /* Hide close button by default (shown on smaller screens) */
-  align-self: flex-end; /* Align close button to the right */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1.5rem; /* Larger close icon for better visibility */
-  color: #f1f1f1; /* Light color for visibility */
+  display: none;
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #f1f1f1;
 }
 
-/* Search form container styles */
-.navbarSearchForm {
-  display: flex; /* Arrange search input and button in a row */
-  align-items: center; /* Center items vertically */
-  margin-left: auto; /* Push the search form to the far right */
-  flex-grow: 1; /* Allow the search bar to grow and take up available space */
-  max-width: 300px; /* Set a max width to keep the form proportional */
-  padding: 0.5rem; /* Padding around the form for better spacing */
+/* Search icon container */
+.searchIconContainer {
+  position: relative;
 }
 
-/* Search input styles */
+/* Search icon */
+.searchIcon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
+/* Fullscreen overlay styles */
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Close button for overlay */
+.overlayCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Fullscreen search form styles */
+.searchOverlayForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .searchInput {
-  margin-top: 25px; /* Offset the input from the top for alignment */
-  padding: 0.5rem 1rem; /* Padding inside the input for spacing */
-  border: 1px solid #444; /* Darker border for input to match the theme */
-  border-radius: 0.25rem 0 0 0.25rem; /* Rounded corners on the left side */
-  background-color: #2b2b2b; /* Darker background for input */
-  color: #f1f1f1; /* Light text color for input */
-  width: 100%; /* Full width within its container */
-  transition: width 0.3s ease; /* Smooth width transition */
+  padding: 1rem;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-.searchInput::placeholder {
-  color: #bbb; /* Lighter placeholder text color */
-}
-
-/* Search button styles */
 .searchButton {
-  margin-top: 25px; /* Offset the button from the top for alignment */
-  padding: 0.5rem 1rem; /* Padding inside the button */
-  background-color: var(--pacific-cyan); /* Bright button color */
-  color: #ffffff; /* White text color */
-  border: none; /* Remove default border */
-  border-radius: 0 0.25rem 0.25rem 0; /* Rounded corners on the right side */
-  cursor: pointer; /* Pointer cursor on hover */
+  background-color: var(--moonstone);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.25rem;
 }
 
 .searchButton:hover {
-  background-color: var(--fuschia); /* Darken button color on hover */
+  background-color: var(--pacific-cyan);
 }
+
 
 /* Auth links styles */
 .navbarAuthLinks {
@@ -247,41 +273,42 @@
   }
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
   .navLinks {
-    position: fixed; /* Fix the sidebar position on smaller screens */
+    position: fixed;
     top: 0;
     right: 0;
-    height: 100%; /* Full height sidebar */
-    width: 250px; /* Fixed width for sidebar */
-    background-color: #1c1c1c; /* Match sidebar background with navbar */
-    flex-direction: column; /* Stack links vertically */
-    align-items: flex-start; /* Align links to the left */
-    padding: 2rem; /* Padding inside the sidebar */
-    transform: translateX(100%); /* Hide sidebar off-screen by default */
-    z-index: 2; /* Ensure sidebar is above other content */
+    height: 100%;
+    width: 250px;
+    background-color: #1c1c1c;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transform: translateX(100%);
+    z-index: 2;
   }
 
   .showSidebar {
-    transform: translateX(0); /* Slide in the sidebar when active */
+    transform: translateX(0);
   }
 
   .hamburger {
-    display: block; /* Show hamburger icon on small screens */
+    display: block;
   }
 
   .navbarCloseBtn {
-    display: block; /* Show close button on small screens */
+    display: block;
   }
 
   .navbarSearchForm {
-    flex-direction: column; /* Stack search form elements vertically */
-    width: 100%; /* Full width search form */
-    margin-top: 1rem; /* Add space above the search form */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .navbarAuthLinks {
-    flex-direction: column; /* Stack auth links vertically */
-    margin-top: 1rem; /* Add space between search and auth links */
+    flex-direction: column;
+    margin-top: 1rem;
   }
 }
