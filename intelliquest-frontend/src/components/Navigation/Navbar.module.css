@@ -323,6 +323,11 @@
   .hamburger {
     display: block; /* Show hamburger icon on small screens */
   }
+  
+  .logoImage {
+    height: 50px; /* Adjust the height as needed */
+    width: auto; /* Maintain the aspect ratio */
+  }
 
   .navbarCloseBtn {
     display: block; /* Show close button on small screens */
