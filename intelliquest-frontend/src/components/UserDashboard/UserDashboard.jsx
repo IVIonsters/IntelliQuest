@@ -3,6 +3,7 @@
 
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'; 
 import rehypeRaw from 'rehype-raw'; 
 import axios from 'axios';
@@ -12,6 +13,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaPencilAlt } from 'react-icons/fa';
 
 const UserDashboard = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [resources, setResources] = useState([]);
   const [isEditing, setIsEditing] = useState({});
   const [profileData, setProfileData] = useState(() => {
@@ -83,8 +85,11 @@ const UserDashboard = () => {
   <img align="left" alt="React" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" /> 
   `;
   });
-
+  
   useEffect(() => {
+    if (!user) {
+      navigate('/login'); // Redirect to login if not logged in
+    }
     // Fetch random resources from the database
     const fetchResources = async () => {
       try {
@@ -96,7 +101,11 @@ const UserDashboard = () => {
     };
   
     fetchResources();
-  }, []);
+  }, [user, navigate]);
+
+  if (!user) {
+    return null;
+  };
 
   const handleEditClick = (field) => {
     setIsEditing({ ...isEditing, [field]: true });
