@@ -14,7 +14,9 @@ const TipsModal = ({ isOpen, onClose, tip }) => {
       overlayClassName={styles.modalOverlay}
     >
       <h2>Tip of the Moment</h2>
+      <br />
       <p>{tip}</p>
+      <br />
       <button onClick={onClose}>Close</button>
     </Modal>
   );
