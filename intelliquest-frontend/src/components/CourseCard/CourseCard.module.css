@@ -16,6 +16,12 @@
   border-radius: 20px; /* Smooth corners */
   perspective: 1000px; /* Needed for 3D effect */
   cursor: pointer; /* Change cursor to pointer */
+  z-index: 0; /* Base z-index for all cards */
+  overflow: visible; /* Ensure no content is clipped */
+}
+
+.card:hover {
+  z-index: 10; /* Bring the hovered card to the front */
 }
 
 .cardInner {
@@ -25,6 +31,7 @@
   text-align: center;
   transition: transform 0.8s; /* Smooth transition for flipping */
   transform-style: preserve-3d; /* Preserve 3D effect during transform */
+  transform-origin: center; /* Ensures that the card flips from the center */
 }
 
 /* Flip the card on hover */
@@ -32,13 +39,18 @@
   transform: rotateY(180deg); /* Rotate the card */
 }
 
-/* Front of the card (image) */
+/* Front and back faces of the card */
 .cardFront, .cardBack {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden; /* Hide the back face during flip */
   border-radius: 20px; /* Match the rounded corners */
+}
+
+/* Front face of the card (image) */
+.cardFront {
+  z-index: 2; /* Ensure front face is on top before flip */
 }
 
 /* Image box styling */
@@ -72,7 +84,7 @@
   object-fit: cover; /* Cover the box without distortion */
 }
 
-/* Back of the card (content) */
+/* Back face of the card (content) */
 .cardBack {
   background: var(--clr); /* Background color */
   color: white; /* Text color */
@@ -83,6 +95,7 @@
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  z-index: 1; /* Ensure back face is shown after flip */
 }
 
 /* Heading styling */
@@ -135,3 +148,4 @@
       font-size: 0.9rem; /* Smaller link text */
   }
 }
+
