@@ -18,14 +18,33 @@
   justify-content: center; /* Center the links horizontally */
 }
 
-/* Logo styles */
-.logo {
-  font-size: 2rem; /* Size of the logo text */
-  font-weight: bold; /* Make the logo text bold */
-  color: #ffffff; /* White color for logo text */
-  text-transform: uppercase; /* Make the logo text uppercase */
-  letter-spacing: 1px; /* Add spacing between letters */
+/* Logo image styles */
+.logoImage {
+  height: 80px; /* Adjust the height as needed */
+  width: auto; /* Maintain the aspect ratio */
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth transition */
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); /* Optional shadow effect */
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
+
+/* Keyframes for floating animation */
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+
+  50% {
+    transform: translate(0, 10px);
+  }
+
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
 
 /* Hamburger menu icon styles (for smaller screens) */
 .hamburger {

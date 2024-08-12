@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import styles from './Navbar.module.css';
 import { FaBars, FaTimes, FaSearch } from 'react-icons/fa';
+import logo from '../../assets/images/IQLogo.png';
 
 const Navbar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,7 +40,9 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>IntelliQuest</div>
+      <div className={styles.logo}>
+        <img src={logo} alt="IntelliQuest Logo" className={styles.logoImage} />
+      </div>
       
       {/* Hamburger Menu Icon */}
       <FaBars className={styles.hamburger} onClick={toggleSidebar} />
