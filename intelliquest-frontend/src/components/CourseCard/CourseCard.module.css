@@ -59,8 +59,8 @@
   top: 25px; /* Start slightly above the card */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center the image box */
-  width: 300px; /* Fixed width for the image box */
-  height: 220px; /* Fixed height for the image box */
+  width: 400px; /* Fixed width for the image box */
+  height: 280px; /* Fixed height for the image box */
   background: #333; /* Dark background for the image box */
   border-radius: 12px; /* Smooth corners */
   overflow: hidden; /* Ensure the image stays within the box */
@@ -86,8 +86,8 @@
 
 /* Back face of the card (content) */
 .cardBack {
-  background: var(--clr); /* Background color */
-  color: white; /* Text color */
+  background: var(--pacific-cyan); /* Background color */
+  color: var(--platinum); /* Text color */
   transform: rotateY(180deg); /* Flip the content */
   display: flex; /* Flexbox for alignment */
   justify-content: center;
@@ -103,12 +103,14 @@
   font-size: 1.5rem; /* Larger heading */
   font-weight: 700; /* Bold text */
   margin-bottom: 10px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow to make text pop */
 }
 
 /* Paragraph styling */
 .cardBack p {
-  color: #ffffff; /* White text color */
+  color: var(--platinum); /* Text color */
   margin: 10px 0; /* Spacing between text elements */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow to make text pop */
 }
 
 /* Link styling */
@@ -117,7 +119,7 @@
   padding: 12px 25px; /* Padding inside the link */
   text-decoration: none; /* Remove underline */
   background: white; /* Button background */
-  color: var(--clr); /* Dynamic background color */
+  color: var(--fuschia); /* Dynamic background color */
   font-weight: 500; /* Medium weight */
   border-radius: 8px; /* Rounded corners */
   transition: opacity 0.3s ease; /* Smooth transition for hover */
