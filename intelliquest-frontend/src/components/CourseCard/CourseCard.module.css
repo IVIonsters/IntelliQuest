@@ -1,56 +1,153 @@
-/* Main container for the course card */
-.courseCard {
-  position: relative; /* For positioning the overlay */
-  background-color: var(--platinum); /* Background color */
-  border-radius: 1rem; /* Rounded corners */
-  overflow: hidden; /* Clip children that overflow */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
-  cursor: pointer; /* Pointer cursor on hover */
+/* Reset styles for consistent rendering across browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Modern, clean font */
 }
 
-/* Hover effect for the course card */
-.courseCard:hover {
-  transform: translateY(-10px); /* Lift the card */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+/* Card container styling */
+.card {
+  position: relative; /* Necessary for absolute positioning of children */
+  width: 350px; /* Fixed width for the card */
+  max-width: 100%; /* Ensure the card is responsive */
+  height: 300px; /* Initial height of the card */
+  background: white; /* Card background color */
+  border-radius: 20px; /* Smooth corners */
+  perspective: 1000px; /* Needed for 3D effect */
+  cursor: pointer; /* Change cursor to pointer */
+  z-index: 0; /* Base z-index for all cards */
+  overflow: visible; /* Ensure no content is clipped */
 }
 
-/* Image within the course card */
-.courseCardImage {
-  width: 100%; /* Full width */
-  height: 20rem; /* Fixed height */
-  object-fit: cover; /* Cover the container */
+.card:hover {
+  z-index: 10; /* Bring the hovered card to the front */
 }
 
-/* Overlay with gradient and text */
-.courseCardOverlay {
-  position: absolute; /* Position over the image */
-  bottom: 0; /* Align to the bottom */
-  left: 0; /* Align to the left */
-  width: 100%; /* Full width */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradient background */
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s; /* Smooth transition for flipping */
+  transform-style: preserve-3d; /* Preserve 3D effect during transform */
+  transform-origin: center; /* Ensures that the card flips from the center */
+}
+
+/* Flip the card on hover */
+.card:hover .cardInner {
+  transform: rotateY(180deg); /* Rotate the card */
+}
+
+/* Front and back faces of the card */
+.cardFront, .cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back face during flip */
+  border-radius: 20px; /* Match the rounded corners */
+}
+
+/* Front face of the card (image) */
+.cardFront {
+  z-index: 2; /* Ensure front face is on top before flip */
+}
+
+/* Image box styling */
+.cardFront .imgBox {
+  position: absolute; /* Position the image box within the card */
+  top: 25px; /* Start slightly above the card */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the image box */
+  width: 400px; /* Fixed width for the image box */
+  height: 280px; /* Fixed height for the image box */
+  background: #333; /* Dark background for the image box */
+  border-radius: 12px; /* Smooth corners */
+  overflow: hidden; /* Ensure the image stays within the box */
+  transition: transform 0.5s, opacity 0.5s; /* Smooth transition for hover effects */
+  z-index: 1; /* Ensure the image appears above the content */
+}
+
+/* Transition image up and fade out on hover */
+.card:hover .cardFront .imgBox {
+  transform: translate(-50%, -150%); /* Move the image up and out */
+  opacity: 0; /* Fade out the image */
+}
+
+/* Image styling */
+.cardFront .imgBox img {
+  position: absolute; /* Position the image within the box */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the image covers the entire box */
+  height: 100%;
+  object-fit: cover; /* Cover the box without distortion */
+}
+
+/* Back face of the card (content) */
+.cardBack {
+  background: var(--pacific-cyan); /* Background color */
   color: var(--platinum); /* Text color */
-  padding: 1rem; /* Padding */
-  box-sizing: border-box; /* Include padding in width */
-  transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
-  opacity: 0; /* Initially hidden */
+  transform: rotateY(180deg); /* Flip the content */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1; /* Ensure back face is shown after flip */
 }
 
-/* Show overlay on hover */
-.courseCard:hover .courseCardOverlay {
-  opacity: 1; /* Show the overlay */
+/* Heading styling */
+.cardBack h2 {
+  font-size: 1.5rem; /* Larger heading */
+  font-weight: 700; /* Bold text */
+  margin-bottom: 10px; /* Space below heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow to make text pop */
 }
 
-/* Title within the overlay */
-.courseCard h2 {
-  font-size: 1.5rem; /* Larger font size */
-  font-weight: 700; /* Bold font */
-  margin: 0; /* No margin */
+/* Paragraph styling */
+.cardBack p {
   color: var(--platinum); /* Text color */
+  margin: 10px 0; /* Spacing between text elements */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow to make text pop */
 }
 
-/* Description within the overlay */
-.courseCard p {
-  margin-top: 0.5rem; /* Space above */
-  color: var(--platinum); /* Text color */
+/* Link styling */
+.cardBack a {
+  display: inline-block; /* Ensure the link behaves like a button */
+  padding: 12px 25px; /* Padding inside the link */
+  text-decoration: none; /* Remove underline */
+  background: white; /* Button background */
+  color: var(--fuschia); /* Dynamic background color */
+  font-weight: 500; /* Medium weight */
+  border-radius: 8px; /* Rounded corners */
+  transition: opacity 0.3s ease; /* Smooth transition for hover */
 }
+
+.cardBack a:hover {
+  opacity: 0.8; /* Slightly decrease opacity on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .card {
+      width: 230px; /* Smaller width on mobile */
+      border-radius: 15px; /* Slightly smaller corners */
+  }
+
+  .cardFront .imgBox {
+      width: 185px; /* Smaller image box */
+      height: 150px; /* Adjusted height for mobile */
+      border-radius: 10px; /* Smaller corners */
+  }
+
+  .cardBack p {
+      font-size: 0.8rem; /* Smaller text size */
+  }
+
+  .cardBack a {
+      font-size: 0.9rem; /* Smaller link text */
+  }
+}
+

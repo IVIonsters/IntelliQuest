@@ -10,12 +10,11 @@ const CourseCard = ({ resource }) => {
 
   const handleClick = () => {
     if (resource.type && resource.url) {
-      console.log('Resource data:', resource);
       setModalContent({
         type: resource.type,
         url: resource.url,
         title: resource.title,
-        thumbnail: resource.thumbnail, // Add thumbnail to modal content
+        thumbnail: resource.thumbnail,
       });
       setIsModalOpen(true);
     } else {
@@ -30,11 +29,20 @@ const CourseCard = ({ resource }) => {
 
   return (
     <>
-      <div className={styles.courseCard} onClick={handleClick}>
-        <img src={resource.thumbnail} alt={resource.title} className={styles.courseCardImage} />
-        <div className={styles.courseCardOverlay}>
-          <h2>{resource.title}</h2>
-          <p>{resource.description}</p>
+      <div className={styles.card} style={{ '--clr': '#03A9F4' }} onClick={handleClick}>
+        <div className={styles.cardInner}>
+          <div className={styles.cardFront}>
+            <div className={styles.imgBox}>
+              <img src={resource.thumbnail} alt={resource.title} />
+            </div>
+          </div>
+          <div className={styles.cardBack}>
+            <h2>{resource.title}</h2>
+            <p>{resource.description}</p>
+            <a href={resource.url} target="_blank" rel="noopener noreferrer">
+              Read More
+            </a>
+          </div>
         </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} content={modalContent} />
@@ -42,4 +50,6 @@ const CourseCard = ({ resource }) => {
   );
 };
 
+
 export default CourseCard;
+

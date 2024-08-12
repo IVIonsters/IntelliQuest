@@ -33,29 +33,21 @@ body, html {
 }
 
 /* Responsive styles for small screens */
-@media (min-width: 640px) {
+@media (max-width: 850px) {
+    .gridContainer {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+/* Additional responsive styling */
+@media (min-width: 851px) and (max-width: 1280px) {
     .gridContainer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Responsive styles for medium screens */
-@media (min-width: 768px) {
-    .gridContainer {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-/* Responsive styles for large screens */
-@media (min-width: 1024px) {
-    .gridContainer {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-/* Additional responsive styling */
 @media (min-width: 1280px) {
-    .gridContainer {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .gridContainer {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

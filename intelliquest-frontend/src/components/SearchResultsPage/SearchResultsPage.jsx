@@ -20,8 +20,8 @@ const SearchResultsPage = () => {
   // Shuffle the results to get a random order
   const shuffledResults = searchResults.sort(() => 0.5 - Math.random());
 
-  // Limit the results to a maximum of 6
-  const limitedResults = shuffledResults.slice(0, 6);
+  // Limit the results to a maximum of 8 or however many you prefer
+  const limitedResults = shuffledResults.slice(0, 9);
 
   return (
     <div className={styles.searchResultsContainer}>
@@ -29,7 +29,7 @@ const SearchResultsPage = () => {
       <div className={styles.searchResults}>
         {limitedResults.length > 0 ? (
           limitedResults.map((resource) => (
-            <CourseCard key={resource._id} resource={resource} className={styles.courseCard} />
+            <CourseCard key={resource._id} resource={resource} />
           ))
         ) : (
           <p>No results found</p>

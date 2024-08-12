@@ -135,7 +135,7 @@ const UserDashboard = () => {
                   onChange={(e) => handleChange(e, 'bio')}
                   className={styles.textarea}
                 />
-                <div className={styles.editButtons}>
+                <div className={styles.dashboardEditButtons}>
                   <button onClick={() => handleSaveClick('bio')}>Save</button>
                   <button onClick={() => handleCancelClick('bio')}>Cancel</button>
                 </div>
@@ -143,7 +143,7 @@ const UserDashboard = () => {
             ) : (
               <>
                 <p>{profileData.bio}</p>
-                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('bio')} />
+                <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('bio')} />
               </>
             )}
           </div>
@@ -157,7 +157,7 @@ const UserDashboard = () => {
                   onChange={(e) => handleChange(e, 'pronouns')}
                   className={styles.input}
                 />
-                <div className={styles.editButtons}>
+                <div className={styles.dashboardEditButtons}>
                   <button onClick={() => handleSaveClick('pronouns')}>Save</button>
                   <button onClick={() => handleCancelClick('pronouns')}>Cancel</button>
                 </div>
@@ -165,7 +165,7 @@ const UserDashboard = () => {
             ) : (
               <>
                 <p>{profileData.pronouns}</p>
-                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('pronouns')} />
+                <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('pronouns')} />
               </>
             )}
           </div>
@@ -179,7 +179,7 @@ const UserDashboard = () => {
                   onChange={(e) => handleChange(e, 'company')}
                   className={styles.input}
                 />
-                <div className={styles.editButtons}>
+                <div className={styles.dashboardEditButtons}>
                   <button onClick={() => handleSaveClick('company')}>Save</button>
                   <button onClick={() => handleCancelClick('company')}>Cancel</button>
                 </div>
@@ -187,7 +187,7 @@ const UserDashboard = () => {
             ) : (
               <>
                 <p>{profileData.company}</p>
-                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('company')} />
+                <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('company')} />
               </>
             )}
           </div>
@@ -201,7 +201,7 @@ const UserDashboard = () => {
                   onChange={(e) => handleChange(e, 'location')}
                   className={styles.input}
                 />
-                <div className={styles.editButtons}>
+                <div className={styles.dashboardEditButtons}>
                   <button onClick={() => handleSaveClick('location')}>Save</button>
                   <button onClick={() => handleCancelClick('location')}>Cancel</button>
                 </div>
@@ -209,7 +209,7 @@ const UserDashboard = () => {
             ) : (
               <>
                 <p>{profileData.location}</p>
-                <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('location')} />
+                <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('location')} />
               </>
             )}
           </div>
@@ -224,7 +224,7 @@ const UserDashboard = () => {
                     onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, github: e.target.value } })}
                     className={styles.input}
                   />
-                  <div className={styles.editButtons}>
+                  <div className={styles.dashboardEditButtons}>
                     <button onClick={() => handleSaveClick('github')}>Save</button>
                     <button onClick={() => handleCancelClick('github')}>Cancel</button>
                   </div>
@@ -232,7 +232,7 @@ const UserDashboard = () => {
               ) : (
                 <>
                   <a href={profileData.socialLinks.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('github')} />
+                  <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('github')} />
                 </>
               )}
             </li>
@@ -245,7 +245,7 @@ const UserDashboard = () => {
                     onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, linkedin: e.target.value } })}
                     className={styles.input}
                   />
-                  <div className={styles.editButtons}>
+                  <div className={styles.dashboardEditButtons}>
                     <button onClick={() => handleSaveClick('linkedin')}>Save</button>
                     <button onClick={() => handleCancelClick('linkedin')}>Cancel</button>
                   </div>
@@ -253,7 +253,7 @@ const UserDashboard = () => {
               ) : (
                 <>
                   <a href={profileData.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('linkedin')} />
+                  <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('linkedin')} />
                 </>
               )}
             </li>
@@ -266,7 +266,7 @@ const UserDashboard = () => {
                     onChange={(e) => setProfileData({ ...profileData, socialLinks: { ...profileData.socialLinks, instagram: e.target.value } })}
                     className={styles.input}
                   />
-                  <div className={styles.editButtons}>
+                  <div className={styles.dashboardEditButtons}>
                     <button onClick={() => handleSaveClick('instagram')}>Save</button>
                     <button onClick={() => handleCancelClick('instagram')}>Cancel</button>
                   </div>
@@ -274,7 +274,7 @@ const UserDashboard = () => {
               ) : (
                 <>
                   <a href={profileData.socialLinks.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-                  <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('instagram')} />
+                  <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('instagram')} />
                 </>
               )}
             </li>
@@ -289,7 +289,7 @@ const UserDashboard = () => {
                 onChange={(e) => setMarkdownContent(e.target.value)}
                 className={styles.textarea}
               />
-              <div className={styles.editButtons}>
+              <div className={styles.dashboardEditButtons}>
                 <button onClick={() => {
                   setIsEditing({ ...isEditing, markdown: false });
                   localStorage.setItem('markdownContent', markdownContent);
@@ -300,7 +300,7 @@ const UserDashboard = () => {
           ) : (
             <>
               <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownContent}</ReactMarkdown>
-              <FaPencilAlt className={styles.editIcon} onClick={() => handleEditClick('markdown')} />
+              <FaPencilAlt className={styles.dashboardEditIcon} onClick={() => handleEditClick('markdown')} />
             </>
           )}
         </div>
@@ -310,7 +310,7 @@ const UserDashboard = () => {
         <h3>Favorite Resources</h3>
         <div className={styles.resourceCards}>
           {resources.map((resource, index) => (
-            <div key={index} className={styles.resourceCard}>
+            <div key={index} className={styles.dashboardResourceCard}>
               <img src={resource.thumbnail} alt={resource.title} />
               <h4>{resource.title}</h4>
               <p>{resource.description}</p>
