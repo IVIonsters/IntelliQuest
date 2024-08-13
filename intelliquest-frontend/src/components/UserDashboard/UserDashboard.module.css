@@ -6,7 +6,7 @@
   max-width: 1200px;
   margin: 5% auto;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.562);
+  background: rgba(0, 0, 0, 0.6); /* Darker background for contrast */
   backdrop-filter: blur(10px);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -16,42 +16,38 @@
 
 /* Container for user info */
 .userInfo {
-  width: 40%;
+  width: 35%; /* Slightly narrower to give more space to content */
+  padding-right: 1rem; /* Add some padding to the right */
 }
 
 /* Container for the README-like content */
 .readmeContainer {
-  position: relative; /* Add relative positioning to allow absolute positioning of child elements */
-  margin-top: 80px; /* Add space between user info and README */
-  margin-right: 10px; /* Adjust the margin on the right */
-  width: 85%; /* Set the width of the README container */
-  padding: 1rem; /* Add padding inside the README container */
-  background-color: rgba(0, 0, 0, 0.5); /* Set background color with transparency for the README */
-  border-radius: 8px; /* Round the corners of the README container */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
-  color: var(--platinum); /* Use the platinum color for text */
-  min-height: 400px; /* Set a minimum height to make the container longer */
-  border: 2px solid var(--fuschia); /* Add a border around the container */
-  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 20, 147, 0.4);
+  position: relative;
+  margin-top: 80px;
+  margin-right: 10px;
+  width: 60%; /* Adjusted to balance with user info */
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: var(--platinum);
+  min-height: 400px;
+  border: 2px solid var(--fuschia);
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 20, 147, 0.4); /* Glow */
 }
 
-/* Glow effect */
+/* Glow effect on hover */
 .readmeContainer:hover {
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.9), 0 0 30px rgba(255, 20, 147, 0.7); /* Stronger glow on hover */
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.9), 0 0 30px rgba(255, 20, 147, 0.7);
 }
 
-/* Ensure the content inside expands as needed */
-.readmeContainer > * {
-  flex-grow: 1;
-}
-
+/* Edit icon inside the README container */
 .readmeContainer .dashboardEditIcon {
   position: absolute; /* Position the icon absolutely relative to the container */
   top: 10px; /* Position the icon 10px from the top */
   right: 10px; /* Position the icon 10px from the right */
   cursor: pointer; /* Change cursor to pointer */
-  color: var(--platinum); /* Optional: match the icon color with the text */
+  color: var(--platinum); /* Match the icon color with the text */
 }
 
 /* Styles for the user avatar */
@@ -61,20 +57,31 @@
   border-radius: 50%;
   margin-bottom: 1rem;
   border: 3px solid var(--rich-black);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
-
 
 /* Container for individual sections (e.g., Bio, Pronouns, Company) */
 .infoBox {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased margin for spacing */
   text-align: left;
+  padding: 1rem; /* Add padding inside the container */
+  background-color: rgba(0, 0, 0, 0.4); /* Transparent dark background */
+  border-radius: 8px; /* Rounded corners */
+  border: 2px solid var(--fuschia); /* Matching border */
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.6), 0 0 20px rgba(255, 20, 147, 0.4); /* Glow */
+}
+
+/* Glow effect on hover */
+.infoBox:hover {
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.9), 0 0 30px rgba(255, 20, 147, 0.7);
 }
 
 /* Header styles for each section title */
 .infoBox h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: var(--pacific-cyan);
+  font-size: 1.4rem; /* Slightly larger font size */
+  color: var(--platinum); /* Use platinum color for consistency */
+  font-weight: 600; /* Bolder text */
 }
 
 /* Paragraph styles for section content */
@@ -82,7 +89,7 @@
   margin: 0;
   font-size: 1rem;
   color: var(--platinum);
-  text-align: left;
+  line-height: 1.5; /* Increased line-height for readability */
 }
 
 /* Input styles for editable fields */
@@ -123,9 +130,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.dashboardEditButtons button:first-child {
   background-color: var(--pacific-cyan);
   color: var(--rich-black);
 }
@@ -139,6 +143,7 @@
 .socialLinks {
   list-style: none;
   padding: 0;
+  margin-top: 1rem;
 }
 
 /* Styles for each social media link item */
@@ -146,13 +151,18 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  padding: 0.5rem; /* Add padding around links */
+  background-color: rgba(0, 0, 0, 0.4); /* Transparent background for links */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 /* Styles for the social media links */
 .socialLinks a {
   margin-left: 0.5rem;
   text-decoration: none;
-  color: var(--pacific-cyan);
+  color: var(--platinum); /* Make the links more consistent */
+  transition: color 0.3s ease;
 }
 
 /* Hover effect for social media links */
@@ -175,100 +185,82 @@
 
 /* Container for the resource cards */
 .resourcesContainer {
-  max-width: 1200px; /* Set the maximum width */
-  margin: 2rem auto; /* Center the container horizontally with some space above */
-  text-align: left; /* Align text to the left */
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: left;
 }
 
 /* Styling for the resource cards */
 .resourceCards {
-  display: flex; /* Use flexbox to layout the cards */
-  flex-wrap: wrap; /* Allow the cards to wrap to the next line if necessary */
-  justify-content: space-between; /* Distribute cards evenly */
-  gap: 1rem; /* Add some space between the cards */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .dashboardResourceCard {
-  flex: 1 1 calc(33.333% - 1rem); /* Ensure each card takes up about 1/3 of the container with some space between */
-  max-width: calc(33.333% - 1rem); /* Ensure the card width is capped */
-  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for glass effect */
-  padding: 1rem; /* Add padding inside the cards */
-  margin-bottom: 1rem; /* Add space below each card */
-  border-radius: 8px; /* Round the corners of the cards */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-  text-align: center; /* Center text inside the card */
+  flex: 1 1 calc(33.333% - 1rem);
+  max-width: calc(33.333% - 1rem);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .dashboardResourceCard img {
-  max-width: 100%; /* Ensure the image fits within the card */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Match the card border radius */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .dashboardResourceCard h4 {
-  margin-top: 0.5rem; /* Add space above the title */
-  font-size: 1.1rem; /* Set the font size for the title */
-  color: var(--rich-black); /* Use dark text color for readability */
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--rich-black);
 }
 
 .dashboardResourceCard p {
-  font-size: 0.9rem; /* Set the font size for the content */
-  margin-bottom: 0.5rem; /* Add space below the content */
-  color: var(--rich-black); /* Use dark text color for readability */
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--rich-black);
 }
 
 .dashboardResourceCard a {
-  color: var(--pacific-cyan); /* Use the accent color for links */
-  text-decoration: none; /* Remove underline from links */
+  color: var(--pacific-cyan);
+  text-decoration: none;
 }
 
 .dashboardResourceCard a:hover {
-  text-decoration: underline; /* Add underline on hover */
-  color: var(--moonstone); /* Change color on hover */
+  text-decoration: underline;
+  color: var(--moonstone);
 }
 
+/* Textarea styling */
 .textarea {
-  width: 100%; /* Make the textarea take up the full width of the container */
-  height: 400px; /* Set a larger height for the textarea */
-  padding: 10px; /* Add some padding inside the textarea for better readability */
-  border: 2px solid var(--pacific-cyan); /* Add a border matching the accent color */
-  border-radius: 8px; /* Round the corners of the textarea */
-  font-size: 1rem; /* Set the font size */
-  color: var(--rich-black); /* Set the text color */
-  background-color: var(--platinum); /* Set the background color */
-  resize: vertical; /* Allow the user to resize the textarea vertically */
+  width: 100%;
+  height: 400px;
+  padding: 10px;
+  border: 2px solid var(--pacific-cyan);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--rich-black);
+  background-color: var(--platinum);
+  resize: vertical;
 }
 
-
-.dashboardEditButtons {
-  display: flex;
-  gap: 0.5rem; /* Space between buttons */
-}
-
-.dashboardEditButtons button {
-  padding: 0.5rem 1rem; /* Add padding inside the button */
-  background-color: var(--pacific-cyan); /* Set background color */
-  color: var(--rich-black); /* Set text color */
-  border: none; /* Remove default border */
-  border-radius: 8px; /* Round the corners */
-  cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-.dashboardEditButtons button:hover {
-  background-color: var(--moonstone); /* Change background color on hover */
-}
-
-/* Media Queries for responsiveness */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .dashboardResourceCard {
-    flex: 1 1 calc(50% - 1rem); /* Stack two cards side by side on smaller screens */
+    flex: 1 1 calc(50% - 1rem);
     max-width: calc(50% - 1rem);
   }
 }
 
 @media (max-width: 480px) {
   .dashboardResourceCard {
-    flex: 1 1 100%; /* Stack cards vertically on very small screens */
+    flex: 1 1 100%;
     max-width: 100%;
   }
 }
