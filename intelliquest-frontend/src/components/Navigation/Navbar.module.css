@@ -1,14 +1,42 @@
 /* Navbar container styles */
 .navbar {
-  display: flex; /* Align items in a row */
-  justify-content: space-between; /* Space out items across the navbar */
-  align-items: center; /* Center items vertically */
-  padding: 1rem 2rem; /* Padding around the navbar for spacing */
-  background-color: #1c1c1c; /* Darker background for better contrast */
-  color: #f1f1f1; /* Light text color for readability */
-  position: relative; /* Relative positioning for potential child positioning */
-  z-index: 1; /* Ensures the navbar stays on top of other content */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1c1c1c; /* Solid dark background */
+  color: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  border-radius: 8px;
+  overflow: hidden; /* To contain the pseudo-element within the navbar */
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Adjust height as needed */
+  background: linear-gradient(45deg, var(--fuschia), var(--pacific-cyan), var(--fuschia)); /* Gradient accent */
+  background-size: 200% 200%; /* Make the background larger to enhance the movement effect */
+  z-index: -1; /* Behind the navbar content */
+  animation: gradientShift 3s infinite linear; /* Infinite looping animation */
+}
+
+/* Keyframes for the illusion of light travel */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%; /* Start at one side of the gradient */
+  }
+  50% {
+    background-position: 100% 50%; /* Shift to the other side */
+  }
+  100% {
+    background-position: 0% 50%; /* Return to the start */
+  }
 }
 
 /* Centering the navigation links */
