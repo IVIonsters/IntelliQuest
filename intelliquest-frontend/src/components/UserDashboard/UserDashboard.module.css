@@ -31,7 +31,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
   color: var(--platinum); /* Use the platinum color for text */
   min-height: 400px; /* Set a minimum height to make the container longer */
-  border: 2px solid var(--pacific-cyan); /* Add a border around the container */
+  border: 2px solid var(--fuschia); /* Add a border around the container */
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 20, 147, 0.4);
+}
+
+/* Glow effect */
+.readmeContainer:hover {
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.9), 0 0 30px rgba(255, 20, 147, 0.7); /* Stronger glow on hover */
 }
 
 /* Ensure the content inside expands as needed */
@@ -53,8 +60,9 @@
   height: 150px;
   border-radius: 50%;
   margin-bottom: 1rem;
-  border: 3px solid var(--pacific-cyan);
+  border: 3px solid var(--rich-black);
 }
+
 
 /* Container for individual sections (e.g., Bio, Pronouns, Company) */
 .infoBox {
