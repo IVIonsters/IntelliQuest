@@ -29,27 +29,28 @@ const CourseCard = ({ resource }) => {
 
   return (
     <>
-      <div className={styles.card} style={{ '--clr': '#03A9F4' }} onClick={handleClick}>
-        <div className={styles.cardInner}>
-          <div className={styles.cardFront}>
-            <div className={styles.imgBox}>
-              <img src={resource.thumbnail} alt={resource.title} />
+      <div className={styles.cardContainer}>
+        <div className={styles.card} style={{ '--clr': '#03A9F4' }} onClick={handleClick}>
+          <div className={styles.cardInner}>
+            <div className={styles.cardFront}>
+              <div className={styles.imgBox}>
+                <img src={resource.thumbnail} alt={resource.title} />
+              </div>
+            </div>
+            <div className={styles.cardBack}>
+              <h2>{resource.title}</h2>
+              <p>{resource.description}</p>
+              <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                Read More
+              </a>
             </div>
           </div>
-          <div className={styles.cardBack}>
-            <h2>{resource.title}</h2>
-            <p>{resource.description}</p>
-            <a href={resource.url} target="_blank" rel="noopener noreferrer">
-              Read More
-            </a>
-          </div>
         </div>
+        <div className={styles.cardTitle}>{resource.title}</div>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} content={modalContent} />
     </>
   );
 };
 
-
 export default CourseCard;
-
