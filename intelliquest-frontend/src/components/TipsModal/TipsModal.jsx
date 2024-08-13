@@ -13,11 +13,13 @@ const TipsModal = ({ isOpen, onClose, tip }) => {
       className={styles.modalContent}
       overlayClassName={styles.modalOverlay}
     >
+      <div className={styles.textCenter}>
       <h2>Tip of the Moment</h2>
       <br />
       <p>{tip}</p>
       <br />
       <button onClick={onClose}>Close</button>
+      </div>
     </Modal>
   );
 };

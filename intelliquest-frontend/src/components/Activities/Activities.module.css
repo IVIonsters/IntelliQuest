@@ -70,7 +70,7 @@ body, html {
     padding: 16px;
     overflow-y: auto;
     flex: 1;
-    background-color: #ffffff;
+    background: linear-gradient(180deg, white 0%, lightblue 50%, white 100%);
 }
 
 /* Styles for the inner container of the Activities page */
