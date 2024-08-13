@@ -157,18 +157,19 @@ Contributions are welcome! To contribute:
 5. Create a Pull Request.
 
 <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-2024-08-12-23_36_17.png" width="200px"  />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-activities-2024-08-12-23_36_27.png" width="200px" />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-flashcards-2024-08-12-23_39_49.png" width="200px" />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-learnbot-2024-08-12-23_40_44.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-2024-08-12-23_36_17.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-activities-2024-08-12-23_36_27.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-flashcards-2024-08-12-23_39_49.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-learnbot-2024-08-12-23_40_44.png" style="max-width: 200px; height: auto;" />
 </div>
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-optimize-2024-08-12-23_40_22.png" width="200px" />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-quiz-2024-08-12-23_39_31.png" width="200px" />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-submit-resource-2024-08-12-23_37_48.png" width="200px" />
-  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-userdashboard-2024-08-12-23_38_06.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-optimize-2024-08-12-23_40_22.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-quiz-2024-08-12-23_39_31.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-submit-resource-2024-08-12-23_37_48.png" style="max-width: 200px; height: auto;" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-userdashboard-2024-08-12-23_38_06.png" style="max-width: 200px; height: auto;" />
 </div>
+
 
 
 <p align="right">(<a href="#intelliquest">back to top</a>)</p>
