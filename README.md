@@ -1,4 +1,19 @@
 # IntelliQuest
+<a href="https://github.com/IVIonsters/IntelliQuest/graphs/contributors">
+  <img src="https://img.shields.io/badge/Contributors-6-green" alt="Contributors Badge"/>
+</a>
+<a href="https://github.com/IVIonsters/IntelliQuest/forks">
+  <img src="https://img.shields.io/badge/Forks-lightgreen" alt="Forks Badge"/>
+</a>
+<a href="https://github.com/IVIonsters/IntelliQuest/blob/main/LICENSE">
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="License Badge"/>
+</a>
+<a href="https://github.com/IVIonsters/IntelliQuest/issues/new?labels=bug&template=bug-report---.md">
+  <img src="https://img.shields.io/badge/Report_Bug-red" alt="Report Bug Badge"/>
+</a>
+
+
+
 
 ## Overview
 
@@ -140,6 +155,21 @@ Contributions are welcome! To contribute:
 3. Commit your changes (`git commit -m 'Add new feature'`).
 4. Push to the branch (`git push origin feature/new-feature`).
 5. Create a Pull Request.
+
+<div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-2024-08-12-23_36_17.png" width="200px"  />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-activities-2024-08-12-23_36_27.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-flashcards-2024-08-12-23_39_49.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-learnbot-2024-08-12-23_40_44.png" width="200px" />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-optimize-2024-08-12-23_40_22.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-quiz-2024-08-12-23_39_31.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-submit-resource-2024-08-12-23_37_48.png" width="200px" />
+  <img src="./intelliquest-frontend/src/assets/readme/screencapture-intelliquest-onrender-userdashboard-2024-08-12-23_38_06.png" width="200px" />
+</div>
+
 
 <p align="right">(<a href="#intelliquest">back to top</a>)</p>
 
