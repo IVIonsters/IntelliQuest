@@ -6,6 +6,13 @@
   font-family: 'Poppins', sans-serif; /* Modern, clean font */
 }
 
+/* Container for the card and title */
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Card container styling */
 .card {
   position: relative; /* Necessary for absolute positioning of children */
@@ -59,8 +66,8 @@
   top: 25px; /* Start slightly above the card */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center the image box */
-  width: 400px; /* Fixed width for the image box */
-  height: 280px; /* Fixed height for the image box */
+  width: 350px; /* Fixed width for the image box */
+  height: 270px; /* Fixed height for the image box */
   background: #333; /* Dark background for the image box */
   border-radius: 12px; /* Smooth corners */
   overflow: hidden; /* Ensure the image stays within the box */
@@ -129,25 +136,48 @@
   opacity: 0.8; /* Slightly decrease opacity on hover */
 }
 
+/* Title styling below the card */
+.cardTitle {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--rich-black);
+  border: 2px solid var(--moonstone);
+  padding: 5px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.048); /* Light grey glass-like background */
+  backdrop-filter: blur(10px); /* Blur effect for the glass-like appearance */
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect for the title */
+.cardTitle:hover {
+  color: var(--platinum);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--moonstone), 0 0 20px var(--moonstone);
+  background: rgba(0, 0, 0, 0.87); /* Slightly darker background on hover */
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 480px) {
   .card {
-      width: 230px; /* Smaller width on mobile */
-      border-radius: 15px; /* Slightly smaller corners */
+    width: 230px; /* Smaller width on mobile */
+    border-radius: 15px; /* Slightly smaller corners */
   }
 
   .cardFront .imgBox {
-      width: 185px; /* Smaller image box */
-      height: 150px; /* Adjusted height for mobile */
-      border-radius: 10px; /* Smaller corners */
+    width: 185px; /* Smaller image box */
+    height: 150px; /* Adjusted height for mobile */
+    border-radius: 10px; /* Smaller corners */
   }
 
   .cardBack p {
-      font-size: 0.8rem; /* Smaller text size */
+    font-size: 0.8rem; /* Smaller text size */
   }
 
   .cardBack a {
-      font-size: 0.9rem; /* Smaller link text */
+    font-size: 0.9rem; /* Smaller link text */
   }
 }
-

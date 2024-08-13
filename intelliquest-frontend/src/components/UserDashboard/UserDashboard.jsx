@@ -316,7 +316,7 @@ const UserDashboard = () => {
       </div>
 
       <div className={styles.resourcesContainer}>
-        <h3>Favorite Resources</h3>
+        <h3>Favorite Resources - Future development coming soon....</h3>
         <div className={styles.resourceCards}>
           {resources.map((resource, index) => (
             <div key={index} className={styles.dashboardResourceCard}>

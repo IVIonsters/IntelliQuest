@@ -3,32 +3,45 @@
   background-color: var(--rich-black); /* Background color */
   color: var(--platinum); /* Text color */
   padding: 10px; /* Padding */
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+/* Flexbox container for footer content */
 .container {
   display: flex; /* Flexbox layout */
   flex-direction: column; /* Column layout */
   align-items: center; /* Center align items */
 }
 
+/* Flexbox layout for links */
 .links {
   display: flex; /* Flexbox layout */
   gap: 1rem; /* Spacing between links */
   margin-bottom: 1rem; /* Margin bottom */
 }
 
+/* Link styles */
 .link {
   color: var(--platinum); /* Link color */
   text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Transition effect */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Transition effect for color and text-shadow */
 }
 
+/* Hover effect for links */
 .link:hover {
   color: var(--pacific-cyan); /* Hover color */
+  text-shadow: 0 0 10px var(--pacific-cyan); /* Add a glow effect on hover */
 }
 
+/* Copyright text styles */
 .copyright {
   font-size: 0.875rem; /* Font size */
+  color: var(--platinum); /* Text color */
+  position: absolute;
+  right: 20px; /* Align to the right */
+  bottom: 10px; /* Adjust position */
 }
 
 /* Contact form container */

@@ -40,6 +40,36 @@
   .card:hover .cardOverlay {
     opacity: 1; /* Show the overlay */
   }
+
+  /* Updated link styles */
+.cardOverlay a {
+  color: var(--pacific-cyan); /* Change the link color to a standout color */
+  text-decoration: none; /* Remove the underline */
+  font-weight: 700; /* Make the link bold */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Add a transition for color and shadow effects */
+}
+
+/* Hover effect for links */
+.cardOverlay a:hover {
+  color: var(--fuschia); /* Change color on hover to make it more interactive */
+  text-shadow: 0 0 5px var(--fuschia); /* Add a glow effect on hover */
+}
+
+/* Add an underline effect for links */
+.cardOverlay a::after {
+  content: '';
+  display: block;
+  margin-top: 5px;
+  width: 0;
+  height: 2px;
+  background: var(--fuschia);
+  transition: width 0.3s ease;
+}
+
+.cardOverlay a:hover::after {
+  width: 100%; /* Expand the underline on hover */
+}
+
   
   /* Title within the overlay */
   .card h2 {
