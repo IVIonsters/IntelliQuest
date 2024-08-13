@@ -1,3 +1,11 @@
+.outerContainer {
+  margin-bottom: 50px;
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  background: linear-gradient(180deg, white 0%, lightblue 50%, white 100%);
+}
+
 /* Main container for the LearnBot chat interface */
 .learnbotContainer {
   width: 90%; /* Set the width to 90% of the viewport width */

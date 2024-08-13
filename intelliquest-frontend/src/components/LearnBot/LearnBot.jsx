@@ -49,34 +49,36 @@ const LearnBot = () => {
     };
 
     return (
-        <div className={styles.learnbotContainer}>
-            <h1 className={styles.learnbotHeader}>IntelliQuest LearnBot</h1>
-            <div id="chatbox" className={styles.learnbotChatbox}>
-                {messages.map((message, index) => (
-                    <div
-                        key={index}
-                        className={
-                            message.sender === 'User'
-                                ? styles.learnbotUserMessage
-                                : styles.learnbotBotMessage
-                        }
-                    >
-                        <strong>{message.sender}:</strong> {renderMessageWithLinks(message.text)}
-                    </div>
-                ))}
-            </div>
-            <div className={styles.learnbotInputGroup}>
-                <input
-                    type="text"
-                    id="user-input"
-                    placeholder="Chat with LearnBot..."
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    className={styles.learnbotInput}
-                />
-                <button id="send-btn" onClick={handleSend} className={styles.learnbotButton}>
-                    Acquire Knowledge
-                </button>
+        <div className={styles.outerContainer}>
+            <div className={styles.learnbotContainer}>
+                <h1 className={styles.learnbotHeader}>IntelliQuest LearnBot</h1>
+                <div id="chatbox" className={styles.learnbotChatbox}>
+                    {messages.map((message, index) => (
+                        <div
+                            key={index}
+                            className={
+                                message.sender === 'User'
+                                    ? styles.learnbotUserMessage
+                                    : styles.learnbotBotMessage
+                            }
+                        >
+                            <strong>{message.sender}:</strong> {renderMessageWithLinks(message.text)}
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.learnbotInputGroup}>
+                    <input
+                        type="text"
+                        id="user-input"
+                        placeholder="Chat with LearnBot..."
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)}
+                        className={styles.learnbotInput}
+                    />
+                    <button id="send-btn" onClick={handleSend} className={styles.learnbotButton}>
+                        Acquire Knowledge
+                    </button>
+                </div>
             </div>
         </div>
     );

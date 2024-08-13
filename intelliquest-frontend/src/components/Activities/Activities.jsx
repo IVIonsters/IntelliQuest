@@ -38,8 +38,8 @@ function Activities() {
                     <div className={styles.card}>
                         <img src={lbImage} alt='Learn Bot' className={styles.cardImage} />
                         <div className={styles.cardOverlay}>
-                            <h2><Link to="/learnbot">Chat With Our Learn Bot!</Link></h2>
-                            <p>Feature coming soon.....</p>
+                            <h2><Link to="/learnbot">LearnBot</Link></h2>
+                            <p>Chat Live To Learn Something New!</p>
                         </div>
                     </div>
                     <div className={styles.card}>
