@@ -1,4 +1,5 @@
 // src/components/QuizGenerator/QuizGenerator.jsx
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './QuizGenerator.module.css';
