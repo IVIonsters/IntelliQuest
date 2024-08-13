@@ -44,19 +44,6 @@
   bottom: 10px; /* Adjust position */
 }
 
-/* Accent bar at the top of the footer */
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px; /* Adjust height as needed */
-  background-color: var(--fuschia); /* Solid Fuschia accent */
-  z-index: -1; /* Behind the footer content */
-}
-
-
 /* Contact form container */
 .contactContainer {
   padding: 16px;
