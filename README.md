@@ -1,6 +1,6 @@
 # IntelliQuest
 <a href="https://github.com/IVIonsters/IntelliQuest/graphs/contributors">
-  <img src="https://img.shields.io/badge/Contributors-6-green" alt="Contributors Badge"/>
+  <img src="https://img.shields.io/badge/Contributors-2-green" alt="Contributors Badge"/>
 </a>
 <a href="https://github.com/IVIonsters/IntelliQuest/forks">
   <img src="https://img.shields.io/badge/Forks-lightgreen" alt="Forks Badge"/>
