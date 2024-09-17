@@ -1,7 +1,0 @@
-/* FlashCards/FlipcardList.module.css */
-.flipcardList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0; /* Set gap to 0 since margin is now handling the spacing */
-}
