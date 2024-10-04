@@ -2,13 +2,14 @@
 import React, { Component } from 'react'
 import './App.css'
 import ParticlesBg from 'particles-bg'
+import Navbar from './components/Navbar/Navbar'
 
 // ParticlesBg options
 const particlesOptions = {
   className: 'particles',
   type: 'cobweb',
   bg: true,
-  num: 400,
+  num: 70,
   color: '#FFFFFF',
 }
 
@@ -17,8 +18,8 @@ function App() {
 
   return (
     <div className='App'>
-      <p>Hello, World</p>
       <ParticlesBg {...particlesOptions} />
+      <Navbar />
     </div>
   )
 }
